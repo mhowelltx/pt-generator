@@ -141,18 +141,11 @@
 </div>
 {% endif %}
 
-{% if export_paths %}
-<div style="margin:1.5rem 0;">
-  {% if export_paths.docx %}
-  <p style="font-size:0.875rem;color:#444;margin:0.25rem 0">
-    DOCX saved: <code style="background:#f0f0f0;padding:0.1rem 0.3rem;border-radius:3px">{{ export_paths.docx }}</code>
-  </p>
-  {% endif %}
-  {% if export_paths.markdown %}
-  <p style="font-size:0.875rem;color:#444;margin:0.25rem 0">
-    Markdown saved: <code style="background:#f0f0f0;padding:0.1rem 0.3rem;border-radius:3px">{{ export_paths.markdown }}</code>
-  </p>
-  {% endif %}
+{% if export_links %}
+<div class="download-links">
+  {% for link in export_links %}
+  <a href="{{ link.url }}" download="{{ link.filename }}">{{ link.label }}</a>
+  {% endfor %}
 </div>
 {% endif %}
 
