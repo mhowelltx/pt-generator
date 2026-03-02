@@ -16,6 +16,10 @@ def get_system_prompt() -> str:
     return _system_prompt_cache
 
 
+# Keys injected for progression mode — excluded from the inputs JSON block
+_PRIOR_KEYS = {"prior_loads", "prior_session_date", "prior_session_number", "prior_progression_notes"}
+
+
 def build_user_prompt(inputs: dict) -> str:
     """
     inputs keys (recommended):
@@ -28,6 +32,12 @@ def build_user_prompt(inputs: dict) -> str:
     - equipment_available (list)
     - machine_inventory (optional list like ["Leg Press (Seat 6)", "Chest Press (Seat 3)", ...])
     - preferences (optional list)
+
+    Progression mode keys (optional):
+    - prior_loads: dict of {exercise_name: load_lbs} from last session
+    - prior_session_date: str
+    - prior_session_number: int
+    - prior_progression_notes: list[str]
     """
 
     style_rules = [
@@ -41,8 +51,27 @@ def build_user_prompt(inputs: dict) -> str:
     ]
 
     rules_text = "\n".join(f"- {rule}" for rule in style_rules)
-    inputs_json = json.dumps(inputs, ensure_ascii=False, indent=2)
+    session_inputs = {k: v for k, v in inputs.items() if k not in _PRIOR_KEYS}
+    inputs_json = json.dumps(session_inputs, ensure_ascii=False, indent=2)
     duration = inputs.get("duration_minutes", config.DEFAULT_DURATION)
+
+    prior_section = ""
+    if inputs.get("prior_loads"):
+        lines = [
+            f"\nPrior session data"
+            f" (Session #{inputs.get('prior_session_number')}, {inputs.get('prior_session_date')}):",
+            "Apply progressive overload — increase load where the client reached the top of the rep range.",
+            "Populate prior_load_lbs for each matching exercise using the values below.",
+            "",
+            "Loads from last session:",
+        ]
+        for exercise, lbs in inputs["prior_loads"].items():
+            lines.append(f"- {exercise}: {lbs} lbs")
+        if inputs.get("prior_progression_notes"):
+            lines.append("\nProgression notes from last session:")
+            for note in inputs["prior_progression_notes"]:
+                lines.append(f"- {note}")
+        prior_section = "\n".join(lines)
 
     return f"""Create a {duration}-minute training session plan.
 
@@ -50,4 +79,4 @@ Style & requirements:
 {rules_text}
 
 Client / session inputs (authoritative):
-{inputs_json}"""
+{inputs_json}{prior_section}"""
