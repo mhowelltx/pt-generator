@@ -8,7 +8,7 @@ from fastapi import APIRouter, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-from app import service
+from app import service, storage
 
 log = logging.getLogger(__name__)
 
@@ -17,12 +17,36 @@ templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 
 @router.get("/", response_class=HTMLResponse)
-def form_page(request: Request):
+def form_page(request: Request, client: str = ""):
+    prev = {"client": client} if client else {}
     return templates.TemplateResponse("form.html", {
         "request": request,
         "today": str(date.today()),
-        "prev": {},
+        "prev": prev,
         "error": None,
+    })
+
+
+@router.get("/clients", response_class=HTMLResponse)
+def clients_list(request: Request):
+    clients = storage.list_clients()
+    return templates.TemplateResponse("clients.html", {
+        "request": request,
+        "clients": clients,
+    })
+
+
+@router.get("/clients/{slug}", response_class=HTMLResponse)
+def client_detail(request: Request, slug: str):
+    result = storage.load_by_slug(slug)
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, history = result
+    return templates.TemplateResponse("client_detail.html", {
+        "request": request,
+        "slug": slug,
+        "profile": profile,
+        "history": list(reversed(history)),
     })
 
 

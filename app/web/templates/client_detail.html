@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}{{ profile.client_name }} · PT Generator{% endblock %}
+
+{% block content %}
+<h2>{{ profile.client_name }}</h2>
+
+<div class="meta-panel" style="margin-bottom:1.5rem">
+  <dl>
+    {% if profile.constraints %}
+    <dt>Constraints</dt>
+    <dd>{{ profile.constraints | join(", ") }}</dd>
+    {% endif %}
+
+    {% if profile.preferred_equipment %}
+    <dt>Equipment</dt>
+    <dd>{{ profile.preferred_equipment | join(", ") }}</dd>
+    {% endif %}
+
+    {% if profile.machine_settings %}
+    <dt>Machines</dt>
+    <dd>
+      {% for machine, setting in profile.machine_settings.items() %}
+      <span class="info-pill machine">{{ machine }}: {{ setting }}</span>
+      {% endfor %}
+    </dd>
+    {% endif %}
+
+    {% if profile.notes %}
+    <dt>Notes</dt>
+    <dd>{{ profile.notes }}</dd>
+    {% endif %}
+  </dl>
+</div>
+
+<h3 style="margin-bottom:0.75rem">Session History</h3>
+
+{% if not history %}
+<p style="color:#666">No sessions recorded yet.</p>
+{% else %}
+<table style="width:100%;border-collapse:collapse;font-size:0.875rem">
+  <thead>
+    <tr style="border-bottom:2px solid #ddd;text-align:left">
+      <th style="padding:0.5rem 0.75rem">#</th>
+      <th style="padding:0.5rem 0.75rem">Date</th>
+      <th style="padding:0.5rem 0.75rem">Focus</th>
+      <th style="padding:0.5rem 0.75rem">Loads tracked</th>
+      <th style="padding:0.5rem 0.75rem">Progression notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in history %}
+    <tr style="border-bottom:1px solid #eee;vertical-align:top">
+      <td style="padding:0.6rem 0.75rem;color:#555">
+        {% if s.session_number %}#{{ s.session_number }}{% else %}—{% endif %}
+      </td>
+      <td style="padding:0.6rem 0.75rem;white-space:nowrap">{{ s.session_date or "—" }}</td>
+      <td style="padding:0.6rem 0.75rem">{{ s.focus or "—" }}</td>
+      <td style="padding:0.6rem 0.75rem;color:#555">
+        {% if s.loads %}{{ s.loads | length }}{% else %}0{% endif %}
+      </td>
+      <td style="padding:0.6rem 0.75rem;color:#555;font-size:0.82rem">
+        {% if s.progression_notes %}
+        <ul style="margin:0;padding-left:1.1rem">
+          {% for note in s.progression_notes[:2] %}
+          <li>{{ note }}</li>
+          {% endfor %}
+          {% if s.progression_notes | length > 2 %}
+          <li style="color:#888">+{{ s.progression_notes | length - 2 }} more…</li>
+          {% endif %}
+        </ul>
+        {% else %}—{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<div class="action-bar">
+  <a href="/?client={{ profile.client_name }}" class="btn" style="text-decoration:none;display:inline-block">
+    Generate New Session
+  </a>
+  &nbsp;
+  <a href="/clients" class="btn-secondary">All Clients</a>
+</div>
+{% endblock %}

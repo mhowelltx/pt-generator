@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Clients · PT Generator{% endblock %}
+
+{% block content %}
+<h2>Clients</h2>
+
+{% if not clients %}
+<p style="color:#666">No clients yet. <a href="/">Generate a session</a> to create the first one.</p>
+{% else %}
+<table style="width:100%;border-collapse:collapse;font-size:0.9rem">
+  <thead>
+    <tr style="border-bottom:2px solid #ddd;text-align:left">
+      <th style="padding:0.5rem 0.75rem">Client</th>
+      <th style="padding:0.5rem 0.75rem">Sessions</th>
+      <th style="padding:0.5rem 0.75rem">Last Session</th>
+      <th style="padding:0.5rem 0.75rem">Last Focus</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in clients %}
+    <tr style="border-bottom:1px solid #eee">
+      <td style="padding:0.6rem 0.75rem">
+        <a href="/clients/{{ c.slug }}" style="color:#0057b8;text-decoration:none;font-weight:600">
+          {{ c.client_name }}
+        </a>
+      </td>
+      <td style="padding:0.6rem 0.75rem;color:#555">{{ c.session_count }}</td>
+      <td style="padding:0.6rem 0.75rem;color:#555">
+        {% if c.last_session %}{{ c.last_session.session_date }}{% else %}—{% endif %}
+      </td>
+      <td style="padding:0.6rem 0.75rem;color:#555">
+        {% if c.last_session %}{{ c.last_session.focus }}{% else %}—{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+<div class="action-bar">
+  <a href="/" class="btn-secondary">New Session</a>
+</div>
+{% endblock %}
