@@ -1,8 +1,9 @@
 import json
+import os
 import re
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / "data" / "clients"
+DATA_DIR = Path(os.environ.get("DATA_DIR", str(Path(__file__).parent.parent / "data" / "clients")))
 
 
 def _slug(name: str) -> str:

@@ -2,60 +2,98 @@
 {% block title %}New Session · PT Generator{% endblock %}
 
 {% block content %}
-<h2>Generate Training Session</h2>
+
+<!-- Hero -->
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Generate Training Session</h2>
+  <p class="text-gray-500 text-sm mt-1">AI-powered &middot; NASM-informed &middot; Progressive overload</p>
+</div>
 
 {% if error %}
 <div class="alert alert-error">{{ error }}</div>
 {% endif %}
 
-<form method="post" action="/generate" class="form-card" onsubmit="startLoading(this)">
-  <div class="form-grid">
+<!-- Form card -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden">
+  <div class="h-1.5 bg-orange-500"></div>
 
-    <div class="field">
-      <label for="client">Client Name</label>
-      <input type="text" id="client" name="client"
-             value="{{ prev.client or 'Sample Client' }}"
-             class="{{ 'invalid' if errors.client else '' }}" required>
-      {% if errors.client %}<p class="field-error-msg">{{ errors.client }}</p>{% endif %}
+  <form method="post" action="/generate" class="p-6" id="gen-form">
+
+    <!-- ── Client Info ─────────────────────────────────────── -->
+    <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-3">Client Info</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+
+      <div class="mb-4">
+        <label for="client">Client Name</label>
+        <input type="text" id="client" name="client"
+               value="{{ prev.client or 'Sample Client' }}"
+               class="{{ 'invalid' if errors.client else '' }}" required>
+        {% if errors.client %}
+        <p class="text-xs text-red-700 mt-1">{{ errors.client }}</p>
+        {% endif %}
+      </div>
+
+      <div class="mb-4">
+        <label for="session_number">Session #</label>
+        <input type="number" id="session_number" name="session_number" min="1"
+               value="{{ prev.session_number or '' }}" placeholder="optional"
+               class="{{ 'invalid' if errors.session_number else '' }}">
+        {% if errors.session_number %}
+        <p class="text-xs text-red-700 mt-1">{{ errors.session_number }}</p>
+        {% else %}
+        <p class="hint">Leave blank to auto-increment.</p>
+        {% endif %}
+      </div>
+
     </div>
 
-    <div class="field">
-      <label for="session_number">Session #</label>
-      <input type="number" id="session_number" name="session_number" min="1"
-             value="{{ prev.session_number or '' }}" placeholder="optional"
-             class="{{ 'invalid' if errors.session_number else '' }}">
-      {% if errors.session_number %}<p class="field-error-msg">{{ errors.session_number }}</p>{% endif %}
-    </div>
+    <hr class="border-gray-100 my-5">
 
-    <div class="field form-full">
+    <!-- ── Session Details ────────────────────────────────── -->
+    <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-3">Session Details</p>
+
+    <div class="mb-4">
       <label for="focus">Session Focus</label>
       <input type="text" id="focus" name="focus"
              value="{{ prev.focus or 'Full-body strength with balance + core integration.' }}"
              class="{{ 'invalid' if errors.focus else '' }}" required>
       {% if errors.focus %}
-      <p class="field-error-msg">{{ errors.focus }}</p>
+      <p class="text-xs text-red-700 mt-1">{{ errors.focus }}</p>
       {% else %}
       <p class="hint">One-line description of the session goal.</p>
       {% endif %}
     </div>
 
-    <div class="field">
-      <label for="duration">Duration (minutes)</label>
-      <input type="number" id="duration" name="duration" min="1" max="180"
-             value="{{ prev.duration or 50 }}"
-             class="{{ 'invalid' if errors.duration else '' }}" required>
-      {% if errors.duration %}<p class="field-error-msg">{{ errors.duration }}</p>{% endif %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+
+      <div class="mb-4">
+        <label for="duration">Duration (minutes)</label>
+        <input type="number" id="duration" name="duration" min="1" max="180"
+               value="{{ prev.duration or 50 }}"
+               class="{{ 'invalid' if errors.duration else '' }}" required>
+        {% if errors.duration %}
+        <p class="text-xs text-red-700 mt-1">{{ errors.duration }}</p>
+        {% endif %}
+      </div>
+
+      <div class="mb-4">
+        <label for="session_date">Date</label>
+        <input type="date" id="session_date" name="session_date"
+               value="{{ prev.session_date or today }}"
+               class="{{ 'invalid' if errors.session_date else '' }}">
+        {% if errors.session_date %}
+        <p class="text-xs text-red-700 mt-1">{{ errors.session_date }}</p>
+        {% endif %}
+      </div>
+
     </div>
 
-    <div class="field">
-      <label for="session_date">Date</label>
-      <input type="date" id="session_date" name="session_date"
-             value="{{ prev.session_date or today }}"
-             class="{{ 'invalid' if errors.session_date else '' }}">
-      {% if errors.session_date %}<p class="field-error-msg">{{ errors.session_date }}</p>{% endif %}
-    </div>
+    <hr class="border-gray-100 my-5">
 
-    <div class="field form-full">
+    <!-- ── Options ────────────────────────────────────────── -->
+    <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-3">Options</p>
+
+    <div class="mb-4">
       <label for="constraints">Constraints / Injuries</label>
       <input type="text" id="constraints" name="constraints"
              value="{{ prev.constraints or '' }}"
@@ -63,7 +101,7 @@
       <p class="hint">Comma-separated. Leave blank to use saved profile defaults.</p>
     </div>
 
-    <div class="field form-full">
+    <div class="mb-4">
       <label for="equipment">Available Equipment</label>
       <input type="text" id="equipment" name="equipment"
              value="{{ prev.equipment or '' }}"
@@ -71,12 +109,13 @@
       <p class="hint">Comma-separated. Leave blank to use saved profile defaults.</p>
     </div>
 
-    <div class="field form-full">
-      <div class="checkbox-row">
+    <div class="mb-4">
+      <div class="flex items-center gap-2 mb-2">
         <input type="checkbox" id="include_machine_inventory" name="include_machine_inventory"
+               class="w-4 h-4 accent-orange-500 cursor-pointer"
                onchange="document.getElementById('machine_section').style.display=this.checked?'block':'none'"
                {% if prev.include_machine_inventory %}checked{% endif %}>
-        <label for="include_machine_inventory" style="margin:0">Include machine inventory</label>
+        <label for="include_machine_inventory" class="cursor-pointer" style="margin:0">Include machine inventory</label>
       </div>
       <div id="machine_section" style="display:{{ 'block' if prev.include_machine_inventory else 'none' }}">
         <label for="machine_inventory">Machine inventory</label>
@@ -86,34 +125,76 @@
       </div>
     </div>
 
-    <div class="field form-full">
-      <p style="font-weight:600;margin:0 0 0.4rem">Export</p>
-      <div class="checkbox-row">
+    <hr class="border-gray-100 my-5">
+
+    <!-- ── Export ─────────────────────────────────────────── -->
+    <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-3">Export</p>
+    <div class="flex flex-wrap gap-x-8 gap-y-2 mb-6">
+      <label class="flex items-center gap-2 cursor-pointer font-normal text-gray-700" style="margin:0">
         <input type="checkbox" id="export_docx" name="export_docx"
+               class="w-4 h-4 accent-orange-500"
                {% if prev.export_docx %}checked{% endif %}>
-        <label for="export_docx" style="margin:0">Export DOCX</label>
-      </div>
-      <div class="checkbox-row">
+        Export DOCX
+      </label>
+      <label class="flex items-center gap-2 cursor-pointer font-normal text-gray-700" style="margin:0">
         <input type="checkbox" id="export_markdown" name="export_markdown"
+               class="w-4 h-4 accent-orange-500"
                {% if prev.export_markdown %}checked{% endif %}>
-        <label for="export_markdown" style="margin:0">Export Markdown</label>
-      </div>
+        Export Markdown
+      </label>
     </div>
 
-  </div>
+    <!-- Submit -->
+    <button type="submit" id="submit-btn"
+            class="w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-display font-bold text-xl uppercase tracking-widest rounded-lg transition-colors duration-150 flex items-center justify-center gap-2">
+      <span id="btn-icon">&#9654;</span>
+      <span id="btn-text">Generate Plan</span>
+    </button>
+    <p class="hint text-center mt-2">Generation typically takes 20–30 seconds.</p>
 
-  <button type="submit" class="btn" id="submit-btn">Generate Plan</button>
-  <p class="hint" style="margin-top:0.5rem">Generation typically takes 20–30 seconds.</p>
-</form>
+  </form>
+</div>
+
+<!-- Loading overlay — shown on submit, hidden by default -->
+<div id="loading-overlay"
+     class="fixed inset-0 z-50 flex-col items-center justify-center"
+     style="display:none; background:rgba(17,24,39,0.92); backdrop-filter:blur(4px);">
+  <div class="text-center px-8">
+    <div class="w-16 h-16 rounded-full mx-auto mb-6"
+         style="border: 4px solid rgba(249,115,22,0.25); border-top-color: #f97316; animation: spin 0.9s linear infinite;"></div>
+    <p class="font-display font-bold text-white text-2xl uppercase tracking-widest mb-3">PT Generator</p>
+    <p id="loading-msg" class="text-sm" style="color:#9ca3af">Reviewing client profile&hellip;</p>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block scripts %}
 <script>
-function startLoading(form) {
-  var btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Generating\u2026';
-  btn.classList.add('btn-spinner');
-}
+  var MESSAGES = [
+    'Reviewing client profile\u2026',
+    'Designing your program\u2026',
+    'Applying progressive overload\u2026',
+    'Writing coaching cues\u2026',
+    'Finalizing your plan\u2026',
+  ];
+
+  document.getElementById('gen-form').addEventListener('submit', function () {
+    var btn     = document.getElementById('submit-btn');
+    var icon    = document.getElementById('btn-icon');
+    var overlay = document.getElementById('loading-overlay');
+    var msgEl   = document.getElementById('loading-msg');
+
+    btn.disabled = true;
+    icon.textContent = '';
+    btn.classList.add('btn-spinner');
+    overlay.style.display = 'flex';
+
+    var idx = 0;
+    setInterval(function () {
+      idx = (idx + 1) % MESSAGES.length;
+      msgEl.textContent = MESSAGES[idx];
+    }, 3500);
+  });
 </script>
 {% endblock %}

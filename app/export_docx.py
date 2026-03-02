@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 from docx import Document
@@ -6,7 +7,7 @@ from docx.shared import Pt
 from app.schema import Block, Exercise, TrainingSessionPlan
 from app.storage import _slug
 
-OUTPUTS_DIR = Path(__file__).parent.parent / "outputs"
+OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", str(Path(__file__).parent.parent / "outputs")))
 
 
 def _output_path(plan: TrainingSessionPlan) -> Path:

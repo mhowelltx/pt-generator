@@ -2,85 +2,123 @@
 {% block title %}{{ profile.client_name }} · PT Generator{% endblock %}
 
 {% block content %}
-<h2>{{ profile.client_name }}</h2>
 
-<div class="meta-panel" style="margin-bottom:1.5rem">
-  <dl>
-    {% if profile.constraints %}
-    <dt>Constraints</dt>
-    <dd>{{ profile.constraints | join(", ") }}</dd>
-    {% endif %}
-
-    {% if profile.preferred_equipment %}
-    <dt>Equipment</dt>
-    <dd>{{ profile.preferred_equipment | join(", ") }}</dd>
-    {% endif %}
-
-    {% if profile.machine_settings %}
-    <dt>Machines</dt>
-    <dd>
-      {% for machine, setting in profile.machine_settings.items() %}
-      <span class="info-pill machine">{{ machine }}: {{ setting }}</span>
-      {% endfor %}
-    </dd>
-    {% endif %}
-
-    {% if profile.notes %}
-    <dt>Notes</dt>
-    <dd>{{ profile.notes }}</dd>
-    {% endif %}
-  </dl>
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">{{ profile.client_name }}</h2>
 </div>
 
-<h3 style="margin-bottom:0.75rem">Session History</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-{% if not history %}
-<p style="color:#666">No sessions recorded yet.</p>
-{% else %}
-<table style="width:100%;border-collapse:collapse;font-size:0.875rem">
-  <thead>
-    <tr style="border-bottom:2px solid #ddd;text-align:left">
-      <th style="padding:0.5rem 0.75rem">#</th>
-      <th style="padding:0.5rem 0.75rem">Date</th>
-      <th style="padding:0.5rem 0.75rem">Focus</th>
-      <th style="padding:0.5rem 0.75rem">Loads tracked</th>
-      <th style="padding:0.5rem 0.75rem">Progression notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for s in history %}
-    <tr style="border-bottom:1px solid #eee;vertical-align:top">
-      <td style="padding:0.6rem 0.75rem;color:#555">
-        {% if s.session_number %}#{{ s.session_number }}{% else %}—{% endif %}
-      </td>
-      <td style="padding:0.6rem 0.75rem;white-space:nowrap">{{ s.session_date or "—" }}</td>
-      <td style="padding:0.6rem 0.75rem">{{ s.focus or "—" }}</td>
-      <td style="padding:0.6rem 0.75rem;color:#555">
-        {% if s.loads %}{{ s.loads | length }}{% else %}0{% endif %}
-      </td>
-      <td style="padding:0.6rem 0.75rem;color:#555;font-size:0.82rem">
-        {% if s.progression_notes %}
-        <ul style="margin:0;padding-left:1.1rem">
-          {% for note in s.progression_notes[:2] %}
-          <li>{{ note }}</li>
+  {# ── Profile card ───────────────────────────────────────────────── #}
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden self-start">
+    <div class="h-1.5 bg-orange-500"></div>
+    <div class="p-5">
+      <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">Profile</p>
+
+      {% if profile.constraints %}
+      <div class="mb-4">
+        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Constraints</p>
+        <div class="flex flex-wrap gap-1.5">
+          {% for c in profile.constraints %}
+          <span class="bg-red-50 border border-red-200 text-red-700 text-xs font-medium px-2.5 py-0.5 rounded-full">{{ c }}</span>
           {% endfor %}
-          {% if s.progression_notes | length > 2 %}
-          <li style="color:#888">+{{ s.progression_notes | length - 2 }} more…</li>
-          {% endif %}
-        </ul>
-        {% else %}—{% endif %}
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% endif %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if profile.preferred_equipment %}
+      <div class="mb-4">
+        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Equipment</p>
+        <div class="equip-list" style="margin:0">
+          {% for item in profile.preferred_equipment %}
+          <span class="equip-tag">{{ item }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if profile.machine_settings %}
+      <div class="mb-4">
+        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Machines</p>
+        <div class="flex flex-wrap gap-1.5">
+          {% for machine, setting in profile.machine_settings.items() %}
+          <span class="info-pill machine">{{ machine }}: {{ setting }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if profile.notes %}
+      <div>
+        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-1">Notes</p>
+        <p class="text-sm text-gray-600">{{ profile.notes }}</p>
+      </div>
+      {% endif %}
+
+      {% if not profile.constraints and not profile.preferred_equipment and not profile.machine_settings and not profile.notes %}
+      <p class="text-sm text-gray-400">No profile data yet.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  {# ── Session history ─────────────────────────────────────────────── #}
+  <div class="md:col-span-2">
+    <h3 class="font-display font-bold text-xl uppercase tracking-wide text-gray-900 mb-3">Session History</h3>
+
+    {% if not history %}
+    <p class="text-sm text-gray-500">No sessions recorded yet.</p>
+    {% else %}
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+      <table style="width:100%;border-collapse:collapse;font-size:0.875rem">
+        <thead>
+          <tr class="bg-gray-900 text-white">
+            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">#</th>
+            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Date</th>
+            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Focus</th>
+            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Loads</th>
+            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Progression</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in history %}
+          <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-100" style="vertical-align:top">
+            <td class="px-4 py-3 text-gray-400 font-semibold">
+              {% if s.session_number %}#{{ s.session_number }}{% else %}—{% endif %}
+            </td>
+            <td class="px-4 py-3 text-gray-700" style="white-space:nowrap">{{ s.session_date or "—" }}</td>
+            <td class="px-4 py-3 text-gray-700">{{ s.focus or "—" }}</td>
+            <td class="px-4 py-3">
+              {% if s.loads %}
+              <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-0.5 rounded-full">{{ s.loads | length }}</span>
+              {% else %}
+              <span class="text-gray-400">0</span>
+              {% endif %}
+            </td>
+            <td class="px-4 py-3 text-gray-500 text-xs">
+              {% if s.progression_notes %}
+              <ul style="margin:0;padding-left:1.1rem">
+                {% for note in s.progression_notes[:2] %}
+                <li>{{ note }}</li>
+                {% endfor %}
+                {% if s.progression_notes | length > 2 %}
+                <li class="text-gray-400">+{{ s.progression_notes | length - 2 }} more…</li>
+                {% endif %}
+              </ul>
+              {% else %}—{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+
+</div>
 
 <div class="action-bar">
-  <a href="/?client={{ profile.client_name }}" class="btn" style="text-decoration:none;display:inline-block">
-    Generate New Session
-  </a>
-  &nbsp;
+  <a href="/?client={{ profile.client_name }}" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
   <a href="/clients" class="btn-secondary">All Clients</a>
 </div>
+
 {% endblock %}

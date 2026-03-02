@@ -2,42 +2,54 @@
 {% block title %}Clients · PT Generator{% endblock %}
 
 {% block content %}
-<h2>Clients</h2>
+
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Clients</h2>
+</div>
 
 {% if not clients %}
-<p style="color:#666">No clients yet. <a href="/">Generate a session</a> to create the first one.</p>
+<div class="text-center py-16">
+  <p class="text-5xl mb-4">🏋️</p>
+  <p class="text-gray-500 mb-5">No clients yet. Generate a session to create the first one.</p>
+  <a href="/" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; New Session</a>
+</div>
 {% else %}
-<table style="width:100%;border-collapse:collapse;font-size:0.9rem">
-  <thead>
-    <tr style="border-bottom:2px solid #ddd;text-align:left">
-      <th style="padding:0.5rem 0.75rem">Client</th>
-      <th style="padding:0.5rem 0.75rem">Sessions</th>
-      <th style="padding:0.5rem 0.75rem">Last Session</th>
-      <th style="padding:0.5rem 0.75rem">Last Focus</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for c in clients %}
-    <tr style="border-bottom:1px solid #eee">
-      <td style="padding:0.6rem 0.75rem">
-        <a href="/clients/{{ c.slug }}" style="color:#0057b8;text-decoration:none;font-weight:600">
-          {{ c.client_name }}
-        </a>
-      </td>
-      <td style="padding:0.6rem 0.75rem;color:#555">{{ c.session_count }}</td>
-      <td style="padding:0.6rem 0.75rem;color:#555">
-        {% if c.last_session %}{{ c.last_session.session_date }}{% else %}—{% endif %}
-      </td>
-      <td style="padding:0.6rem 0.75rem;color:#555">
-        {% if c.last_session %}{{ c.last_session.focus }}{% else %}—{% endif %}
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+  <table style="width:100%;border-collapse:collapse;font-size:0.9rem">
+    <thead>
+      <tr class="bg-gray-900 text-white">
+        <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Client</th>
+        <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Sessions</th>
+        <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Last Session</th>
+        <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Last Focus</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in clients %}
+      <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-100">
+        <td class="px-4 py-3">
+          <a href="/clients/{{ c.slug }}" class="font-semibold text-orange-500 hover:text-orange-600" style="text-decoration:none">
+            {{ c.client_name }}
+          </a>
+        </td>
+        <td class="px-4 py-3">
+          <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded-full">{{ c.session_count }}</span>
+        </td>
+        <td class="px-4 py-3 text-gray-500 text-sm">
+          {% if c.last_session %}{{ c.last_session.session_date }}{% else %}—{% endif %}
+        </td>
+        <td class="px-4 py-3 text-gray-500 text-sm">
+          {% if c.last_session %}{{ c.last_session.focus }}{% else %}—{% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endif %}
 
 <div class="action-bar">
-  <a href="/" class="btn-secondary">New Session</a>
+  <a href="/" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; New Session</a>
 </div>
+
 {% endblock %}

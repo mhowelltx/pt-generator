@@ -18,7 +18,7 @@ log = logging.getLogger(__name__)
 router = APIRouter()
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
-_OUTPUTS_DIR = (Path(__file__).parent.parent.parent / "outputs").resolve()
+_OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", str(Path(__file__).parent.parent.parent / "outputs"))).resolve()
 
 
 def _media_type(suffix: str) -> str:
