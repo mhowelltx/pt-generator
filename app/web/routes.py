@@ -1,6 +1,6 @@
 import logging
 import os
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from typing import Annotated, Optional
 from urllib.parse import quote
@@ -8,6 +8,8 @@ from urllib.parse import quote
 from fastapi import APIRouter, Form, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
+from pydantic import ValidationError
+from tenacity import RetryError
 
 from app import service, storage
 
@@ -16,7 +18,6 @@ log = logging.getLogger(__name__)
 router = APIRouter()
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
-# All exported files live under this directory; used for path traversal guard.
 _OUTPUTS_DIR = (Path(__file__).parent.parent.parent / "outputs").resolve()
 
 
@@ -27,15 +28,59 @@ def _media_type(suffix: str) -> str:
     }.get(suffix.lower(), "application/octet-stream")
 
 
-@router.get("/", response_class=HTMLResponse)
-def form_page(request: Request, client: str = ""):
-    prev = {"client": client} if client else {}
+def _validate_form(
+    client: str,
+    focus: str,
+    duration: str,
+    session_number: str,
+    session_date: str,
+) -> dict[str, str]:
+    errors: dict[str, str] = {}
+
+    if not client.strip():
+        errors["client"] = "Client name is required."
+
+    if not focus.strip():
+        errors["focus"] = "Session focus is required."
+
+    try:
+        dur = int(duration)
+        if dur < 1 or dur > 180:
+            errors["duration"] = "Duration must be between 1 and 180 minutes."
+    except (ValueError, TypeError):
+        errors["duration"] = "Duration must be a whole number."
+
+    if session_number.strip():
+        try:
+            sn = int(session_number)
+            if sn < 1:
+                errors["session_number"] = "Session number must be 1 or greater."
+        except ValueError:
+            errors["session_number"] = "Session number must be a whole number."
+
+    if session_date.strip():
+        try:
+            datetime.strptime(session_date.strip(), "%Y-%m-%d")
+        except ValueError:
+            errors["session_date"] = "Date must be in YYYY-MM-DD format (e.g. 2026-03-01)."
+
+    return errors
+
+
+def _form_response(request, prev, error=None, errors=None, status_code=200):
     return templates.TemplateResponse("form.html", {
         "request": request,
         "today": str(date.today()),
         "prev": prev,
-        "error": None,
-    })
+        "error": error,
+        "errors": errors or {},
+    }, status_code=status_code)
+
+
+@router.get("/", response_class=HTMLResponse)
+def form_page(request: Request, client: str = ""):
+    prev = {"client": client} if client else {}
+    return _form_response(request, prev)
 
 
 @router.get("/download")
@@ -105,20 +150,13 @@ def generate(
         "export_markdown": export_markdown is not None,
     }
 
-    api_key = os.getenv("ANTHROPIC_API_KEY", "")
-    if not api_key:
-        return templates.TemplateResponse("form.html", {
-            "request": request,
-            "today": str(date.today()),
-            "prev": prev,
-            "error": "ANTHROPIC_API_KEY is not set.",
-        }, status_code=500)
+    # --- Validation ---
+    field_errors = _validate_form(client, focus, duration, session_number, session_date)
+    if field_errors:
+        return _form_response(request, prev, errors=field_errors, status_code=422)
 
-    try:
-        dur = int(duration)
-    except (ValueError, TypeError):
-        dur = 50
-
+    # --- Parse validated values ---
+    dur = int(duration)
     sn: Optional[int] = int(session_number) if session_number.strip() else None
     sd: Optional[str] = session_date.strip() or None
 
@@ -126,6 +164,13 @@ def generate(
     if include_machine_inventory is not None and machine_inventory.strip():
         machines = [ln.strip() for ln in machine_inventory.splitlines() if ln.strip()]
 
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        return _form_response(request, prev,
+                              error="ANTHROPIC_API_KEY is not set on the server.",
+                              status_code=500)
+
+    # --- Generate ---
     try:
         plan, ctx = service.run_generation(
             api_key=api_key,
@@ -138,15 +183,23 @@ def generate(
             session_date=sd,
             machine_inventory=machines,
         )
+    except ValidationError:
+        log.warning("Plan schema validation failed")
+        return _form_response(request, prev,
+                              error="The AI returned an invalid plan structure. Please try again.",
+                              status_code=502)
+    except RetryError:
+        log.error("Generation failed after all retries")
+        return _form_response(request, prev,
+                              error="Plan generation failed after multiple attempts. Please try again.",
+                              status_code=502)
     except Exception as exc:
-        log.exception("Generation failed")
-        return templates.TemplateResponse("form.html", {
-            "request": request,
-            "today": str(date.today()),
-            "prev": prev,
-            "error": str(exc),
-        }, status_code=500)
+        log.exception("Unexpected generation error")
+        return _form_response(request, prev,
+                              error=f"An unexpected error occurred: {exc}",
+                              status_code=500)
 
+    # --- Exports ---
     export_links: list[dict] = []
     if export_docx is not None:
         from app.export_docx import export as _export_docx

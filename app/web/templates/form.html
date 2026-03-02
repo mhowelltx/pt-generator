@@ -13,32 +13,46 @@
 
     <div class="field">
       <label for="client">Client Name</label>
-      <input type="text" id="client" name="client" value="{{ prev.client or 'Sample Client' }}" required>
+      <input type="text" id="client" name="client"
+             value="{{ prev.client or 'Sample Client' }}"
+             class="{{ 'invalid' if errors.client else '' }}" required>
+      {% if errors.client %}<p class="field-error-msg">{{ errors.client }}</p>{% endif %}
     </div>
 
     <div class="field">
       <label for="session_number">Session #</label>
       <input type="number" id="session_number" name="session_number" min="1"
-             value="{{ prev.session_number or '' }}" placeholder="optional">
+             value="{{ prev.session_number or '' }}" placeholder="optional"
+             class="{{ 'invalid' if errors.session_number else '' }}">
+      {% if errors.session_number %}<p class="field-error-msg">{{ errors.session_number }}</p>{% endif %}
     </div>
 
     <div class="field form-full">
       <label for="focus">Session Focus</label>
       <input type="text" id="focus" name="focus"
-             value="{{ prev.focus or 'Full-body strength with balance + core integration.' }}" required>
+             value="{{ prev.focus or 'Full-body strength with balance + core integration.' }}"
+             class="{{ 'invalid' if errors.focus else '' }}" required>
+      {% if errors.focus %}
+      <p class="field-error-msg">{{ errors.focus }}</p>
+      {% else %}
       <p class="hint">One-line description of the session goal.</p>
+      {% endif %}
     </div>
 
     <div class="field">
       <label for="duration">Duration (minutes)</label>
       <input type="number" id="duration" name="duration" min="1" max="180"
-             value="{{ prev.duration or 50 }}" required>
+             value="{{ prev.duration or 50 }}"
+             class="{{ 'invalid' if errors.duration else '' }}" required>
+      {% if errors.duration %}<p class="field-error-msg">{{ errors.duration }}</p>{% endif %}
     </div>
 
     <div class="field">
       <label for="session_date">Date</label>
       <input type="date" id="session_date" name="session_date"
-             value="{{ prev.session_date or today }}">
+             value="{{ prev.session_date or today }}"
+             class="{{ 'invalid' if errors.session_date else '' }}">
+      {% if errors.session_date %}<p class="field-error-msg">{{ errors.session_date }}</p>{% endif %}
     </div>
 
     <div class="field form-full">
