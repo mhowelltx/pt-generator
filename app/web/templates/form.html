@@ -8,7 +8,7 @@
 <div class="alert alert-error">{{ error }}</div>
 {% endif %}
 
-<form method="post" action="/generate" class="form-card">
+<form method="post" action="/generate" class="form-card" onsubmit="startLoading(this)">
   <div class="form-grid">
 
     <div class="field">
@@ -102,6 +102,18 @@
 
   </div>
 
-  <button type="submit" class="btn">Generate Plan</button>
+  <button type="submit" class="btn" id="submit-btn">Generate Plan</button>
+  <p class="hint" style="margin-top:0.5rem">Generation typically takes 20–30 seconds.</p>
 </form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function startLoading(form) {
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Generating\u2026';
+  btn.classList.add('btn-spinner');
+}
+</script>
 {% endblock %}
