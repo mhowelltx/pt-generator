@@ -2,18 +2,7 @@ import json
 
 from app import config
 
-SCHEMA_NAME = "TrainingSessionPlan"
-
-_schema_json_cache: str | None = None
 _system_prompt_cache: str | None = None
-
-
-def get_schema_json() -> str:
-    global _schema_json_cache
-    if _schema_json_cache is None:
-        from app.schema import TrainingSessionPlan
-        _schema_json_cache = json.dumps(TrainingSessionPlan.model_json_schema(), indent=2)
-    return _schema_json_cache
 
 
 def get_system_prompt() -> str:
@@ -21,13 +10,8 @@ def get_system_prompt() -> str:
     if _system_prompt_cache is None:
         _system_prompt_cache = (
             "You are a strength & conditioning coach and personal trainer that writes NASM-informed session plans.\n"
-            "Output ONLY valid JSON that conforms exactly to the following JSON schema.\n"
-            "Use the exact field names shown — do not invent alternative names.\n"
-            "If a field's value is unknown or not applicable, use null — never omit required fields.\n"
-            "No markdown. No extra text. No commentary. Only JSON.\n"
-            "\n"
-            "Schema:\n"
-            + get_schema_json()
+            "Use the provided tool to output a complete training session plan.\n"
+            "If a field's value is unknown or not applicable, use null."
         )
     return _system_prompt_cache
 
@@ -60,12 +44,10 @@ def build_user_prompt(inputs: dict) -> str:
     inputs_json = json.dumps(inputs, ensure_ascii=False, indent=2)
     duration = inputs.get("duration_minutes", config.DEFAULT_DURATION)
 
-    return f"""Create a {duration}-minute session plan in JSON matching the {SCHEMA_NAME} structure.
+    return f"""Create a {duration}-minute training session plan.
 
 Style & requirements:
 {rules_text}
 
 Client / session inputs (authoritative):
-{inputs_json}
-
-Return ONLY valid JSON for {SCHEMA_NAME}."""
+{inputs_json}"""

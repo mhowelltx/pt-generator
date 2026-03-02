@@ -1,4 +1,3 @@
-import json
 import logging
 
 from anthropic import Anthropic
@@ -9,14 +8,7 @@ from app import config
 from app.prompt_template import get_system_prompt, build_user_prompt
 from app.schema import TrainingSessionPlan
 
-
-def _strip_fences(text: str) -> str:
-    """Remove markdown code fences that models sometimes wrap JSON in."""
-    text = text.strip()
-    if text.startswith("```"):
-        text = text.split("\n", 1)[-1]  # drop the opening ```json line
-        text = text.rsplit("```", 1)[0]  # drop the closing ```
-    return text.strip()
+_TOOL_NAME = "create_training_plan"
 
 
 class PlanGenerator:
@@ -24,6 +16,11 @@ class PlanGenerator:
         self.client = client
         self._log = logging.getLogger(__name__)
         self._system_prompt = get_system_prompt()
+        self._tool = {
+            "name": _TOOL_NAME,
+            "description": "Output a complete NASM-informed training session plan.",
+            "input_schema": TrainingSessionPlan.model_json_schema(),
+        }
 
     def generate(self, inputs: dict) -> TrainingSessionPlan:
         user_prompt = build_user_prompt(inputs)
@@ -46,11 +43,10 @@ class PlanGenerator:
             max_tokens=config.MAX_TOKENS,
             temperature=config.TEMPERATURE_GENERATE,
             system=self._system_prompt,
+            tools=[self._tool],
+            tool_choice={"type": "tool", "name": _TOOL_NAME},
             messages=[{"role": "user", "content": user_prompt}],
         )
-
-        if not response.content:
-            raise ValueError("Empty response content from API")
 
         self._log.info(
             "API response: input_tokens=%d, output_tokens=%d",
@@ -58,44 +54,11 @@ class PlanGenerator:
             response.usage.output_tokens,
         )
 
-        raw = _strip_fences(response.content[0].text)
-
-        try:
-            data = json.loads(raw)
-        except json.JSONDecodeError as exc:
-            self._log.warning("Initial parse failed (%s). Attempting repair.", exc)
-            self._log.debug("Failed raw text: %.500s", raw)
-            data = self._repair(user_prompt)
-
-        return TrainingSessionPlan.model_validate(data)
-
-    def _repair(self, user_prompt: str) -> dict:
-        """Fresh repair call — does not echo the bad output back to the model."""
-        repair_prompt = user_prompt + "\n\nReturn ONLY valid JSON — no markdown, no commentary."
-
-        self._log.info("Sending repair request: model=%s", config.MODEL)
-
-        repair_response = self.client.messages.create(
-            model=config.MODEL,
-            max_tokens=config.MAX_TOKENS,
-            temperature=config.TEMPERATURE_REPAIR,
-            system=self._system_prompt,
-            messages=[{"role": "user", "content": repair_prompt}],
+        tool_block = next(
+            (b for b in response.content if b.type == "tool_use"),
+            None,
         )
+        if tool_block is None:
+            raise ValueError("No tool_use block in API response")
 
-        if not repair_response.content:
-            raise ValueError("Empty repair response content from API")
-
-        self._log.info(
-            "Repair response: input_tokens=%d, output_tokens=%d",
-            repair_response.usage.input_tokens,
-            repair_response.usage.output_tokens,
-        )
-
-        raw2 = _strip_fences(repair_response.content[0].text)
-
-        try:
-            return json.loads(raw2)
-        except json.JSONDecodeError as exc:
-            self._log.error("Repair parse also failed (%s). Raw: %.500s", exc, raw2)
-            raise
+        return TrainingSessionPlan.model_validate(tool_block.input)
