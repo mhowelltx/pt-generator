@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% block title %}Session Plan · PT Generator{% endblock %}
+
+{% block content %}
+<h2>Training Session Plan</h2>
+
+<div class="meta-panel">
+  <dl>
+    <dt>Client</dt>
+    <dd>{{ plan.meta.client_name }}</dd>
+    {% if plan.meta.session_number %}
+    <dt>Session</dt>
+    <dd>#{{ plan.meta.session_number }}</dd>
+    {% endif %}
+    {% if plan.meta.session_date %}
+    <dt>Date</dt>
+    <dd>{{ plan.meta.session_date }}</dd>
+    {% endif %}
+    <dt>Duration</dt>
+    <dd>{{ plan.meta.duration_minutes }} min</dd>
+    <dt>Focus</dt>
+    <dd>{{ plan.meta.focus }}</dd>
+    {% if plan.meta.constraints %}
+    <dt>Constraints</dt>
+    <dd>{{ plan.meta.constraints | join(", ") }}</dd>
+    {% endif %}
+    {% if plan.meta.readiness_notes %}
+    <dt>Readiness</dt>
+    <dd>{{ plan.meta.readiness_notes | join("; ") }}</dd>
+    {% endif %}
+  </dl>
+</div>
+
+{% if ctx.prior_session_number %}
+<div class="alert alert-info">
+  Progressive overload applied from Session #{{ ctx.prior_session_number }} ({{ ctx.prior_session_date }}).
+</div>
+{% endif %}
+
+{% if plan.equipment_used %}
+<h3 style="margin:1.25rem 0 0.4rem">Equipment</h3>
+<ul class="equip-list">
+  {% for item in plan.equipment_used %}
+  <li>{{ item }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% for block in plan.blocks %}
+<div class="block block-{{ block.block_type }}">
+  <div class="block-header">
+    <h3>{{ block.title }}</h3>
+    <span class="block-type-badge">{{ block.block_type | replace("_", " ") }}</span>
+    {% if block.time_minutes %}
+    <span class="block-time">{{ block.time_minutes }} min</span>
+    {% endif %}
+  </div>
+  {% if block.format %}
+  <p class="block-format">{{ block.format }}</p>
+  {% endif %}
+
+  {% for ex in block.exercises %}
+  <div class="exercise">
+    <h4>{{ ex.name }}</h4>
+    <p class="ex-details">
+      {% if ex.sets %}<span>{{ ex.sets }} sets</span>{% endif %}
+      {% if ex.reps %}<span>{{ ex.reps }} reps</span>{% endif %}
+      {% if ex.tempo %}<span>Tempo {{ ex.tempo }}</span>{% endif %}
+      {% if ex.rest_seconds %}<span>Rest {{ ex.rest_seconds }}s</span>{% endif %}
+      {% if ex.intensity %}<span>{{ ex.intensity }}</span>{% endif %}
+    </p>
+
+    {% if ex.loading and ex.loading.load_lbs is not none %}
+    <span class="info-pill load">{{ ex.loading.load_lbs }} lbs</span>
+    {% if ex.loading.prior_load_lbs is not none %}
+    <span class="info-pill load">prev: {{ ex.loading.prior_load_lbs }} lbs</span>
+    {% endif %}
+    {% endif %}
+
+    {% if ex.machine_settings and ex.machine_settings.machine_name %}
+    <span class="info-pill machine">{{ ex.machine_settings.machine_name }}</span>
+    {% endif %}
+
+    {% if ex.machine_settings %}
+    {% set ms = ex.machine_settings %}
+    {% if ms.seat or ms.lever or ms.pad or ms.notes %}
+    <p class="setup-note">
+      Setup:
+      {% if ms.seat %}Seat {{ ms.seat }}{% endif %}
+      {% if ms.lever %}&nbsp;· Lever {{ ms.lever }}{% endif %}
+      {% if ms.pad %}&nbsp;· Pad {{ ms.pad }}{% endif %}
+      {% if ms.notes %}&nbsp;· {{ ms.notes }}{% endif %}
+    </p>
+    {% endif %}
+    {% endif %}
+
+    {% if ex.loading and ex.loading.progression_target %}
+    <p class="setup-note"><em>Next session: {{ ex.loading.progression_target }}</em></p>
+    {% endif %}
+
+    {% if ex.cues %}
+    <p class="ex-section-label">Cues</p>
+    <ul class="ex-list">
+      {% for cue in ex.cues %}<li>{{ cue }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if ex.regressions %}
+    <p class="ex-section-label">Regressions</p>
+    <ul class="ex-list">
+      {% for r in ex.regressions %}<li>{{ r }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if ex.progressions %}
+    <p class="ex-section-label">Progressions</p>
+    <ul class="ex-list">
+      {% for p in ex.progressions %}<li>{{ p }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+{% if plan.progression_notes %}
+<div class="notes-section">
+  <strong>Progression Notes</strong>
+  <ul>
+    {% for note in plan.progression_notes %}<li>{{ note }}</li>{% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if plan.coaching_notes %}
+<div class="notes-section">
+  <strong>Coaching Notes</strong>
+  <ul>
+    {% for note in plan.coaching_notes %}<li>{{ note }}</li>{% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if export_paths %}
+<div style="margin:1.5rem 0;">
+  {% if export_paths.docx %}
+  <p style="font-size:0.875rem;color:#444;margin:0.25rem 0">
+    DOCX saved: <code style="background:#f0f0f0;padding:0.1rem 0.3rem;border-radius:3px">{{ export_paths.docx }}</code>
+  </p>
+  {% endif %}
+  {% if export_paths.markdown %}
+  <p style="font-size:0.875rem;color:#444;margin:0.25rem 0">
+    Markdown saved: <code style="background:#f0f0f0;padding:0.1rem 0.3rem;border-radius:3px">{{ export_paths.markdown }}</code>
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+
+<div class="action-bar">
+  <a href="/" class="btn-secondary">Generate Another</a>
+</div>
+{% endblock %}

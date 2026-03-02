@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}PT Generator{% endblock %}</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 0 auto; padding: 1rem 1.5rem; color: #1a1a1a; }
+    h1 { font-size: 1.4rem; margin: 0; }
+    h2 { font-size: 1.3rem; margin: 0 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 0 0 0.4rem; }
+    h4 { font-size: 1rem; margin: 0 0 0.35rem; font-weight: 600; }
+
+    header { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 2px solid #ddd; margin-bottom: 1.5rem; }
+    nav a { color: #0057b8; text-decoration: none; font-size: 0.9rem; margin-left: 1rem; }
+    nav a:hover { text-decoration: underline; }
+
+    /* Form */
+    .form-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 1.5rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; }
+    .form-full { grid-column: 1 / -1; }
+    label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem; color: #333; }
+    .field { margin-bottom: 1rem; }
+    input[type=text], input[type=number], input[type=date], textarea, select {
+      width: 100%; padding: 0.45rem 0.6rem; border: 1px solid #ccc; border-radius: 5px;
+      font-size: 0.95rem; font-family: inherit; background: #fff;
+    }
+    textarea { height: 90px; resize: vertical; }
+    .hint { font-size: 0.78rem; color: #666; margin-top: 0.2rem; }
+    .checkbox-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .checkbox-row input { width: auto; }
+    .btn { background: #0057b8; color: #fff; border: none; padding: 0.65rem 1.5rem; border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: 0.5rem; }
+    .btn:hover { background: #004499; }
+
+    /* Plan output */
+    .meta-panel { background: #eef2ff; border-left: 5px solid #4361ee; padding: 1rem 1.25rem; border-radius: 6px; margin-bottom: 1.5rem; }
+    .meta-panel dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.2rem 1rem; margin: 0; }
+    .meta-panel dt { font-weight: 600; color: #444; }
+    .meta-panel dd { margin: 0; }
+
+    .block { border-left: 4px solid #aaa; padding-left: 1rem; margin: 1.5rem 0; }
+    .block-warmup    { border-color: #f4a261; }
+    .block-main      { border-color: #4361ee; }
+    .block-core_balance { border-color: #2a9d8f; }
+    .block-cooldown  { border-color: #9b5de5; }
+    .block-finisher  { border-color: #e63946; }
+    .block-mobility  { border-color: #0096c7; }
+    .block-header { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .block-type-badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #666; background: #eee; padding: 0.1rem 0.4rem; border-radius: 3px; }
+    .block-time { font-size: 0.85rem; color: #555; }
+    .block-format { font-style: italic; color: #555; font-size: 0.9rem; margin-bottom: 0.75rem; }
+
+    .exercise { background: #fafafa; border: 1px solid #e8e8e8; border-radius: 6px; padding: 0.85rem 1rem; margin: 0.6rem 0; }
+    .ex-details { font-size: 0.875rem; color: #444; margin: 0.3rem 0; }
+    .ex-details span::before { content: " · "; color: #bbb; }
+    .ex-details span:first-child::before { content: ""; }
+    .info-pill { display: inline-block; background: #e8f0fe; color: #1a56db; font-size: 0.8rem; padding: 0.15rem 0.5rem; border-radius: 12px; margin: 0.25rem 0.25rem 0 0; }
+    .info-pill.load  { background: #fef3c7; color: #92400e; }
+    .info-pill.machine { background: #d1fae5; color: #065f46; }
+    .setup-note { font-size: 0.8rem; color: #555; font-style: italic; margin: 0.2rem 0; }
+
+    .ex-section-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #555; margin: 0.5rem 0 0.2rem; }
+    .ex-list { margin: 0; padding-left: 1.25rem; font-size: 0.875rem; color: #333; }
+    .ex-list li { margin-bottom: 0.15rem; }
+
+    .notes-section { background: #fffde7; border: 1px solid #fde68a; padding: 1rem 1.25rem; border-radius: 6px; margin: 1rem 0; }
+    .notes-section ul { margin: 0.25rem 0 0; padding-left: 1.25rem; }
+    .notes-section li { margin-bottom: 0.25rem; }
+
+    .equip-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.25rem 0 1rem; list-style: none; padding: 0; }
+    .equip-list li { background: #e5e7eb; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.85rem; }
+
+    .download-links { margin: 1.5rem 0; }
+    .download-links a { display: inline-block; margin: 0 0.5rem 0.5rem 0; padding: 0.5rem 1rem; background: #0057b8; color: #fff; text-decoration: none; border-radius: 6px; font-size: 0.9rem; }
+    .download-links a:hover { background: #004499; }
+
+    .action-bar { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .btn-secondary { display: inline-block; background: #6c757d; color: #fff; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; }
+    .btn-secondary:hover { background: #545b62; }
+
+    .alert { padding: 1rem; border-radius: 6px; margin-bottom: 1rem; }
+    .alert-error { background: #ffebee; border: 1px solid #f44336; color: #b71c1c; }
+    .alert-info  { background: #e3f2fd; border: 1px solid #90caf9; color: #0d47a1; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏋️ PT Generator</h1>
+    <nav>
+      <a href="/">New Session</a>
+      <a href="/clients">Clients</a>
+      <a href="/docs" target="_blank">API Docs</a>
+    </nav>
+  </header>
+
+  {% block content %}{% endblock %}
+</body>
+</html>
