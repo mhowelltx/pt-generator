@@ -6,10 +6,12 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent.parent.parent / ".env")
 
 from authlib.integrations.starlette_client import OAuth
-from fastapi import APIRouter
+from fastapi import APIRouter, Header, HTTPException
 from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 from starlette.responses import RedirectResponse
+
+from app import config
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
@@ -32,6 +34,24 @@ def get_current_user(request: Request) -> dict:
     if not user:
         raise UnauthenticatedException()
     return user
+
+
+def get_api_user(
+    request: Request,
+    x_api_key: str | None = Header(default=None),
+) -> dict:
+    """Auth dependency for JSON API routes.
+
+    Accepts either a valid session cookie (same as web UI) or an
+    ``X-Api-Key`` header matching the ``API_KEY`` environment variable.
+    Raises HTTP 401 if neither is present / valid.
+    """
+    session_user = request.session.get("user")
+    if session_user:
+        return session_user
+    if x_api_key and config.API_KEY and x_api_key == config.API_KEY:
+        return {"id": "_api", "email": "api@internal", "name": "API"}
+    raise HTTPException(status_code=401, detail="Authentication required.")
 
 
 router = APIRouter()

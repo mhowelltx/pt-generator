@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}My Profile · PT Generator{% endblock %}
+
+{% block content %}
+
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">My Profile</h2>
+  <p class="text-gray-500 mt-1">{{ user.email }}</p>
+</div>
+
+{% if saved %}
+<div class="alert" style="background:#f0fdf4;border:1px solid #86efac;color:#166534;margin-bottom:1rem;padding:0.75rem 1rem;border-radius:8px">
+  Profile saved.
+</div>
+{% endif %}
+
+<div class="form-card" style="max-width:540px">
+  <form method="post" action="/profile">
+
+    <div class="field">
+      <label for="display_name">Display Name</label>
+      <input type="text" id="display_name" name="display_name"
+             placeholder="e.g. Jane Smith"
+             value="{{ trainer.display_name or '' }}">
+    </div>
+
+    <div class="field">
+      <label for="gym_name">Gym / Organization</label>
+      <input type="text" id="gym_name" name="gym_name"
+             placeholder="e.g. FitLife Gym"
+             value="{{ trainer.gym_name or '' }}">
+    </div>
+
+    <div class="field">
+      <label for="contact_info">Contact Info</label>
+      <input type="text" id="contact_info" name="contact_info"
+             placeholder="e.g. jane@fitlifegym.com or (555) 123-4567"
+             value="{{ trainer.contact_info or '' }}">
+    </div>
+
+    <div class="field">
+      <label for="bio">Bio / Certifications</label>
+      <textarea id="bio" name="bio" rows="4"
+                placeholder="e.g. NASM-CPT, 8 years experience specializing in strength and corrective exercise.">{{ trainer.bio or '' }}</textarea>
+    </div>
+
+    <div class="action-bar" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e5e7eb">
+      <button type="submit" class="btn font-display font-bold uppercase tracking-widest">Save Profile</button>
+    </div>
+
+  </form>
+</div>
+
+{% endblock %}

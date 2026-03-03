@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Progress Summary · {{ profile.client_name }} · PT Generator{% endblock %}
+
+{% block content %}
+
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Monthly Progress</h2>
+  <p class="text-gray-500 mt-1">{{ profile.client_name }}</p>
+</div>
+
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden" style="max-width:640px">
+  <div class="h-1.5 bg-orange-500"></div>
+  <div class="p-6">
+    <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">AI-Generated Summary · Last 30 Days</p>
+    <div style="font-size:0.95rem;line-height:1.7;color:#374151;white-space:pre-wrap">{{ summary }}</div>
+  </div>
+</div>
+
+<div class="action-bar">
+  <a href="/clients/{{ slug }}" class="btn-secondary">Back to Client</a>
+  <a href="/?client={{ profile.client_name }}" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
+</div>
+
+{% endblock %}

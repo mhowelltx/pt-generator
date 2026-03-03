@@ -11,7 +11,7 @@ from typing import Optional
 
 from anthropic import Anthropic
 
-from app import storage
+from app import config, storage
 from app.generation import PlanGenerator
 from app.schema import TrainingSessionPlan
 
@@ -139,8 +139,9 @@ def run_generation(
         client_dir=str(storage.client_dir(client, user_id=user_id)),
     )
     history = storage.load_history(client, user_id=user_id)
-    if history:
-        last = history[-1]
+    active_history = [h for h in history if not h.get("archived", False)]
+    if active_history:
+        last = active_history[-1]
         prior_loads = last.get("loads", {})
         inputs["prior_loads"] = prior_loads
         inputs["prior_session_date"] = last.get("session_date")
@@ -164,3 +165,85 @@ def run_generation(
     }, user_id=user_id)
 
     return plan, ctx
+
+
+def suggest_next_focus(
+    *,
+    api_key: str,
+    client: str,
+    user_id: Optional[str] = None,
+) -> str:
+    """Use Claude to suggest a focus for the client's next session based on history."""
+    history = storage.load_history(client, user_id=user_id)
+    active_history = [h for h in history if not h.get("archived", False)]
+
+    if not active_history:
+        return "Full-body strength with balance + core integration."
+
+    profile = storage.load_profile(client, user_id=user_id) if storage.profile_exists(client, user_id=user_id) else {}
+    recent = active_history[-5:]
+    history_lines = "\n".join(
+        f"- Session #{s.get('session_number', '?')} ({s.get('session_date', '?')}): {s.get('focus', '?')}"
+        for s in recent
+    )
+    constraints = profile.get("constraints", [])
+    constraint_text = f"\nClient constraints: {', '.join(constraints)}" if constraints else ""
+
+    anthropic_client = Anthropic(api_key=api_key)
+    response = anthropic_client.messages.create(
+        model=config.MODEL,
+        max_tokens=120,
+        temperature=0.5,
+        messages=[{
+            "role": "user",
+            "content": (
+                f"Based on this personal training client's recent session history, "
+                f"suggest one concise focus statement for their next session. "
+                f"Respond with just the focus, no explanation.{constraint_text}\n\n"
+                f"Recent sessions:\n{history_lines}"
+            ),
+        }],
+    )
+    return response.content[0].text.strip()
+
+
+def generate_progress_summary(
+    *,
+    api_key: str,
+    client_name: str,
+    history: list,
+    profile: dict,
+) -> str:
+    """Generate an AI-written monthly progress summary for a client."""
+    from datetime import date, timedelta
+    cutoff = (date.today() - timedelta(days=30)).isoformat()
+    recent = [s for s in history if not s.get("archived", False) and (s.get("session_date") or "") >= cutoff]
+
+    if not recent:
+        return "No sessions recorded in the past 30 days."
+
+    sessions_text = "\n\n".join(
+        f"Session #{s.get('session_number', '?')} on {s.get('session_date', '?')}: {s.get('focus', '?')}\n"
+        f"Progression notes: {'; '.join(s.get('progression_notes', [])) or 'none'}"
+        for s in recent
+    )
+    constraints = profile.get("constraints", [])
+    constraint_text = f"\nClient constraints: {', '.join(constraints)}" if constraints else ""
+
+    anthropic_client = Anthropic(api_key=api_key)
+    response = anthropic_client.messages.create(
+        model=config.MODEL,
+        max_tokens=600,
+        temperature=0.4,
+        messages=[{
+            "role": "user",
+            "content": (
+                f"Write a brief, encouraging monthly progress summary for a personal training client. "
+                f"Highlight accomplishments, key progressions, and one or two focus areas for the coming month. "
+                f"Keep it under 200 words, plain prose (no bullet points).{constraint_text}\n\n"
+                f"Client: {client_name}\n\n"
+                f"Sessions this month:\n{sessions_text}"
+            ),
+        }],
+    )
+    return response.content[0].text.strip()

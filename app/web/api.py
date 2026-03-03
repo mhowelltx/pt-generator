@@ -2,13 +2,14 @@ import logging
 import os
 from typing import Optional
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from pydantic import ValidationError
 from tenacity import RetryError
 
 from app import service
+from app.web.auth import get_api_user
 
 log = logging.getLogger(__name__)
 
@@ -47,7 +48,7 @@ class GenerateResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 @router.post("/generate", response_model=GenerateResponse)
-def generate(req: GenerateRequest):
+def generate(req: GenerateRequest, user: dict = Depends(get_api_user)):
     api_key = os.getenv("ANTHROPIC_API_KEY", "")
     if not api_key:
         return JSONResponse(status_code=500, content={"detail": "ANTHROPIC_API_KEY is not set"})
@@ -63,6 +64,7 @@ def generate(req: GenerateRequest):
             session_number=req.session_number,
             session_date=req.session_date,
             machine_inventory=req.machine_inventory,
+            user_id=user["id"],
         )
     except ValidationError as exc:
         log.warning("Plan schema validation failed: %s", exc)
