@@ -1,0 +1,26 @@
+{
+  "client_name": "Margaret Chen",
+  "constraints": [
+    "right knee osteoarthritis — range-limit leg press to 90\u00b0, no high-impact movements",
+    "mild hypertension — RPE cap 7, no breath-holding or Valsalva maneuver"
+  ],
+  "preferred_equipment": [
+    "selectorized leg press",
+    "selectorized chest press",
+    "selectorized lat pulldown",
+    "selectorized seated row",
+    "selectorized leg curl",
+    "selectorized leg extension",
+    "stationary bike",
+    "dumbbells 5-15 lbs"
+  ],
+  "machine_settings": {
+    "Leg Press": "Seat 3, Back pad 2 — range-limit to 90\u00b0 knee flexion",
+    "Chest Press": "Seat 4, Lever 3",
+    "Lat Pulldown": "Seat 5, Thigh pad snug",
+    "Seated Row": "Seat 4, Chest pad forward 2 notches",
+    "Leg Curl": "Seat 2, Lever 4, Ankle pad notch 2",
+    "Leg Extension": "Seat 3, Lever 4, Ankle pad notch 3 — terminal extension only (30\u00b0 to full)"
+  },
+  "notes": "62yo retired teacher. Right knee OA diagnosed 2023, conservative management. On lisinopril for mild hypertension (well-controlled). Trains independently 2\u20133x/week between sessions on bike and machines. Highly motivated. Keep RPE 5\u20137 and monitor knee discomfort — pain score should stay at 0 during and after session. Excellent form learner."
+}

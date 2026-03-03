@@ -12,6 +12,9 @@ from starlette.requests import Request
 from starlette.responses import RedirectResponse
 
 from app import config
+from app import demo_seed as _demo_seed
+
+_DEMO_EMAIL: str = os.environ.get("DEMO_EMAIL", "").lower().strip()
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
@@ -72,11 +75,19 @@ async def auth_google(request: Request):
 async def auth_callback(request: Request):
     token = await oauth.google.authorize_access_token(request)
     user_info = token.get("userinfo")
+    user_id: str = user_info["sub"]
+    email: str = user_info["email"]
     request.session["user"] = {
-        "id": user_info["sub"],
-        "email": user_info["email"],
+        "id": user_id,
+        "email": email,
         "name": user_info.get("name", ""),
     }
+    # Auto-seed demo data on first login for the designated demo account.
+    # If seeding actually populates clients, redirect to /clients so the
+    # demo viewer immediately sees the full roster.
+    if _DEMO_EMAIL and email.lower() == _DEMO_EMAIL:
+        if _demo_seed.seed_demo_data(user_id) > 0:
+            return RedirectResponse(url="/clients", status_code=302)
     return RedirectResponse(url="/", status_code=302)
 
 
