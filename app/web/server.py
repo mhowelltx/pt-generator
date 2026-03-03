@@ -53,8 +53,10 @@ def health():
 
 @app.get("/debug-net")
 async def debug_net():
+    import anthropic
     import httpx
     results = {}
+    # Test raw httpx (async)
     for url in ["https://api.anthropic.com", "https://www.google.com"]:
         try:
             async with httpx.AsyncClient(timeout=5) as client:
@@ -62,7 +64,20 @@ async def debug_net():
                 results[url] = r.status_code
         except Exception as e:
             results[url] = str(e)
-    results["ANTHROPIC_API_KEY_set"] = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    # Test Anthropic SDK directly
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    results["ANTHROPIC_API_KEY_set"] = bool(api_key)
+    results["ANTHROPIC_API_KEY_prefix"] = api_key[:12] + "..." if api_key else "not set"
+    try:
+        client = anthropic.Anthropic(api_key=api_key)
+        msg = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=10,
+            messages=[{"role": "user", "content": "Say ok"}],
+        )
+        results["sdk_test"] = "ok: " + msg.content[0].text
+    except Exception as e:
+        results["sdk_test"] = f"{type(e).__name__}: {e}"
     return results
 
 
