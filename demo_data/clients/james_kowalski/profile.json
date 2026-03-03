@@ -1,0 +1,22 @@
+{
+  "client_name": "James Kowalski",
+  "constraints": [
+    "L4-L5 disc herniation — no heavy axial spinal loading, no spinal flexion under load, avoid Valsalva",
+    "high blood pressure (stage 1 hypertension) — moderate intensity only, avoid prolonged isometric holds"
+  ],
+  "preferred_equipment": [
+    "cable machine",
+    "selectorized lat pulldown",
+    "selectorized seated row",
+    "selectorized leg press",
+    "selectorized chest press",
+    "dumbbells 10-35 lbs"
+  ],
+  "machine_settings": {
+    "Leg Press": "Seat 5, Back pad 3 \u2014 feet hip-width",
+    "Lat Pulldown": "Seat 4, Thigh pad notch 3",
+    "Seated Row": "Seat 3, Chest pad to comfortable reach",
+    "Chest Press": "Seat 3, Lever 2"
+  },
+  "notes": "55yo construction manager. L4-L5 disc herniation from 2024 work injury, now stable and cleared for training with modifications. Hypertension managed with amlodipine. No barbell squatting or deadlifting \u2014 spine must be unloaded for all hinge patterns (cable hip hinge, machine only). Core stability is priority. Needs constant reminder to breathe and avoid holding breath. Sees me biweekly."
+}

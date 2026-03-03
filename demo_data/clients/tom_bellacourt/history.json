@@ -1,0 +1,962 @@
+[
+  {
+    "session_date": "2025-10-08",
+    "session_number": 1,
+    "focus": "Assessment \u2014 right shoulder/elbow restrictions, establish lower body baseline",
+    "loads": {
+      "Leg Press": 130.0,
+      "DB Bulgarian Split Squat": 20.0,
+      "TRX Row (bilateral)": 0.0,
+      "Cable Pallof Press": 15.0
+    },
+    "progression_notes": [
+      "Right upper body severely restricted \u2014 no pushing, no gripping under load on right",
+      "Lower body: very strong baseline \u2014 leg press 130 felt easy",
+      "TRX row with bilateral grip at mid-height: comfortable, no shoulder/elbow aggravation",
+      "Pallof press 15 lbs: good anti-rotation control",
+      "Bulgarian split squat introduced: form very good"
+    ],
+    "trainer_notes": "Tom is in excellent overall condition despite the upper body restrictions. Extremely strong lower body. The right shoulder and elbow restrictions are the main challenge to navigate — discussed the approach thoroughly.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-10-22",
+    "session_number": 2,
+    "focus": "Lower body strength + cable pulling patterns right-side modified",
+    "loads": {
+      "Leg Press": 140.0,
+      "DB Bulgarian Split Squat": 20.0,
+      "TRX Row (bilateral)": 0.0,
+      "Cable Pallof Press": 20.0,
+      "Cable External Rotation (Right)": 10.0
+    },
+    "progression_notes": [
+      "Leg press 140: solid, 3x12",
+      "Bulgarian split squat: holding at 20 lbs to refine depth and stability",
+      "Added cable ER for right shoulder health maintenance: 10 lbs, 3x15",
+      "Pallof press to 20: excellent anti-rotation"
+    ],
+    "trainer_notes": "Introduced right shoulder external rotation work — the one right-side upper movement that is safe given the RC tear pattern. He found it uncomfortable at first but felt the right muscles working.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-11-05",
+    "session_number": 3,
+    "focus": "Progressive lower body load + introduce medicine ball work",
+    "loads": {
+      "Leg Press": 150.0,
+      "DB Bulgarian Split Squat": 25.0,
+      "TRX Row (bilateral)": 0.0,
+      "Cable Pallof Press": 25.0,
+      "Medicine Ball Slam": 10.0
+    },
+    "progression_notes": [
+      "Leg press 150: comfortable, ready for 160",
+      "Bulgarian split squat to 25 lbs: first time, 3x10 each side",
+      "Med ball slam introduced: no right upper loading \u2014 uses bilateral catch-and-slam",
+      "No right shoulder/elbow pain throughout"
+    ],
+    "trainer_notes": "Tom loves the med ball work — feels athletic again. The slam uses momentum and both arms but at low load, well within the safe range for the RC.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-11-19",
+    "session_number": 4,
+    "focus": "Lower body hypertrophy + core circuit",
+    "loads": {
+      "Leg Press": 160.0,
+      "DB Bulgarian Split Squat": 25.0,
+      "TRX Row (bilateral)": 0.0,
+      "Cable Pallof Press": 30.0,
+      "Medicine Ball Rotational Throw (Left-sided)": 10.0
+    },
+    "progression_notes": [
+      "Leg press 160: 3x12, very solid",
+      "Added rotational med ball throw against wall: left-side dominant, right arm guides only",
+      "Pallof press 30: strong anti-rotation",
+      "Discussion: RC surgeon follow-up next month \u2014 may clear for some left-dominant pressing"
+    ],
+    "trainer_notes": "The rotational throw felt like tennis mechanics to him — he got very animated. Good to engage his tennis background in a safe way. Right arm used only as guide, not as primary force producer.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-12-03",
+    "session_number": 5,
+    "focus": "Lower body strength peak + introduce single-arm cable row (Left only)",
+    "loads": {
+      "Leg Press": 170.0,
+      "DB Bulgarian Split Squat": 30.0,
+      "Single-Arm Cable Row (Left)": 45.0,
+      "Cable Pallof Press": 30.0,
+      "Medicine Ball Slam": 12.0
+    },
+    "progression_notes": [
+      "Leg press 170: strong, all reps",
+      "Bulgarian split squat to 30 lbs: first time, 3x10",
+      "Introduced left-only single-arm cable row: 45 lbs, excellent control",
+      "Med ball increased to 12 lbs: powerful slams"
+    ],
+    "trainer_notes": "The left-arm row is a good addition. He can train that side hard while protecting the right. Strong left-side pull. Surgeon cleared him last week for light left-side pressing — will discuss options next session.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-12-17",
+    "session_number": 6,
+    "focus": "Lower body + introduce left-side push (surgeon-cleared)",
+    "loads": {
+      "Leg Press": 180.0,
+      "DB Bulgarian Split Squat": 30.0,
+      "Single-Arm Cable Row (Left)": 50.0,
+      "Single-Arm DB Press (Left)": 35.0,
+      "Cable Pallof Press": 35.0
+    },
+    "progression_notes": [
+      "Leg press 180: 3x12, strong",
+      "Left-arm DB press introduced at 35 lbs: surgeon-cleared, right arm at side",
+      "Left-side cable row to 50: excellent",
+      "Bulgarian split squat holding at 30 \u2014 working on depth"
+    ],
+    "trainer_notes": "Left-side pressing is a great addition. He can now do unilateral push AND pull on the left. The asymmetric training is challenging his stability in interesting ways.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-12-31",
+    "session_number": 7,
+    "focus": "End-of-year strength assessment \u2014 push lower body and left-side PRs",
+    "loads": {
+      "Leg Press": 190.0,
+      "DB Bulgarian Split Squat": 35.0,
+      "Single-Arm Cable Row (Left)": 55.0,
+      "Single-Arm DB Press (Left)": 40.0,
+      "Cable Pallof Press": 35.0
+    },
+    "progression_notes": [
+      "Leg press 190: new PR, very strong",
+      "Bulgarian split squat to 35 lbs: 3x10 each side",
+      "Left-side row 55, press 40: both up from last session",
+      "End-of-year PRs across all patterns \u2014 excellent progress"
+    ],
+    "trainer_notes": "Strong end-of-year session. Tom is in great shape. The right upper restrictions are being well managed — left side is very strong. Lower body is exceptional.",
+    "archived": false
+  },
+  {
+    "session_date": "2026-01-14",
+    "session_number": 8,
+    "focus": "New year leg power focus + upper body volume",
+    "loads": {
+      "Leg Press": 200.0,
+      "DB Bulgarian Split Squat": 35.0,
+      "Single-Arm Cable Row (Left)": 60.0,
+      "Single-Arm DB Press (Left)": 40.0,
+      "Cable Pallof Press": 40.0
+    },
+    "progression_notes": [
+      "Leg press 200 lbs: significant milestone, 3x10 clean",
+      "Left cable row to 60: very strong pull",
+      "Pallof press 40: excellent anti-rotation",
+      "All loads progressing well despite right upper restrictions"
+    ],
+    "plan_json": {
+      "meta": {
+        "client_name": "Tom Bellacourt",
+        "session_date": "2026-01-14",
+        "session_number": 8,
+        "duration_minutes": 55,
+        "focus": "Leg press milestone at 200 lbs + left-side upper body push",
+        "constraints": [
+          "right rotator cuff partial tear \u2014 no overhead or internal rotation loading on right",
+          "right lateral epicondylitis \u2014 no gripping with right hand under load"
+        ],
+        "readiness_notes": [
+          "Client reports 9/10 energy \u2014 great new year motivation",
+          "Right shoulder: 1/10 dull ache at rest, 0/10 during our exercises",
+          "Right elbow: 0/10 pain",
+          "Eager to hit 200 on leg press today"
+        ]
+      },
+      "equipment_used": [
+        "selectorized leg press",
+        "dumbbells 35-40 lbs (left side)",
+        "cable machine",
+        "TRX",
+        "medicine ball 12 lbs"
+      ],
+      "blocks": [
+        {
+          "title": "Lower Body Warm-Up",
+          "block_type": "warmup",
+          "time_minutes": 10,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Hip Circle March",
+              "sets": 2,
+              "reps": "10 each side",
+              "tempo": null,
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["High knee drive", "Stable pelvis", "Arm swing natural"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Glute Bridge with Hip Abduction",
+              "sets": 2,
+              "reps": "12",
+              "tempo": "2-2-1",
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Drive hips up", "Abduct at top of bridge", "Glute squeeze"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Leg Press Ramp-Up (100, 140, 170 lbs)",
+              "sets": 3,
+              "reps": "5 each weight",
+              "tempo": null,
+              "rest_seconds": 60,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Each ramp set is technical rehearsal", "Focus on drive pattern at each load"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Lower Body Strength \u2014 Milestone Day",
+          "block_type": "main",
+          "time_minutes": 20,
+          "format": "Straight sets \u2014 90s rest",
+          "exercises": [
+            {
+              "name": "Leg Press",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "2-1-2",
+              "rest_seconds": 90,
+              "intensity": "H",
+              "machine_settings": {
+                "machine_name": "Leg Press",
+                "seat": "4",
+                "lever": null,
+                "pad": null,
+                "notes": "Back pad 2. Feet shoulder-width."
+              },
+              "loading": {
+                "load_lbs": 200.0,
+                "prior_load_lbs": 190.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "210 lbs next session"
+              },
+              "cues": ["Full foot drive", "Don\u2019t lock knees at top", "Controlled descent"],
+              "regressions": ["190 lbs"],
+              "progressions": ["210 lbs"]
+            },
+            {
+              "name": "DB Bulgarian Split Squat",
+              "sets": 3,
+              "reps": "10 each side",
+              "tempo": "3-1-1",
+              "rest_seconds": 75,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 35.0,
+                "prior_load_lbs": 35.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "40 lbs next session"
+              },
+              "cues": ["Rear foot on bench", "Front shin vertical", "Drop knee toward floor"],
+              "regressions": ["30 lbs"],
+              "progressions": ["40 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Left-Side Upper Body \u2014 Push & Pull",
+          "block_type": "main",
+          "time_minutes": 15,
+          "format": "Superset \u2014 60s rest after pair",
+          "exercises": [
+            {
+              "name": "Single-Arm DB Press (Left arm only)",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "3-1-1",
+              "rest_seconds": 0,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 40.0,
+                "prior_load_lbs": 40.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "45 lbs next session"
+              },
+              "cues": ["Right arm at side or resting on thigh", "Left shoulder stable", "Control eccentric"],
+              "regressions": ["35 lbs"],
+              "progressions": ["45 lbs"]
+            },
+            {
+              "name": "Single-Arm Cable Row (Left arm only)",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "2-1-2",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 60.0,
+                "prior_load_lbs": 55.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "65 lbs next session"
+              },
+              "cues": ["Lead with elbow", "Full retraction", "Right hand not gripping anything"],
+              "regressions": [],
+              "progressions": ["65 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Core & Shoulder Health",
+          "block_type": "core_balance",
+          "time_minutes": 8,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Pallof Press (Cable)",
+              "sets": 3,
+              "reps": "12 each side",
+              "tempo": "2-1-2",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 40.0,
+                "prior_load_lbs": 35.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "45 lbs next session"
+              },
+              "cues": ["Anti-rotation brace", "Slow press", "Left hand leads, right hand supports gently"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Cable External Rotation (Right shoulder)",
+              "sets": 3,
+              "reps": "15",
+              "tempo": "2-1-2",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 10.0,
+                "prior_load_lbs": 10.0,
+                "reps_achieved": "15,15,15",
+                "progression_target": "Maintain as shoulder health protocol"
+              },
+              "cues": ["Elbow at 90\u00b0 and at side", "External rotate only \u2014 don\u2019t extend", "Zero pain throughout"],
+              "regressions": ["Less range"],
+              "progressions": []
+            },
+            {
+              "name": "Medicine Ball Slam",
+              "sets": 3,
+              "reps": "8",
+              "tempo": null,
+              "rest_seconds": 30,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Bilateral overhead reach", "Slam with full body", "Right arm participates without gripping hard"],
+              "regressions": ["Lighter ball"],
+              "progressions": ["Heavier ball"]
+            }
+          ]
+        },
+        {
+          "title": "Cool Down",
+          "block_type": "cooldown",
+          "time_minutes": 7,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Supine Figure-4",
+              "sets": 2,
+              "reps": "45 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Breathe into the hip", "No forcing"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Doorway Pec Stretch (Left Only)",
+              "sets": 2,
+              "reps": "40 sec",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Elbow at 90\u00b0 in doorway", "Gentle lean forward", "Right arm not in stretch position"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        }
+      ],
+      "progression_notes": [
+        "Leg press 200 lbs PR \u2014 3\u00d710 clean \u2014 advance to 210 next session",
+        "Left cable row: 60 lbs, advance to 65",
+        "Single-arm press: 40 lbs, advance to 45",
+        "Pallof press: 40 lbs, advance to 45"
+      ],
+      "coaching_notes": [
+        "Leg press has progressed from 130 to 200 lbs since session 1 \u2014 outstanding lower body development",
+        "Right shoulder: working within safe range \u2014 external rotation rehab exercise is maintaining joint health",
+        "Right elbow: zero pain throughout session \u2014 careful grip avoidance strategy is working",
+        "Left-side unilateral pushing and pulling is now a strong, reliable pattern",
+        "Tom\u2019s fitness background (tennis) gives him great body awareness and movement quality"
+      ]
+    },
+    "trainer_notes": "200 lbs on the leg press! An incredible milestone. Tom was pumped. The session was excellent — left-side work is getting very strong. Right shoulder stayed completely quiet throughout.",
+    "archived": false
+  },
+  {
+    "session_date": "2026-01-28",
+    "session_number": 9,
+    "focus": "Lower body and left-upper volume \u2014 all loads pushed",
+    "loads": {
+      "Leg Press": 210.0,
+      "DB Bulgarian Split Squat": 40.0,
+      "Single-Arm Cable Row (Left)": 65.0,
+      "Single-Arm DB Press (Left)": 45.0,
+      "Cable Pallof Press": 45.0
+    },
+    "progression_notes": [
+      "Leg press 210: 3x10 solid",
+      "Bulgarian split squat 40 lbs: first time, 3x10",
+      "Left row 65: excellent",
+      "Left press 45: first time, 3x10 clean"
+    ],
+    "plan_json": {
+      "meta": {
+        "client_name": "Tom Bellacourt",
+        "session_date": "2026-01-28",
+        "session_number": 9,
+        "duration_minutes": 55,
+        "focus": "Lower body and left-upper volume \u2014 all loads at new PRs",
+        "constraints": [
+          "right rotator cuff partial tear \u2014 no overhead or internal rotation loading right",
+          "right tennis elbow \u2014 no gripping with right hand under load"
+        ],
+        "readiness_notes": [
+          "Client reports 8/10 energy",
+          "Right shoulder: 0/10 pain today",
+          "Right elbow: 0/10 \u2014 best in months"
+        ]
+      },
+      "equipment_used": [
+        "selectorized leg press",
+        "dumbbells 40-45 lbs",
+        "cable machine",
+        "bench (for Bulgarian split squat)"
+      ],
+      "blocks": [
+        {
+          "title": "Warm-Up",
+          "block_type": "warmup",
+          "time_minutes": 10,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Hip Activation Circuit",
+              "sets": 2,
+              "reps": "10 each",
+              "tempo": null,
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Glute bridge + clamshell + hip circle", "Activate before loading"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Leg Press Ramp-Up (110, 155, 185)",
+              "sets": 3,
+              "reps": "4 each",
+              "tempo": null,
+              "rest_seconds": 60,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Technical rehearsal", "Build confidence into the 210"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Lower Body Strength",
+          "block_type": "main",
+          "time_minutes": 22,
+          "format": "Straight sets",
+          "exercises": [
+            {
+              "name": "Leg Press",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "2-1-2",
+              "rest_seconds": 90,
+              "intensity": "H",
+              "machine_settings": {
+                "machine_name": "Leg Press",
+                "seat": "4",
+                "lever": null,
+                "pad": null,
+                "notes": "Back 2. Shoulder-width feet."
+              },
+              "loading": {
+                "load_lbs": 210.0,
+                "prior_load_lbs": 200.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "220 lbs next session"
+              },
+              "cues": ["Full foot", "Don\u2019t lock knees", "Control descent"],
+              "regressions": [],
+              "progressions": ["220 lbs"]
+            },
+            {
+              "name": "DB Bulgarian Split Squat",
+              "sets": 3,
+              "reps": "10 each side",
+              "tempo": "3-1-1",
+              "rest_seconds": 75,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 40.0,
+                "prior_load_lbs": 35.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "45 lbs next session"
+              },
+              "cues": ["Rear foot on bench", "Front heel drives", "Upright torso"],
+              "regressions": [],
+              "progressions": ["45 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Left-Side Upper Body",
+          "block_type": "main",
+          "time_minutes": 15,
+          "format": "Superset \u2014 60s rest",
+          "exercises": [
+            {
+              "name": "Single-Arm DB Press (Left)",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "3-1-1",
+              "rest_seconds": 0,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 45.0,
+                "prior_load_lbs": 40.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "50 lbs next session"
+              },
+              "cues": ["Right arm resting", "Left shoulder stable", "Full extension"],
+              "regressions": [],
+              "progressions": ["50 lbs"]
+            },
+            {
+              "name": "Single-Arm Cable Row (Left)",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "2-1-2",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 65.0,
+                "prior_load_lbs": 60.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "70 lbs next session"
+              },
+              "cues": ["Row to hip", "Full retraction", "Right arm not active"],
+              "regressions": [],
+              "progressions": ["70 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Core & Rotational Power",
+          "block_type": "core_balance",
+          "time_minutes": 8,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Pallof Press",
+              "sets": 3,
+              "reps": "12 each side",
+              "tempo": "2-1-2",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 45.0,
+                "prior_load_lbs": 40.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "50 lbs next time"
+              },
+              "cues": ["Anti-rotation", "Slow press", "Brace before initiating"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Medicine Ball Rotational Throw (Left-Side Drive)",
+              "sets": 3,
+              "reps": "8 each side",
+              "tempo": null,
+              "rest_seconds": 30,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Left arm drives the throw", "Right arm guides \u2014 no gripping", "Use hip rotation as power source"],
+              "regressions": ["Lighter ball"],
+              "progressions": ["Heavier ball or more explosive]"]
+            }
+          ]
+        },
+        {
+          "title": "Cool Down",
+          "block_type": "cooldown",
+          "time_minutes": 5,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Supine Hip Stretch",
+              "sets": 2,
+              "reps": "45 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Breathe into stretch", "Gentle"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Quad Stretch",
+              "sets": 2,
+              "reps": "40 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Stand tall", "Heel toward glute", "Hold for balance if needed"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        }
+      ],
+      "progression_notes": [
+        "Leg press 210 for 3\u00d710 \u2014 advance to 220 next session",
+        "Bulgarian split squat: 40 lbs new PR \u2014 advance to 45",
+        "Left single-arm press: 45 lbs first time \u2014 advance to 50",
+        "Left cable row: 65 lbs, advance to 70"
+      ],
+      "coaching_notes": [
+        "Tom\u2019s lower body strength is exceptional \u2014 leg press journey from 130 to 210+ is remarkable",
+        "Right shoulder and elbow: zero symptoms this session \u2014 the protection strategy is working perfectly",
+        "Left-side unilateral work is very strong \u2014 he has developed excellent pressing and pulling strength from one arm",
+        "Rotational throw connects to his tennis movement \u2014 he finds this highly motivating",
+        "Discuss rehab program options for right shoulder with his surgeon at next appointment"
+      ]
+    },
+    "trainer_notes": "Another excellent session. Leg press at 210, Bulgarian at 40 lbs, and left-side press at 45 all for the first time. His lower body and left side are in incredible shape. The right shoulder/elbow strategy is working flawlessly.",
+    "archived": false
+  },
+  {
+    "session_date": "2026-02-11",
+    "session_number": 10,
+    "focus": "Lower body power peak + left-side upper body push to new PRs",
+    "loads": {
+      "Leg Press": 220.0,
+      "DB Bulgarian Split Squat": 40.0,
+      "Single-Arm Cable Row (Left)": 70.0,
+      "Single-Arm DB Press (Left)": 50.0,
+      "Cable Pallof Press": 50.0
+    },
+    "progression_notes": [
+      "Leg press 220 lbs: new PR, 3x10",
+      "Left-side press to 50 lbs: first time, 3x10 clean",
+      "Left cable row 70: 3x12 solid",
+      "Pallof press 50: excellent",
+      "Discuss possibility of supervised bilateral pressing with surgeon clearance next quarter"
+    ],
+    "plan_json": {
+      "meta": {
+        "client_name": "Tom Bellacourt",
+        "session_date": "2026-02-11",
+        "session_number": 10,
+        "duration_minutes": 55,
+        "focus": "Lower body power peak + left-side upper body new PRs",
+        "constraints": [
+          "right rotator cuff partial tear \u2014 all right-side upper restrictions remain",
+          "right tennis elbow \u2014 no gripping right under load"
+        ],
+        "readiness_notes": [
+          "Client reports 9/10 energy",
+          "Right shoulder: 0/10 at rest and during training",
+          "Right elbow: 0/10",
+          "Motivated to hit 220 on leg press today"
+        ]
+      },
+      "equipment_used": [
+        "selectorized leg press",
+        "dumbbells 40-50 lbs",
+        "cable machine",
+        "bench"
+      ],
+      "blocks": [
+        {
+          "title": "Power-Focused Warm-Up",
+          "block_type": "warmup",
+          "time_minutes": 10,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Hip Activation Series",
+              "sets": 2,
+              "reps": "10 each",
+              "tempo": null,
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Glute bridge, clamshell, hip hinge \u2014 sequential"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Leg Press Ramp (120, 160, 195)",
+              "sets": 3,
+              "reps": "4 each",
+              "tempo": null,
+              "rest_seconds": 60,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Build to working weight confidently"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Lower Body Power",
+          "block_type": "main",
+          "time_minutes": 22,
+          "format": "Straight sets \u2014 2 min rest",
+          "exercises": [
+            {
+              "name": "Leg Press",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "2-1-2",
+              "rest_seconds": 120,
+              "intensity": "H",
+              "machine_settings": {
+                "machine_name": "Leg Press",
+                "seat": "4",
+                "lever": null,
+                "pad": null,
+                "notes": "Back 2. Shoulder-width."
+              },
+              "loading": {
+                "load_lbs": 220.0,
+                "prior_load_lbs": 210.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "230 lbs at next session"
+              },
+              "cues": ["Own the setup", "Drive hard from bottom", "No knee lock-out"],
+              "regressions": [],
+              "progressions": ["230 lbs"]
+            },
+            {
+              "name": "DB Bulgarian Split Squat",
+              "sets": 3,
+              "reps": "10 each side",
+              "tempo": "3-1-1",
+              "rest_seconds": 75,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 40.0,
+                "prior_load_lbs": 40.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "45 lbs next session"
+              },
+              "cues": ["Rear foot stable", "Front heel drives", "Torso upright"],
+              "regressions": [],
+              "progressions": ["45 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Left-Side Upper Body PRs",
+          "block_type": "main",
+          "time_minutes": 15,
+          "format": "Superset \u2014 60s rest after pair",
+          "exercises": [
+            {
+              "name": "Single-Arm DB Press (Left)",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "3-1-1",
+              "rest_seconds": 0,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 50.0,
+                "prior_load_lbs": 45.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "New PR today \u2014 consolidate before 55"
+              },
+              "cues": ["Right arm resting on thigh", "Full press and controlled return"],
+              "regressions": [],
+              "progressions": ["55 lbs"]
+            },
+            {
+              "name": "Single-Arm Cable Row (Left)",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "2-1-2",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 70.0,
+                "prior_load_lbs": 65.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "75 lbs next session"
+              },
+              "cues": ["Hip-height row", "Full retraction", "Steady base"],
+              "regressions": [],
+              "progressions": ["75 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Core & Shoulder Health",
+          "block_type": "core_balance",
+          "time_minutes": 8,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Pallof Press",
+              "sets": 3,
+              "reps": "12 each side",
+              "tempo": "2-1-2",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 50.0,
+                "prior_load_lbs": 45.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "Advance to 55 lbs"
+              },
+              "cues": ["Anti-rotation", "Brace core", "Left hand leads"],
+              "regressions": [],
+              "progressions": ["55 lbs"]
+            },
+            {
+              "name": "Cable External Rotation (Right)",
+              "sets": 3,
+              "reps": "15",
+              "tempo": "2-1-2",
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 10.0,
+                "prior_load_lbs": 10.0,
+                "reps_achieved": "15,15,15",
+                "progression_target": "Maintain as RC health protocol"
+              },
+              "cues": ["Elbow at side, 90\u00b0", "External rotate gently", "Zero pain always"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Cool Down",
+          "block_type": "cooldown",
+          "time_minutes": 5,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Quad + Hip Flexor Combo Stretch",
+              "sets": 2,
+              "reps": "45 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Standing quad stretch into hip flexor reach", "Tall and relaxed"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Supine Figure-4 (Hip External Rotation)",
+              "sets": 2,
+              "reps": "45 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Breathe deeply", "Let hip open passively"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        }
+      ],
+      "progression_notes": [
+        "Leg press 220 PR \u2014 3\u00d710, advance to 230",
+        "Left-side press 50 lbs first time \u2014 new PR, consolidate",
+        "Left cable row 70 lbs \u2014 advance to 75",
+        "Pallof press 50 \u2014 advance to 55"
+      ],
+      "coaching_notes": [
+        "Tom\u2019s lower body is at an elite level \u2014 leg press from 130 to 220 lbs across 10 sessions",
+        "Right shoulder and elbow: zero symptoms throughout entire training history with me \u2014 protective protocol is working",
+        "Left-side press and row are both at PRs \u2014 asymmetric development has been successfully managed",
+        "Discuss next training phase: when RC is cleared, bilateral pressing integration can begin gradually",
+        "Tom\u2019s commitment to training within his restrictions is exceptional \u2014 he never complains about what he can\u2019t do"
+      ]
+    },
+    "trainer_notes": "Outstanding final session of this block. 220 lbs on leg press, 50 lb left-arm press, 70 lb left-arm row. All-time PRs across the board. Despite serious right upper body restrictions, Tom has built an incredibly strong foundation. Can't wait to see where the next block takes him.",
+    "archived": false
+  }
+]

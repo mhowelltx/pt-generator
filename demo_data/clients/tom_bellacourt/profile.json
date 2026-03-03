@@ -1,0 +1,20 @@
+{
+  "client_name": "Tom Bellacourt",
+  "constraints": [
+    "right rotator cuff partial tear \u2014 no internal rotation loading right shoulder, no overhead pressing right, no heavy pushing",
+    "right lateral epicondylitis (tennis elbow) \u2014 avoid gripping with right hand in wrist-extended position, no heavy pronation"
+  ],
+  "preferred_equipment": [
+    "cable machine",
+    "dumbbells 15-45 lbs (left dominant; right side modified)",
+    "TRX suspension trainer",
+    "medicine ball (6-10 lbs)",
+    "selectorized leg press",
+    "mat"
+  ],
+  "machine_settings": {
+    "Leg Press": "Seat 4, Back pad 2",
+    "Cable Machine": "All anchors \u2014 right side limited to external rotation patterns only"
+  },
+  "notes": "48yo retired club tennis player. Right shoulder partial RC tear from serve mechanics \u2014 under orthopedic watch, no surgery recommended yet. Chronic right tennis elbow from years of play. Can train lower body fully. Right upper body: no pushing, no gripping under load, external rotation only. Left side: full range. Focus on lower body strength, core, and left-side pulling. Biweekly sessions. Very fit baseline."
+}

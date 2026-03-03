@@ -1,0 +1,893 @@
+[
+  {
+    "session_date": "2025-11-10",
+    "session_number": 1,
+    "focus": "Baseline strength assessment \u2014 establish loads and plantar fascia-safe patterns",
+    "loads": {
+      "Goblet Squat": 25.0,
+      "DB Hip Hinge": 25.0,
+      "Cable Row": 45.0,
+      "DB Push Press": 20.0
+    },
+    "progression_notes": [
+      "Baseline loads established with plantar fascia considerations \u2014 no prolonged standing, seated/supported where possible",
+      "Goblet squat at 25 lbs: good depth, heel-elevated on small plate to offload plantar fascia",
+      "Cable row 45: strong pull, scapular control good",
+      "Push press 20 lbs: overhead mobility good \u2014 no shoulder issues"
+    ],
+    "trainer_notes": "Priya came in after a night shift — 6/10 energy but pushed through well. Left foot plantar fascia tender on palpation but no pain during heel-elevated squat. Using seated/supported exercises where possible.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-11-24",
+    "session_number": 2,
+    "focus": "Full-body moderate intensity \u2014 reinforce patterns and add hip hinge loading",
+    "loads": {
+      "Goblet Squat": 30.0,
+      "DB Hip Hinge": 30.0,
+      "Cable Row": 50.0,
+      "DB Push Press": 20.0,
+      "Seated Calf Raise (modified)": 25.0
+    },
+    "progression_notes": [
+      "Goblet squat to 30 lbs: confident movement",
+      "Hip hinge 30: strong, neutral spine well maintained",
+      "Cable row to 50: all reps solid",
+      "Plantar fascia update: tenderness decreasing with orthotics and reduced standing"
+    ],
+    "trainer_notes": "Better energy today \u2014 post night shift but slept well. Plantar fascia improving. She's very motivated and takes coaching well.",
+    "archived": false
+  },
+  {
+    "session_date": "2025-12-08",
+    "session_number": 3,
+    "focus": "Progressive overload \u2014 increase lower body and pulling loads",
+    "loads": {
+      "Goblet Squat": 30.0,
+      "DB Hip Hinge": 35.0,
+      "Cable Row": 55.0,
+      "DB Push Press": 25.0
+    },
+    "progression_notes": [
+      "Hip hinge to 35 lbs: excellent hip extension, neutral spine",
+      "Push press to 25 lbs: good overhead stability",
+      "Cable row 55: first time, 3x12 complete",
+      "Plantar fascia: 1/10 tenderness only \u2014 improving significantly"
+    ],
+    "archived": false
+  },
+  {
+    "session_date": "2025-12-22",
+    "session_number": 4,
+    "focus": "Strength block \u2014 introduce Romanian deadlift pattern",
+    "loads": {
+      "Goblet Squat": 35.0,
+      "DB Hip Hinge": 35.0,
+      "Cable Row": 55.0,
+      "DB Push Press": 25.0,
+      "DB Romanian Deadlift": 30.0
+    },
+    "progression_notes": [
+      "Goblet squat to 35: new load, 3x12 clean",
+      "Introduced RDL at 30 lbs: good hinge pattern from the hip hinge work",
+      "Foot: plantar fascia 0/10 today \u2014 first pain-free session",
+      "Adding 5 lbs per session when all sets hit 12 reps"
+    ],
+    "trainer_notes": "First pain-free session for her foot. She was thrilled. The RDL introduction went smoothly given the hip hinge foundation. Looking very strong.",
+    "archived": false
+  },
+  {
+    "session_date": "2026-01-05",
+    "session_number": 5,
+    "focus": "New year push \u2014 progress all loads and add overhead pressing",
+    "loads": {
+      "Goblet Squat": 35.0,
+      "DB Romanian Deadlift": 35.0,
+      "Cable Row": 60.0,
+      "DB Push Press": 30.0
+    },
+    "progression_notes": [
+      "RDL to 35 lbs: solid hip hinge",
+      "Cable row to 60: excellent",
+      "Push press to 30 lbs: 3x10 with good overhead stability",
+      "Energy was higher than expected \u2014 post-shift, well-slept"
+    ],
+    "archived": false
+  },
+  {
+    "session_date": "2026-01-19",
+    "session_number": 6,
+    "focus": "Upper-lower strength split \u2014 push row and hinge loads",
+    "loads": {
+      "Goblet Squat": 40.0,
+      "DB Romanian Deadlift": 40.0,
+      "Cable Row": 65.0,
+      "DB Push Press": 30.0
+    },
+    "progression_notes": [
+      "Goblet squat 40: new PR, 3x12 clean",
+      "RDL 40: strong, ready for 45 next session",
+      "Cable row 65: 3x12 excellent",
+      "Plantar fascia: 0/10 for 4 consecutive weeks \u2014 cleared for normal standing during exercises"
+    ],
+    "trainer_notes": "Cleared for normal (non-heel elevated) squats today. She was skeptical but had zero foot pain. A significant milestone. Planning to try full standing work next session.",
+    "archived": false
+  },
+  {
+    "session_date": "2026-02-02",
+    "session_number": 7,
+    "focus": "Full-body strength \u2014 all loads at new working maxes",
+    "loads": {
+      "Goblet Squat": 40.0,
+      "DB Romanian Deadlift": 45.0,
+      "Cable Row": 65.0,
+      "DB Push Press": 35.0
+    },
+    "progression_notes": [
+      "RDL 45 lbs: first time, 3x10 solid",
+      "Push press 35 lbs: excellent overhead stability and power",
+      "Plantar fascia: 0/10 all week including long shift days",
+      "All loads near top of current range \u2014 plan new exercises next session"
+    ],
+    "plan_json": {
+      "meta": {
+        "client_name": "Priya Nair",
+        "session_date": "2026-02-02",
+        "session_number": 7,
+        "duration_minutes": 50,
+        "focus": "Full-body strength \u2014 all loads at new working maxes",
+        "constraints": [
+          "plantar fasciitis left foot (resolved) \u2014 monitor during prolonged standing",
+          "night shift nurse \u2014 energy varies; check readiness before starting"
+        ],
+        "readiness_notes": [
+          "Client reports 8/10 energy \u2014 slept 9 hours post shift",
+          "Left foot: 0/10 pain all week",
+          "Feeling strong and ready to push today"
+        ]
+      },
+      "equipment_used": [
+        "dumbbells 35-45 lbs",
+        "cable machine (mid and low pulley)",
+        "mat"
+      ],
+      "blocks": [
+        {
+          "title": "Dynamic Warm-Up",
+          "block_type": "warmup",
+          "time_minutes": 8,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Hip Circle March",
+              "sets": 2,
+              "reps": "10 each side",
+              "tempo": null,
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Drive knee high", "Tall posture", "Alternate sides"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Glute Bridge",
+              "sets": 2,
+              "reps": "15",
+              "tempo": "2-2-1",
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Through heels", "Glutes at top", "Breathe"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "World\u2019s Greatest Stretch",
+              "sets": 2,
+              "reps": "5 each side",
+              "tempo": null,
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Front foot flat", "Rotate toward front knee", "Hip stays low"],
+              "regressions": ["Modified with hand on block"],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Lower Body Strength",
+          "block_type": "main",
+          "time_minutes": 20,
+          "format": "Straight sets \u2014 60s rest",
+          "exercises": [
+            {
+              "name": "Goblet Squat",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "3-1-1",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 40.0,
+                "prior_load_lbs": 40.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "45 lbs next session"
+              },
+              "cues": ["Elbows inside knees", "Drive through full foot", "Chest tall"],
+              "regressions": ["35 lbs"],
+              "progressions": ["45 lbs"]
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "3-1-1",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 45.0,
+                "prior_load_lbs": 40.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "New PR today \u2014 hold here and refine form"
+              },
+              "cues": ["Push hips back", "Bar close to shins", "Neutral spine throughout"],
+              "regressions": ["40 lbs"],
+              "progressions": ["50 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Upper Body Push-Pull",
+          "block_type": "main",
+          "time_minutes": 15,
+          "format": "Superset \u2014 60s rest after pair",
+          "exercises": [
+            {
+              "name": "Cable Row (Seated)",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "2-1-2",
+              "rest_seconds": 0,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 65.0,
+                "prior_load_lbs": 65.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "70 lbs at next session"
+              },
+              "cues": ["Elbows back", "Full retraction", "Exhale on the pull"],
+              "regressions": [],
+              "progressions": ["70 lbs"]
+            },
+            {
+              "name": "DB Push Press",
+              "sets": 3,
+              "reps": "10",
+              "tempo": null,
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 35.0,
+                "prior_load_lbs": 30.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "New PR at 35 \u2014 hold here and consolidate"
+              },
+              "cues": ["Dip and drive through legs", "Lock out overhead", "Control the descent"],
+              "regressions": ["30 lbs"],
+              "progressions": ["40 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Core & Stability",
+          "block_type": "core_balance",
+          "time_minutes": 7,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Dead Bug",
+              "sets": 3,
+              "reps": "8 each side",
+              "tempo": "3-0-1",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Lumbar flat to floor", "Opposite arm/leg extend", "Breathe out on the reach"],
+              "regressions": ["Arms only"],
+              "progressions": ["Full extension hold 5s"]
+            },
+            {
+              "name": "Pallof Press (Cable)",
+              "sets": 2,
+              "reps": "12 each side",
+              "tempo": "2-1-2",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Anti-rotation brace", "Slow press", "Don\u2019t let cable rotate you"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Cool Down",
+          "block_type": "cooldown",
+          "time_minutes": 5,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Calf Stretch \u2014 Gentle (Bent-Knee Soleus Emphasis)",
+              "sets": 2,
+              "reps": "45 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Slight bend in knee", "Heel on ground", "Gentle \u2014 no pulling"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Hip Flexor Stretch (Standing)",
+              "sets": 2,
+              "reps": "40 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Tailbone tuck", "Tall spine", "Hold wall if needed"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        }
+      ],
+      "progression_notes": [
+        "Goblet squat at 40 lbs solid \u2014 advance to 45 next session",
+        "RDL new PR at 45 lbs \u2014 consolidate form before 50",
+        "Push press at 35 first time \u2014 hold here next session",
+        "Cable row at 65 \u2014 advance to 70 next session"
+      ],
+      "coaching_notes": [
+        "Plantar fasciitis now fully resolved \u2014 4 weeks pain-free including long hospital shifts",
+        "Priya\u2019s strength gains have been consistent despite the irregular schedule challenge",
+        "RDL form has improved significantly \u2014 hip hinge is now natural and strong",
+        "Push press overhead stability is excellent \u2014 this is a new movement she\u2019s taken to quickly",
+        "Schedule note: always check energy level at start of session and adjust intensity accordingly"
+      ]
+    },
+    "trainer_notes": "Great session. RDL at 45 lbs and push press at 35 are both new PRs. She was energetic and form was excellent throughout. The plantar fascia recovery has been complete and lasting.",
+    "archived": false
+  },
+  {
+    "session_date": "2026-02-16",
+    "session_number": 8,
+    "focus": "Strength progression \u2014 goblet squat PR and introduce barbell work",
+    "loads": {
+      "Goblet Squat": 45.0,
+      "DB Romanian Deadlift": 45.0,
+      "Cable Row": 70.0,
+      "DB Push Press": 35.0,
+      "Barbell Goblet Squat (bar only)": 45.0
+    },
+    "progression_notes": [
+      "Goblet squat 45 lbs: PR, strong",
+      "Introduced barbell rack position for future goblet-to-front-squat transition",
+      "Cable row 70: all reps excellent",
+      "Push press 35: all sets, excellent overhead",
+      "Plantar fascia: 0/10 for 6 weeks \u2014 training with complete confidence now"
+    ],
+    "plan_json": {
+      "meta": {
+        "client_name": "Priya Nair",
+        "session_date": "2026-02-16",
+        "session_number": 8,
+        "duration_minutes": 50,
+        "focus": "Strength progression \u2014 goblet squat PR and upper body volume",
+        "constraints": [
+          "plantar fasciitis resolved \u2014 maintain foot health awareness",
+          "night shift schedule \u2014 energy 7/10 today"
+        ],
+        "readiness_notes": [
+          "Client reports 7/10 energy \u2014 worked 2 consecutive night shifts",
+          "Left foot: 0/10 pain for 6 consecutive weeks",
+          "Feeling strong despite fatigue"
+        ]
+      },
+      "equipment_used": [
+        "dumbbells 35-45 lbs",
+        "cable machine",
+        "barbell (empty bar practice)"
+      ],
+      "blocks": [
+        {
+          "title": "Warm-Up",
+          "block_type": "warmup",
+          "time_minutes": 8,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Hip Circle March",
+              "sets": 2,
+              "reps": "10 each side",
+              "tempo": null,
+              "rest_seconds": 15,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Drive knee", "Tall posture"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Bodyweight Squat",
+              "sets": 2,
+              "reps": "10",
+              "tempo": "3-1-1",
+              "rest_seconds": 15,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Full foot", "Chest tall", "Depth comfortable"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Hip Hinge Pattern (Bodyweight)",
+              "sets": 2,
+              "reps": "10",
+              "tempo": null,
+              "rest_seconds": 15,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Push hips back", "Neutral spine", "Soft knees"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Lower Body Strength",
+          "block_type": "main",
+          "time_minutes": 20,
+          "format": "Straight sets \u2014 60s rest",
+          "exercises": [
+            {
+              "name": "Goblet Squat",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "3-1-1",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 45.0,
+                "prior_load_lbs": 40.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "Discuss front squat progression next session"
+              },
+              "cues": ["Elbows inside knees", "Full foot drive", "Chest tall"],
+              "regressions": [],
+              "progressions": ["Barbell goblet or front squat pattern"]
+            },
+            {
+              "name": "DB Romanian Deadlift",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "3-1-1",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 45.0,
+                "prior_load_lbs": 45.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "50 lbs next session"
+              },
+              "cues": ["Hip crease back", "Bar/DB tracks close", "Tall return"],
+              "regressions": [],
+              "progressions": ["50 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Upper Body Push-Pull + Barbell Introduction",
+          "block_type": "main",
+          "time_minutes": 17,
+          "format": "Superset + barbell intro",
+          "exercises": [
+            {
+              "name": "Cable Row",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "2-1-2",
+              "rest_seconds": 0,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 70.0,
+                "prior_load_lbs": 65.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "75 lbs at next session"
+              },
+              "cues": ["Retract fully", "Exhale on pull", "Elbows track back"],
+              "regressions": [],
+              "progressions": ["75 lbs"]
+            },
+            {
+              "name": "DB Push Press",
+              "sets": 3,
+              "reps": "10",
+              "tempo": null,
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 35.0,
+                "prior_load_lbs": 35.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "40 lbs next session"
+              },
+              "cues": ["Dip from hips not knees", "Drive overhead with power"],
+              "regressions": [],
+              "progressions": ["40 lbs"]
+            },
+            {
+              "name": "Barbell Front Squat Position Practice (Empty Bar)",
+              "sets": 3,
+              "reps": "8",
+              "tempo": "3-1-1",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 45.0,
+                "prior_load_lbs": 0.0,
+                "reps_achieved": "8,8,8",
+                "progression_target": "Add 10-25 lbs when front rack position is comfortable"
+              },
+              "cues": ["High elbows parallel to floor", "Bar rests on front delts", "Drive elbows up throughout"],
+              "regressions": ["Goblet position"],
+              "progressions": ["Add plates when rack position is solid"]
+            }
+          ]
+        },
+        {
+          "title": "Core",
+          "block_type": "core_balance",
+          "time_minutes": 5,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Dead Bug",
+              "sets": 3,
+              "reps": "8 each side",
+              "tempo": "3-0-1",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Lumbar flat", "Slow reach", "Breathe"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Cool Down",
+          "block_type": "cooldown",
+          "time_minutes": 5,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Calf Stretch (Wall \u2014 Soleus Focus)",
+              "sets": 2,
+              "reps": "40 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Slight knee bend", "Heel grounded", "Gentle"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Hip Flexor Stretch",
+              "sets": 2,
+              "reps": "40 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Tailbone tuck", "Upright"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        }
+      ],
+      "progression_notes": [
+        "Goblet squat 45 lbs for 3\u00d712 \u2014 ready to transition to barbell front squat",
+        "Barbell front rack position practiced \u2014 elbows need work but good for first day",
+        "RDL at 45 lbs \u2014 advance to 50 next session",
+        "Push press at 35 consistent \u2014 advance to 40 next session",
+        "Cable row 70 solid \u2014 advance to 75"
+      ],
+      "coaching_notes": [
+        "Plantar fasciitis fully resolved \u2014 foot care and orthotics made the difference",
+        "Despite night shift fatigue, Priya continues to show up and perform well \u2014 very impressive consistency",
+        "Barbell front rack introduction was exciting for her \u2014 she\u2019s ready for next-level loading",
+        "All strength markers improving on schedule \u2014 excellent athlete"
+      ]
+    },
+    "trainer_notes": "Great session. Goblet squat at 45 looked strong. The barbell front rack intro was exciting — she took to it well despite having never used a barbell before. Push press and row both progressed. Really proud of her consistency.",
+    "archived": false
+  },
+  {
+    "session_date": "2026-03-02",
+    "session_number": 9,
+    "focus": "Upper body volume push + barbell front squat introduction",
+    "loads": {
+      "Goblet Squat": 45.0,
+      "DB Romanian Deadlift": 50.0,
+      "Cable Row": 75.0,
+      "DB Push Press": 40.0,
+      "Barbell Front Squat": 65.0
+    },
+    "progression_notes": [
+      "RDL 50 lbs: new PR, hip hinge very strong now",
+      "Push press 40: excellent overhead power",
+      "Barbell front squat at 65 lbs: first loaded attempt, 3x8 clean",
+      "Cable row 75: all reps solid",
+      "Incredible 4-month journey from plantar fascia struggles to barbell training"
+    ],
+    "plan_json": {
+      "meta": {
+        "client_name": "Priya Nair",
+        "session_date": "2026-03-02",
+        "session_number": 9,
+        "duration_minutes": 50,
+        "focus": "Barbell front squat introduction + upper body volume push",
+        "constraints": [
+          "plantar fasciitis resolved \u2014 no active restrictions",
+          "night shift schedule \u2014 energy 8/10 today, well-slept"
+        ],
+        "readiness_notes": [
+          "Client reports 8/10 energy \u2014 3 days off after shifts",
+          "Left foot: 0/10 pain \u2014 no restrictions",
+          "Excited to try loaded barbell front squat today"
+        ]
+      },
+      "equipment_used": [
+        "barbell",
+        "weight plates",
+        "dumbbells 40-50 lbs",
+        "cable machine"
+      ],
+      "blocks": [
+        {
+          "title": "Front Squat Prep Warm-Up",
+          "block_type": "warmup",
+          "time_minutes": 10,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Ankle Mobility Circles",
+              "sets": 2,
+              "reps": "10 each direction",
+              "tempo": null,
+              "rest_seconds": 15,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Full range", "Left foot especially \u2014 keep it moving well"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Goblet Squat (Empty Hands \u2014 Depth Practice)",
+              "sets": 2,
+              "reps": "10",
+              "tempo": "3-2-1",
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Full depth", "Pause 2s at bottom", "Drive up through full foot"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Front Rack Position Practice (Empty Bar)",
+              "sets": 3,
+              "reps": "5",
+              "tempo": "3-1-1",
+              "rest_seconds": 20,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Elbows parallel to floor", "Bar on front delts", "Drive elbows up on descent"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Barbell Front Squat \u2014 Introduction",
+          "block_type": "main",
+          "time_minutes": 18,
+          "format": "Straight sets \u2014 90s rest",
+          "exercises": [
+            {
+              "name": "Barbell Front Squat",
+              "sets": 3,
+              "reps": "8",
+              "tempo": "3-1-1",
+              "rest_seconds": 90,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 65.0,
+                "prior_load_lbs": 45.0,
+                "reps_achieved": "8,8,8",
+                "progression_target": "75 lbs next session when rack position is fully comfortable"
+              },
+              "cues": ["Elbows UP throughout \u2014 this is the key cue", "Sit into the squat \u2014 don\u2019t push knees forward only", "Drive through full foot to stand"],
+              "regressions": ["Empty bar", "Goblet squat"],
+              "progressions": ["75 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Hinge & Upper Body",
+          "block_type": "main",
+          "time_minutes": 15,
+          "format": "Superset \u2014 60s rest after pair",
+          "exercises": [
+            {
+              "name": "DB Romanian Deadlift",
+              "sets": 3,
+              "reps": "10",
+              "tempo": "3-1-1",
+              "rest_seconds": 0,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 50.0,
+                "prior_load_lbs": 45.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "New PR today \u2014 hold here"
+              },
+              "cues": ["Push hips back to wall", "Soft knee", "Neutral spine throughout"],
+              "regressions": [],
+              "progressions": ["55 lbs"]
+            },
+            {
+              "name": "Cable Row",
+              "sets": 3,
+              "reps": "12",
+              "tempo": "2-1-2",
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 75.0,
+                "prior_load_lbs": 70.0,
+                "reps_achieved": "12,12,12",
+                "progression_target": "80 lbs next session"
+              },
+              "cues": ["Elbows drive back", "Full retraction", "Breathe"],
+              "regressions": [],
+              "progressions": ["80 lbs"]
+            },
+            {
+              "name": "DB Push Press",
+              "sets": 3,
+              "reps": "10",
+              "tempo": null,
+              "rest_seconds": 60,
+              "intensity": "M",
+              "machine_settings": null,
+              "loading": {
+                "load_lbs": 40.0,
+                "prior_load_lbs": 35.0,
+                "reps_achieved": "10,10,10",
+                "progression_target": "Hold 40 \u2014 new PR today"
+              },
+              "cues": ["Hip dip and drive", "Lock out overhead", "Control descent"],
+              "regressions": [],
+              "progressions": ["45 lbs"]
+            }
+          ]
+        },
+        {
+          "title": "Core",
+          "block_type": "core_balance",
+          "time_minutes": 5,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Pallof Press",
+              "sets": 3,
+              "reps": "12 each side",
+              "tempo": "2-1-2",
+              "rest_seconds": 30,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Anti-rotation brace", "Slow press out", "Hold 1s"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        },
+        {
+          "title": "Cool Down",
+          "block_type": "cooldown",
+          "time_minutes": 5,
+          "format": null,
+          "exercises": [
+            {
+              "name": "Calf + Achilles Stretch (Wall)",
+              "sets": 2,
+              "reps": "45 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Both gastroc and soleus versions", "Heel grounded always"],
+              "regressions": [],
+              "progressions": []
+            },
+            {
+              "name": "Hip Flexor Stretch",
+              "sets": 2,
+              "reps": "40 sec each side",
+              "tempo": null,
+              "rest_seconds": 10,
+              "intensity": "L",
+              "machine_settings": null,
+              "loading": null,
+              "cues": ["Tailbone tuck", "Upright"],
+              "regressions": [],
+              "progressions": []
+            }
+          ]
+        }
+      ],
+      "progression_notes": [
+        "Barbell front squat at 65 lbs: 3\u00d78 clean \u2014 a huge milestone; advance to 75 when rack position is solid",
+        "RDL new PR at 50 lbs \u2014 consolidate before 55",
+        "Push press 40 lbs: new PR today",
+        "Cable row 75 solid \u2014 advance to 80 next session"
+      ],
+      "coaching_notes": [
+        "Barbell front squat debut was impressive \u2014 she took to the pattern quickly",
+        "Plantar fasciitis: completely resolved and has not limited any training for 7+ weeks",
+        "From struggling with plantar fasciitis and no barbell experience to front squatting 65 lbs in 4 months is remarkable",
+        "Night shift challenge: she consistently shows up and performs \u2014 incredible discipline",
+        "Next phase: add back squat option and continue increasing all loads"
+      ]
+    },
+    "trainer_notes": "Best session of our work together. Barbell front squat at 65 lbs — first loaded attempt after last session's empty bar work. Form was excellent. RDL and push press both at new PRs. Her consistency despite the demanding ICU schedule is genuinely inspiring.",
+    "archived": false
+  }
+]
