@@ -162,6 +162,7 @@ def run_generation(
         "focus": plan.meta.focus,
         "loads": extract_loads(plan),
         "progression_notes": plan.progression_notes,
+        "plan_json": plan.model_dump(),
     }, user_id=user_id)
 
     return plan, ctx

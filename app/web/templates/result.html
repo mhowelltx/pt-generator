@@ -3,6 +3,13 @@
 
 {% block content %}
 
+{# ── Back nav (history view only) ───────────────────────────────── #}
+{% if back_url %}
+<div class="mb-4">
+  <a href="{{ back_url }}" class="text-sm text-orange-500 hover:underline">← Back to Client</a>
+</div>
+{% endif %}
+
 {# ── Page heading ───────────────────────────────────────────────── #}
 <div class="mb-6">
   <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Training Session Plan</h2>
@@ -34,7 +41,7 @@
 </div>
 
 {# ── Progressive overload alert ─────────────────────────────────── #}
-{% if ctx.prior_session_number %}
+{% if ctx and ctx.prior_session_number %}
 <div class="overload-alert">
   <span>⬆</span>
   Progressive overload applied from Session #{{ ctx.prior_session_number }} ({{ ctx.prior_session_date }})
@@ -177,7 +184,15 @@
 
 {# ── Action bar ─────────────────────────────────────────────────── #}
 <div class="action-bar">
+  {% if back_url and client_slug %}
+  <a href="/?client={{ plan.meta.client_name | urlencode }}&suggested_focus={{ plan.meta.focus | urlencode }}"
+     class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">
+    &#9654; Run Again
+  </a>
+  <a href="{{ back_url }}" class="btn-secondary">← Back to Client</a>
+  {% else %}
   <a href="/" class="btn font-display font-bold uppercase tracking-widest">&#9654; Generate Another</a>
+  {% endif %}
   <button onclick="window.print()" class="btn-secondary">Print</button>
 </div>
 

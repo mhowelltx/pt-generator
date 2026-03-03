@@ -87,7 +87,12 @@
               {% if s.session_number %}#{{ s.session_number }}{% else %}—{% endif %}
             </td>
             <td class="px-4 py-3 text-gray-700" style="white-space:nowrap">{{ s.session_date or "—" }}</td>
-            <td class="px-4 py-3 text-gray-700">{{ s.focus or "—" }}</td>
+            <td class="px-4 py-3 text-gray-700">
+              {{ s.focus or "—" }}
+              {% if s.trainer_notes %}
+              <p class="text-xs text-gray-400 mt-0.5">📝 {{ s.trainer_notes }}</p>
+              {% endif %}
+            </td>
             <td class="px-4 py-3">
               {% if s.loads %}
               <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-0.5 rounded-full">{{ s.loads | length }}</span>
@@ -107,7 +112,12 @@
               </ul>
               {% else %}—{% endif %}
             </td>
-            <td class="px-4 py-3 text-right">
+            <td class="px-4 py-3 text-right" style="white-space:nowrap">
+              {% if 'plan_json' in s %}
+              <a href="/clients/{{ slug }}/sessions/{{ orig_idx }}"
+                 class="text-orange-500 hover:underline mr-2"
+                 style="font-size:0.75rem;font-weight:600">View</a>
+              {% endif %}
               {% if not s.archived %}
               <form method="post" action="/clients/{{ slug }}/sessions/{{ orig_idx }}/archive" style="display:inline">
                 <button type="submit"
@@ -120,6 +130,32 @@
               {% else %}
               <span style="font-size:0.75rem;color:#9ca3af">Archived</span>
               {% endif %}
+            </td>
+          </tr>
+          {# Notes row #}
+          <tr class="{% if s.archived %}opacity-40{% endif %}" style="background:#fafafa">
+            <td colspan="6" class="px-4 pb-2 pt-0">
+              <details style="font-size:0.75rem">
+                <summary class="text-gray-400 cursor-pointer hover:text-gray-600 select-none" style="list-style:none;display:inline-flex;align-items:center;gap:4px">
+                  <span>📝</span>
+                  {% if s.trainer_notes %}{{ s.trainer_notes | truncate(70) }}{% else %}Add session note…{% endif %}
+                </summary>
+                <form method="post" action="/clients/{{ slug }}/sessions/{{ orig_idx }}/note" class="mt-2" style="max-width:480px">
+                  <textarea name="trainer_notes" rows="2"
+                    style="width:100%;font-size:0.75rem;border:1px solid #e5e7eb;border-radius:6px;padding:6px 8px;resize:none;outline:none;font-family:inherit"
+                    placeholder="Trainer observation notes for this session…">{{ s.trainer_notes or '' }}</textarea>
+                  <button type="submit"
+                    style="margin-top:4px;font-size:0.7rem;padding:3px 10px;background:#f97316;color:white;border:none;border-radius:4px;cursor:pointer;font-weight:600">
+                    Save Note
+                  </button>
+                  {% if s.trainer_notes %}
+                  <button type="submit" name="trainer_notes" value=""
+                    style="margin-top:4px;margin-left:6px;font-size:0.7rem;padding:3px 10px;background:#f3f4f6;color:#6b7280;border:1px solid #e5e7eb;border-radius:4px;cursor:pointer">
+                    Remove
+                  </button>
+                  {% endif %}
+                </form>
+              </details>
             </td>
           </tr>
           {% endfor %}
@@ -135,6 +171,7 @@
   <a href="/?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
   <button id="suggest-btn" class="btn-secondary" onclick="suggestFocus()">&#10024; Suggest Focus</button>
   <a href="/clients/{{ slug }}/progress-summary" class="btn-secondary">&#128200; Monthly Summary</a>
+  <a href="/clients/{{ slug }}/progress-report-pdf" class="btn-secondary">&#128196; Progress Report PDF</a>
   <a href="/clients/{{ slug }}/edit" class="btn-secondary">Edit Profile</a>
   <a href="/clients" class="btn-secondary">All Clients</a>
 </div>
