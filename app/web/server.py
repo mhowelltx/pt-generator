@@ -51,6 +51,21 @@ def health():
     return {"status": "ok"}
 
 
+@app.get("/debug-net")
+async def debug_net():
+    import httpx
+    results = {}
+    for url in ["https://api.anthropic.com", "https://www.google.com"]:
+        try:
+            async with httpx.AsyncClient(timeout=5) as client:
+                r = await client.get(url)
+                results[url] = r.status_code
+        except Exception as e:
+            results[url] = str(e)
+    results["ANTHROPIC_API_KEY_set"] = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    return results
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("app.web.server:app", host="0.0.0.0", port=8000, reload=True)
