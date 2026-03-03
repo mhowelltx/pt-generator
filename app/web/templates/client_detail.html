@@ -77,11 +77,12 @@
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Focus</th>
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Loads</th>
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Progression</th>
+            <th class="px-4 py-3"></th>
           </tr>
         </thead>
         <tbody>
-          {% for s in history %}
-          <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-100" style="vertical-align:top">
+          {% for orig_idx, s in history %}
+          <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors duration-100{% if s.archived %} opacity-40{% endif %}" style="vertical-align:top">
             <td class="px-4 py-3 text-gray-400 font-semibold">
               {% if s.session_number %}#{{ s.session_number }}{% else %}—{% endif %}
             </td>
@@ -106,6 +107,20 @@
               </ul>
               {% else %}—{% endif %}
             </td>
+            <td class="px-4 py-3 text-right">
+              {% if not s.archived %}
+              <form method="post" action="/clients/{{ slug }}/sessions/{{ orig_idx }}/archive" style="display:inline">
+                <button type="submit"
+                        onclick="return confirm('Archive this session? It will be hidden from progressive overload calculations.')"
+                        style="background:none;border:none;cursor:pointer;font-size:0.75rem;color:#9ca3af;padding:0"
+                        class="hover:text-red-500">
+                  Archive
+                </button>
+              </form>
+              {% else %}
+              <span style="font-size:0.75rem;color:#9ca3af">Archived</span>
+              {% endif %}
+            </td>
           </tr>
           {% endfor %}
         </tbody>
@@ -117,8 +132,36 @@
 </div>
 
 <div class="action-bar">
-  <a href="/?client={{ profile.client_name }}" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
+  <a href="/?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
+  <button id="suggest-btn" class="btn-secondary" onclick="suggestFocus()">&#10024; Suggest Focus</button>
+  <a href="/clients/{{ slug }}/progress-summary" class="btn-secondary">&#128200; Monthly Summary</a>
+  <a href="/clients/{{ slug }}/edit" class="btn-secondary">Edit Profile</a>
   <a href="/clients" class="btn-secondary">All Clients</a>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function suggestFocus() {
+  const btn = document.getElementById('suggest-btn');
+  const genLink = document.getElementById('gen-link');
+  btn.textContent = 'Thinking…';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/clients/{{ slug }}/suggest-focus');
+    if (!res.ok) throw new Error('Request failed');
+    const data = await res.json();
+    const url = new URL(genLink.href);
+    url.searchParams.set('client', '{{ profile.client_name }}');
+    genLink.href = url.toString() + '#focus=' + encodeURIComponent(data.focus);
+    // Navigate to form with focus pre-filled via URL fragment (handled server-side via ?client=)
+    window.location.href = '/?client={{ profile.client_name | urlencode }}&suggested_focus=' + encodeURIComponent(data.focus);
+  } catch {
+    btn.textContent = '&#10024; Suggest Focus';
+    btn.disabled = false;
+    alert('Could not generate a suggestion. Please try again.');
+  }
+}
+</script>
 {% endblock %}

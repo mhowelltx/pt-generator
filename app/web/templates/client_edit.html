@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Edit {{ profile.client_name }} · PT Generator{% endblock %}
+
+{% block content %}
+
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Edit Profile</h2>
+  <p class="text-gray-500 mt-1">{{ profile.client_name }}</p>
+</div>
+
+<div class="form-card" style="max-width:640px">
+  <form method="post" action="/clients/{{ slug }}/edit">
+
+    <div class="field">
+      <label for="constraints">Constraints / Injuries</label>
+      <textarea id="constraints" name="constraints" rows="4" placeholder="e.g.
+lower back pain
+left shoulder impingement">{{ "\n".join(profile.constraints or []) }}</textarea>
+      <p class="hint">One item per line.</p>
+    </div>
+
+    <div class="field">
+      <label for="preferred_equipment">Preferred Equipment</label>
+      <textarea id="preferred_equipment" name="preferred_equipment" rows="4" placeholder="e.g.
+dumbbells 5-30 lbs
+resistance bands
+cable machine">{{ "\n".join(profile.preferred_equipment or []) }}</textarea>
+      <p class="hint">One item per line.</p>
+    </div>
+
+    <div class="field">
+      <label for="machine_settings_raw">Machine Settings</label>
+      <textarea id="machine_settings_raw" name="machine_settings_raw" rows="5" placeholder="e.g.
+Leg Press: Seat 6, Foot plate high
+Chest Press: Seat 3, Lever 4
+Cable Row: Pin 8">{{ machines_text }}</textarea>
+      <p class="hint">One machine per line in the format <strong>Machine Name: settings</strong>.</p>
+    </div>
+
+    <div class="field">
+      <label for="notes">Trainer Notes</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="General coaching notes, goals, observations…">{{ profile.notes or "" }}</textarea>
+    </div>
+
+    <div class="action-bar" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e5e7eb">
+      <button type="submit" class="btn font-display font-bold uppercase tracking-widest">Save Changes</button>
+      <a href="/clients/{{ slug }}" class="btn-secondary">Cancel</a>
+    </div>
+
+  </form>
+</div>
+
+{% endblock %}

@@ -6,7 +6,7 @@ from typing import Annotated, Optional
 from urllib.parse import quote
 
 from fastapi import APIRouter, Depends, Form, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
 from tenacity import RetryError
@@ -84,8 +84,17 @@ def _form_response(request, prev, user, error=None, errors=None, status_code=200
 
 
 @router.get("/", response_class=HTMLResponse)
-def form_page(request: Request, client: str = "", user: dict = Depends(get_current_user)):
-    prev = {"client": client} if client else {}
+def form_page(
+    request: Request,
+    client: str = "",
+    suggested_focus: str = "",
+    user: dict = Depends(get_current_user),
+):
+    prev = {}
+    if client:
+        prev["client"] = client
+    if suggested_focus:
+        prev["focus"] = suggested_focus
     return _form_response(request, prev, user)
 
 
@@ -115,19 +124,135 @@ def clients_list(request: Request, user: dict = Depends(get_current_user)):
     })
 
 
+@router.get("/clients/new", response_class=HTMLResponse)
+def new_client_form(request: Request, user: dict = Depends(get_current_user)):
+    return templates.TemplateResponse("client_new.html", {
+        "request": request,
+        "user": user,
+        "error": None,
+    })
+
+
+@router.post("/clients/new", response_class=HTMLResponse)
+def new_client_create(
+    request: Request,
+    client_name: Annotated[str, Form()],
+    constraints: Annotated[str, Form()] = "",
+    preferred_equipment: Annotated[str, Form()] = "",
+    machine_settings_raw: Annotated[str, Form()] = "",
+    notes: Annotated[str, Form()] = "",
+    user: dict = Depends(get_current_user),
+):
+    client_name = client_name.strip()
+    if not client_name:
+        return templates.TemplateResponse("client_new.html", {
+            "request": request,
+            "user": user,
+            "error": "Client name is required.",
+        }, status_code=422)
+
+    if storage.profile_exists(client_name, user_id=user["id"]):
+        return templates.TemplateResponse("client_new.html", {
+            "request": request,
+            "user": user,
+            "error": f'A client named "{client_name}" already exists.',
+        }, status_code=422)
+
+    parsed_machines: dict[str, str] = {}
+    for line in machine_settings_raw.splitlines():
+        if ":" in line:
+            k, _, v = line.strip().partition(":")
+            if k.strip():
+                parsed_machines[k.strip()] = v.strip()
+
+    profile = {
+        "client_name": client_name,
+        "constraints": [l.strip() for l in constraints.splitlines() if l.strip()],
+        "preferred_equipment": [l.strip() for l in preferred_equipment.splitlines() if l.strip()],
+        "machine_settings": parsed_machines,
+        "notes": notes.strip(),
+    }
+    storage.save_profile(client_name, profile, user_id=user["id"])
+    storage.save_history(client_name, [], user_id=user["id"])
+
+    client_slug = storage.slug(client_name)
+    return RedirectResponse(url=f"/clients/{client_slug}", status_code=303)
+
+
 @router.get("/clients/{slug}", response_class=HTMLResponse)
 def client_detail(request: Request, slug: str, user: dict = Depends(get_current_user)):
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
         return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
     profile, history = result
+    # Preserve original indices for archive actions, then reverse to newest-first
+    indexed_history = list(reversed(list(enumerate(history))))
     return templates.TemplateResponse("client_detail.html", {
         "request": request,
         "slug": slug,
         "profile": profile,
-        "history": list(reversed(history)),
+        "history": indexed_history,
         "user": user,
     })
+
+
+@router.post("/clients/{slug}/sessions/{index}/archive")
+def session_archive(slug: str, index: int, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, _ = result
+    storage.archive_session(profile["client_name"], index, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}", status_code=303)
+
+
+@router.get("/clients/{slug}/edit", response_class=HTMLResponse)
+def client_edit_form(request: Request, slug: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, _ = result
+    machines_text = "\n".join(
+        f"{m}: {s}" for m, s in profile.get("machine_settings", {}).items()
+    )
+    return templates.TemplateResponse("client_edit.html", {
+        "request": request,
+        "slug": slug,
+        "profile": profile,
+        "machines_text": machines_text,
+        "user": user,
+    })
+
+
+@router.post("/clients/{slug}/edit", response_class=HTMLResponse)
+def client_edit_save(
+    request: Request,
+    slug: str,
+    constraints: Annotated[str, Form()] = "",
+    preferred_equipment: Annotated[str, Form()] = "",
+    machine_settings_raw: Annotated[str, Form()] = "",
+    notes: Annotated[str, Form()] = "",
+    user: dict = Depends(get_current_user),
+):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, _ = result
+
+    parsed_machines: dict[str, str] = {}
+    for line in machine_settings_raw.splitlines():
+        if ":" in line:
+            k, _, v = line.strip().partition(":")
+            if k.strip():
+                parsed_machines[k.strip()] = v.strip()
+
+    profile["constraints"] = [l.strip() for l in constraints.splitlines() if l.strip()]
+    profile["preferred_equipment"] = [l.strip() for l in preferred_equipment.splitlines() if l.strip()]
+    profile["machine_settings"] = parsed_machines
+    profile["notes"] = notes.strip()
+
+    storage.save_profile(profile["client_name"], profile, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}", status_code=303)
 
 
 @router.post("/generate", response_class=HTMLResponse)
@@ -239,3 +364,75 @@ def generate(
         "export_links": export_links,
         "user": user,
     })
+
+
+@router.get("/clients/{slug}/suggest-focus")
+def suggest_focus(slug: str, user: dict = Depends(get_current_user)):
+    """Return a JSON object with an AI-suggested focus for the client's next session."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, _ = result
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="ANTHROPIC_API_KEY is not set.")
+    focus = service.suggest_next_focus(
+        api_key=api_key,
+        client=profile["client_name"],
+        user_id=user["id"],
+    )
+    return JSONResponse({"focus": focus})
+
+
+@router.get("/clients/{slug}/progress-summary", response_class=HTMLResponse)
+def progress_summary(request: Request, slug: str, user: dict = Depends(get_current_user)):
+    """Generate and display an AI monthly progress summary for the client."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, history = result
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="ANTHROPIC_API_KEY is not set.")
+    summary = service.generate_progress_summary(
+        api_key=api_key,
+        client_name=profile["client_name"],
+        history=history,
+        profile=profile,
+    )
+    return templates.TemplateResponse("progress_summary.html", {
+        "request": request,
+        "slug": slug,
+        "profile": profile,
+        "summary": summary,
+        "user": user,
+    })
+
+
+@router.get("/profile", response_class=HTMLResponse)
+def trainer_profile_page(request: Request, user: dict = Depends(get_current_user)):
+    trainer = storage.load_trainer_profile(user["id"])
+    return templates.TemplateResponse("trainer_profile.html", {
+        "request": request,
+        "user": user,
+        "trainer": trainer,
+        "saved": request.query_params.get("saved") == "1",
+    })
+
+
+@router.post("/profile", response_class=HTMLResponse)
+def trainer_profile_save(
+    request: Request,
+    display_name: Annotated[str, Form()] = "",
+    gym_name: Annotated[str, Form()] = "",
+    contact_info: Annotated[str, Form()] = "",
+    bio: Annotated[str, Form()] = "",
+    user: dict = Depends(get_current_user),
+):
+    storage.save_trainer_profile(user["id"], {
+        "display_name": display_name.strip(),
+        "gym_name": gym_name.strip(),
+        "contact_info": contact_info.strip(),
+        "bio": bio.strip(),
+    })
+    return RedirectResponse(url="/profile?saved=1", status_code=303)

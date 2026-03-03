@@ -220,6 +220,12 @@
         <a href="/clients" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">Clients</a>
         {% endif %}
 
+        {% if request.url.path == '/profile' %}
+        <a href="/profile" class="font-display font-bold text-sm uppercase tracking-widest text-orange-400">Profile</a>
+        {% else %}
+        <a href="/profile" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">Profile</a>
+        {% endif %}
+
         <a href="/docs" target="_blank" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">API Docs</a>
 
         {% if user %}

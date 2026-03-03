@@ -4,11 +4,16 @@ import re
 from pathlib import Path
 
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(Path(__file__).parent.parent / "data" / "clients")))
+_TRAINER_DIR = DATA_DIR.parent / "trainer"
 
 
-def _slug(name: str) -> str:
+def slug(name: str) -> str:
     """Convert a client name to a filesystem-safe directory name."""
     return re.sub(r"[^\w]+", "_", name.strip().lower()).strip("_")
+
+
+# Keep private alias for internal use
+_slug = slug
 
 
 def _base_dir(user_id: str | None) -> Path:
@@ -118,3 +123,33 @@ def scaffold_profile(name: str, user_id: str | None = None) -> dict:
     save_profile(name, profile, user_id)
     save_history(name, [], user_id)
     return profile
+
+
+def load_trainer_profile(user_id: str) -> dict:
+    """Load trainer profile data. Returns empty dict if not yet created."""
+    path = _TRAINER_DIR / user_id / "profile.json"
+    if not path.exists():
+        return {}
+    with path.open() as f:
+        return json.load(f)
+
+
+def save_trainer_profile(user_id: str, profile: dict) -> None:
+    """Persist trainer profile data."""
+    path = _TRAINER_DIR / user_id / "profile.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w") as f:
+        json.dump(profile, f, indent=2)
+
+
+def archive_session(name: str, index: int, user_id: str | None = None) -> bool:
+    """Mark a session entry as archived so it is excluded from progressive overload.
+
+    Returns ``False`` if the index is out of range.
+    """
+    history = load_history(name, user_id)
+    if not (0 <= index < len(history)):
+        return False
+    history[index]["archived"] = True
+    save_history(name, history, user_id)
+    return True

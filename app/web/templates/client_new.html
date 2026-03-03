@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}New Client · PT Generator{% endblock %}
+
+{% block content %}
+
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">New Client</h2>
+  <p class="text-gray-500 mt-1">Set up a client profile before their first session.</p>
+</div>
+
+{% if error %}
+<div class="alert alert-error mb-4">{{ error }}</div>
+{% endif %}
+
+<div class="form-card" style="max-width:640px">
+  <form method="post" action="/clients/new">
+
+    <div class="field">
+      <label for="client_name">Client Name <span style="color:#b91c1c">*</span></label>
+      <input type="text" id="client_name" name="client_name" placeholder="e.g. Jane Smith" required autofocus>
+    </div>
+
+    <div class="field">
+      <label for="constraints">Constraints / Injuries</label>
+      <textarea id="constraints" name="constraints" rows="4" placeholder="e.g.
+lower back pain
+left shoulder impingement"></textarea>
+      <p class="hint">One item per line. Leave blank if none.</p>
+    </div>
+
+    <div class="field">
+      <label for="preferred_equipment">Preferred Equipment</label>
+      <textarea id="preferred_equipment" name="preferred_equipment" rows="4" placeholder="e.g.
+dumbbells 5-30 lbs
+resistance bands
+cable machine"></textarea>
+      <p class="hint">One item per line. Leave blank to use defaults.</p>
+    </div>
+
+    <div class="field">
+      <label for="machine_settings_raw">Machine Settings</label>
+      <textarea id="machine_settings_raw" name="machine_settings_raw" rows="5" placeholder="e.g.
+Leg Press: Seat 6, Foot plate high
+Chest Press: Seat 3, Lever 4
+Cable Row: Pin 8"></textarea>
+      <p class="hint">One machine per line in the format <strong>Machine Name: settings</strong>.</p>
+    </div>
+
+    <div class="field">
+      <label for="notes">Trainer Notes</label>
+      <textarea id="notes" name="notes" rows="3" placeholder="Goals, coaching observations, anything to remember…"></textarea>
+    </div>
+
+    <div class="action-bar" style="margin-top:1rem;padding-top:1rem;border-top:1px solid #e5e7eb">
+      <button type="submit" class="btn font-display font-bold uppercase tracking-widest">Create Client</button>
+      <a href="/clients" class="btn-secondary">Cancel</a>
+    </div>
+
+  </form>
+</div>
+
+{% endblock %}
