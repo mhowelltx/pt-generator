@@ -69,6 +69,8 @@ async def debug_net():
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
     results["ANTHROPIC_API_KEY_set"] = bool(api_key)
     results["ANTHROPIC_API_KEY_prefix"] = api_key[:12] + "..." if api_key else "not set"
+    results["ANTHROPIC_API_KEY_repr"] = repr(api_key[:20]) if api_key else "not set"
+    results["ANTHROPIC_API_KEY_hex"] = api_key[:20].encode().hex() if api_key else "not set"
     try:
         client = anthropic.Anthropic(api_key=api_key)
         msg = await anyio.to_thread.run_sync(
