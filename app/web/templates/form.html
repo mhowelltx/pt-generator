@@ -131,16 +131,10 @@
     <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-3">Export</p>
     <div class="flex flex-wrap gap-x-8 gap-y-2 mb-6">
       <label class="flex items-center gap-2 cursor-pointer font-normal text-gray-700" style="margin:0">
-        <input type="checkbox" id="export_docx" name="export_docx"
+        <input type="checkbox" id="export_pdf" name="export_pdf"
                class="w-4 h-4 accent-orange-500"
-               {% if prev.export_docx %}checked{% endif %}>
-        Export DOCX
-      </label>
-      <label class="flex items-center gap-2 cursor-pointer font-normal text-gray-700" style="margin:0">
-        <input type="checkbox" id="export_markdown" name="export_markdown"
-               class="w-4 h-4 accent-orange-500"
-               {% if prev.export_markdown %}checked{% endif %}>
-        Export Markdown
+               {% if prev.export_pdf %}checked{% endif %}>
+        Export PDF
       </label>
     </div>
 

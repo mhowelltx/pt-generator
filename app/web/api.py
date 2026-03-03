@@ -29,7 +29,7 @@ class GenerateRequest(BaseModel):
     session_number: Optional[int] = None
     session_date: Optional[str] = None
     machine_inventory: Optional[list[str]] = None  # None → use profile settings
-    export: str = Field(default="none", pattern="^(none|markdown|docx|both)$")
+    export: str = Field(default="none", pattern="^(none|pdf)$")
 
 
 class GenerateResponse(BaseModel):
@@ -83,12 +83,9 @@ def generate(req: GenerateRequest, user: dict = Depends(get_api_user)):
         return JSONResponse(status_code=500, content={"detail": str(exc)})
 
     export_paths: dict[str, str] = {}
-    if req.export in ("markdown", "both"):
-        from app.export_markdown import export as export_md
-        export_paths["markdown"] = str(export_md(plan))
-    if req.export in ("docx", "both"):
-        from app.export_docx import export as export_docx
-        export_paths["docx"] = str(export_docx(plan))
+    if req.export == "pdf":
+        from app.export_pdf import export as export_pdf
+        export_paths["pdf"] = str(export_pdf(plan))
 
     return GenerateResponse(
         plan=plan.model_dump(),

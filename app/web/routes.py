@@ -12,6 +12,7 @@ from pydantic import ValidationError
 from tenacity import RetryError
 
 from app import service, storage
+from app.schema import TrainingSessionPlan
 from app.web.auth import get_current_user
 
 log = logging.getLogger(__name__)
@@ -28,8 +29,7 @@ def _user_outputs_dir(user_id: str) -> Path:
 
 def _media_type(suffix: str) -> str:
     return {
-        ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        ".md": "text/markdown; charset=utf-8",
+        ".pdf": "application/pdf",
     }.get(suffix.lower(), "application/octet-stream")
 
 
@@ -267,8 +267,7 @@ def generate(
     equipment: Annotated[str, Form()] = "",
     include_machine_inventory: Annotated[Optional[str], Form()] = None,
     machine_inventory: Annotated[str, Form()] = "",
-    export_docx: Annotated[Optional[str], Form()] = None,
-    export_markdown: Annotated[Optional[str], Form()] = None,
+    export_pdf: Annotated[Optional[str], Form()] = None,
     user: dict = Depends(get_current_user),
 ):
     prev = {
@@ -281,8 +280,7 @@ def generate(
         "equipment": equipment,
         "include_machine_inventory": include_machine_inventory is not None,
         "machine_inventory": machine_inventory,
-        "export_docx": export_docx is not None,
-        "export_markdown": export_markdown is not None,
+        "export_pdf": export_pdf is not None,
     }
 
     # --- Validation ---
@@ -338,21 +336,12 @@ def generate(
     # --- Exports ---
     user_out = _user_outputs_dir(user["id"])
     export_links: list[dict] = []
-    if export_docx is not None:
-        from app.export_docx import export as _export_docx
-        path = _export_docx(plan, outputs_dir=user_out).resolve()
+    if export_pdf is not None:
+        from app.export_pdf import export as _export_pdf
+        path = _export_pdf(plan, outputs_dir=user_out).resolve()
         rel = path.relative_to(_OUTPUTS_DIR)
         export_links.append({
-            "label": "Download DOCX",
-            "url": f"/download?file={quote(rel.as_posix())}",
-            "filename": path.name,
-        })
-    if export_markdown is not None:
-        from app.export_markdown import export as _export_md
-        path = _export_md(plan, outputs_dir=user_out).resolve()
-        rel = path.relative_to(_OUTPUTS_DIR)
-        export_links.append({
-            "label": "Download Markdown",
+            "label": "Download PDF",
             "url": f"/download?file={quote(rel.as_posix())}",
             "filename": path.name,
         })
@@ -363,6 +352,8 @@ def generate(
         "ctx": ctx,
         "export_links": export_links,
         "user": user,
+        "back_url": None,
+        "client_slug": None,
     })
 
 
@@ -407,6 +398,75 @@ def progress_summary(request: Request, slug: str, user: dict = Depends(get_curre
         "summary": summary,
         "user": user,
     })
+
+
+@router.get("/clients/{slug}/sessions/{index}", response_class=HTMLResponse)
+def session_plan_view(request: Request, slug: str, index: int, user: dict = Depends(get_current_user)):
+    """Render a past session plan stored in history."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, history = result
+    if index < 0 or index >= len(history):
+        return HTMLResponse("<h2>Session not found.</h2>", status_code=404)
+    entry = history[index]
+    plan_data = entry.get("plan_json")
+    if plan_data is None:
+        return templates.TemplateResponse("session_not_available.html", {
+            "request": request,
+            "slug": slug,
+            "profile": profile,
+            "user": user,
+        }, status_code=200)
+    try:
+        plan = TrainingSessionPlan.model_validate(plan_data)
+    except ValidationError:
+        return HTMLResponse("<h2>Plan data is corrupted.</h2>", status_code=500)
+    return templates.TemplateResponse("result.html", {
+        "request": request,
+        "plan": plan,
+        "ctx": None,
+        "export_links": [],
+        "user": user,
+        "back_url": f"/clients/{slug}",
+        "client_slug": slug,
+    })
+
+
+@router.post("/clients/{slug}/sessions/{index}/note")
+def session_note_save(
+    slug: str,
+    index: int,
+    trainer_notes: Annotated[str, Form()] = "",
+    user: dict = Depends(get_current_user),
+):
+    """Save or clear a trainer note on a history entry."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, history = result
+    if index < 0 or index >= len(history):
+        raise HTTPException(status_code=404, detail="Session not found.")
+    history[index]["trainer_notes"] = trainer_notes.strip() or None
+    storage.save_history(profile["client_name"], history, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}", status_code=303)
+
+
+@router.get("/clients/{slug}/progress-report-pdf")
+def progress_report_pdf(slug: str, user: dict = Depends(get_current_user)):
+    """Generate and stream a PDF progress report for the client."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, history = result
+    from app.export_pdf import export_history_report
+    user_out = _user_outputs_dir(user["id"])
+    path = export_history_report(profile, history, outputs_dir=user_out).resolve()
+    return FileResponse(
+        path=path,
+        filename=path.name,
+        media_type="application/pdf",
+    )
 
 
 @router.get("/profile", response_class=HTMLResponse)
