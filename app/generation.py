@@ -29,6 +29,9 @@ class PlanGenerator:
             stop=stop_after_attempt(config.MAX_RETRIES),
             wait=wait_fixed(config.RETRY_WAIT_SECONDS),
             retry=retry_if_not_exception_type(ValidationError),
+            before_sleep=lambda rs: self._log.error(
+                "API attempt %d failed: %s", rs.attempt_number, rs.outcome.exception()
+            ),
         )
         def _attempt() -> TrainingSessionPlan:
             return self._call(user_prompt)
