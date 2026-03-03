@@ -1,4 +1,4 @@
-MODEL = "claude-sonnet-4-5"
+MODEL = "claude-sonnet-4-6"
 MAX_TOKENS = 8192
 TEMPERATURE_GENERATE = 0.4
 MAX_RETRIES = 3
