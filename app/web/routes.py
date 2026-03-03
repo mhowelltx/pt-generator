@@ -5,13 +5,14 @@ from pathlib import Path
 from typing import Annotated, Optional
 from urllib.parse import quote
 
-from fastapi import APIRouter, Form, HTTPException, Request
+from fastapi import APIRouter, Depends, Form, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
 from tenacity import RetryError
 
 from app import service, storage
+from app.web.auth import get_current_user
 
 log = logging.getLogger(__name__)
 
@@ -19,6 +20,10 @@ router = APIRouter()
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 _OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", str(Path(__file__).parent.parent.parent / "outputs"))).resolve()
+
+
+def _user_outputs_dir(user_id: str) -> Path:
+    return _OUTPUTS_DIR / user_id
 
 
 def _media_type(suffix: str) -> str:
@@ -67,27 +72,29 @@ def _validate_form(
     return errors
 
 
-def _form_response(request, prev, error=None, errors=None, status_code=200):
+def _form_response(request, prev, user, error=None, errors=None, status_code=200):
     return templates.TemplateResponse("form.html", {
         "request": request,
         "today": str(date.today()),
         "prev": prev,
         "error": error,
         "errors": errors or {},
+        "user": user,
     }, status_code=status_code)
 
 
 @router.get("/", response_class=HTMLResponse)
-def form_page(request: Request, client: str = ""):
+def form_page(request: Request, client: str = "", user: dict = Depends(get_current_user)):
     prev = {"client": client} if client else {}
-    return _form_response(request, prev)
+    return _form_response(request, prev, user)
 
 
 @router.get("/download")
-def download_file(file: str):
+def download_file(file: str, user: dict = Depends(get_current_user)):
     """Serve an exported file. ``file`` must be a path relative to the outputs directory."""
-    requested = (_OUTPUTS_DIR / file).resolve()
-    if not requested.is_relative_to(_OUTPUTS_DIR):
+    user_dir = _user_outputs_dir(user["id"])
+    requested = (user_dir / file).resolve()
+    if not requested.is_relative_to(user_dir):
         raise HTTPException(status_code=403, detail="Access denied.")
     if not requested.exists():
         raise HTTPException(status_code=404, detail="File not found.")
@@ -99,17 +106,18 @@ def download_file(file: str):
 
 
 @router.get("/clients", response_class=HTMLResponse)
-def clients_list(request: Request):
-    clients = storage.list_clients()
+def clients_list(request: Request, user: dict = Depends(get_current_user)):
+    clients = storage.list_clients(user_id=user["id"])
     return templates.TemplateResponse("clients.html", {
         "request": request,
         "clients": clients,
+        "user": user,
     })
 
 
 @router.get("/clients/{slug}", response_class=HTMLResponse)
-def client_detail(request: Request, slug: str):
-    result = storage.load_by_slug(slug)
+def client_detail(request: Request, slug: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
         return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
     profile, history = result
@@ -118,6 +126,7 @@ def client_detail(request: Request, slug: str):
         "slug": slug,
         "profile": profile,
         "history": list(reversed(history)),
+        "user": user,
     })
 
 
@@ -135,6 +144,7 @@ def generate(
     machine_inventory: Annotated[str, Form()] = "",
     export_docx: Annotated[Optional[str], Form()] = None,
     export_markdown: Annotated[Optional[str], Form()] = None,
+    user: dict = Depends(get_current_user),
 ):
     prev = {
         "client": client,
@@ -153,7 +163,7 @@ def generate(
     # --- Validation ---
     field_errors = _validate_form(client, focus, duration, session_number, session_date)
     if field_errors:
-        return _form_response(request, prev, errors=field_errors, status_code=422)
+        return _form_response(request, prev, user, errors=field_errors, status_code=422)
 
     # --- Parse validated values ---
     dur = int(duration)
@@ -166,7 +176,7 @@ def generate(
 
     api_key = os.getenv("ANTHROPIC_API_KEY", "")
     if not api_key:
-        return _form_response(request, prev,
+        return _form_response(request, prev, user,
                               error="ANTHROPIC_API_KEY is not set on the server.",
                               status_code=500)
 
@@ -182,28 +192,30 @@ def generate(
             session_number=sn,
             session_date=sd,
             machine_inventory=machines,
+            user_id=user["id"],
         )
     except ValidationError:
         log.warning("Plan schema validation failed")
-        return _form_response(request, prev,
+        return _form_response(request, prev, user,
                               error="The AI returned an invalid plan structure. Please try again.",
                               status_code=502)
     except RetryError:
         log.error("Generation failed after all retries")
-        return _form_response(request, prev,
+        return _form_response(request, prev, user,
                               error="Plan generation failed after multiple attempts. Please try again.",
                               status_code=502)
     except Exception as exc:
         log.exception("Unexpected generation error")
-        return _form_response(request, prev,
+        return _form_response(request, prev, user,
                               error=f"An unexpected error occurred: {exc}",
                               status_code=500)
 
     # --- Exports ---
+    user_out = _user_outputs_dir(user["id"])
     export_links: list[dict] = []
     if export_docx is not None:
         from app.export_docx import export as _export_docx
-        path = _export_docx(plan).resolve()
+        path = _export_docx(plan, outputs_dir=user_out).resolve()
         rel = path.relative_to(_OUTPUTS_DIR)
         export_links.append({
             "label": "Download DOCX",
@@ -212,7 +224,7 @@ def generate(
         })
     if export_markdown is not None:
         from app.export_markdown import export as _export_md
-        path = _export_md(plan).resolve()
+        path = _export_md(plan, outputs_dir=user_out).resolve()
         rel = path.relative_to(_OUTPUTS_DIR)
         export_links.append({
             "label": "Download Markdown",
@@ -225,4 +237,5 @@ def generate(
         "plan": plan,
         "ctx": ctx,
         "export_links": export_links,
+        "user": user,
     })

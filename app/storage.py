@@ -11,55 +11,60 @@ def _slug(name: str) -> str:
     return re.sub(r"[^\w]+", "_", name.strip().lower()).strip("_")
 
 
-def client_dir(name: str) -> Path:
-    return DATA_DIR / _slug(name)
+def _base_dir(user_id: str | None) -> Path:
+    return DATA_DIR / user_id if user_id else DATA_DIR
 
 
-def profile_exists(name: str) -> bool:
-    return (client_dir(name) / "profile.json").exists()
+def client_dir(name: str, user_id: str | None = None) -> Path:
+    return _base_dir(user_id) / _slug(name)
 
 
-def load_profile(name: str) -> dict:
-    path = client_dir(name) / "profile.json"
+def profile_exists(name: str, user_id: str | None = None) -> bool:
+    return (client_dir(name, user_id) / "profile.json").exists()
+
+
+def load_profile(name: str, user_id: str | None = None) -> dict:
+    path = client_dir(name, user_id) / "profile.json"
     with path.open() as f:
         return json.load(f)
 
 
-def save_profile(name: str, profile: dict) -> None:
-    path = client_dir(name) / "profile.json"
+def save_profile(name: str, profile: dict, user_id: str | None = None) -> None:
+    path = client_dir(name, user_id) / "profile.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w") as f:
         json.dump(profile, f, indent=2)
 
 
-def load_history(name: str) -> list:
-    path = client_dir(name) / "history.json"
+def load_history(name: str, user_id: str | None = None) -> list:
+    path = client_dir(name, user_id) / "history.json"
     if not path.exists():
         return []
     with path.open() as f:
         return json.load(f)
 
 
-def save_history(name: str, history: list) -> None:
-    path = client_dir(name) / "history.json"
+def save_history(name: str, history: list, user_id: str | None = None) -> None:
+    path = client_dir(name, user_id) / "history.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w") as f:
         json.dump(history, f, indent=2)
 
 
-def append_history(name: str, entry: dict) -> None:
+def append_history(name: str, entry: dict, user_id: str | None = None) -> None:
     """Append one session entry to the client's history log."""
-    history = load_history(name)
+    history = load_history(name, user_id)
     history.append(entry)
-    save_history(name, history)
+    save_history(name, history, user_id)
 
 
-def list_clients() -> list[dict]:
+def list_clients(user_id: str | None = None) -> list[dict]:
     """Return summary dicts for all known clients, sorted by name."""
-    if not DATA_DIR.exists():
+    base = _base_dir(user_id)
+    if not base.exists():
         return []
     results = []
-    for d in DATA_DIR.iterdir():
+    for d in base.iterdir():
         if not d.is_dir():
             continue
         profile_path = d / "profile.json"
@@ -82,12 +87,12 @@ def list_clients() -> list[dict]:
     return results
 
 
-def load_by_slug(slug: str) -> tuple[dict, list] | None:
+def load_by_slug(slug: str, user_id: str | None = None) -> tuple[dict, list] | None:
     """Load (profile, history) for a client identified by their directory slug.
 
     Returns ``None`` if the slug does not exist.
     """
-    d = DATA_DIR / slug
+    d = _base_dir(user_id) / slug
     profile_path = d / "profile.json"
     if not profile_path.exists():
         return None
@@ -101,7 +106,7 @@ def load_by_slug(slug: str) -> tuple[dict, list] | None:
     return profile, history
 
 
-def scaffold_profile(name: str) -> dict:
+def scaffold_profile(name: str, user_id: str | None = None) -> dict:
     """Create and persist a blank profile scaffold for a new client."""
     profile = {
         "client_name": name,
@@ -110,6 +115,6 @@ def scaffold_profile(name: str) -> dict:
         "machine_settings": {},
         "notes": "",
     }
-    save_profile(name, profile)
-    save_history(name, [])
+    save_profile(name, profile, user_id)
+    save_history(name, [], user_id)
     return profile

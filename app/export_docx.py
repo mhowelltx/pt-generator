@@ -10,12 +10,12 @@ from app.storage import _slug
 OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", str(Path(__file__).parent.parent / "outputs")))
 
 
-def _output_path(plan: TrainingSessionPlan) -> Path:
+def _output_path(plan: TrainingSessionPlan, outputs_dir: Path | None = None) -> Path:
     meta = plan.meta
     client_slug = _slug(meta.client_name or "unknown")
     session_num = meta.session_number or 0
     filename = f"{meta.session_date or 'undated'}_session_{session_num}.docx"
-    return OUTPUTS_DIR / client_slug / filename
+    return (outputs_dir or OUTPUTS_DIR) / client_slug / filename
 
 
 def _machine_parts(ms) -> list[str]:
@@ -94,7 +94,7 @@ def _add_block(doc: Document, block: Block) -> None:
         _add_exercise(doc, ex)
 
 
-def export(plan: TrainingSessionPlan) -> Path:
+def export(plan: TrainingSessionPlan, outputs_dir: Path | None = None) -> Path:
     doc = Document()
     meta = plan.meta
 
@@ -128,7 +128,7 @@ def export(plan: TrainingSessionPlan) -> Path:
         for n in plan.coaching_notes:
             doc.add_paragraph(n, style="List Bullet")
 
-    path = _output_path(plan)
+    path = _output_path(plan, outputs_dir)
     path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(path))
     return path

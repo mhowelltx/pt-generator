@@ -70,6 +70,7 @@ def run_generation(
     session_number: Optional[int] = None,
     session_date: Optional[str] = None,
     machine_inventory: Optional[list[str]] = None,
+    user_id: Optional[str] = None,
 ) -> tuple[TrainingSessionPlan, GenerationContext]:
     """
     Full generation pipeline:
@@ -91,11 +92,11 @@ def run_generation(
         Pass ``[]`` to send no machine inventory.
     """
     # --- Profile ---
-    if storage.profile_exists(client):
-        profile = storage.load_profile(client)
+    if storage.profile_exists(client, user_id=user_id):
+        profile = storage.load_profile(client, user_id=user_id)
         is_new = False
     else:
-        profile = storage.scaffold_profile(client)
+        profile = storage.scaffold_profile(client, user_id=user_id)
         is_new = True
 
     resolved_constraints: list[str] = (
@@ -135,9 +136,9 @@ def run_generation(
     # --- Prior history ---
     ctx = GenerationContext(
         is_new_client=is_new,
-        client_dir=str(storage.client_dir(client)),
+        client_dir=str(storage.client_dir(client, user_id=user_id)),
     )
-    history = storage.load_history(client)
+    history = storage.load_history(client, user_id=user_id)
     if history:
         last = history[-1]
         prior_loads = last.get("loads", {})
@@ -160,6 +161,6 @@ def run_generation(
         "focus": plan.meta.focus,
         "loads": extract_loads(plan),
         "progression_notes": plan.progression_notes,
-    })
+    }, user_id=user_id)
 
     return plan, ctx

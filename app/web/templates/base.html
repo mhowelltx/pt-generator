@@ -221,6 +221,11 @@
         {% endif %}
 
         <a href="/docs" target="_blank" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">API Docs</a>
+
+        {% if user %}
+        <span class="text-gray-400 text-sm hidden sm:inline">{{ user.email }}</span>
+        <a href="/auth/logout" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">Sign out</a>
+        {% endif %}
       </nav>
     </div>
   </header>

@@ -7,12 +7,12 @@ from app.storage import _slug
 OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", str(Path(__file__).parent.parent / "outputs")))
 
 
-def _output_path(plan: TrainingSessionPlan) -> Path:
+def _output_path(plan: TrainingSessionPlan, outputs_dir: Path | None = None) -> Path:
     meta = plan.meta
     client_slug = _slug(meta.client_name or "unknown")
     session_num = meta.session_number or 0
     filename = f"{meta.session_date or 'undated'}_session_{session_num}.md"
-    return OUTPUTS_DIR / client_slug / filename
+    return (outputs_dir or OUTPUTS_DIR) / client_slug / filename
 
 
 def _machine_parts(ms) -> list[str]:
@@ -86,7 +86,7 @@ def _render_block(block: Block) -> str:
     return "\n\n".join(parts)
 
 
-def export(plan: TrainingSessionPlan) -> Path:
+def export(plan: TrainingSessionPlan, outputs_dir: Path | None = None) -> Path:
     meta = plan.meta
 
     header = "\n".join([
@@ -119,7 +119,7 @@ def export(plan: TrainingSessionPlan) -> Path:
 
     content = "\n\n---\n\n".join(sections)
 
-    path = _output_path(plan)
+    path = _output_path(plan, outputs_dir)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
     return path
