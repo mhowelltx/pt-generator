@@ -339,7 +339,8 @@ def generate(
     if export_pdf is not None:
         from app.export_pdf import export as _export_pdf
         path = _export_pdf(plan, outputs_dir=user_out).resolve()
-        rel = path.relative_to(_OUTPUTS_DIR)
+        # relative_to(user_out) avoids doubling the user_id in the download URL
+        rel = path.relative_to(user_out)
         export_links.append({
             "label": "Download PDF",
             "url": f"/download?file={quote(rel.as_posix())}",
@@ -417,7 +418,7 @@ def session_plan_view(request: Request, slug: str, index: int, user: dict = Depe
             "slug": slug,
             "profile": profile,
             "user": user,
-        }, status_code=200)
+        })
     try:
         plan = TrainingSessionPlan.model_validate(plan_data)
     except ValidationError:
