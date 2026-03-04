@@ -25,6 +25,15 @@
   .run-btn-row { display:flex; gap:0.75rem; margin:1.5rem 0; flex-wrap:wrap; }
   .btn-complete { background:#16a34a; color:#fff; border:none; padding:0.75rem 2rem; border-radius:8px; font-size:1rem; font-family:'Barlow Condensed',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; cursor:pointer; }
   .btn-complete:hover { background:#15803d; }
+  .ex-name-input { font-size:1.1rem; font-weight:700; color:#111827; border:none; border-bottom:2px solid transparent; background:transparent; font-family:inherit; width:100%; padding:0; margin-bottom:0.4rem; }
+  .ex-name-input:focus { outline:none; border-bottom-color:#f97316; }
+  .btn-adjust { background:none; border:1px solid #e5e7eb; border-radius:4px; padding:0.15rem 0.5rem; font-size:0.7rem; color:#9ca3af; cursor:pointer; font-family:inherit; }
+  .adjust-panel { display:none; margin-top:0.5rem; padding-top:0.5rem; border-top:1px dashed #f3f4f6; }
+  .adjust-panel.open { display:flex; gap:0.5rem; flex-wrap:wrap; align-items:flex-end; }
+  .adjust-field { display:flex; flex-direction:column; gap:0.15rem; }
+  .adjust-field label { font-size:0.65rem; font-weight:700; text-transform:uppercase; color:#9ca3af; }
+  .adjust-field input { border:1px solid #e5e7eb; border-radius:6px; padding:0.3rem 0.5rem; font-size:0.85rem; font-family:inherit; width:90px; }
+  .adjust-field input:focus { outline:none; border-color:#f97316; }
 </style>
 
 <div class="run-header">
@@ -46,12 +55,10 @@
     {% for ex in block.exercises %}
     <div class="run-exercise">
 
-      {# Hidden fields for form submission #}
-      <input type="hidden" name="exercise_names" value="{{ ex.name }}">
-
       <div style="display:flex;align-items:flex-start;gap:0.75rem">
         <div style="flex:1">
-          <p class="run-ex-name">{{ ex.name }}</p>
+          <input type="text" name="exercise_names" value="{{ ex.name }}"
+                 class="ex-name-input" placeholder="Exercise name" autocomplete="off">
           <p class="run-planned">
             {% if ex.sets %}<strong>{{ ex.sets }} sets</strong>{% endif %}
             {% if ex.reps %} &times; <strong>{{ ex.reps }}</strong>{% endif %}
@@ -61,6 +68,27 @@
             {% if ex.tempo %} &nbsp;·&nbsp; Tempo {{ ex.tempo }}{% endif %}
             {% if ex.rest_seconds %} &nbsp;·&nbsp; Rest {{ ex.rest_seconds }}s{% endif %}
           </p>
+          <div style="margin-bottom:0.5rem">
+            <button type="button" class="btn-adjust" onclick="toggleAdjust(this)">&#9881; Adjust plan</button>
+            <div class="adjust-panel">
+              <div class="adjust-field">
+                <label>Planned load (lbs)</label>
+                <input type="number" name="planned_load_adj" step="2.5" min="0"
+                       value="{{ ex.loading.load_lbs if ex.loading and ex.loading.load_lbs is not none else '' }}"
+                       placeholder="lbs">
+              </div>
+              <div class="adjust-field">
+                <label>Sets</label>
+                <input type="number" name="planned_sets_adj" min="1"
+                       value="{{ ex.sets or '' }}" placeholder="#">
+              </div>
+              <div class="adjust-field">
+                <label>Reps</label>
+                <input type="text" name="planned_reps_adj"
+                       value="{{ ex.reps or '' }}" placeholder="e.g. 12">
+              </div>
+            </div>
+          </div>
           <div class="run-inputs">
             <div class="run-field">
               <label>Actual Weight (lbs)</label>
@@ -112,6 +140,11 @@ function toggleDone(el) {
   el.classList.toggle('checked');
   const card = el.closest('.run-exercise');
   card.classList.toggle('done');
+}
+function toggleAdjust(btn) {
+  const panel = btn.nextElementSibling;
+  panel.classList.toggle('open');
+  btn.textContent = panel.classList.contains('open') ? '\u2715 Close' : '\u2699 Adjust plan';
 }
 </script>
 {% endblock %}

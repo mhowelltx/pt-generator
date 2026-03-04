@@ -444,6 +444,7 @@ def session_plan_view(request: Request, slug: str, index: int, user: dict = Depe
         "user": user,
         "back_url": f"/clients/{slug}",
         "client_slug": slug,
+        "session_index": index,
     })
 
 
@@ -501,6 +502,9 @@ def session_complete_save(
     exercise_names: Annotated[List[str], Form()] = [],
     actual_loads: Annotated[List[str], Form()] = [],
     actual_reps_list: Annotated[List[str], Form()] = [],
+    planned_load_adj: Annotated[List[str], Form()] = [],
+    planned_sets_adj: Annotated[List[str], Form()] = [],
+    planned_reps_adj: Annotated[List[str], Form()] = [],
     user: dict = Depends(get_current_user),
 ):
     """Save actual loads/reps from a live session and detect PRs."""
@@ -524,6 +528,32 @@ def session_complete_save(
             actual_reps_dict[name] = reps_str.strip()
 
     prs = service.detect_prs(history, index, actual_loads_dict)
+
+    # Patch plan_json: update exercise names and any adjusted planned params
+    plan_data = history[index].get("plan_json")
+    if plan_data:
+        flat = [
+            (bi, ei)
+            for bi, blk in enumerate(plan_data.get("blocks", []))
+            for ei in range(len(blk.get("exercises", [])))
+        ]
+        for pos, (bi, ei) in enumerate(flat):
+            ex = plan_data["blocks"][bi]["exercises"][ei]
+            if pos < len(exercise_names):
+                ex["name"] = exercise_names[pos]
+            if pos < len(planned_load_adj) and planned_load_adj[pos].strip():
+                try:
+                    ex.setdefault("loading", {})["load_lbs"] = float(planned_load_adj[pos])
+                except ValueError:
+                    pass
+            if pos < len(planned_sets_adj) and planned_sets_adj[pos].strip():
+                try:
+                    ex["sets"] = int(planned_sets_adj[pos])
+                except ValueError:
+                    pass
+            if pos < len(planned_reps_adj) and planned_reps_adj[pos].strip():
+                ex["reps"] = planned_reps_adj[pos]
+        history[index]["plan_json"] = plan_data
 
     history[index]["actual_loads"] = actual_loads_dict
     if actual_reps_dict:
@@ -553,6 +583,129 @@ def session_complete_view(request: Request, slug: str, index: int, user: dict = 
         "entry": entry,
         "user": user,
     })
+
+
+@router.get("/clients/{slug}/sessions/{index}/edit", response_class=HTMLResponse)
+def session_plan_edit(request: Request, slug: str, index: int, user: dict = Depends(get_current_user)):
+    """Render the plan edit form for a stored session."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, history = result
+    if index < 0 or index >= len(history):
+        return HTMLResponse("<h2>Session not found.</h2>", status_code=404)
+    plan_data = history[index].get("plan_json")
+    if plan_data is None:
+        return HTMLResponse("<h2>No plan available.</h2>", status_code=404)
+    try:
+        plan = TrainingSessionPlan.model_validate(plan_data)
+    except ValidationError:
+        return HTMLResponse("<h2>Plan data is corrupted.</h2>", status_code=500)
+    return templates.TemplateResponse("session_edit.html", {
+        "request": request,
+        "profile": profile,
+        "slug": slug,
+        "index": index,
+        "plan": plan,
+        "user": user,
+    })
+
+
+@router.post("/clients/{slug}/sessions/{index}/edit")
+def session_plan_edit_save(
+    slug: str,
+    index: int,
+    block_title: Annotated[List[str], Form()] = [],
+    block_time: Annotated[List[str], Form()] = [],
+    block_format: Annotated[List[str], Form()] = [],
+    ex_name: Annotated[List[str], Form()] = [],
+    ex_sets: Annotated[List[str], Form()] = [],
+    ex_reps: Annotated[List[str], Form()] = [],
+    ex_load: Annotated[List[str], Form()] = [],
+    ex_tempo: Annotated[List[str], Form()] = [],
+    ex_rest: Annotated[List[str], Form()] = [],
+    ex_machine_name: Annotated[List[str], Form()] = [],
+    ex_seat: Annotated[List[str], Form()] = [],
+    ex_lever: Annotated[List[str], Form()] = [],
+    ex_pad: Annotated[List[str], Form()] = [],
+    ex_machine_notes: Annotated[List[str], Form()] = [],
+    ex_cues: Annotated[List[str], Form()] = [],
+    ex_regressions: Annotated[List[str], Form()] = [],
+    ex_progressions: Annotated[List[str], Form()] = [],
+    user: dict = Depends(get_current_user),
+):
+    """Save trainer edits to a session plan."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, history = result
+    if index < 0 or index >= len(history):
+        raise HTTPException(status_code=404, detail="Session not found.")
+    plan_data = history[index].get("plan_json", {})
+
+    # Update block-level fields (one entry per block, in order)
+    for bi, block in enumerate(plan_data.get("blocks", [])):
+        if bi < len(block_title) and block_title[bi].strip():
+            block["title"] = block_title[bi].strip()
+        if bi < len(block_time) and block_time[bi].strip():
+            try:
+                block["time_minutes"] = int(block_time[bi])
+            except ValueError:
+                pass
+        if bi < len(block_format):
+            block["format"] = block_format[bi].strip() or None
+
+    # Update exercise-level fields (flattened across blocks, in DOM order)
+    flat = [
+        (bi, ei)
+        for bi, blk in enumerate(plan_data.get("blocks", []))
+        for ei in range(len(blk.get("exercises", [])))
+    ]
+    for pos, (bi, ei) in enumerate(flat):
+        ex = plan_data["blocks"][bi]["exercises"][ei]
+        if pos < len(ex_name) and ex_name[pos].strip():
+            ex["name"] = ex_name[pos].strip()
+        if pos < len(ex_sets) and ex_sets[pos].strip():
+            try:
+                ex["sets"] = int(ex_sets[pos])
+            except ValueError:
+                pass
+        if pos < len(ex_reps):
+            ex["reps"] = ex_reps[pos].strip() or None
+        if pos < len(ex_load) and ex_load[pos].strip():
+            try:
+                ex.setdefault("loading", {})["load_lbs"] = float(ex_load[pos])
+            except ValueError:
+                pass
+        if pos < len(ex_tempo):
+            ex["tempo"] = ex_tempo[pos].strip() or None
+        if pos < len(ex_rest) and ex_rest[pos].strip():
+            try:
+                ex["rest_seconds"] = int(ex_rest[pos])
+            except ValueError:
+                pass
+        ms = ex.setdefault("machine_settings", {})
+        for field, arr in [
+            ("machine_name", ex_machine_name),
+            ("seat", ex_seat),
+            ("lever", ex_lever),
+            ("pad", ex_pad),
+            ("notes", ex_machine_notes),
+        ]:
+            if pos < len(arr):
+                ms[field] = arr[pos].strip() or None
+        if not any(ms.values()):
+            ex["machine_settings"] = None
+        if pos < len(ex_cues):
+            ex["cues"] = [line.strip() for line in ex_cues[pos].splitlines() if line.strip()]
+        if pos < len(ex_regressions):
+            ex["regressions"] = [line.strip() for line in ex_regressions[pos].splitlines() if line.strip()]
+        if pos < len(ex_progressions):
+            ex["progressions"] = [line.strip() for line in ex_progressions[pos].splitlines() if line.strip()]
+
+    history[index]["plan_json"] = plan_data
+    storage.save_history(profile["client_name"], history, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}/sessions/{index}", status_code=303)
 
 
 @router.get("/clients/{slug}/charts", response_class=HTMLResponse)
