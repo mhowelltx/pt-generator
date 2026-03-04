@@ -15,6 +15,11 @@
 <div class="form-card" style="max-width:640px">
   <form method="post" action="/clients/new">
 
+    <div class="action-bar" style="border-top:none;padding-top:0;margin-top:0;margin-bottom:1rem">
+      <button type="submit" class="btn font-display font-bold uppercase tracking-widest">Create Client</button>
+      <a href="/clients" class="btn-secondary">Cancel</a>
+    </div>
+
     <div class="field">
       <label for="client_name">Client Name <span style="color:#b91c1c">*</span></label>
       <input type="text" id="client_name" name="client_name" placeholder="e.g. Jane Smith" required autofocus>

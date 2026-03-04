@@ -11,6 +11,11 @@
 <div class="form-card" style="max-width:640px">
   <form method="post" action="/clients/{{ slug }}/edit">
 
+    <div class="action-bar" style="border-top:none;padding-top:0;margin-top:0;margin-bottom:1rem">
+      <button type="submit" class="btn font-display font-bold uppercase tracking-widest">Save Changes</button>
+      <a href="/clients/{{ slug }}" class="btn-secondary">Cancel</a>
+    </div>
+
     <div class="field">
       <label for="constraints">Constraints / Injuries</label>
       <textarea id="constraints" name="constraints" rows="4" placeholder="e.g.
