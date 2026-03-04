@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}Run Session · {{ profile.client_name }}{% endblock %}
+
+{% block content %}
+
+<style>
+  .run-header { background:#111827; color:#f9fafb; border-left:5px solid #f97316; padding:1rem 1.25rem; border-radius:12px; margin-bottom:1rem; }
+  .run-meta { font-family:'Barlow Condensed',sans-serif; font-size:1.4rem; font-weight:700; margin:0 0 0.2rem; }
+  .run-sub { font-size:0.85rem; color:#9ca3af; }
+  .run-block { margin:1.25rem 0; }
+  .run-block-title { font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#6b7280; background:#f3f4f6; padding:0.3rem 0.75rem; border-radius:4px; display:inline-block; margin-bottom:0.5rem; }
+  .run-exercise { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:1rem 1.25rem; margin:0.5rem 0; position:relative; }
+  .run-exercise.done { border-color:#86efac; background:#f0fdf4; }
+  .run-ex-name { font-size:1.1rem; font-weight:700; margin:0 0 0.4rem; color:#111827; }
+  .run-planned { font-size:0.8rem; color:#6b7280; margin-bottom:0.75rem; }
+  .run-planned strong { color:#374151; }
+  .run-inputs { display:flex; gap:0.75rem; align-items:flex-end; flex-wrap:wrap; }
+  .run-field { display:flex; flex-direction:column; gap:0.2rem; }
+  .run-field label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:#9ca3af; }
+  .run-field input { border:2px solid #e5e7eb; border-radius:8px; padding:0.5rem 0.75rem; font-size:1rem; font-family:inherit; width:100px; }
+  .run-field input[type=text] { width:160px; }
+  .run-field input:focus { outline:none; border-color:#f97316; }
+  .run-check { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border:2px solid #e5e7eb; border-radius:8px; cursor:pointer; font-size:1.2rem; flex-shrink:0; user-select:none; background:#fff; }
+  .run-check.checked { border-color:#22c55e; background:#dcfce7; }
+  .run-btn-row { display:flex; gap:0.75rem; margin:1.5rem 0; flex-wrap:wrap; }
+  .btn-complete { background:#16a34a; color:#fff; border:none; padding:0.75rem 2rem; border-radius:8px; font-size:1rem; font-family:'Barlow Condensed',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; cursor:pointer; }
+  .btn-complete:hover { background:#15803d; }
+</style>
+
+<div class="run-header">
+  <p class="run-meta">{{ profile.client_name }} — Session {% if plan.meta.session_number %}#{{ plan.meta.session_number }}{% endif %}</p>
+  <p class="run-sub">{{ plan.meta.session_date or "" }} &nbsp;·&nbsp; {{ plan.meta.duration_minutes }} min &nbsp;·&nbsp; {{ plan.meta.focus }}</p>
+</div>
+
+<form method="post" action="/clients/{{ slug }}/sessions/{{ index }}/complete" id="run-form">
+
+  <div class="run-btn-row">
+    <button type="submit" class="btn-complete">&#10003; Complete Session</button>
+    <a href="/clients/{{ slug }}" class="btn-secondary" style="text-decoration:none">&#8592; Back to Client</a>
+  </div>
+
+  {% for block in plan.blocks %}
+  <div class="run-block">
+    <span class="run-block-title">{{ block.title }}{% if block.time_minutes %} · {{ block.time_minutes }} min{% endif %}</span>
+
+    {% for ex in block.exercises %}
+    <div class="run-exercise" id="ex-{{ loop.index0 }}-{{ loop.parentloop.index0 }}">
+
+      {# Hidden fields for form submission #}
+      <input type="hidden" name="exercise_names" value="{{ ex.name }}">
+
+      <div style="display:flex;align-items:flex-start;gap:0.75rem">
+        <div style="flex:1">
+          <p class="run-ex-name">{{ ex.name }}</p>
+          <p class="run-planned">
+            {% if ex.sets %}<strong>{{ ex.sets }} sets</strong>{% endif %}
+            {% if ex.reps %} &times; <strong>{{ ex.reps }}</strong>{% endif %}
+            {% if ex.loading and ex.loading.load_lbs is not none %}
+             &nbsp;@&nbsp;<strong>{{ ex.loading.load_lbs }} lbs</strong> planned
+            {% endif %}
+            {% if ex.tempo %} &nbsp;·&nbsp; Tempo {{ ex.tempo }}{% endif %}
+            {% if ex.rest_seconds %} &nbsp;·&nbsp; Rest {{ ex.rest_seconds }}s{% endif %}
+          </p>
+          <div class="run-inputs">
+            <div class="run-field">
+              <label>Actual Weight (lbs)</label>
+              <input type="number"
+                     name="actual_loads"
+                     value="{{ ex.loading.load_lbs if ex.loading and ex.loading.load_lbs is not none else '' }}"
+                     step="2.5" min="0" placeholder="lbs">
+            </div>
+            <div class="run-field">
+              <label>Reps / Notes</label>
+              <input type="text"
+                     name="actual_reps_list"
+                     value="{{ ex.loading.reps_achieved if ex.loading and ex.loading.reps_achieved else '' }}"
+                     placeholder="e.g. 12,12,10">
+            </div>
+          </div>
+        </div>
+        <div class="run-check"
+             onclick="toggleDone(this)"
+             title="Mark done">&#10003;</div>
+      </div>
+
+      {% if ex.cues %}
+      <details style="margin-top:0.5rem;font-size:0.8rem">
+        <summary style="color:#9ca3af;cursor:pointer;list-style:none">Cues &#9662;</summary>
+        <ul style="margin:0.25rem 0 0;padding-left:1.25rem;color:#4b5563">
+          {% for c in ex.cues %}<li>{{ c }}</li>{% endfor %}
+        </ul>
+      </details>
+      {% endif %}
+
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  <div class="run-btn-row" style="margin-top:2rem">
+    <button type="submit" class="btn-complete">&#10003; Complete Session</button>
+    <a href="/clients/{{ slug }}" class="btn-secondary" style="text-decoration:none">&#8592; Back to Client</a>
+  </div>
+
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function toggleDone(el) {
+  el.classList.toggle('checked');
+  const card = el.closest('.run-exercise');
+  card.classList.toggle('done');
+}
+</script>
+{% endblock %}

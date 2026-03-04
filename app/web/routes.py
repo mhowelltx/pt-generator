@@ -1,8 +1,9 @@
+import json
 import logging
 import os
 from datetime import date, datetime
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated, List, Optional
 from urllib.parse import quote
 
 from fastapi import APIRouter, Depends, Form, HTTPException, Request
@@ -187,11 +188,14 @@ def client_detail(request: Request, slug: str, user: dict = Depends(get_current_
     profile, history = result
     # Preserve original indices for archive actions, then reverse to newest-first
     indexed_history = list(reversed(list(enumerate(history))))
+    goals = storage.load_goals(profile["client_name"], user_id=user["id"])
+    active_goals = [g for g in goals if g.get("status") == "active"]
     return templates.TemplateResponse("client_detail.html", {
         "request": request,
         "slug": slug,
         "profile": profile,
         "history": indexed_history,
+        "active_goals": active_goals,
         "user": user,
     })
 
@@ -460,6 +464,237 @@ def session_note_save(
     history[index]["trainer_notes"] = trainer_notes.strip() or None
     storage.save_history(profile["client_name"], history, user_id=user["id"])
     return RedirectResponse(url=f"/clients/{slug}", status_code=303)
+
+
+@router.get("/clients/{slug}/sessions/{index}/run", response_class=HTMLResponse)
+def session_run_view(request: Request, slug: str, index: int, user: dict = Depends(get_current_user)):
+    """Live session mode: follow the plan and record actual loads."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, history = result
+    if index < 0 or index >= len(history):
+        return HTMLResponse("<h2>Session not found.</h2>", status_code=404)
+    entry = history[index]
+    plan_data = entry.get("plan_json")
+    if plan_data is None:
+        return HTMLResponse("<h2>No plan available for this session.</h2>", status_code=404)
+    try:
+        plan = TrainingSessionPlan.model_validate(plan_data)
+    except ValidationError:
+        return HTMLResponse("<h2>Plan data is corrupted.</h2>", status_code=500)
+    return templates.TemplateResponse("session_run.html", {
+        "request": request,
+        "profile": profile,
+        "slug": slug,
+        "index": index,
+        "plan": plan,
+        "entry": entry,
+        "user": user,
+    })
+
+
+@router.post("/clients/{slug}/sessions/{index}/complete")
+def session_complete_save(
+    slug: str,
+    index: int,
+    exercise_names: Annotated[List[str], Form()] = [],
+    actual_loads: Annotated[List[str], Form()] = [],
+    actual_reps_list: Annotated[List[str], Form()] = [],
+    user: dict = Depends(get_current_user),
+):
+    """Save actual loads/reps from a live session and detect PRs."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, history = result
+    if index < 0 or index >= len(history):
+        raise HTTPException(status_code=404, detail="Session not found.")
+
+    # Build actual loads dict, skipping empty entries
+    actual_loads_dict: dict[str, float] = {}
+    actual_reps_dict: dict[str, str] = {}
+    for name, load_str, reps_str in zip(exercise_names, actual_loads, actual_reps_list):
+        if load_str.strip():
+            try:
+                actual_loads_dict[name] = float(load_str)
+            except ValueError:
+                pass
+        if reps_str.strip():
+            actual_reps_dict[name] = reps_str.strip()
+
+    prs = service.detect_prs(history, index, actual_loads_dict)
+
+    history[index]["actual_loads"] = actual_loads_dict
+    if actual_reps_dict:
+        history[index]["actual_reps"] = actual_reps_dict
+    if prs:
+        history[index]["prs"] = prs
+
+    storage.save_history(profile["client_name"], history, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}/sessions/{index}/complete", status_code=303)
+
+
+@router.get("/clients/{slug}/sessions/{index}/complete", response_class=HTMLResponse)
+def session_complete_view(request: Request, slug: str, index: int, user: dict = Depends(get_current_user)):
+    """Show session completion summary with PRs highlighted."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, history = result
+    if index < 0 or index >= len(history):
+        return HTMLResponse("<h2>Session not found.</h2>", status_code=404)
+    entry = history[index]
+    return templates.TemplateResponse("session_complete.html", {
+        "request": request,
+        "profile": profile,
+        "slug": slug,
+        "index": index,
+        "entry": entry,
+        "user": user,
+    })
+
+
+@router.get("/clients/{slug}/charts", response_class=HTMLResponse)
+def progress_charts(request: Request, slug: str, user: dict = Depends(get_current_user)):
+    """Load progression charts for the client."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, history = result
+
+    # Build per-exercise time series from history (prefer actual_loads over planned loads)
+    exercise_data: dict[str, list] = {}
+    for entry in history:
+        if entry.get("archived"):
+            continue
+        d = entry.get("session_date", "")
+        sn = entry.get("session_number")
+        loads = entry.get("actual_loads") or entry.get("loads", {})
+        for name, load in loads.items():
+            if load is not None:
+                exercise_data.setdefault(name, []).append({
+                    "date": d,
+                    "session": sn,
+                    "load": float(load),
+                    "is_pr": name in entry.get("prs", {}),
+                })
+
+    # Build summary table sorted by PR load descending
+    exercises_summary = sorted(
+        [
+            {
+                "name": name,
+                "max_load": max(p["load"] for p in points),
+                "sessions": len(points),
+                "latest": points[-1]["load"] if points else None,
+            }
+            for name, points in exercise_data.items()
+        ],
+        key=lambda x: x["max_load"],
+        reverse=True,
+    )
+
+    return templates.TemplateResponse("progress_charts.html", {
+        "request": request,
+        "profile": profile,
+        "slug": slug,
+        "exercise_data_json": json.dumps(exercise_data),
+        "exercises_summary": exercises_summary,
+        "user": user,
+    })
+
+
+@router.get("/clients/{slug}/goals", response_class=HTMLResponse)
+def client_goals_page(request: Request, slug: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, _ = result
+    goals = storage.load_goals(profile["client_name"], user_id=user["id"])
+    return templates.TemplateResponse("client_goals.html", {
+        "request": request,
+        "profile": profile,
+        "slug": slug,
+        "goals": goals,
+        "user": user,
+    })
+
+
+@router.get("/clients/{slug}/goals/brainstorm")
+def goals_brainstorm(slug: str, context: str = "", user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, history = result
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="ANTHROPIC_API_KEY not set.")
+    suggested = service.brainstorm_goals(
+        api_key=api_key,
+        client_name=profile["client_name"],
+        profile=profile,
+        history=history,
+        context=context,
+    )
+    return JSONResponse({"goals": suggested})
+
+
+@router.post("/clients/{slug}/goals")
+def goal_create(
+    slug: str,
+    text: Annotated[str, Form()],
+    category: Annotated[str, Form()] = "other",
+    target_date: Annotated[str, Form()] = "",
+    milestones_raw: Annotated[str, Form()] = "",
+    notes: Annotated[str, Form()] = "",
+    user: dict = Depends(get_current_user),
+):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, _ = result
+    goals = storage.load_goals(profile["client_name"], user_id=user["id"])
+    goals.append({
+        "id": str(int(datetime.now().timestamp() * 1000)),
+        "text": text.strip(),
+        "category": category,
+        "target_date": target_date.strip() or None,
+        "status": "active",
+        "created": str(date.today()),
+        "milestones": [m.strip() for m in milestones_raw.splitlines() if m.strip()],
+        "notes": notes.strip(),
+    })
+    storage.save_goals(profile["client_name"], goals, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}/goals", status_code=303)
+
+
+@router.post("/clients/{slug}/goals/{goal_id}/achieve")
+def goal_achieve(slug: str, goal_id: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, _ = result
+    goals = storage.load_goals(profile["client_name"], user_id=user["id"])
+    for g in goals:
+        if g["id"] == goal_id:
+            g["status"] = "achieved"
+            g["achieved_date"] = str(date.today())
+            break
+    storage.save_goals(profile["client_name"], goals, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}/goals", status_code=303)
+
+
+@router.post("/clients/{slug}/goals/{goal_id}/delete")
+def goal_delete(slug: str, goal_id: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, _ = result
+    goals = storage.load_goals(profile["client_name"], user_id=user["id"])
+    goals = [g for g in goals if g["id"] != goal_id]
+    storage.save_goals(profile["client_name"], goals, user_id=user["id"])
+    return RedirectResponse(url=f"/clients/{slug}/goals", status_code=303)
 
 
 @router.get("/clients/{slug}/progress-report-pdf")

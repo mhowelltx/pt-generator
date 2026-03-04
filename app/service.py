@@ -4,7 +4,9 @@ Shared generation pipeline used by both the CLI (app/main.py) and the web API
 """
 from __future__ import annotations
 
+import json
 import os
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Optional
@@ -142,7 +144,8 @@ def run_generation(
     active_history = [h for h in history if not h.get("archived", False)]
     if active_history:
         last = active_history[-1]
-        prior_loads = last.get("loads", {})
+        # Prefer actual recorded loads over planned loads for progressive overload
+        prior_loads = last.get("actual_loads") or last.get("loads", {})
         inputs["prior_loads"] = prior_loads
         inputs["prior_session_date"] = last.get("session_date")
         inputs["prior_session_number"] = last.get("session_number")
@@ -150,6 +153,11 @@ def run_generation(
         ctx.prior_session_number = last.get("session_number")
         ctx.prior_session_date = last.get("session_date")
         ctx.prior_load_count = len(prior_loads)
+
+    goals = storage.load_goals(client, user_id=user_id)
+    active_goals = [g["text"] for g in goals if g.get("status") == "active"]
+    if active_goals:
+        inputs["client_goals"] = active_goals
 
     # --- Generate ---
     generator = PlanGenerator(Anthropic(api_key=api_key))
@@ -166,6 +174,83 @@ def run_generation(
     }, user_id=user_id)
 
     return plan, ctx
+
+
+def detect_prs(history: list, current_index: int, actual_loads: dict) -> dict:
+    """Return {exercise: {prev, new}} for exercises where actual exceeds all-time prior max."""
+    maxes: dict[str, float] = {}
+    for i, entry in enumerate(history):
+        if i == current_index or entry.get("archived"):
+            continue
+        combined = {**entry.get("loads", {}), **entry.get("actual_loads", {})}
+        for name, load in combined.items():
+            if load is not None:
+                maxes[name] = max(maxes.get(name, 0.0), float(load))
+    prs: dict = {}
+    for name, actual in actual_loads.items():
+        prev = maxes.get(name)
+        if prev is not None and actual > prev:
+            prs[name] = {"prev": prev, "new": actual}
+    return prs
+
+
+def brainstorm_goals(
+    *,
+    api_key: str,
+    client_name: str,
+    profile: dict,
+    history: list,
+    context: str = "",
+) -> list[dict]:
+    """Use Claude to suggest 3–4 SMART fitness goals based on the client profile."""
+    constraints = profile.get("constraints", [])
+    equipment = profile.get("preferred_equipment", [])
+    active_history = [h for h in history if not h.get("archived")]
+
+    profile_section = ""
+    if constraints:
+        profile_section += f"Constraints/injuries: {', '.join(constraints)}\n"
+    if equipment:
+        profile_section += f"Equipment: {', '.join(equipment)}\n"
+    if profile.get("notes"):
+        profile_section += f"Trainer notes: {profile['notes']}\n"
+
+    history_section = ""
+    if active_history:
+        history_section = f"Training history: {len(active_history)} sessions\n"
+        recent = active_history[-3:]
+        focuses = [s.get("focus", "") for s in recent if s.get("focus")]
+        if focuses:
+            history_section += "Recent focuses: " + "; ".join(focuses) + "\n"
+
+    context_section = f"Trainer context on client aspirations: {context}\n" if context.strip() else ""
+
+    prompt = (
+        f"You are a personal trainer setting realistic, motivating SMART fitness goals.\n\n"
+        f"Client: {client_name}\n"
+        f"{profile_section}{history_section}{context_section}"
+        f"Today: {date.today().isoformat()}\n\n"
+        f"Suggest 3–4 SMART fitness goals. Return ONLY a JSON object, no markdown:\n"
+        f'{{"goals":[{{"text":"...","category":"strength|endurance|mobility|body_composition|lifestyle",'
+        f'"target_date":"YYYY-MM-DD","milestones":["...","..."],"rationale":"..."}}]}}'
+    )
+
+    anthropic_client = Anthropic(api_key=api_key)
+    response = anthropic_client.messages.create(
+        model=config.MODEL,
+        max_tokens=900,
+        temperature=0.6,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = response.content[0].text.strip()
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if not match:
+        return []
+    try:
+        data = json.loads(match.group())
+        return data.get("goals", [])
+    except json.JSONDecodeError:
+        return []
 
 
 def suggest_next_focus(

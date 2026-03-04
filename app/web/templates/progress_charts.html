@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% block title %}Progress Charts · {{ profile.client_name }}{% endblock %}
+
+{% block content %}
+
+<style>
+  .chart-action-bar { display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+  .ex-btn { padding:0.35rem 0.85rem; border-radius:6px; font-size:0.8rem; font-weight:600; cursor:pointer; border:1px solid #e5e7eb; background:#fff; color:#374151; font-family:inherit; }
+  .ex-btn.active { background:#f97316; color:#fff; border-color:#f97316; }
+  .ex-btn:hover:not(.active) { background:#f3f4f6; }
+  .chart-wrap { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; }
+  .chart-empty { text-align:center; padding:3rem; color:#9ca3af; }
+  .pr-table { width:100%; border-collapse:collapse; font-size:0.875rem; }
+  .pr-table th { background:#111827; color:#fff; padding:0.5rem 1rem; text-align:left; font-family:'Barlow Condensed',sans-serif; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; }
+  .pr-table td { padding:0.5rem 1rem; border-bottom:1px solid #f3f4f6; color:#374151; }
+  .pr-table tr:last-child td { border-bottom:none; }
+  .pr-badge { background:#f97316; color:#fff; font-size:0.65rem; font-weight:700; padding:0.1rem 0.45rem; border-radius:999px; text-transform:uppercase; }
+</style>
+
+<div class="mb-4">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Progress Charts</h2>
+  <p class="text-gray-500 text-sm mt-1">{{ profile.client_name }}</p>
+</div>
+
+<div class="chart-action-bar">
+  <a href="/clients/{{ slug }}" class="btn-secondary" style="text-decoration:none">&#8592; Client</a>
+  <a href="/clients/{{ slug }}/goals" class="btn-secondary" style="text-decoration:none">&#127919; Goals</a>
+</div>
+
+<div id="no-data" class="chart-empty" style="display:none">
+  <p class="text-2xl mb-2">&#128200;</p>
+  <p>No load data yet. Record actual weights during sessions to see charts.</p>
+</div>
+
+<div id="chart-area">
+  <div style="margin-bottom:1rem">
+    <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Exercise</p>
+    <div id="ex-buttons" style="display:flex;gap:0.5rem;flex-wrap:wrap"></div>
+  </div>
+
+  <div class="chart-wrap">
+    <canvas id="loadChart" height="280"></canvas>
+  </div>
+</div>
+
+{% if exercises_summary %}
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mt-2">
+  <table class="pr-table">
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>All-Time Max</th>
+        <th>Latest</th>
+        <th>Sessions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ex in exercises_summary %}
+      <tr>
+        <td>{{ ex.name }}</td>
+        <td><strong>{{ ex.max_load }} lbs</strong> <span class="pr-badge">PR</span></td>
+        <td>{{ ex.latest }} lbs</td>
+        <td>{{ ex.sessions }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="chart-empty" style="padding:1.5rem">
+  <p class="text-gray-400 text-sm">Record actual weights during live sessions to build a progress table.</p>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+const exerciseData = {{ exercise_data_json | safe }};
+const exercises = Object.keys(exerciseData);
+
+let currentChart = null;
+let activeEx = null;
+
+function renderButtons() {
+  const container = document.getElementById('ex-buttons');
+  container.innerHTML = '';
+  if (exercises.length === 0) {
+    document.getElementById('no-data').style.display = 'block';
+    document.getElementById('chart-area').style.display = 'none';
+    return;
+  }
+  exercises.forEach((ex, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'ex-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = ex;
+    btn.onclick = () => selectExercise(ex, btn);
+    container.appendChild(btn);
+  });
+  if (exercises.length > 0) selectExercise(exercises[0], container.children[0]);
+}
+
+function selectExercise(ex, btn) {
+  document.querySelectorAll('.ex-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeEx = ex;
+  renderChart(ex);
+}
+
+function renderChart(ex) {
+  const points = exerciseData[ex] || [];
+  const labels = points.map(p => p.date || `S${p.session || ''}`);
+  const data = points.map(p => p.load);
+  const prFlags = points.map(p => p.is_pr);
+
+  const pointColors = prFlags.map(isPr => isPr ? '#f97316' : '#6b7280');
+  const pointRadii = prFlags.map(isPr => isPr ? 7 : 4);
+
+  const ctx = document.getElementById('loadChart').getContext('2d');
+  if (currentChart) currentChart.destroy();
+
+  currentChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: `${ex} (lbs)`,
+        data,
+        borderColor: '#f97316',
+        backgroundColor: 'rgba(249,115,22,0.08)',
+        pointBackgroundColor: pointColors,
+        pointRadius: pointRadii,
+        pointHoverRadius: 8,
+        tension: 0.3,
+        fill: true,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const isPr = prFlags[ctx.dataIndex];
+              return ` ${ctx.parsed.y} lbs${isPr ? ' 🏆 PR' : ''}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: {
+          title: { display: true, text: 'lbs', color: '#9ca3af' },
+          beginAtZero: false,
+        }
+      }
+    }
+  });
+}
+
+renderButtons();
+</script>
+{% endblock %}
