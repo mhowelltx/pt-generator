@@ -100,14 +100,15 @@
     <p class="text-sm text-gray-500">No sessions recorded yet.</p>
     {% else %}
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-      <table style="width:100%;border-collapse:collapse;font-size:0.875rem">
+      <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:0.875rem;min-width:420px">
         <thead>
           <tr class="bg-gray-900 text-white">
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">#</th>
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Date</th>
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Focus</th>
-            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Loads</th>
-            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Progression</th>
+            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest hidden md:table-cell">Loads</th>
+            <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest hidden md:table-cell">Progression</th>
             <th class="px-4 py-3"></th>
           </tr>
         </thead>
@@ -124,14 +125,14 @@
               <p class="text-xs text-gray-400 mt-0.5">📝 {{ s.trainer_notes }}</p>
               {% endif %}
             </td>
-            <td class="px-4 py-3">
+            <td class="px-4 py-3 hidden md:table-cell">
               {% if s.loads %}
               <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-0.5 rounded-full">{{ s.loads | length }}</span>
               {% else %}
               <span class="text-gray-400">0</span>
               {% endif %}
             </td>
-            <td class="px-4 py-3 text-gray-500 text-xs">
+            <td class="px-4 py-3 text-gray-500 text-xs hidden md:table-cell">
               {% if s.progression_notes %}
               <ul style="margin:0;padding-left:1.1rem">
                 {% for note in s.progression_notes[:2] %}
@@ -195,6 +196,7 @@
           {% endfor %}
         </tbody>
       </table>
+      </div>{# /overflow-x:auto #}
     </div>
     {% endif %}
   </div>
