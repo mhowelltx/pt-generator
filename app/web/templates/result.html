@@ -15,6 +15,24 @@
   <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Training Session Plan</h2>
 </div>
 
+{# ── Action bar (top) ───────────────────────────────────────────── #}
+<div class="action-bar" style="border-top:none;padding-top:0;margin-top:0;margin-bottom:1.25rem">
+  {% if back_url and client_slug %}
+  <a href="/session/new?client={{ plan.meta.client_name | urlencode }}&suggested_focus={{ plan.meta.focus | urlencode }}"
+     class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">
+    &#9654; Run Again
+  </a>
+  {% if session_index is defined %}
+  <a href="/clients/{{ client_slug }}/sessions/{{ session_index }}/run" class="btn-secondary" style="text-decoration:none">&#9654; Run Session</a>
+  <a href="/clients/{{ client_slug }}/sessions/{{ session_index }}/edit" class="btn-secondary" style="text-decoration:none">&#9998; Edit Plan</a>
+  {% endif %}
+  <a href="{{ back_url }}" class="btn-secondary">← Back to Client</a>
+  {% else %}
+  <a href="/session/new" class="btn font-display font-bold uppercase tracking-widest">&#9654; Generate Another</a>
+  {% endif %}
+  <button onclick="window.print()" class="btn-secondary">Print</button>
+</div>
+
 {# ── Meta panel ─────────────────────────────────────────────────── #}
 <div class="meta-panel">
   <div class="meta-grid">
