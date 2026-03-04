@@ -13,6 +13,7 @@ from starlette.responses import RedirectResponse
 
 from app import config
 from app import demo_seed as _demo_seed
+from app import storage
 
 _DEMO_EMAIL: str = os.environ.get("DEMO_EMAIL", "").lower().strip()
 
@@ -77,10 +78,12 @@ async def auth_callback(request: Request):
     user_info = token.get("userinfo")
     user_id: str = user_info["sub"]
     email: str = user_info["email"]
+    trainer = storage.load_trainer_profile(user_id)
     request.session["user"] = {
         "id": user_id,
         "email": email,
         "name": user_info.get("name", ""),
+        "dev_mode": trainer.get("dev_mode", False),
     }
     # Auto-seed demo data on first login for the designated demo account.
     # If seeding actually populates clients, redirect to /clients so the
@@ -88,7 +91,7 @@ async def auth_callback(request: Request):
     if _DEMO_EMAIL and email.lower() == _DEMO_EMAIL:
         if _demo_seed.seed_demo_data(user_id) > 0:
             return RedirectResponse(url="/clients", status_code=302)
-    return RedirectResponse(url="/", status_code=302)
+    return RedirectResponse(url="/clients", status_code=302)
 
 
 @router.get("/auth/logout")
