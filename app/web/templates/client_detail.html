@@ -3,8 +3,17 @@
 
 {% block content %}
 
-<div class="mb-6">
+<div class="mb-4">
   <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">{{ profile.client_name }}</h2>
+</div>
+
+<div class="action-bar" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:1.5rem;flex-wrap:wrap">
+  <a href="/?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
+  <button id="suggest-btn" class="btn-secondary" onclick="suggestFocus()">&#10024; Suggest Focus</button>
+  <a href="/clients/{{ slug }}/progress-summary" class="btn-secondary">&#128200; Monthly Summary</a>
+  <a href="/clients/{{ slug }}/progress-report-pdf" class="btn-secondary">&#128196; Progress Report PDF</a>
+  <a href="/clients/{{ slug }}/edit" class="btn-secondary">Edit Profile</a>
+  <a href="/clients" class="btn-secondary">All Clients</a>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -165,15 +174,6 @@
     {% endif %}
   </div>
 
-</div>
-
-<div class="action-bar">
-  <a href="/?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
-  <button id="suggest-btn" class="btn-secondary" onclick="suggestFocus()">&#10024; Suggest Focus</button>
-  <a href="/clients/{{ slug }}/progress-summary" class="btn-secondary">&#128200; Monthly Summary</a>
-  <a href="/clients/{{ slug }}/progress-report-pdf" class="btn-secondary">&#128196; Progress Report PDF</a>
-  <a href="/clients/{{ slug }}/edit" class="btn-secondary">Edit Profile</a>
-  <a href="/clients" class="btn-secondary">All Clients</a>
 </div>
 
 {% endblock %}

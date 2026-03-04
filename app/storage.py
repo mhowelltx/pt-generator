@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import shutil
 from pathlib import Path
 
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(Path(__file__).parent.parent / "data" / "clients")))
@@ -54,6 +55,13 @@ def save_history(name: str, history: list, user_id: str | None = None) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w") as f:
         json.dump(history, f, indent=2)
+
+
+def delete_client(name: str, user_id: str | None = None) -> None:
+    """Permanently delete all data for a client."""
+    d = client_dir(name, user_id)
+    if d.exists():
+        shutil.rmtree(d)
 
 
 def append_history(name: str, entry: dict, user_id: str | None = None) -> None:
