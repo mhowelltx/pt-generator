@@ -44,7 +44,7 @@
     <span class="run-block-title">{{ block.title }}{% if block.time_minutes %} · {{ block.time_minutes }} min{% endif %}</span>
 
     {% for ex in block.exercises %}
-    <div class="run-exercise" id="ex-{{ loop.index0 }}-{{ loop.parentloop.index0 }}">
+    <div class="run-exercise">
 
       {# Hidden fields for form submission #}
       <input type="hidden" name="exercise_names" value="{{ ex.name }}">
