@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% block title %}Edit Plan · {{ profile.client_name }}{% endblock %}
+
+{% block content %}
+
+<style>
+  .edit-header { background:#111827; color:#f9fafb; border-left:5px solid #f97316; padding:1rem 1.25rem; border-radius:12px; margin-bottom:1.5rem; }
+  .edit-meta { font-family:'Barlow Condensed',sans-serif; font-size:1.4rem; font-weight:700; margin:0 0 0.2rem; }
+  .edit-sub { font-size:0.85rem; color:#9ca3af; }
+  .edit-actions { display:flex; gap:0.75rem; margin-bottom:1.5rem; flex-wrap:wrap; align-items:center; }
+  .btn-save { background:#f97316; color:#fff; border:none; padding:0.6rem 1.75rem; border-radius:8px; font-size:0.95rem; font-family:'Barlow Condensed',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; cursor:pointer; }
+  .btn-save:hover { background:#ea6c0a; }
+
+  .edit-block { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem; margin-bottom:1.5rem; }
+  .edit-block-header { display:flex; gap:0.75rem; flex-wrap:wrap; align-items:flex-end; padding-bottom:0.75rem; margin-bottom:1rem; border-bottom:1px solid #f3f4f6; }
+  .edit-block-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:#9ca3af; display:block; margin-bottom:0.2rem; }
+  .edit-block-field input { border:1px solid #e5e7eb; border-radius:6px; padding:0.3rem 0.6rem; font-size:0.9rem; font-family:inherit; }
+  .edit-block-field input:focus { outline:none; border-color:#f97316; }
+  .edit-block-field input.wide { width:220px; }
+  .edit-block-field input.narrow { width:70px; }
+
+  .edit-exercise { border:1px solid #f3f4f6; border-radius:8px; padding:0.9rem 1rem; margin-bottom:0.75rem; }
+  .edit-exercise:last-child { margin-bottom:0; }
+  .edit-ex-grid { display:grid; grid-template-columns: 1fr repeat(4, auto); gap:0.5rem; align-items:end; flex-wrap:wrap; }
+  @media (max-width:640px) { .edit-ex-grid { grid-template-columns: 1fr 1fr; } }
+  .edit-field { display:flex; flex-direction:column; gap:0.15rem; }
+  .edit-field label { font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#9ca3af; }
+  .edit-field input, .edit-field textarea {
+    border:1px solid #e5e7eb; border-radius:6px; padding:0.35rem 0.5rem;
+    font-size:0.85rem; font-family:inherit; background:#fff;
+  }
+  .edit-field input:focus, .edit-field textarea:focus { outline:none; border-color:#f97316; }
+  .edit-field input.ex-name-field { font-weight:700; color:#111827; font-size:0.95rem; width:100%; }
+  .edit-field input.sm { width:72px; }
+  .edit-field input.md { width:96px; }
+  .edit-field textarea { resize:vertical; min-height:52px; width:100%; }
+
+  .edit-section-label { font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; color:#d1d5db; margin:0.6rem 0 0.3rem; }
+  .edit-row { display:flex; gap:0.5rem; flex-wrap:wrap; align-items:flex-end; }
+  .edit-machine-row { margin-top:0.5rem; }
+  .edit-notes-row { margin-top:0.5rem; }
+  .edit-collapse { margin-top:0.5rem; }
+  .edit-collapse summary { font-size:0.7rem; font-weight:700; text-transform:uppercase; color:#9ca3af; cursor:pointer; list-style:none; user-select:none; }
+  .edit-collapse summary::before { content:'▶ '; font-size:0.6rem; }
+  .edit-collapse[open] summary::before { content:'▼ '; }
+</style>
+
+<div class="edit-header">
+  <p class="edit-meta">{{ profile.client_name }} — Edit Plan</p>
+  <p class="edit-sub">
+    Session {% if plan.meta.session_number %}#{{ plan.meta.session_number }}{% endif %}
+    {% if plan.meta.session_date %}&nbsp;·&nbsp; {{ plan.meta.session_date }}{% endif %}
+    &nbsp;·&nbsp; {{ plan.meta.duration_minutes }} min &nbsp;·&nbsp; {{ plan.meta.focus }}
+  </p>
+</div>
+
+<form method="post" action="/clients/{{ slug }}/sessions/{{ index }}/edit">
+
+  <div class="edit-actions">
+    <button type="submit" class="btn-save">&#10003; Save Changes</button>
+    <a href="/clients/{{ slug }}/sessions/{{ index }}" class="btn-secondary" style="text-decoration:none">Cancel</a>
+  </div>
+
+  {% for block in plan.blocks %}
+  <div class="edit-block">
+
+    {# Block header — title / time / format #}
+    <div class="edit-block-header">
+      <div class="edit-block-field">
+        <label class="edit-block-label">Block title</label>
+        <input type="text" name="block_title" value="{{ block.title }}" class="wide" required>
+      </div>
+      <div class="edit-block-field">
+        <label class="edit-block-label">Time (min)</label>
+        <input type="number" name="block_time" value="{{ block.time_minutes or '' }}" class="narrow" min="1" placeholder="—">
+      </div>
+      <div class="edit-block-field">
+        <label class="edit-block-label">Format</label>
+        <input type="text" name="block_format" value="{{ block.format or '' }}" placeholder="e.g. Circuit ×2" style="width:160px">
+      </div>
+    </div>
+
+    {# Exercises #}
+    {% for ex in block.exercises %}
+    <div class="edit-exercise">
+
+      {# Row 1: name, sets, reps, load, tempo, rest #}
+      <div class="edit-row">
+        <div class="edit-field" style="flex:1;min-width:160px">
+          <label>Exercise name</label>
+          <input type="text" name="ex_name" value="{{ ex.name }}" class="ex-name-field" required>
+        </div>
+        <div class="edit-field">
+          <label>Sets</label>
+          <input type="number" name="ex_sets" value="{{ ex.sets or '' }}" class="sm" min="1" placeholder="#">
+        </div>
+        <div class="edit-field">
+          <label>Reps</label>
+          <input type="text" name="ex_reps" value="{{ ex.reps or '' }}" class="sm" placeholder="12">
+        </div>
+        <div class="edit-field">
+          <label>Load (lbs)</label>
+          <input type="number" name="ex_load"
+                 value="{{ ex.loading.load_lbs if ex.loading and ex.loading.load_lbs is not none else '' }}"
+                 class="sm" step="2.5" min="0" placeholder="lbs">
+        </div>
+        <div class="edit-field">
+          <label>Tempo</label>
+          <input type="text" name="ex_tempo" value="{{ ex.tempo or '' }}" class="sm" placeholder="3-1-1">
+        </div>
+        <div class="edit-field">
+          <label>Rest (s)</label>
+          <input type="number" name="ex_rest" value="{{ ex.rest_seconds or '' }}" class="sm" min="0" placeholder="60">
+        </div>
+      </div>
+
+      {# Machine settings (collapsed by default) #}
+      <details class="edit-collapse edit-machine-row">
+        <summary>Machine settings</summary>
+        <div class="edit-row" style="margin-top:0.4rem">
+          <div class="edit-field">
+            <label>Machine name</label>
+            <input type="text" name="ex_machine_name"
+                   value="{{ ex.machine_settings.machine_name if ex.machine_settings and ex.machine_settings.machine_name else '' }}"
+                   placeholder="e.g. Leg Press" class="md">
+          </div>
+          <div class="edit-field">
+            <label>Seat</label>
+            <input type="text" name="ex_seat"
+                   value="{{ ex.machine_settings.seat if ex.machine_settings and ex.machine_settings.seat else '' }}"
+                   placeholder="5" class="sm">
+          </div>
+          <div class="edit-field">
+            <label>Lever</label>
+            <input type="text" name="ex_lever"
+                   value="{{ ex.machine_settings.lever if ex.machine_settings and ex.machine_settings.lever else '' }}"
+                   placeholder="4" class="sm">
+          </div>
+          <div class="edit-field">
+            <label>Pad</label>
+            <input type="text" name="ex_pad"
+                   value="{{ ex.machine_settings.pad if ex.machine_settings and ex.machine_settings.pad else '' }}"
+                   placeholder="2" class="sm">
+          </div>
+          <div class="edit-field">
+            <label>Notes</label>
+            <input type="text" name="ex_machine_notes"
+                   value="{{ ex.machine_settings.notes if ex.machine_settings and ex.machine_settings.notes else '' }}"
+                   placeholder="setup notes" style="width:180px">
+          </div>
+        </div>
+      </details>
+
+      {# Cues / regressions / progressions (collapsed) #}
+      <details class="edit-collapse edit-notes-row">
+        <summary>Cues &amp; coaching</summary>
+        <div class="edit-row" style="margin-top:0.4rem;align-items:flex-start">
+          <div class="edit-field" style="flex:1;min-width:160px">
+            <label>Cues (one per line)</label>
+            <textarea name="ex_cues" rows="3">{{ ex.cues | join('\n') }}</textarea>
+          </div>
+          <div class="edit-field" style="flex:1;min-width:160px">
+            <label>Regressions (one per line)</label>
+            <textarea name="ex_regressions" rows="3">{{ ex.regressions | join('\n') }}</textarea>
+          </div>
+          <div class="edit-field" style="flex:1;min-width:160px">
+            <label>Progressions (one per line)</label>
+            <textarea name="ex_progressions" rows="3">{{ ex.progressions | join('\n') }}</textarea>
+          </div>
+        </div>
+      </details>
+
+    </div>
+    {% endfor %}
+
+  </div>
+  {% endfor %}
+
+  <div class="edit-actions" style="margin-top:0.5rem">
+    <button type="submit" class="btn-save">&#10003; Save Changes</button>
+    <a href="/clients/{{ slug }}/sessions/{{ index }}" class="btn-secondary" style="text-decoration:none">Cancel</a>
+  </div>
+
+</form>
+
+{% endblock %}
