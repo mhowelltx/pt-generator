@@ -64,6 +64,21 @@ def delete_client(name: str, user_id: str | None = None) -> None:
         shutil.rmtree(d)
 
 
+def load_goals(name: str, user_id: str | None = None) -> list:
+    path = client_dir(name, user_id) / "goals.json"
+    if not path.exists():
+        return []
+    with path.open() as f:
+        return json.load(f)
+
+
+def save_goals(name: str, goals: list, user_id: str | None = None) -> None:
+    path = client_dir(name, user_id) / "goals.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w") as f:
+        json.dump(goals, f, indent=2)
+
+
 def append_history(name: str, entry: dict, user_id: str | None = None) -> None:
     """Append one session entry to the client's history log."""
     history = load_history(name, user_id)

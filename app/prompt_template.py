@@ -48,6 +48,7 @@ def build_user_prompt(inputs: dict) -> str:
         "Distribute time_minutes across blocks to total the session duration.",
         "Respect all constraints in the input — do not include exercises that violate them.",
         "Include a cooldown block with breathing and 2–4 stretches.",
+        "If client_goals are provided, select exercises and focuses that support those goals where appropriate.",
     ]
 
     rules_text = "\n".join(f"- {rule}" for rule in style_rules)

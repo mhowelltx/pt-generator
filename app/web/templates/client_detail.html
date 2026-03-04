@@ -10,8 +10,10 @@
 <div class="action-bar" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:1.5rem;flex-wrap:wrap">
   <a href="/?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
   <button id="suggest-btn" class="btn-secondary" onclick="suggestFocus()">&#10024; Suggest Focus</button>
-  <a href="/clients/{{ slug }}/progress-summary" class="btn-secondary">&#128200; Monthly Summary</a>
-  <a href="/clients/{{ slug }}/progress-report-pdf" class="btn-secondary">&#128196; Progress Report PDF</a>
+  <a href="/clients/{{ slug }}/goals" class="btn-secondary">&#127919; Goals</a>
+  <a href="/clients/{{ slug }}/charts" class="btn-secondary">&#128200; Charts</a>
+  <a href="/clients/{{ slug }}/progress-summary" class="btn-secondary">Monthly Summary</a>
+  <a href="/clients/{{ slug }}/progress-report-pdf" class="btn-secondary">&#128196; PDF Report</a>
   <a href="/clients/{{ slug }}/edit" class="btn-secondary">Edit Profile</a>
   <a href="/clients" class="btn-secondary">All Clients</a>
 </div>
@@ -66,6 +68,26 @@
 
       {% if not profile.constraints and not profile.preferred_equipment and not profile.machine_settings and not profile.notes %}
       <p class="text-sm text-gray-400">No profile data yet.</p>
+      {% endif %}
+
+      {% if active_goals %}
+      <div class="mt-4 pt-4" style="border-top:1px solid #f3f4f6">
+        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Active Goals</p>
+        {% for g in active_goals %}
+        <div class="mb-1.5">
+          <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;padding:0.1rem 0.45rem;border-radius:999px;background:#dbeafe;color:#1e40af;margin-right:0.35rem">{{ g.category or 'goal' }}</span>
+          <span class="text-xs text-gray-700">{{ g.text | truncate(60) }}</span>
+          {% if g.target_date %}
+          <span class="text-xs text-gray-400 ml-1">· {{ g.target_date }}</span>
+          {% endif %}
+        </div>
+        {% endfor %}
+        <a href="/clients/{{ slug }}/goals" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Manage goals →</a>
+      </div>
+      {% else %}
+      <div class="mt-4 pt-4" style="border-top:1px solid #f3f4f6">
+        <a href="/clients/{{ slug }}/goals" class="text-xs text-orange-500 hover:underline">&#127919; Set client goals →</a>
+      </div>
       {% endif %}
     </div>
   </div>
@@ -126,6 +148,9 @@
               <a href="/clients/{{ slug }}/sessions/{{ orig_idx }}"
                  class="text-orange-500 hover:underline mr-2"
                  style="font-size:0.75rem;font-weight:600">View</a>
+              <a href="/clients/{{ slug }}/sessions/{{ orig_idx }}/run"
+                 class="text-green-600 hover:underline mr-2"
+                 style="font-size:0.75rem;font-weight:600">Run</a>
               {% endif %}
               {% if not s.archived %}
               <form method="post" action="/clients/{{ slug }}/sessions/{{ orig_idx }}/archive" style="display:inline">

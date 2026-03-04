@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Session Logged · {{ profile.client_name }}{% endblock %}
+
+{% block content %}
+
+<style>
+  .complete-hero { text-align:center; padding:2rem 0 1.5rem; }
+  .complete-icon { font-size:3rem; margin-bottom:0.5rem; }
+  .complete-title { font-family:'Barlow Condensed',sans-serif; font-size:2rem; font-weight:700; text-transform:uppercase; color:#16a34a; margin:0 0 0.25rem; }
+  .complete-sub { color:#6b7280; font-size:0.9rem; }
+  .pr-section { background:#fefce8; border:2px solid #fde047; border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .pr-heading { font-family:'Barlow Condensed',sans-serif; font-size:1.1rem; font-weight:700; text-transform:uppercase; color:#854d0e; margin:0 0 0.75rem; }
+  .pr-item { display:flex; align-items:center; gap:0.75rem; padding:0.4rem 0; border-bottom:1px solid #fde68a; }
+  .pr-item:last-child { border-bottom:none; }
+  .pr-name { font-weight:600; color:#713f12; flex:1; }
+  .pr-loads { font-size:0.9rem; color:#854d0e; }
+  .pr-badge { background:#f97316; color:#fff; font-size:0.7rem; font-weight:700; padding:0.1rem 0.5rem; border-radius:999px; text-transform:uppercase; letter-spacing:0.05em; }
+  .actuals-section { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+  .actuals-heading { font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:700; text-transform:uppercase; color:#374151; margin:0 0 0.75rem; letter-spacing:0.06em; }
+  .actual-row { display:flex; justify-content:space-between; padding:0.3rem 0; border-bottom:1px solid #f3f4f6; font-size:0.875rem; }
+  .actual-row:last-child { border-bottom:none; }
+  .actual-name { color:#374151; }
+  .actual-weight { font-weight:600; color:#111827; }
+  .actual-reps { color:#6b7280; font-size:0.8rem; margin-left:0.5rem; }
+</style>
+
+<div class="complete-hero">
+  <p class="complete-icon">&#9989;</p>
+  <h2 class="complete-title">Session Logged!</h2>
+  <p class="complete-sub">
+    {{ profile.client_name }}
+    {% if entry.session_number %} · Session #{{ entry.session_number }}{% endif %}
+    {% if entry.session_date %} · {{ entry.session_date }}{% endif %}
+  </p>
+</div>
+
+{% if entry.prs %}
+<div class="pr-section">
+  <p class="pr-heading">&#127942; Personal Records</p>
+  {% for ex_name, pr in entry.prs.items() %}
+  <div class="pr-item">
+    <span class="pr-badge">PR</span>
+    <span class="pr-name">{{ ex_name }}</span>
+    <span class="pr-loads">
+      {% if pr.prev %}{{ pr.prev }} lbs &rarr; {% endif %}<strong>{{ pr.new }} lbs</strong>
+      {% if pr.prev %}&nbsp;(+{{ (pr.new - pr.prev) | round(1) }} lbs){% endif %}
+    </span>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if entry.actual_loads %}
+<div class="actuals-section">
+  <p class="actuals-heading">Loads Recorded</p>
+  {% for ex_name, weight in entry.actual_loads.items() %}
+  <div class="actual-row">
+    <span class="actual-name">{{ ex_name }}</span>
+    <span>
+      <span class="actual-weight">{{ weight }} lbs</span>
+      {% if entry.actual_reps and ex_name in entry.actual_reps %}
+      <span class="actual-reps">{{ entry.actual_reps[ex_name] }}</span>
+      {% endif %}
+    </span>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if not entry.prs and not entry.actual_loads %}
+<div class="actuals-section" style="text-align:center;color:#9ca3af">
+  <p style="margin:0">No loads were recorded for this session.</p>
+</div>
+{% endif %}
+
+<div style="display:flex;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap">
+  <a href="/clients/{{ slug }}" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#8592; Back to {{ profile.client_name }}</a>
+  <a href="/clients/{{ slug }}/charts" class="btn-secondary" style="text-decoration:none">&#128200; View Progress Charts</a>
+</div>
+
+{% endblock %}
