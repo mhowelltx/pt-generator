@@ -10,7 +10,9 @@ load_dotenv(Path(__file__).parent.parent.parent / ".env")
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
+from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.sessions import SessionMiddleware
+from starlette.requests import Request as StarletteRequest
 
 from app.web.api import router as api_router
 from app.web.auth import UnauthenticatedException, router as auth_router
@@ -36,6 +38,33 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    """Add security-related HTTP response headers to every response."""
+
+    async def dispatch(self, request: StarletteRequest, call_next):
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+        if os.environ.get("RAILWAY_PUBLIC_DOMAIN"):
+            response.headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains"
+        # Report-only CSP — switch to Content-Security-Policy once verified
+        csp = (
+            "default-src 'self'; "
+            "script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; "
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+            "font-src https://fonts.gstatic.com; "
+            "img-src 'self' data:; "
+            "connect-src 'self';"
+        )
+        response.headers["Content-Security-Policy-Report-Only"] = csp
+        return response
+
+
+app.add_middleware(SecurityHeadersMiddleware)
+
 app.include_router(auth_router)
 app.include_router(web_router)
 app.include_router(api_router)
@@ -49,41 +78,6 @@ async def unauth_handler(request, exc):
 @app.get("/health")
 def health():
     return {"status": "ok"}
-
-
-@app.get("/debug-net")
-async def debug_net():
-    import anthropic
-    import httpx
-    results = {}
-    # Test raw httpx (async)
-    for url in ["https://api.anthropic.com", "https://www.google.com"]:
-        try:
-            async with httpx.AsyncClient(timeout=5) as client:
-                r = await client.get(url)
-                results[url] = r.status_code
-        except Exception as e:
-            results[url] = str(e)
-    # Test Anthropic SDK directly
-    import anyio
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    results["ANTHROPIC_API_KEY_set"] = bool(api_key)
-    results["ANTHROPIC_API_KEY_prefix"] = api_key[:12] + "..." if api_key else "not set"
-    results["ANTHROPIC_API_KEY_repr"] = repr(api_key[:20]) if api_key else "not set"
-    results["ANTHROPIC_API_KEY_hex"] = api_key[:20].encode().hex() if api_key else "not set"
-    try:
-        client = anthropic.Anthropic(api_key=api_key)
-        msg = await anyio.to_thread.run_sync(
-            lambda: client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=10,
-                messages=[{"role": "user", "content": "Say ok"}],
-            )
-        )
-        results["sdk_test"] = "ok: " + msg.content[0].text
-    except Exception as e:
-        results["sdk_test"] = f"{type(e).__name__}: {e}"
-    return results
 
 
 if __name__ == "__main__":
