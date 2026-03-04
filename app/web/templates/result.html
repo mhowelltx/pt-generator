@@ -185,7 +185,7 @@
 {# ── Action bar ─────────────────────────────────────────────────── #}
 <div class="action-bar">
   {% if back_url and client_slug %}
-  <a href="/?client={{ plan.meta.client_name | urlencode }}&suggested_focus={{ plan.meta.focus | urlencode }}"
+  <a href="/session/new?client={{ plan.meta.client_name | urlencode }}&suggested_focus={{ plan.meta.focus | urlencode }}"
      class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">
     &#9654; Run Again
   </a>
@@ -195,7 +195,7 @@
   {% endif %}
   <a href="{{ back_url }}" class="btn-secondary">← Back to Client</a>
   {% else %}
-  <a href="/" class="btn font-display font-bold uppercase tracking-widest">&#9654; Generate Another</a>
+  <a href="/session/new" class="btn font-display font-bold uppercase tracking-widest">&#9654; Generate Another</a>
   {% endif %}
   <button onclick="window.print()" class="btn-secondary">Print</button>
 </div>

@@ -8,7 +8,7 @@
 </div>
 
 <div class="action-bar" style="margin-top:0;padding-top:0;border-top:none;margin-bottom:1.5rem;flex-wrap:wrap">
-  <a href="/?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
+  <a href="/session/new?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
   <button id="suggest-btn" class="btn-secondary" onclick="suggestFocus()">&#10024; Suggest Focus</button>
   <a href="/clients/{{ slug }}/goals" class="btn-secondary">&#127919; Goals</a>
   <a href="/clients/{{ slug }}/charts" class="btn-secondary">&#128200; Charts</a>
@@ -220,7 +220,7 @@ async function suggestFocus() {
     url.searchParams.set('client', '{{ profile.client_name }}');
     genLink.href = url.toString() + '#focus=' + encodeURIComponent(data.focus);
     // Navigate to form with focus pre-filled via URL fragment (handled server-side via ?client=)
-    window.location.href = '/?client={{ profile.client_name | urlencode }}&suggested_focus=' + encodeURIComponent(data.focus);
+    window.location.href = '/session/new?client={{ profile.client_name | urlencode }}&suggested_focus=' + encodeURIComponent(data.focus);
   } catch {
     btn.textContent = '&#10024; Suggest Focus';
     btn.disabled = false;

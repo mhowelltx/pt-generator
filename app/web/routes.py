@@ -85,6 +85,11 @@ def _form_response(request, prev, user, error=None, errors=None, status_code=200
 
 
 @router.get("/", response_class=HTMLResponse)
+def home(user: dict = Depends(get_current_user)):
+    return RedirectResponse(url="/clients", status_code=302)
+
+
+@router.get("/session/new", response_class=HTMLResponse)
 def form_page(
     request: Request,
     client: str = "",
@@ -885,12 +890,19 @@ def trainer_profile_save(
     gym_name: Annotated[str, Form()] = "",
     contact_info: Annotated[str, Form()] = "",
     bio: Annotated[str, Form()] = "",
+    dev_mode: Annotated[str, Form()] = "",
     user: dict = Depends(get_current_user),
 ):
+    dev_mode_bool = dev_mode == "on"
     storage.save_trainer_profile(user["id"], {
         "display_name": display_name.strip(),
         "gym_name": gym_name.strip(),
         "contact_info": contact_info.strip(),
         "bio": bio.strip(),
+        "dev_mode": dev_mode_bool,
     })
+    # Update session immediately so the nav reflects the change without re-login
+    user_session = dict(request.session["user"])
+    user_session["dev_mode"] = dev_mode_bool
+    request.session["user"] = user_session
     return RedirectResponse(url="/profile?saved=1", status_code=303)

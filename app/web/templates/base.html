@@ -215,12 +215,14 @@
         {% endif %}
 
         {% if request.url.path == '/profile' %}
-        <a href="/profile" class="font-display font-bold text-sm uppercase tracking-widest text-orange-400">Profile</a>
+        <a href="/profile" class="font-display font-bold text-sm uppercase tracking-widest text-orange-400">Preferences</a>
         {% else %}
-        <a href="/profile" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">Profile</a>
+        <a href="/profile" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">Preferences</a>
         {% endif %}
 
+        {% if user and user.dev_mode %}
         <a href="/docs" target="_blank" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">API Docs</a>
+        {% endif %}
 
         {% if user %}
         <span class="text-gray-400 text-sm hidden sm:inline">{{ user.email }}</span>
