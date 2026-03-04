@@ -119,7 +119,7 @@
 
     {# Collapsible cues / regressions / progressions #}
     {% if ex.cues %}
-    <details class="ex-details-group">
+    <details class="ex-details-group" open>
       <summary class="ex-section-label">Cues <span class="chevron">&#9662;</span></summary>
       <ul class="ex-list">
         {% for cue in ex.cues %}<li>{{ cue }}</li>{% endfor %}
@@ -128,7 +128,7 @@
     {% endif %}
 
     {% if ex.regressions %}
-    <details class="ex-details-group">
+    <details class="ex-details-group" open>
       <summary class="ex-section-label">Regressions <span class="chevron">&#9662;</span></summary>
       <ul class="ex-list">
         {% for r in ex.regressions %}<li>{{ r }}</li>{% endfor %}
@@ -137,7 +137,7 @@
     {% endif %}
 
     {% if ex.progressions %}
-    <details class="ex-details-group">
+    <details class="ex-details-group" open>
       <summary class="ex-section-label">Progressions <span class="chevron">&#9662;</span></summary>
       <ul class="ex-list">
         {% for p in ex.progressions %}<li>{{ p }}</li>{% endfor %}

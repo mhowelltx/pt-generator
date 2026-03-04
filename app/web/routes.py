@@ -196,6 +196,15 @@ def client_detail(request: Request, slug: str, user: dict = Depends(get_current_
     })
 
 
+@router.post("/clients/{slug}/delete")
+def client_delete(slug: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result:
+        profile, _ = result
+        storage.delete_client(profile["client_name"], user_id=user["id"])
+    return RedirectResponse(url="/clients", status_code=303)
+
+
 @router.post("/clients/{slug}/sessions/{index}/archive")
 def session_archive(slug: str, index: int, user: dict = Depends(get_current_user)):
     result = storage.load_by_slug(slug, user_id=user["id"])

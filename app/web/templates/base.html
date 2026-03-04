@@ -208,12 +208,6 @@
     <div class="max-w-4xl mx-auto px-6 py-4 flex items-center gap-4">
       <span class="font-display font-bold text-white text-2xl tracking-wide">🏋️ PT Generator</span>
       <nav class="ml-auto flex items-center gap-6">
-        {% if request.url.path == '/' %}
-        <a href="/" class="font-display font-bold text-sm uppercase tracking-widest text-orange-400">New Session</a>
-        {% else %}
-        <a href="/" class="font-display text-sm uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-150">New Session</a>
-        {% endif %}
-
         {% if request.url.path.startswith('/clients') %}
         <a href="/clients" class="font-display font-bold text-sm uppercase tracking-widest text-orange-400">Clients</a>
         {% else %}
