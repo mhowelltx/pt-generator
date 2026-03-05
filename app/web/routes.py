@@ -17,7 +17,7 @@ from tenacity import RetryError
 from app import service, storage
 from app.schema import TrainingSessionPlan
 from app.web.auth import get_current_user
-from app.web.server import limiter
+from app.web.limiter import limiter
 
 log = logging.getLogger(__name__)
 
