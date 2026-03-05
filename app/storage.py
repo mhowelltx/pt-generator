@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import re
@@ -6,6 +7,8 @@ from pathlib import Path
 
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(Path(__file__).parent.parent / "data" / "clients")))
 _TRAINER_DIR = DATA_DIR.parent / "trainer"
+_TRASH_DIR = DATA_DIR.parent / "trash"
+_AUDIT_DIR = DATA_DIR.parent / "audit"
 
 
 def slug(name: str) -> str:
@@ -57,11 +60,32 @@ def save_history(name: str, history: list, user_id: str | None = None) -> None:
         json.dump(history, f, indent=2)
 
 
-def delete_client(name: str, user_id: str | None = None) -> None:
-    """Permanently delete all data for a client."""
-    d = client_dir(name, user_id)
-    if d.exists():
-        shutil.rmtree(d)
+def soft_delete_client(name: str, user_id: str | None = None) -> Path:
+    """Move client directory to a timestamped trash folder instead of hard-deleting.
+
+    Returns the destination path in trash (or the original path if it did not exist).
+    """
+    src = client_dir(name, user_id)
+    if not src.exists():
+        return src
+    timestamp = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    dest = _TRASH_DIR / (user_id or "_anon") / f"{_slug(name)}__{timestamp}"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    shutil.move(str(src), dest)
+    return dest
+
+
+def append_audit_log(user_id: str, event: str, detail: str = "") -> None:
+    """Append a single audit event to the user's append-only NDJSON log."""
+    log_dir = _AUDIT_DIR / user_id
+    log_dir.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "ts": datetime.datetime.utcnow().isoformat() + "Z",
+        "event": event,
+        "detail": detail,
+    }
+    with (log_dir / "audit.log").open("a") as f:
+        f.write(json.dumps(entry) + "\n")
 
 
 def load_goals(name: str, user_id: str | None = None) -> list:
