@@ -64,7 +64,8 @@ router = APIRouter()
 
 @router.get("/login")
 async def login_page(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request, "user": None})
+    demo_limit = request.query_params.get("demo_limit") == "1"
+    return templates.TemplateResponse("login.html", {"request": request, "user": None, "demo_limit": demo_limit})
 
 
 @router.get("/auth/google")

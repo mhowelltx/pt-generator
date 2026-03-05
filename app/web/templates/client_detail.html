@@ -216,6 +216,10 @@ async function suggestFocus() {
     const res = await fetch('/clients/{{ slug }}/suggest-focus');
     if (!res.ok) throw new Error('Request failed');
     const data = await res.json();
+    if (data.demo_limit) {
+      window.location.href = '/login?demo_limit=1';
+      return;
+    }
     const url = new URL(genLink.href);
     url.searchParams.set('client', '{{ profile.client_name }}');
     genLink.href = url.toString() + '#focus=' + encodeURIComponent(data.focus);

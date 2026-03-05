@@ -25,10 +25,23 @@ router = APIRouter()
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
 
-def _demo_block(user: dict) -> RedirectResponse | None:
-    """Return a redirect to /login if the user is in demo mode, else None."""
-    if user.get("demo"):
-        return RedirectResponse(url="/login", status_code=302)
+_DEMO_AI_CALL_LIMIT = 5
+
+
+def _demo_ai_gate(user: dict, request: Request, *, json_mode: bool = False):
+    """Allow demo users up to _DEMO_AI_CALL_LIMIT AI calls per session.
+
+    Returns None if the call should proceed (counter is incremented).
+    Returns a response if the demo limit is exceeded.
+    """
+    if not user.get("demo"):
+        return None
+    calls = request.session.get("demo_ai_calls", 0)
+    if calls >= _DEMO_AI_CALL_LIMIT:
+        if json_mode:
+            return JSONResponse({"demo_limit": True})
+        return RedirectResponse(url="/login?demo_limit=1", status_code=302)
+    request.session["demo_ai_calls"] = calls + 1
     return None
 
 _OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", str(Path(__file__).parent.parent.parent / "outputs"))).resolve()
@@ -302,7 +315,7 @@ def generate(
     export_pdf: Annotated[Optional[str], Form()] = None,
     user: dict = Depends(get_current_user),
 ):
-    if block := _demo_block(user):
+    if block := _demo_ai_gate(user, request):
         return block
 
     prev = {
@@ -399,7 +412,7 @@ def generate(
 @limiter.limit("20/minute")
 def suggest_focus(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Return a JSON object with an AI-suggested focus for the client's next session."""
-    if block := _demo_block(user):
+    if block := _demo_ai_gate(user, request, json_mode=True):
         return block
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
@@ -420,7 +433,7 @@ def suggest_focus(request: Request, slug: str, user: dict = Depends(get_current_
 @limiter.limit("5/minute")
 def progress_summary(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Generate and display an AI monthly progress summary for the client."""
-    if block := _demo_block(user):
+    if block := _demo_ai_gate(user, request):
         return block
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
@@ -810,7 +823,7 @@ def client_goals_page(request: Request, slug: str, user: dict = Depends(get_curr
 @router.get("/clients/{slug}/goals/brainstorm")
 @limiter.limit("10/minute")
 def goals_brainstorm(request: Request, slug: str, context: str = "", user: dict = Depends(get_current_user)):
-    if block := _demo_block(user):
+    if block := _demo_ai_gate(user, request, json_mode=True):
         return block
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
