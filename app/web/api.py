@@ -2,7 +2,7 @@ import logging
 import os
 from typing import Optional
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from pydantic import ValidationError
@@ -10,6 +10,7 @@ from tenacity import RetryError
 
 from app import service
 from app.web.auth import get_api_user
+from app.web.server import limiter
 
 log = logging.getLogger(__name__)
 
@@ -48,7 +49,8 @@ class GenerateResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 @router.post("/generate", response_model=GenerateResponse)
-def generate(req: GenerateRequest, user: dict = Depends(get_api_user)):
+@limiter.limit("20/minute")
+def generate(request: Request, req: GenerateRequest, user: dict = Depends(get_api_user)):
     api_key = os.getenv("ANTHROPIC_API_KEY", "")
     if not api_key:
         return JSONResponse(status_code=500, content={"detail": "ANTHROPIC_API_KEY is not set"})

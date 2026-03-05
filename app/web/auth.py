@@ -85,6 +85,7 @@ async def auth_callback(request: Request):
         "name": user_info.get("name", ""),
         "dev_mode": trainer.get("dev_mode", False),
     }
+    storage.append_audit_log(user_id, "login", email)
     # Auto-seed demo data on first login for the designated demo account.
     # If seeding actually populates clients, redirect to /clients so the
     # demo viewer immediately sees the full roster.
@@ -96,5 +97,8 @@ async def auth_callback(request: Request):
 
 @router.get("/auth/logout")
 async def auth_logout(request: Request):
+    user = request.session.get("user")
+    if user:
+        storage.append_audit_log(user["id"], "logout", user.get("email", ""))
     request.session.clear()
     return RedirectResponse(url="/login", status_code=302)

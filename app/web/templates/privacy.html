@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Privacy &amp; Data · PT Generator{% endblock %}
+
+{% block content %}
+<div class="mb-6">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Privacy &amp; Data</h2>
+  <p class="text-gray-500 mt-1">How PT Generator stores and uses your data.</p>
+</div>
+
+<div class="form-card" style="max-width:680px">
+
+  <h3 class="font-display font-bold text-lg uppercase tracking-wide text-gray-800 mb-3">What data is collected</h3>
+  <ul style="list-style:disc;padding-left:1.25rem;color:#374151;line-height:1.8;margin-bottom:1.5rem">
+    <li>Your Google account email and display name (via OAuth sign-in)</li>
+    <li>Client profiles: names, physical constraints, injury notes, equipment preferences, machine settings, trainer notes</li>
+    <li>Session history: exercise loads, sets/reps, session dates, coaching cues, progression notes</li>
+    <li>SMART fitness goals and milestone tracking</li>
+    <li>Trainer preferences: display name, gym name, contact info, bio</li>
+    <li>An append-only audit log of key actions (login, client create/edit/delete, session generate)</li>
+  </ul>
+
+  <h3 class="font-display font-bold text-lg uppercase tracking-wide text-gray-800 mb-3">Where data is stored</h3>
+  <p style="color:#374151;line-height:1.7;margin-bottom:1.5rem">
+    All data is stored as JSON files on a Railway.app persistent volume attached to this service.
+    There is no third-party database. Data is <strong>not encrypted at rest</strong>; access is
+    controlled by your Railway account credentials and the Google OAuth login required to use this app.
+  </p>
+
+  <h3 class="font-display font-bold text-lg uppercase tracking-wide text-gray-800 mb-3">What is sent to Claude (Anthropic)</h3>
+  <p style="color:#374151;line-height:1.7;margin-bottom:0.5rem">
+    When you generate a training plan, suggest a session focus, brainstorm goals, or request a progress
+    summary, the following client data is sent to Anthropic's Claude API:
+  </p>
+  <ul style="list-style:disc;padding-left:1.25rem;color:#374151;line-height:1.8;margin-bottom:1.5rem">
+    <li>Client name, physical constraints, and injury notes</li>
+    <li>Preferred equipment and machine settings</li>
+    <li>Recent session history (loads, dates, progression notes)</li>
+    <li>Active fitness goals</li>
+  </ul>
+  <p style="color:#374151;line-height:1.7;margin-bottom:1.5rem">
+    Anthropic's data usage is governed by their
+    <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener" style="color:#f97316">Privacy Policy</a>.
+    API calls are not used to train Claude models under their standard API terms.
+  </p>
+
+  <h3 class="font-display font-bold text-lg uppercase tracking-wide text-gray-800 mb-3">Your rights</h3>
+  <ul style="list-style:disc;padding-left:1.25rem;color:#374151;line-height:1.8;margin-bottom:1.5rem">
+    <li><strong>Export:</strong> Download a complete ZIP of all your data at any time via the button below.</li>
+    <li><strong>Delete:</strong> Delete individual clients from the client detail page. Deleted clients are
+        moved to a trash folder and permanently purged after 30 days.</li>
+    <li><strong>Account removal:</strong> To remove your account and all associated data, delete all clients
+        and contact the app administrator.</li>
+  </ul>
+
+  <div style="padding-top:1rem;border-top:1px solid #e5e7eb;display:flex;gap:1rem;flex-wrap:wrap">
+    {% if user %}
+    <a href="/export-data" class="btn" style="display:inline-block;text-decoration:none">Download My Data (ZIP)</a>
+    {% endif %}
+    <a href="/clients" class="btn-secondary" style="display:inline-block;text-decoration:none">Back to Clients</a>
+  </div>
+
+</div>
+{% endblock %}

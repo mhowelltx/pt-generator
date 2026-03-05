@@ -1,4 +1,5 @@
 annotated-doc==0.0.4
+slowapi==0.1.9
 annotated-types==0.7.0
 anthropic==0.84.0
 authlib==1.5.2

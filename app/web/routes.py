@@ -1,13 +1,15 @@
+import io
 import json
 import logging
 import os
+import zipfile
 from datetime import date, datetime
 from pathlib import Path
 from typing import Annotated, List, Optional
 from urllib.parse import quote
 
 from fastapi import APIRouter, Depends, Form, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, StreamingResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
 from tenacity import RetryError
@@ -15,6 +17,7 @@ from tenacity import RetryError
 from app import service, storage
 from app.schema import TrainingSessionPlan
 from app.web.auth import get_current_user
+from app.web.server import limiter
 
 log = logging.getLogger(__name__)
 
@@ -182,6 +185,7 @@ def new_client_create(
     storage.save_history(client_name, [], user_id=user["id"])
 
     client_slug = storage.slug(client_name)
+    storage.append_audit_log(user["id"], "client_create", client_slug)
     return RedirectResponse(url=f"/clients/{client_slug}", status_code=303)
 
 
@@ -210,7 +214,8 @@ def client_delete(slug: str, user: dict = Depends(get_current_user)):
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result:
         profile, _ = result
-        storage.delete_client(profile["client_name"], user_id=user["id"])
+        storage.soft_delete_client(profile["client_name"], user_id=user["id"])
+        storage.append_audit_log(user["id"], "client_soft_delete", slug)
     return RedirectResponse(url="/clients", status_code=303)
 
 
@@ -270,10 +275,12 @@ def client_edit_save(
     profile["notes"] = notes.strip()
 
     storage.save_profile(profile["client_name"], profile, user_id=user["id"])
+    storage.append_audit_log(user["id"], "client_edit", slug)
     return RedirectResponse(url=f"/clients/{slug}", status_code=303)
 
 
 @router.post("/generate", response_class=HTMLResponse)
+@limiter.limit("10/minute")
 def generate(
     request: Request,
     client: Annotated[str, Form()],
@@ -351,6 +358,8 @@ def generate(
                               error=f"An unexpected error occurred: {exc}",
                               status_code=500)
 
+    storage.append_audit_log(user["id"], "session_generate", storage.slug(client))
+
     # --- Exports ---
     user_out = _user_outputs_dir(user["id"])
     export_links: list[dict] = []
@@ -377,7 +386,8 @@ def generate(
 
 
 @router.get("/clients/{slug}/suggest-focus")
-def suggest_focus(slug: str, user: dict = Depends(get_current_user)):
+@limiter.limit("20/minute")
+def suggest_focus(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Return a JSON object with an AI-suggested focus for the client's next session."""
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
@@ -395,6 +405,7 @@ def suggest_focus(slug: str, user: dict = Depends(get_current_user)):
 
 
 @router.get("/clients/{slug}/progress-summary", response_class=HTMLResponse)
+@limiter.limit("5/minute")
 def progress_summary(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Generate and display an AI monthly progress summary for the client."""
     result = storage.load_by_slug(slug, user_id=user["id"])
@@ -469,6 +480,7 @@ def session_note_save(
         raise HTTPException(status_code=404, detail="Session not found.")
     history[index]["trainer_notes"] = trainer_notes.strip() or None
     storage.save_history(profile["client_name"], history, user_id=user["id"])
+    storage.append_audit_log(user["id"], "session_note_edit", f"{slug}:{index}")
     return RedirectResponse(url=f"/clients/{slug}", status_code=303)
 
 
@@ -710,6 +722,7 @@ def session_plan_edit_save(
 
     history[index]["plan_json"] = plan_data
     storage.save_history(profile["client_name"], history, user_id=user["id"])
+    storage.append_audit_log(user["id"], "session_plan_edit", f"{slug}:{index}")
     return RedirectResponse(url=f"/clients/{slug}/sessions/{index}", status_code=303)
 
 
@@ -780,7 +793,8 @@ def client_goals_page(request: Request, slug: str, user: dict = Depends(get_curr
 
 
 @router.get("/clients/{slug}/goals/brainstorm")
-def goals_brainstorm(slug: str, context: str = "", user: dict = Depends(get_current_user)):
+@limiter.limit("10/minute")
+def goals_brainstorm(request: Request, slug: str, context: str = "", user: dict = Depends(get_current_user)):
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
         raise HTTPException(status_code=404, detail="Client not found.")
@@ -824,6 +838,7 @@ def goal_create(
         "notes": notes.strip(),
     })
     storage.save_goals(profile["client_name"], goals, user_id=user["id"])
+    storage.append_audit_log(user["id"], "goal_create", slug)
     return RedirectResponse(url=f"/clients/{slug}/goals", status_code=303)
 
 
@@ -852,6 +867,7 @@ def goal_delete(slug: str, goal_id: str, user: dict = Depends(get_current_user))
     goals = storage.load_goals(profile["client_name"], user_id=user["id"])
     goals = [g for g in goals if g["id"] != goal_id]
     storage.save_goals(profile["client_name"], goals, user_id=user["id"])
+    storage.append_audit_log(user["id"], "goal_delete", f"{slug}:{goal_id}")
     return RedirectResponse(url=f"/clients/{slug}/goals", status_code=303)
 
 
@@ -906,3 +922,41 @@ def trainer_profile_save(
     user_session["dev_mode"] = dev_mode_bool
     request.session["user"] = user_session
     return RedirectResponse(url="/profile?saved=1", status_code=303)
+
+
+@router.get("/export-data")
+@limiter.limit("3/hour")
+def export_user_data(request: Request, user: dict = Depends(get_current_user)):
+    """Download all user data as a ZIP archive (GDPR-style data portability)."""
+    user_id = user["id"]
+    base = storage._base_dir(user_id)
+    trainer_path = storage._TRAINER_DIR / user_id / "profile.json"
+
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+        if base.exists():
+            for path in base.rglob("*.json"):
+                zf.write(path, "clients/" + str(path.relative_to(base)))
+        if trainer_path.exists():
+            zf.write(trainer_path, "trainer/profile.json")
+        manifest = {
+            "exported_at": datetime.utcnow().isoformat() + "Z",
+            "user_email": user.get("email", ""),
+            "format_version": 1,
+        }
+        zf.writestr("manifest.json", json.dumps(manifest, indent=2))
+
+    buf.seek(0)
+    filename = f"pt-generator-export-{datetime.utcnow().strftime('%Y%m%d')}.zip"
+    storage.append_audit_log(user_id, "data_export", user.get("email", ""))
+    return StreamingResponse(
+        buf,
+        media_type="application/zip",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+@router.get("/privacy", response_class=HTMLResponse)
+def privacy_page(request: Request):
+    user = request.session.get("user")
+    return templates.TemplateResponse("privacy.html", {"request": request, "user": user})
