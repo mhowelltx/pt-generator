@@ -15,6 +15,7 @@ from tenacity import RetryError
 from app import service, storage
 from app.schema import TrainingSessionPlan
 from app.web.auth import get_current_user
+from app.web.server import limiter
 
 log = logging.getLogger(__name__)
 
@@ -277,6 +278,7 @@ def client_edit_save(
 
 
 @router.post("/generate", response_class=HTMLResponse)
+@limiter.limit("10/minute")
 def generate(
     request: Request,
     client: Annotated[str, Form()],
@@ -382,7 +384,8 @@ def generate(
 
 
 @router.get("/clients/{slug}/suggest-focus")
-def suggest_focus(slug: str, user: dict = Depends(get_current_user)):
+@limiter.limit("20/minute")
+def suggest_focus(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Return a JSON object with an AI-suggested focus for the client's next session."""
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
@@ -400,6 +403,7 @@ def suggest_focus(slug: str, user: dict = Depends(get_current_user)):
 
 
 @router.get("/clients/{slug}/progress-summary", response_class=HTMLResponse)
+@limiter.limit("5/minute")
 def progress_summary(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Generate and display an AI monthly progress summary for the client."""
     result = storage.load_by_slug(slug, user_id=user["id"])
@@ -787,7 +791,8 @@ def client_goals_page(request: Request, slug: str, user: dict = Depends(get_curr
 
 
 @router.get("/clients/{slug}/goals/brainstorm")
-def goals_brainstorm(slug: str, context: str = "", user: dict = Depends(get_current_user)):
+@limiter.limit("10/minute")
+def goals_brainstorm(request: Request, slug: str, context: str = "", user: dict = Depends(get_current_user)):
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
         raise HTTPException(status_code=404, detail="Client not found.")
