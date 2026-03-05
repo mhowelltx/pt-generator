@@ -194,6 +194,28 @@ def detect_prs(history: list, current_index: int, actual_loads: dict) -> dict:
     return prs
 
 
+def _extract_first_json_object(text: str) -> Optional[dict]:
+    """Extract the first complete JSON object from text using a parser-safe approach.
+
+    Uses json.JSONDecoder.raw_decode so that trailing text (including curly braces)
+    after the JSON object does not corrupt the extraction.
+    """
+    decoder = json.JSONDecoder()
+    start = 0
+    while True:
+        pos = text.find('{', start)
+        if pos == -1:
+            return None
+        try:
+            obj, _ = decoder.raw_decode(text, pos)
+            if isinstance(obj, dict):
+                return obj
+        except json.JSONDecodeError:
+            pass
+        start = pos + 1
+    return None
+
+
 def brainstorm_goals(
     *,
     api_key: str,
@@ -238,19 +260,25 @@ def brainstorm_goals(
     anthropic_client = Anthropic(api_key=api_key)
     response = anthropic_client.messages.create(
         model=config.MODEL,
-        max_tokens=900,
+        max_tokens=1500,
         temperature=0.6,
         messages=[{"role": "user", "content": prompt}],
     )
-    text = response.content[0].text.strip()
-    match = re.search(r'\{.*\}', text, re.DOTALL)
-    if not match:
+
+    # Find the first TextBlock in the response (guards against thinking blocks)
+    text = ""
+    for block in response.content:
+        if hasattr(block, "text"):
+            text = block.text.strip()
+            break
+
+    log.debug("brainstorm_goals raw response: %s", text)
+
+    data = _extract_first_json_object(text)
+    if data is None:
+        log.warning("brainstorm_goals: no JSON object found in response")
         return []
-    try:
-        data = json.loads(match.group())
-        return data.get("goals", [])
-    except json.JSONDecodeError:
-        return []
+    return data.get("goals", [])
 
 
 def suggest_next_focus(
