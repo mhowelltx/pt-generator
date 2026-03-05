@@ -184,6 +184,10 @@ async function brainstormGoals() {
     if (!resp.ok) throw new Error('Request failed');
     const data = await resp.json();
 
+    if (data.demo_limit) {
+      window.location.href = '/login?demo_limit=1';
+      return;
+    }
     if (!data.goals || data.goals.length === 0) {
       status.textContent = 'No suggestions returned. Try adding more context.';
       return;
