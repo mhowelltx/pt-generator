@@ -701,7 +701,8 @@ def session_plan_edit_save(
                 ex["rest_seconds"] = int(ex_rest[pos])
             except ValueError:
                 pass
-        ms = ex.setdefault("machine_settings", {})
+        ms = ex.get("machine_settings") or {}
+        ex["machine_settings"] = ms
         for field, arr in [
             ("machine_name", ex_machine_name),
             ("seat", ex_seat),
