@@ -1,13 +1,15 @@
+import io
 import json
 import logging
 import os
+import zipfile
 from datetime import date, datetime
 from pathlib import Path
 from typing import Annotated, List, Optional
 from urllib.parse import quote
 
 from fastapi import APIRouter, Depends, Form, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, StreamingResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
 from tenacity import RetryError
@@ -920,3 +922,41 @@ def trainer_profile_save(
     user_session["dev_mode"] = dev_mode_bool
     request.session["user"] = user_session
     return RedirectResponse(url="/profile?saved=1", status_code=303)
+
+
+@router.get("/export-data")
+@limiter.limit("3/hour")
+def export_user_data(request: Request, user: dict = Depends(get_current_user)):
+    """Download all user data as a ZIP archive (GDPR-style data portability)."""
+    user_id = user["id"]
+    base = storage._base_dir(user_id)
+    trainer_path = storage._TRAINER_DIR / user_id / "profile.json"
+
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+        if base.exists():
+            for path in base.rglob("*.json"):
+                zf.write(path, "clients/" + str(path.relative_to(base)))
+        if trainer_path.exists():
+            zf.write(trainer_path, "trainer/profile.json")
+        manifest = {
+            "exported_at": datetime.utcnow().isoformat() + "Z",
+            "user_email": user.get("email", ""),
+            "format_version": 1,
+        }
+        zf.writestr("manifest.json", json.dumps(manifest, indent=2))
+
+    buf.seek(0)
+    filename = f"pt-generator-export-{datetime.utcnow().strftime('%Y%m%d')}.zip"
+    storage.append_audit_log(user_id, "data_export", user.get("email", ""))
+    return StreamingResponse(
+        buf,
+        media_type="application/zip",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+@router.get("/privacy", response_class=HTMLResponse)
+def privacy_page(request: Request):
+    user = request.session.get("user")
+    return templates.TemplateResponse("privacy.html", {"request": request, "user": user})

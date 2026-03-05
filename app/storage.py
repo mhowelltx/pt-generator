@@ -10,6 +10,8 @@ _TRAINER_DIR = DATA_DIR.parent / "trainer"
 _TRASH_DIR = DATA_DIR.parent / "trash"
 _AUDIT_DIR = DATA_DIR.parent / "audit"
 
+SCHEMA_VERSION = 1
+
 
 def slug(name: str) -> str:
     """Convert a client name to a filesystem-safe directory name."""
@@ -32,15 +34,26 @@ def profile_exists(name: str, user_id: str | None = None) -> bool:
     return (client_dir(name, user_id) / "profile.json").exists()
 
 
+def migrate_profile(profile: dict) -> dict:
+    """Apply forward migrations to an old profile dict and return it."""
+    version = profile.get("schema_version", 0)
+    if version < 1:
+        profile.setdefault("notes", "")
+        profile["schema_version"] = 1
+    return profile
+
+
 def load_profile(name: str, user_id: str | None = None) -> dict:
     path = client_dir(name, user_id) / "profile.json"
     with path.open() as f:
-        return json.load(f)
+        profile = json.load(f)
+    return migrate_profile(profile)
 
 
 def save_profile(name: str, profile: dict, user_id: str | None = None) -> None:
     path = client_dir(name, user_id) / "profile.json"
     path.parent.mkdir(parents=True, exist_ok=True)
+    profile["schema_version"] = SCHEMA_VERSION
     with path.open("w") as f:
         json.dump(profile, f, indent=2)
 
@@ -50,14 +63,19 @@ def load_history(name: str, user_id: str | None = None) -> list:
     if not path.exists():
         return []
     with path.open() as f:
-        return json.load(f)
+        data = json.load(f)
+    # Support both legacy bare-list format and versioned envelope format
+    if isinstance(data, list):
+        return data
+    return data.get("entries", [])
 
 
 def save_history(name: str, history: list, user_id: str | None = None) -> None:
     path = client_dir(name, user_id) / "history.json"
     path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {"schema_version": SCHEMA_VERSION, "entries": history}
     with path.open("w") as f:
-        json.dump(history, f, indent=2)
+        json.dump(payload, f, indent=2)
 
 
 def soft_delete_client(name: str, user_id: str | None = None) -> Path:
@@ -93,14 +111,18 @@ def load_goals(name: str, user_id: str | None = None) -> list:
     if not path.exists():
         return []
     with path.open() as f:
-        return json.load(f)
+        data = json.load(f)
+    if isinstance(data, list):
+        return data
+    return data.get("entries", [])
 
 
 def save_goals(name: str, goals: list, user_id: str | None = None) -> None:
     path = client_dir(name, user_id) / "goals.json"
     path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {"schema_version": SCHEMA_VERSION, "entries": goals}
     with path.open("w") as f:
-        json.dump(goals, f, indent=2)
+        json.dump(payload, f, indent=2)
 
 
 def append_history(name: str, entry: dict, user_id: str | None = None) -> None:
@@ -128,7 +150,8 @@ def list_clients(user_id: str | None = None) -> list[dict]:
         history: list = []
         if history_path.exists():
             with history_path.open() as f:
-                history = json.load(f)
+                raw = json.load(f)
+            history = raw if isinstance(raw, list) else raw.get("entries", [])
         results.append({
             "slug": d.name,
             "client_name": profile.get("client_name", d.name),
@@ -154,7 +177,8 @@ def load_by_slug(slug: str, user_id: str | None = None) -> tuple[dict, list] | N
     history: list = []
     if history_path.exists():
         with history_path.open() as f:
-            history = json.load(f)
+            raw = json.load(f)
+        history = raw if isinstance(raw, list) else raw.get("entries", [])
     return profile, history
 
 
