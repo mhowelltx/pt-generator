@@ -232,6 +232,13 @@
     </div>
   </header>
 
+  {% if user and user.demo %}
+  <div style="background: #fff7ed; border-bottom: 1px solid #fed7aa; padding: 0.6rem 1.5rem; text-align: center; font-size: 0.875rem; color: #9a3412;">
+    <strong>Demo Mode</strong> — you're browsing a pre-loaded example.
+    <a href="/login" style="color: #ea580c; font-weight: 600; margin-left: 0.5rem;">Sign in with Google</a> to create your own account.
+  </div>
+  {% endif %}
+
   <main class="max-w-4xl mx-auto px-6 py-6">
     {% block content %}{% endblock %}
   </main>

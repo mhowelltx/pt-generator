@@ -24,6 +24,13 @@ log = logging.getLogger(__name__)
 router = APIRouter()
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
+
+def _demo_block(user: dict) -> RedirectResponse | None:
+    """Return a redirect to /login if the user is in demo mode, else None."""
+    if user.get("demo"):
+        return RedirectResponse(url="/login", status_code=302)
+    return None
+
 _OUTPUTS_DIR = Path(os.environ.get("OUTPUTS_DIR", str(Path(__file__).parent.parent.parent / "outputs"))).resolve()
 
 
@@ -295,6 +302,9 @@ def generate(
     export_pdf: Annotated[Optional[str], Form()] = None,
     user: dict = Depends(get_current_user),
 ):
+    if block := _demo_block(user):
+        return block
+
     prev = {
         "client": client,
         "session_number": session_number,
@@ -389,6 +399,8 @@ def generate(
 @limiter.limit("20/minute")
 def suggest_focus(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Return a JSON object with an AI-suggested focus for the client's next session."""
+    if block := _demo_block(user):
+        return block
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
         raise HTTPException(status_code=404, detail="Client not found.")
@@ -408,6 +420,8 @@ def suggest_focus(request: Request, slug: str, user: dict = Depends(get_current_
 @limiter.limit("5/minute")
 def progress_summary(request: Request, slug: str, user: dict = Depends(get_current_user)):
     """Generate and display an AI monthly progress summary for the client."""
+    if block := _demo_block(user):
+        return block
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
         raise HTTPException(status_code=404, detail="Client not found.")
@@ -796,6 +810,8 @@ def client_goals_page(request: Request, slug: str, user: dict = Depends(get_curr
 @router.get("/clients/{slug}/goals/brainstorm")
 @limiter.limit("10/minute")
 def goals_brainstorm(request: Request, slug: str, context: str = "", user: dict = Depends(get_current_user)):
+    if block := _demo_block(user):
+        return block
     result = storage.load_by_slug(slug, user_id=user["id"])
     if result is None:
         raise HTTPException(status_code=404, detail="Client not found.")

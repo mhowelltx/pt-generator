@@ -16,6 +16,7 @@ from app import demo_seed as _demo_seed
 from app import storage
 
 _DEMO_EMAIL: str = os.environ.get("DEMO_EMAIL", "").lower().strip()
+_DEMO_USER_ID: str = "_demo"
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 
@@ -92,6 +93,21 @@ async def auth_callback(request: Request):
     if _DEMO_EMAIL and email.lower() == _DEMO_EMAIL:
         if _demo_seed.seed_demo_data(user_id) > 0:
             return RedirectResponse(url="/clients", status_code=302)
+    return RedirectResponse(url="/clients", status_code=302)
+
+
+@router.get("/auth/demo")
+async def auth_demo(request: Request):
+    """Log in as the shared demo account, seeding demo data on first visit."""
+    _demo_seed.seed_demo_data(_DEMO_USER_ID)
+    request.session["user"] = {
+        "id": _DEMO_USER_ID,
+        "email": "demo@example.com",
+        "name": "Demo User",
+        "demo": True,
+        "dev_mode": False,
+    }
+    storage.append_audit_log(_DEMO_USER_ID, "demo_login", "")
     return RedirectResponse(url="/clients", status_code=302)
 
 
