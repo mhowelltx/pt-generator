@@ -1,20 +1,18 @@
 """Demo data seeding for PT Generator.
 
-When the ``DEMO_EMAIL`` environment variable is set and a Google account
-whose email matches that value logs in for the first time (no existing
-clients), this module seeds a full roster of demo clients from the
-committed ``demo_data/clients/`` directory into the user's data store.
+Seeding is triggered by the ``/auth/demo`` route, which logs in as the
+shared ``_demo`` user and seeds a full roster of demo clients from the
+committed ``demo_data/clients/`` directory into that user's data store.
 
 The seed is idempotent: a sentinel file ``.demo_seeded`` is written into
 the user's client directory after the first successful seed, and
-subsequent logins skip the operation entirely.
+subsequent visits skip the operation entirely.
 """
 
 from __future__ import annotations
 
 import json
 import logging
-import os
 from pathlib import Path
 
 from app import storage
@@ -23,8 +21,6 @@ log = logging.getLogger(__name__)
 
 _DEMO_DATA_DIR = Path(__file__).parent.parent / "demo_data" / "clients"
 _SENTINEL = ".demo_seeded"
-
-DEMO_EMAIL: str = os.environ.get("DEMO_EMAIL", "").lower().strip()
 
 
 def is_seeded(user_id: str) -> bool:

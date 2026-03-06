@@ -80,7 +80,6 @@ Additional variables for the web app:
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 SECRET_KEY=a_long_random_string          # signs session cookies
-DEMO_EMAIL=you@example.com              # optional — auto-seeds demo clients on first login
 API_KEY=optional_static_api_key        # enables X-Api-Key header auth
 ```
 
@@ -219,7 +218,7 @@ pt-generator/
 │   ├── export_pdf.py        # PDF export (ReportLab)
 │   ├── export_markdown.py   # Markdown export
 │   ├── export_docx.py       # DOCX export
-│   ├── demo_seed.py         # Seeds demo clients on first DEMO_EMAIL login
+│   ├── demo_seed.py         # Seeds demo clients for the /auth/demo route
 │   ├── main.py              # Typer CLI entry point
 │   └── web/
 │       ├── server.py        # FastAPI app, middleware (CORS, sessions), health check
