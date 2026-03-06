@@ -15,7 +15,6 @@ from app import config
 from app import demo_seed as _demo_seed
 from app import storage
 
-_DEMO_EMAIL: str = os.environ.get("DEMO_EMAIL", "").lower().strip()
 _DEMO_USER_ID: str = "_demo"
 
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
@@ -88,12 +87,6 @@ async def auth_callback(request: Request):
         "dev_mode": trainer.get("dev_mode", False),
     }
     storage.append_audit_log(user_id, "login", email)
-    # Auto-seed demo data on first login for the designated demo account.
-    # If seeding actually populates clients, redirect to /clients so the
-    # demo viewer immediately sees the full roster.
-    if _DEMO_EMAIL and email.lower() == _DEMO_EMAIL:
-        if _demo_seed.seed_demo_data(user_id) > 0:
-            return RedirectResponse(url="/clients", status_code=302)
     return RedirectResponse(url="/clients", status_code=302)
 
 
