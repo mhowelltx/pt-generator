@@ -18,82 +18,80 @@
   <a href="/clients" class="btn-secondary">All Clients</a>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+{# ── Profile summary bar ─────────────────────────────────────────── #}
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+  <div class="h-1.5 bg-orange-500"></div>
+  <div class="p-4 flex flex-wrap gap-6">
 
-  {# ── Profile card ───────────────────────────────────────────────── #}
-  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden self-start">
-    <div class="h-1.5 bg-orange-500"></div>
-    <div class="p-5">
-      <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-4">Profile</p>
-
-      {% if profile.constraints %}
-      <div class="mb-4">
-        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Constraints</p>
-        <div class="flex flex-wrap gap-1.5">
-          {% for c in profile.constraints %}
-          <span class="bg-red-50 border border-red-200 text-red-700 text-xs font-medium px-2.5 py-0.5 rounded-full">{{ c }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
-
-      {% if profile.preferred_equipment %}
-      <div class="mb-4">
-        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Equipment</p>
-        <div class="equip-list" style="margin:0">
-          {% for item in profile.preferred_equipment %}
-          <span class="equip-tag">{{ item }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
-
-      {% if profile.machine_settings %}
-      <div class="mb-4">
-        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Machines</p>
-        <div class="flex flex-wrap gap-1.5">
-          {% for machine, setting in profile.machine_settings.items() %}
-          <span class="info-pill machine">{{ machine }}: {{ setting }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
-
-      {% if profile.notes %}
-      <div>
-        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-1">Notes</p>
-        <p class="text-sm text-gray-600">{{ profile.notes }}</p>
-      </div>
-      {% endif %}
-
-      {% if not profile.constraints and not profile.preferred_equipment and not profile.machine_settings and not profile.notes %}
-      <p class="text-sm text-gray-400">No profile data yet.</p>
-      {% endif %}
-
-      {% if active_goals %}
-      <div class="mt-4 pt-4" style="border-top:1px solid #f3f4f6">
-        <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-2">Active Goals</p>
-        {% for g in active_goals %}
-        <div class="mb-1.5">
-          <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;padding:0.1rem 0.45rem;border-radius:999px;background:#dbeafe;color:#1e40af;margin-right:0.35rem">{{ g.category or 'goal' }}</span>
-          <span class="text-xs text-gray-700">{{ g.text | truncate(60) }}</span>
-          {% if g.target_date %}
-          <span class="text-xs text-gray-400 ml-1">· {{ g.target_date }}</span>
-          {% endif %}
-        </div>
+    {% if profile.constraints %}
+    <div>
+      <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-1.5">Constraints</p>
+      <div class="flex flex-wrap gap-1.5">
+        {% for c in profile.constraints %}
+        <span class="bg-red-50 border border-red-200 text-red-700 text-xs font-medium px-2.5 py-0.5 rounded-full">{{ c }}</span>
         {% endfor %}
-        <a href="/clients/{{ slug }}/goals" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Manage goals →</a>
       </div>
-      {% else %}
-      <div class="mt-4 pt-4" style="border-top:1px solid #f3f4f6">
-        <a href="/clients/{{ slug }}/goals" class="text-xs text-orange-500 hover:underline">&#127919; Set client goals →</a>
-      </div>
-      {% endif %}
     </div>
-  </div>
+    {% endif %}
 
-  {# ── Session history ─────────────────────────────────────────────── #}
-  <div class="md:col-span-2">
+    {% if profile.preferred_equipment %}
+    <div>
+      <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-1.5">Equipment</p>
+      <div class="equip-list" style="margin:0">
+        {% for item in profile.preferred_equipment %}
+        <span class="equip-tag">{{ item }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if profile.machine_settings %}
+    <div>
+      <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-1.5">Machines</p>
+      <div class="flex flex-wrap gap-1.5">
+        {% for machine, setting in profile.machine_settings.items() %}
+        <span class="info-pill machine">{{ machine }}: {{ setting }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if profile.notes %}
+    <div style="flex:1;min-width:200px">
+      <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-1.5">Notes</p>
+      <p class="text-sm text-gray-600">{{ profile.notes }}</p>
+    </div>
+    {% endif %}
+
+    {% if not profile.constraints and not profile.preferred_equipment and not profile.machine_settings and not profile.notes %}
+    <p class="text-sm text-gray-400">No profile data yet.</p>
+    {% endif %}
+
+    {% if active_goals %}
+    <div>
+      <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-1.5">Active Goals</p>
+      {% for g in active_goals %}
+      <div class="mb-1">
+        <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;padding:0.1rem 0.45rem;border-radius:999px;background:#dbeafe;color:#1e40af;margin-right:0.35rem">{{ g.category or 'goal' }}</span>
+        <span class="text-xs text-gray-700">{{ g.text | truncate(60) }}</span>
+        {% if g.target_date %}
+        <span class="text-xs text-gray-400 ml-1">· {{ g.target_date }}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <a href="/clients/{{ slug }}/goals" class="text-xs text-orange-500 hover:underline mt-1 inline-block">Manage goals →</a>
+    </div>
+    {% else %}
+    <div class="flex items-center">
+      <a href="/clients/{{ slug }}/goals" class="text-xs text-orange-500 hover:underline">&#127919; Set client goals →</a>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{# ── Session history ─────────────────────────────────────────────── #}
+<div>
     <h3 class="font-display font-bold text-xl uppercase tracking-wide text-gray-900 mb-3">Session History</h3>
 
     {% if not history %}
@@ -109,7 +107,7 @@
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest">Focus</th>
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest hidden md:table-cell">Loads</th>
             <th class="px-4 py-3 text-left font-display font-bold text-xs uppercase tracking-widest hidden md:table-cell">Progression</th>
-            <th class="px-4 py-3"></th>
+            <th class="px-4 py-3" style="position:sticky;right:0;background:#111827;z-index:1"></th>
           </tr>
         </thead>
         <tbody>
@@ -144,7 +142,7 @@
               </ul>
               {% else %}—{% endif %}
             </td>
-            <td class="px-4 py-3 text-right" style="white-space:nowrap">
+            <td class="px-4 py-3 text-right session-actions-cell" style="white-space:nowrap">
               {% if 'plan_json' in s %}
               <a href="/clients/{{ slug }}/sessions/{{ orig_idx }}"
                  class="text-orange-500 hover:underline mr-2"
@@ -199,13 +197,22 @@
       </div>{# /overflow-x:auto #}
     </div>
     {% endif %}
-  </div>
-
 </div>
 
 {% endblock %}
 
 {% block scripts %}
+<style>
+.session-actions-cell {
+  position: sticky;
+  right: 0;
+  background: white;
+  box-shadow: -2px 0 4px rgba(0,0,0,0.06);
+}
+tr:hover .session-actions-cell {
+  background: #f9fafb;
+}
+</style>
 <script>
 async function suggestFocus() {
   const btn = document.getElementById('suggest-btn');
