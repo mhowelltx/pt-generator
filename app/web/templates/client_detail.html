@@ -11,6 +11,7 @@
   <a href="/session/new?client={{ profile.client_name }}" id="gen-link" class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">&#9654; Generate New Session</a>
   <button id="suggest-btn" class="btn-secondary" onclick="suggestFocus()">&#10024; Suggest Focus</button>
   <a href="/clients/{{ slug }}/goals" class="btn-secondary">&#127919; Goals</a>
+  <a href="/clients/{{ slug }}/programs" class="btn-secondary">&#128197; Programs</a>
   <a href="/clients/{{ slug }}/charts" class="btn-secondary">&#128200; Charts</a>
   <a href="/clients/{{ slug }}/progress-summary" class="btn-secondary">Monthly Summary</a>
   <a href="/clients/{{ slug }}/progress-report-pdf" class="btn-secondary">&#128196; PDF Report</a>
@@ -150,6 +151,9 @@
               <a href="/clients/{{ slug }}/sessions/{{ orig_idx }}/run"
                  class="text-green-600 hover:underline mr-2"
                  style="font-size:0.75rem;font-weight:600">Run</a>
+              <button onclick="openCopyModal({{ orig_idx }})"
+                      style="background:none;border:none;cursor:pointer;font-size:0.75rem;color:#3b82f6;padding:0;font-weight:600;margin-right:0.5rem"
+                      class="hover:underline">Copy</button>
               {% endif %}
               {% if not s.archived %}
               <form method="post" action="/clients/{{ slug }}/sessions/{{ orig_idx }}/archive" style="display:inline">
@@ -199,6 +203,26 @@
     {% endif %}
 </div>
 
+{# Programs link in action bar #}
+
+{# ── Copy-to-Date modal ─────────────────────────────────────────── #}
+<div id="copy-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:1.75rem;max-width:400px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.18)">
+    <h3 style="margin:0 0 0.75rem;font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;text-transform:uppercase;letter-spacing:.05em">Copy Session to New Date</h3>
+    <p style="font-size:0.875rem;color:#6b7280;margin:0 0 1rem">Creates a copy of this plan for a new date. Loads carry over as planned loads.</p>
+    <form id="copy-form" method="post" action="">
+      <div class="field">
+        <label for="copy-date-input">New Session Date</label>
+        <input type="date" id="copy-date-input" name="new_date" required style="width:100%">
+      </div>
+      <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+        <button type="submit" class="btn" style="margin:0">Copy Session</button>
+        <button type="button" onclick="document.getElementById('copy-modal').style.display='none'" class="btn-secondary" style="margin:0">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block scripts %}
@@ -214,6 +238,11 @@ tr:hover .session-actions-cell {
 }
 </style>
 <script>
+function openCopyModal(sessionIndex) {
+  document.getElementById('copy-form').action = '/clients/{{ slug }}/sessions/' + sessionIndex + '/copy';
+  document.getElementById('copy-modal').style.display = 'flex';
+}
+
 async function suggestFocus() {
   const btn = document.getElementById('suggest-btn');
   const genLink = document.getElementById('gen-link');

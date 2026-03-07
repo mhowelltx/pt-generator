@@ -25,6 +25,7 @@
   {% if session_index is defined %}
   <a href="/clients/{{ client_slug }}/sessions/{{ session_index }}/run" class="btn-secondary" style="text-decoration:none">&#9654; Run Session</a>
   <a href="/clients/{{ client_slug }}/sessions/{{ session_index }}/edit" class="btn-secondary" style="text-decoration:none">&#9998; Edit Plan</a>
+  <button onclick="document.getElementById('copy-modal').style.display='flex'" class="btn-secondary">&#128203; Copy to Date</button>
   {% endif %}
   <a href="{{ back_url }}" class="btn-secondary">← Back to Client</a>
   {% else %}
@@ -32,6 +33,26 @@
   {% endif %}
   <button onclick="window.print()" class="btn-secondary">Print</button>
 </div>
+
+{# ── Copy-to-Date modal ──────────────────────────────────────────── #}
+{% if session_index is defined and client_slug %}
+<div id="copy-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:1.75rem;max-width:400px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.18)">
+    <h3 style="margin:0 0 0.75rem;font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;text-transform:uppercase;letter-spacing:.05em">Copy Session to New Date</h3>
+    <p style="font-size:0.875rem;color:#6b7280;margin:0 0 1rem">This will create a copy of this session plan for the selected date. Loads from this session will carry over as planned loads for the new session.</p>
+    <form method="post" action="/clients/{{ client_slug }}/sessions/{{ session_index }}/copy">
+      <div class="field">
+        <label for="copy-date">New Session Date</label>
+        <input type="date" id="copy-date" name="new_date" required style="width:100%">
+      </div>
+      <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+        <button type="submit" class="btn" style="margin:0">Copy Session</button>
+        <button type="button" onclick="document.getElementById('copy-modal').style.display='none'" class="btn-secondary" style="margin:0">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endif %}
 
 {# ── Meta panel ─────────────────────────────────────────────────── #}
 <div class="meta-panel">
@@ -210,6 +231,7 @@
   {% if session_index is defined %}
   <a href="/clients/{{ client_slug }}/sessions/{{ session_index }}/run" class="btn-secondary" style="text-decoration:none">&#9654; Run Session</a>
   <a href="/clients/{{ client_slug }}/sessions/{{ session_index }}/edit" class="btn-secondary" style="text-decoration:none">&#9998; Edit Plan</a>
+  <button onclick="document.getElementById('copy-modal').style.display='flex'" class="btn-secondary">&#128203; Copy to Date</button>
   {% endif %}
   <a href="{{ back_url }}" class="btn-secondary">← Back to Client</a>
   {% else %}

@@ -322,6 +322,110 @@ def suggest_next_focus(
     return response.content[0].text.strip()
 
 
+def generate_program_outline(
+    *,
+    api_key: str,
+    client_name: str,
+    profile: dict,
+    name: str,
+    goal_focus: str,
+    weeks: int,
+    sessions_per_week: int,
+    start_date: str,
+    description: str = "",
+) -> dict:
+    """Use Claude to generate a structured multi-week program outline.
+
+    Returns a dict with keys: summary (str), weeks (list of week dicts).
+    Each week has: week_number, theme, sessions (list of slot dicts).
+    Each slot has: label, day_of_week, planned_date, focus.
+    """
+    import datetime as _dt
+
+    constraints = profile.get("constraints", [])
+    equipment = profile.get("preferred_equipment", [])
+    notes = profile.get("notes", "")
+
+    try:
+        sd = _dt.date.fromisoformat(start_date) if start_date else _dt.date.today()
+    except ValueError:
+        sd = _dt.date.today()
+
+    constraint_text = f"Constraints/injuries: {', '.join(constraints)}\n" if constraints else ""
+    equipment_text = f"Equipment: {', '.join(equipment)}\n" if equipment else ""
+    notes_text = f"Trainer notes: {notes}\n" if notes else ""
+    desc_text = f"Program description: {description}\n" if description else ""
+
+    # Build date grid: sessions_per_week days spaced evenly across each week
+    week_day_names = ["mon", "wed", "fri", "tue", "thu", "sat", "sun"]
+    slot_days = week_day_names[:sessions_per_week]
+
+    # Map day names to weekday offsets (mon=0)
+    day_offsets = {"mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
+    # Find the start of week 1 (Monday on or after start_date)
+    days_until_monday = (7 - sd.weekday()) % 7
+    week1_monday = sd + _dt.timedelta(days=days_until_monday) if sd.weekday() != 0 else sd
+
+    prompt = (
+        f"You are an expert personal trainer designing a structured multi-week training program.\n\n"
+        f"Client: {client_name}\n"
+        f"Program: {name}\n"
+        f"Goal focus: {goal_focus}\n"
+        f"Duration: {weeks} weeks, {sessions_per_week} sessions/week\n"
+        f"Start date: {sd.isoformat()}\n"
+        f"{constraint_text}{equipment_text}{notes_text}{desc_text}"
+        f"\nDesign a periodized program outline. Apply progressive overload principles: "
+        f"build volume in weeks 1-{max(1,weeks-1)}, then {'deload in the final week' if weeks >= 4 else 'peak in the final week'}.\n\n"
+        f"Return ONLY a JSON object (no markdown) with this exact structure:\n"
+        f'{{"summary":"2-3 sentence program overview","weeks":['
+        f'{{"week_number":1,"theme":"e.g. Foundation / Volume Load / Deload",'
+        f'"sessions":[{{"label":"Week 1 Day A","day_of_week":"mon","planned_date":"YYYY-MM-DD",'
+        f'"focus":"concise session focus statement"}}]}}'
+        f']}}\n\n'
+        f"Include exactly {weeks} weeks with exactly {sessions_per_week} sessions each. "
+        f"Alternate between complementary focuses (e.g., upper/lower, push/pull/legs, full-body variations). "
+        f"Use days: {', '.join(slot_days)}. "
+        f"Planned dates start at {week1_monday.isoformat()} (Week 1 {slot_days[0].capitalize()})."
+    )
+
+    anthropic_client = Anthropic(api_key=api_key)
+    response = anthropic_client.messages.create(
+        model=config.MODEL,
+        max_tokens=4000,
+        temperature=0.5,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    text = ""
+    for block in response.content:
+        if hasattr(block, "text"):
+            text = block.text.strip()
+            break
+
+    log.debug("generate_program_outline raw response: %s", text)
+
+    data = _extract_first_json_object(text)
+    if data is None:
+        log.warning("generate_program_outline: no JSON found, building skeleton")
+        # Fallback: build a skeleton outline
+        data = {"summary": f"{weeks}-week {goal_focus} program for {client_name}.", "weeks": []}
+        for w in range(1, weeks + 1):
+            week_monday = week1_monday + _dt.timedelta(weeks=w - 1)
+            sessions = []
+            for si, day in enumerate(slot_days):
+                offset = day_offsets.get(day, si * 2)
+                planned = (week_monday + _dt.timedelta(days=offset)).isoformat()
+                sessions.append({
+                    "label": f"Week {w} Day {'ABC'[si % 3]}",
+                    "day_of_week": day,
+                    "planned_date": planned,
+                    "focus": f"Week {w} {goal_focus} session {si + 1}",
+                })
+            data["weeks"].append({"week_number": w, "theme": f"Week {w}", "sessions": sessions})
+
+    return data
+
+
 def generate_progress_summary(
     *,
     api_key: str,

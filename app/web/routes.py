@@ -117,6 +117,7 @@ def form_page(
     request: Request,
     client: str = "",
     suggested_focus: str = "",
+    session_date: str = "",
     user: dict = Depends(get_current_user),
 ):
     prev = {}
@@ -124,6 +125,8 @@ def form_page(
         prev["client"] = client
     if suggested_focus:
         prev["focus"] = suggested_focus
+    if session_date:
+        prev["session_date"] = session_date
     return _form_response(request, prev, user)
 
 
@@ -237,6 +240,31 @@ def client_delete(slug: str, user: dict = Depends(get_current_user)):
         storage.soft_delete_client(profile["client_name"], user_id=user["id"])
         storage.append_audit_log(user["id"], "client_soft_delete", slug)
     return RedirectResponse(url="/clients", status_code=303)
+
+
+@router.post("/clients/{slug}/sessions/{index}/copy")
+def session_copy(
+    slug: str,
+    index: int,
+    new_date: Annotated[str, Form()],
+    user: dict = Depends(get_current_user),
+):
+    """Clone a past session to a new date."""
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, _ = result
+    try:
+        datetime.strptime(new_date.strip(), "%Y-%m-%d")
+    except ValueError:
+        raise HTTPException(status_code=422, detail="Date must be YYYY-MM-DD.")
+    new_index = storage.clone_session(
+        profile["client_name"], index, new_date.strip(), user_id=user["id"]
+    )
+    if new_index is None:
+        raise HTTPException(status_code=404, detail="Session not found.")
+    storage.append_audit_log(user["id"], "session_copy", f"{slug}:{index}→{new_index}")
+    return RedirectResponse(url=f"/clients/{slug}/sessions/{new_index}", status_code=303)
 
 
 @router.post("/clients/{slug}/sessions/{index}/archive")
@@ -382,6 +410,37 @@ def generate(
                               status_code=500)
 
     storage.append_audit_log(user["id"], "session_generate", storage.slug(client))
+
+    # --- Link to program slot if session was launched from a program ---
+    pending_slot = request.session.pop("pending_program_slot", None)
+    if pending_slot and pending_slot.get("client_slug") == storage.slug(client):
+        history_after = storage.load_history(client, user_id=user["id"])
+        new_session_index = len(history_after) - 1
+        # Get the actual session DB id via load_by_slug
+        result_for_id = storage.load_by_slug(storage.slug(client), user_id=user["id"])
+        if result_for_id:
+            from app.database import SessionLocal as _SL
+            from app.models import Session as _Sess, Client as _Cli
+            from sqlalchemy import select as _sel
+            with _SL() as _db:
+                _cli = _db.execute(
+                    _sel(_Cli).where(
+                        _Cli.user_id == user["id"],
+                        _Cli.slug == storage.slug(client),
+                        _Cli.deleted_at.is_(None),
+                    )
+                ).scalar_one_or_none()
+                if _cli:
+                    _sessions = _db.execute(
+                        _sel(_Sess).where(_Sess.client_id == _cli.id).order_by(_Sess.id)
+                    ).scalars().all()
+                    if _sessions:
+                        _new_sess_id = _sessions[-1].id
+                        _new_sess_idx = len(_sessions) - 1
+                        storage.link_session_to_slot(
+                            pending_slot["slot_id"], _new_sess_id, user["id"],
+                            session_index=_new_sess_idx
+                        )
 
     # --- Exports ---
     user_out = _user_outputs_dir(user["id"])
@@ -995,3 +1054,287 @@ def export_user_data(request: Request, user: dict = Depends(get_current_user)):
 def privacy_page(request: Request):
     user = request.session.get("user")
     return templates.TemplateResponse("privacy.html", {"request": request, "user": user})
+
+
+# ---------------------------------------------------------------------------
+# Phase 2: Calendar View
+# ---------------------------------------------------------------------------
+
+@router.get("/calendar", response_class=HTMLResponse)
+def calendar_view(
+    request: Request,
+    year: int = 0,
+    month: int = 0,
+    user: dict = Depends(get_current_user),
+):
+    """Monthly calendar showing all scheduled sessions across all clients."""
+    import calendar as _cal
+    today = date.today()
+    if not year:
+        year = today.year
+    if not month:
+        month = today.month
+
+    # Clamp to valid range
+    if month < 1:
+        month = 12
+        year -= 1
+    elif month > 12:
+        month = 1
+        year += 1
+
+    _, days_in_month = _cal.monthrange(year, month)
+    start_date = f"{year:04d}-{month:02d}-01"
+    end_date = f"{year:04d}-{month:02d}-{days_in_month:02d}"
+
+    sessions = storage.get_sessions_by_date_range(user["id"], start_date, end_date)
+
+    # Build a dict: day_number → list of session info dicts
+    days_map: dict[int, list] = {}
+    for s in sessions:
+        d = int(s["session_date"].split("-")[2])
+        days_map.setdefault(d, []).append(s)
+
+    # Build calendar grid: list of weeks, each week is list of (day_number|0)
+    first_weekday = _cal.monthrange(year, month)[0]  # 0=Mon
+    cal_days: list[list[int]] = []
+    week: list[int] = [0] * first_weekday
+    for day in range(1, days_in_month + 1):
+        week.append(day)
+        if len(week) == 7:
+            cal_days.append(week)
+            week = []
+    if week:
+        week += [0] * (7 - len(week))
+        cal_days.append(week)
+
+    # Prev/next month links
+    prev_month = month - 1 if month > 1 else 12
+    prev_year = year if month > 1 else year - 1
+    next_month = month + 1 if month < 12 else 1
+    next_year = year if month < 12 else year + 1
+
+    import calendar as _cal2
+    month_name = _cal2.month_name[month]
+
+    # Pre-build date strings for each day to avoid complex Jinja2 formatting
+    date_strs = {d: f"{year:04d}-{month:02d}-{d:02d}" for d in range(1, days_in_month + 1)}
+
+    return templates.TemplateResponse("calendar.html", {
+        "request": request,
+        "user": user,
+        "year": year,
+        "month": month,
+        "month_name": month_name,
+        "cal_days": cal_days,
+        "days_map": days_map,
+        "date_strs": date_strs,
+        "today": today,
+        "prev_year": prev_year,
+        "prev_month": prev_month,
+        "next_year": next_year,
+        "next_month": next_month,
+    })
+
+
+# ---------------------------------------------------------------------------
+# Phase 3: Progressive Programs
+# ---------------------------------------------------------------------------
+
+@router.get("/clients/{slug}/programs", response_class=HTMLResponse)
+def programs_list(request: Request, slug: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, _ = result
+    programs = storage.list_programs(slug, user["id"])
+    return templates.TemplateResponse("programs.html", {
+        "request": request,
+        "user": user,
+        "slug": slug,
+        "profile": profile,
+        "programs": programs,
+    })
+
+
+@router.get("/clients/{slug}/programs/new", response_class=HTMLResponse)
+def program_new_form(request: Request, slug: str, user: dict = Depends(get_current_user)):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, _ = result
+    return templates.TemplateResponse("program_new.html", {
+        "request": request,
+        "user": user,
+        "slug": slug,
+        "profile": profile,
+        "today": str(date.today()),
+        "error": None,
+    })
+
+
+@router.post("/clients/{slug}/programs/new", response_class=HTMLResponse)
+@limiter.limit("5/minute")
+def program_new_create(
+    request: Request,
+    slug: str,
+    program_name: Annotated[str, Form()],
+    goal_focus: Annotated[str, Form()] = "",
+    description: Annotated[str, Form()] = "",
+    start_date: Annotated[str, Form()] = "",
+    weeks: Annotated[str, Form()] = "4",
+    sessions_per_week: Annotated[str, Form()] = "3",
+    user: dict = Depends(get_current_user),
+):
+    if block := _demo_ai_gate(user, request):
+        return block
+
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, _ = result
+
+    program_name = program_name.strip()
+    if not program_name:
+        return templates.TemplateResponse("program_new.html", {
+            "request": request, "user": user, "slug": slug, "profile": profile,
+            "today": str(date.today()), "error": "Program name is required.",
+        }, status_code=422)
+
+    try:
+        w = max(1, min(52, int(weeks)))
+        spw = max(1, min(7, int(sessions_per_week)))
+    except ValueError:
+        return templates.TemplateResponse("program_new.html", {
+            "request": request, "user": user, "slug": slug, "profile": profile,
+            "today": str(date.today()), "error": "Weeks and sessions/week must be numbers.",
+        }, status_code=422)
+
+    api_key = os.getenv("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        return templates.TemplateResponse("program_new.html", {
+            "request": request, "user": user, "slug": slug, "profile": profile,
+            "today": str(date.today()), "error": "ANTHROPIC_API_KEY is not set.",
+        }, status_code=500)
+
+    try:
+        outline = service.generate_program_outline(
+            api_key=api_key,
+            client_name=profile["client_name"],
+            profile=profile,
+            name=program_name,
+            goal_focus=goal_focus.strip(),
+            weeks=w,
+            sessions_per_week=spw,
+            start_date=start_date.strip(),
+            description=description.strip(),
+        )
+    except Exception as exc:
+        log.exception("Program outline generation failed")
+        return templates.TemplateResponse("program_new.html", {
+            "request": request, "user": user, "slug": slug, "profile": profile,
+            "today": str(date.today()),
+            "error": f"Failed to generate program outline: {exc}",
+        }, status_code=500)
+
+    program = storage.create_program(
+        client_slug=slug,
+        user_id=user["id"],
+        name=program_name,
+        description=description.strip(),
+        goal_focus=goal_focus.strip(),
+        start_date=start_date.strip(),
+        weeks=w,
+        sessions_per_week=spw,
+        program_json=outline,
+    )
+    if program is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+
+    storage.append_audit_log(user["id"], "program_create", slug)
+    return RedirectResponse(url=f"/clients/{slug}/programs/{program['id']}", status_code=303)
+
+
+@router.get("/clients/{slug}/programs/{program_id}", response_class=HTMLResponse)
+def program_detail(
+    request: Request,
+    slug: str,
+    program_id: int,
+    user: dict = Depends(get_current_user),
+):
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        return HTMLResponse("<h2>Client not found.</h2>", status_code=404)
+    profile, _ = result
+
+    prog_result = storage.load_program(program_id, user["id"])
+    if prog_result is None:
+        return HTMLResponse("<h2>Program not found.</h2>", status_code=404)
+    program, slots = prog_result
+
+    # Group slots by week for display
+    weeks_map: dict[int, list] = {}
+    for slot in slots:
+        wn = slot["week_number"]
+        weeks_map.setdefault(wn, []).append(slot)
+
+    # Pull program_json outline for week themes
+    outline_weeks = program.get("program_json", {}).get("weeks", [])
+    week_themes = {w.get("week_number", 0): w.get("theme", "") for w in outline_weeks}
+
+    return templates.TemplateResponse("program_detail.html", {
+        "request": request,
+        "user": user,
+        "slug": slug,
+        "profile": profile,
+        "program": program,
+        "weeks_map": weeks_map,
+        "week_themes": week_themes,
+        "total_slots": len(slots),
+        "completed_slots": sum(1 for s in slots if s["session_id"]),
+    })
+
+
+@router.post("/clients/{slug}/programs/{program_id}/generate-session")
+def program_generate_session(
+    request: Request,
+    slug: str,
+    program_id: int,
+    slot_id: Annotated[int, Form()],
+    focus_override: Annotated[str, Form()] = "",
+    user: dict = Depends(get_current_user),
+):
+    """Pre-populate the generate form for a specific program slot."""
+    prog_result = storage.load_program(program_id, user["id"])
+    if prog_result is None:
+        raise HTTPException(status_code=404, detail="Program not found.")
+    _, slots = prog_result
+    slot = next((s for s in slots if s["id"] == slot_id), None)
+    if slot is None:
+        raise HTTPException(status_code=404, detail="Slot not found.")
+
+    focus = focus_override.strip() or slot["focus_template"]
+    session_date = slot["planned_date"]
+
+    result = storage.load_by_slug(slug, user_id=user["id"])
+    if result is None:
+        raise HTTPException(status_code=404, detail="Client not found.")
+    profile, _ = result
+
+    # Redirect to generate form with pre-filled params + program context in session
+    request.session["pending_program_slot"] = {"program_id": program_id, "slot_id": slot_id, "client_slug": slug}
+    url = f"/session/new?client={profile['client_name']}&suggested_focus={focus}"
+    if session_date:
+        url += f"&session_date={session_date}"
+    return RedirectResponse(url=url, status_code=303)
+
+
+@router.post("/clients/{slug}/programs/{program_id}/delete")
+def program_delete(
+    slug: str,
+    program_id: int,
+    user: dict = Depends(get_current_user),
+):
+    storage.delete_program(program_id, user["id"])
+    storage.append_audit_log(user["id"], "program_delete", f"{slug}:{program_id}")
+    return RedirectResponse(url=f"/clients/{slug}/programs", status_code=303)
