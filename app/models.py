@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import datetime
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, Text, func
+from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, Text, func, text
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -34,10 +34,10 @@ class Client(Base):
     user_id: Mapped[str] = mapped_column(Text, ForeignKey("trainers.user_id"), nullable=False)
     slug: Mapped[str] = mapped_column(Text, nullable=False)
     client_name: Mapped[str] = mapped_column(Text, nullable=False)
-    constraints: Mapped[list] = mapped_column(JSONB, default=list, server_default="'[]'")
-    preferred_equipment: Mapped[list] = mapped_column(JSONB, default=list, server_default="'[]'")
-    machine_settings: Mapped[dict] = mapped_column(JSONB, default=dict, server_default="'{}'")
-    notes: Mapped[str] = mapped_column(Text, default="", server_default="''")
+    constraints: Mapped[list] = mapped_column(JSONB, default=list, server_default=text("'[]'"))
+    preferred_equipment: Mapped[list] = mapped_column(JSONB, default=list, server_default=text("'[]'"))
+    machine_settings: Mapped[dict] = mapped_column(JSONB, default=dict, server_default=text("'{}'"))
+    notes: Mapped[str] = mapped_column(Text, default="", server_default=text("''"))
     schema_version: Mapped[int] = mapped_column(Integer, default=1, server_default="1")
     deleted_at: Mapped[datetime.datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
