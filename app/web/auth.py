@@ -105,6 +105,22 @@ async def auth_demo(request: Request):
     return RedirectResponse(url="/clients", status_code=302)
 
 
+@router.get("/auth/demo/reset")
+async def auth_demo_reset(request: Request):
+    """Flush and re-seed the demo account (useful after data schema changes)."""
+    _demo_seed.flush_demo_data(_DEMO_USER_ID)
+    _demo_seed.seed_demo_data(_DEMO_USER_ID)
+    request.session["user"] = {
+        "id": _DEMO_USER_ID,
+        "email": "demo@example.com",
+        "name": "Demo User",
+        "demo": True,
+        "dev_mode": False,
+    }
+    storage.append_audit_log(_DEMO_USER_ID, "demo_reset", "")
+    return RedirectResponse(url="/clients", status_code=302)
+
+
 @router.get("/auth/logout")
 async def auth_logout(request: Request):
     user = request.session.get("user")
