@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Programs · {{ profile.client_name }} · PT Generator{% endblock %}
+
+{% block content %}
+
+<div class="mb-4">
+  <a href="/clients/{{ slug }}" class="text-sm text-orange-500 hover:underline">← Back to {{ profile.client_name }}</a>
+</div>
+
+<div class="mb-5 flex items-center justify-between flex-wrap gap-3">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">
+    Programs · {{ profile.client_name }}
+  </h2>
+  <a href="/clients/{{ slug }}/programs/new"
+     class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">
+    + New Program
+  </a>
+</div>
+
+{% if not programs %}
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
+  <p class="text-gray-400 text-sm mb-3">No training programs yet.</p>
+  <a href="/clients/{{ slug }}/programs/new"
+     class="btn font-display font-bold uppercase tracking-widest" style="text-decoration:none;display:inline-block">
+    Create First Program
+  </a>
+</div>
+{% else %}
+<div style="display:flex;flex-direction:column;gap:1rem">
+  {% for p in programs %}
+  {% set pct = (p.completed_slots / p.total_slots * 100) | int if p.total_slots > 0 else 0 %}
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+    <div class="h-1.5" style="background:{% if p.status == 'completed' %}#22c55e{% elif p.status == 'active' %}#f97316{% elif p.status == 'paused' %}#f59e0b{% else %}#d1d5db{% endif %}"></div>
+    <div class="p-4">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+        <div>
+          <h3 style="margin:0 0 0.25rem">
+            <a href="/clients/{{ slug }}/programs/{{ p.id }}"
+               class="text-gray-900 hover:text-orange-500" style="text-decoration:none">{{ p.name }}</a>
+          </h3>
+          {% if p.goal_focus %}
+          <p class="text-sm text-gray-500 mt-0.5">{{ p.goal_focus }}</p>
+          {% endif %}
+          {% if p.description %}
+          <p class="text-sm text-gray-400 mt-0.5">{{ p.description | truncate(100) }}</p>
+          {% endif %}
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-shrink:0">
+          <span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:999px;
+            background:{% if p.status == 'completed' %}#dcfce7{% elif p.status == 'active' %}#fff7ed{% elif p.status == 'paused' %}#fef3c7{% else %}#f3f4f6{% endif %};
+            color:{% if p.status == 'completed' %}#166534{% elif p.status == 'active' %}#9a3412{% elif p.status == 'paused' %}#92400e{% else %}#6b7280{% endif %}">
+            {{ p.status }}
+          </span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem;font-size:0.8rem;color:#6b7280">
+        <span>{{ p.weeks }} weeks</span>
+        <span>{{ p.sessions_per_week }} sessions/week</span>
+        <span>{{ p.total_slots }} total sessions</span>
+        {% if p.start_date %}<span>Starts {{ p.start_date }}</span>{% endif %}
+        {% if p.end_date %}<span>Ends {{ p.end_date }}</span>{% endif %}
+      </div>
+
+      {# Progress bar #}
+      {% if p.total_slots > 0 %}
+      <div style="margin-top:0.75rem">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:#6b7280;margin-bottom:0.25rem">
+          <span>Progress</span>
+          <span>{{ p.completed_slots }} / {{ p.total_slots }} sessions</span>
+        </div>
+        <div style="height:6px;background:#f3f4f6;border-radius:999px;overflow:hidden">
+          <div style="height:100%;width:{{ pct }}%;background:#f97316;border-radius:999px;transition:width 0.3s"></div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div style="display:flex;gap:0.75rem;margin-top:1rem">
+        <a href="/clients/{{ slug }}/programs/{{ p.id }}"
+           class="btn-secondary text-sm" style="text-decoration:none;padding:0.35rem 0.9rem">View Program</a>
+        <form method="post" action="/clients/{{ slug }}/programs/{{ p.id }}/delete" style="display:inline">
+          <button type="submit"
+                  onclick="return confirm('Delete this program? The associated sessions will not be deleted.')"
+                  style="background:none;border:none;cursor:pointer;font-size:0.8rem;color:#9ca3af;padding:0.35rem 0"
+                  class="hover:text-red-500">
+            Delete
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

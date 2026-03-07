@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Calendar · PT Generator{% endblock %}
+
+{% block content %}
+
+<div class="mb-4 flex items-center justify-between flex-wrap gap-3">
+  <h2 class="font-display font-bold text-3xl uppercase tracking-wide text-gray-900">Schedule Calendar</h2>
+  <a href="/clients" class="btn-secondary text-sm" style="text-decoration:none">← Clients</a>
+</div>
+
+{# ── Month navigation ─────────────────────────────────────────────── #}
+<div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+  <div class="h-1.5 bg-orange-500"></div>
+  <div class="p-4 flex items-center justify-between">
+    <a href="/calendar?year={{ prev_year }}&month={{ prev_month }}"
+       class="btn-secondary text-sm" style="text-decoration:none">&#8592; Prev</a>
+    <h3 class="font-display font-bold text-2xl uppercase tracking-wide text-gray-900">
+      {{ month_name }} {{ year }}
+    </h3>
+    <a href="/calendar?year={{ next_year }}&month={{ next_month }}"
+       class="btn-secondary text-sm" style="text-decoration:none">Next &#8594;</a>
+  </div>
+
+  {# ── Calendar grid ─────────────────────────────────────────────── #}
+  <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed">
+      <thead>
+        <tr>
+          {% for day_name in ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"] %}
+          <th style="padding:0.5rem 0.25rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;border-bottom:1px solid #e5e7eb;min-width:80px">
+            {{ day_name }}
+          </th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for week in cal_days %}
+        <tr>
+          {% for day in week %}
+          <td style="vertical-align:top;border:1px solid #f3f4f6;padding:0.35rem;min-height:90px;height:90px;width:14.28%{% if day == 0 %};background:#fafafa{% endif %}">
+            {% if day > 0 %}
+            {% set is_today = (today.year == year and today.month == month and today.day == day) %}
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.3rem">
+              <span style="font-size:0.8rem;font-weight:{% if is_today %}700{% else %}500{% endif %};color:{% if is_today %}#f97316{% else %}#374151{% endif %}{% if is_today %};background:#fff7ed;padding:1px 5px;border-radius:999px;border:1px solid #fed7aa{% endif %}">
+                {{ day }}
+              </span>
+            </div>
+
+            {# Session chips — days_map uses integer day keys #}
+            {% if day in days_map %}
+              {% for s in days_map[day] %}
+              {% set is_past = (year < today.year) or (year == today.year and month < today.month) or (year == today.year and month == today.month and day < today.day) %}
+              {% if s.has_actual_loads %}
+                {% set chip_bg = "#dcfce7" %}{% set chip_text = "#166534" %}{% set chip_border = "#bbf7d0" %}
+              {% elif is_past %}
+                {% set chip_bg = "#fef3c7" %}{% set chip_text = "#92400e" %}{% set chip_border = "#fde68a" %}
+              {% else %}
+                {% set chip_bg = "#eff6ff" %}{% set chip_text = "#1e40af" %}{% set chip_border = "#bfdbfe" %}
+              {% endif %}
+              <a href="/clients/{{ s.client_slug }}/sessions/{{ s.session_index }}"
+                 style="display:block;margin-bottom:3px;padding:2px 6px;border-radius:6px;background:{{ chip_bg }};border:1px solid {{ chip_border }};color:{{ chip_text }};text-decoration:none;font-size:0.68rem;line-height:1.3;overflow:hidden;white-space:nowrap;text-overflow:ellipsis"
+                 title="{{ s.client_name }}{% if s.focus %}: {{ s.focus }}{% endif %}">
+                <span style="font-weight:700">{{ s.client_name | truncate(14, true, '') }}</span>
+                {% if s.focus %}<br><span style="opacity:0.8">{{ s.focus | truncate(20, true, '…') }}</span>{% endif %}
+              </a>
+              {% endfor %}
+            {% endif %}
+
+            {# Add-session link — date_str built in Python, passed via date_strs map #}
+            <a href="/session/new?session_date={{ date_strs[day] }}"
+               style="display:block;margin-top:2px;font-size:0.65rem;color:#d1d5db;text-decoration:none;text-align:center"
+               class="hover:text-orange-400">+ session</a>
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{# ── Legend ────────────────────────────────────────────────────────── #}
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;font-size:0.8rem;align-items:center;color:#6b7280;margin-bottom:1rem">
+  <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:0.75rem">Legend:</span>
+  <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#dcfce7;border:1px solid #bbf7d0;display:inline-block"></span> Completed</span>
+  <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#fef3c7;border:1px solid #fde68a;display:inline-block"></span> Not yet logged</span>
+  <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#eff6ff;border:1px solid #bfdbfe;display:inline-block"></span> Upcoming</span>
+</div>
+
+{% endblock %}

@@ -12,7 +12,7 @@ import re
 from sqlalchemy import select, delete, update, func
 
 from app.database import SessionLocal
-from app.models import AuditLog, Client, Goal, Session, Trainer
+from app.models import AuditLog, Client, Goal, Program, ProgramSession, Session, Trainer
 
 SCHEMA_VERSION = 1
 
@@ -204,6 +204,84 @@ def _entry_to_session(client_id: int, entry: dict) -> Session:
     )
 
 
+def clone_session(
+    name: str,
+    index: int,
+    new_date: str,
+    user_id: str | None = None,
+) -> int | None:
+    """Clone session at *index* into a new session with *new_date*.
+
+    The clone inherits the source plan_json and carries over actual_loads (or
+    loads if actual_loads is empty) as the new planned loads so progressive
+    overload is preserved.  Returns the new session's index in history, or None
+    if the source could not be found.
+    """
+    with SessionLocal() as db:
+        client = _get_client(db, name, user_id)
+        if client is None:
+            return None
+        sessions = db.execute(
+            select(Session)
+            .where(Session.client_id == client.id)
+            .order_by(Session.id)
+        ).scalars().all()
+        if not (0 <= index < len(sessions)):
+            return None
+        src = sessions[index]
+
+        # Carry over actual_loads as new planned loads (fall back to loads)
+        new_loads = src.actual_loads if src.actual_loads else (src.loads or {})
+
+        # Patch plan_json: update date and clear actual results
+        plan_json = dict(src.plan_json) if src.plan_json else {}
+        if "meta" in plan_json:
+            plan_json["meta"] = dict(plan_json["meta"])
+            plan_json["meta"]["session_date"] = new_date
+            # Bump session number to next available
+            existing_max = max((s.session_number or 0) for s in sessions)
+            next_num = existing_max + 1
+            plan_json["meta"]["session_number"] = next_num
+
+        # Update loading.prior_load_lbs in plan_json for each exercise
+        import copy
+        plan_json = copy.deepcopy(plan_json)
+        for block in plan_json.get("blocks", []):
+            for ex in block.get("exercises", []):
+                ex_name = ex.get("name", "")
+                prior = new_loads.get(ex_name)
+                if "loading" not in ex or ex["loading"] is None:
+                    ex["loading"] = {}
+                if prior is not None:
+                    ex["loading"]["prior_load_lbs"] = prior
+                    ex["loading"]["load_lbs"] = prior
+                # Clear previously recorded actual results
+                ex["loading"].pop("reps_achieved", None)
+
+        new_session = Session(
+            client_id=client.id,
+            session_date=new_date,
+            session_number=plan_json.get("meta", {}).get("session_number"),
+            focus=src.focus,
+            loads=new_loads,
+            actual_loads={},
+            plan_json=plan_json,
+            trainer_notes="",
+            archived=False,
+        )
+        db.add(new_session)
+        db.commit()
+        db.refresh(new_session)
+
+        # Return new index (count rows after commit)
+        all_sessions = db.execute(
+            select(Session)
+            .where(Session.client_id == client.id)
+            .order_by(Session.id)
+        ).scalars().all()
+        return len(all_sessions) - 1
+
+
 def archive_session(name: str, index: int, user_id: str | None = None) -> bool:
     """Mark the nth session (0-based) as archived."""
     with SessionLocal() as db:
@@ -304,6 +382,50 @@ def load_by_slug(slug: str, user_id: str | None = None) -> tuple[dict, list] | N
         return profile, history
 
 
+def get_sessions_by_date_range(
+    user_id: str,
+    start_date: str,
+    end_date: str,
+) -> list[dict]:
+    """Return sessions for all of a trainer's clients within [start_date, end_date].
+
+    Each entry includes client_name, client_slug, session_date, session_number,
+    focus, actual_loads (to determine completion status), and session index.
+    Archived sessions are excluded.
+    """
+    with SessionLocal() as db:
+        clients = db.execute(
+            select(Client).where(
+                Client.user_id == user_id,
+                Client.deleted_at.is_(None),
+            )
+        ).scalars().all()
+
+        results = []
+        for client in clients:
+            sessions = db.execute(
+                select(Session)
+                .where(Session.client_id == client.id)
+                .order_by(Session.id)
+            ).scalars().all()
+            for idx, s in enumerate(sessions):
+                if s.archived:
+                    continue
+                d = s.session_date or ""
+                if d and start_date <= d <= end_date:
+                    results.append({
+                        "client_name": client.client_name,
+                        "client_slug": client.slug,
+                        "session_date": d,
+                        "session_number": s.session_number,
+                        "focus": s.focus or "",
+                        "has_actual_loads": bool(s.actual_loads),
+                        "session_index": idx,
+                    })
+
+        return results
+
+
 def soft_delete_client(name: str, user_id: str | None = None):
     """Soft-delete a client by setting deleted_at."""
     with SessionLocal() as db:
@@ -372,3 +494,231 @@ def save_trainer_profile(user_id: str, profile: dict) -> None:
         trainer.bio = profile.get("bio")
         trainer.dev_mode = bool(profile.get("dev_mode", False))
         db.commit()
+
+
+# ---------------------------------------------------------------------------
+# Programs
+# ---------------------------------------------------------------------------
+
+def _program_to_dict(program: Program) -> dict:
+    return {
+        "id": program.id,
+        "client_id": program.client_id,
+        "name": program.name,
+        "description": program.description or "",
+        "goal_focus": program.goal_focus or "",
+        "start_date": program.start_date or "",
+        "end_date": program.end_date or "",
+        "weeks": program.weeks,
+        "sessions_per_week": program.sessions_per_week,
+        "status": program.status,
+        "program_json": program.program_json or {},
+        "created_at": program.created_at.isoformat() if program.created_at else "",
+    }
+
+
+def _program_session_to_dict(ps: ProgramSession) -> dict:
+    return {
+        "id": ps.id,
+        "program_id": ps.program_id,
+        "session_id": ps.session_id,
+        "session_index": ps.session_index,
+        "week_number": ps.week_number,
+        "day_of_week": ps.day_of_week or "",
+        "planned_date": ps.planned_date or "",
+        "session_slot_label": ps.session_slot_label or "",
+        "focus_template": ps.focus_template or "",
+        "sequence_order": ps.sequence_order,
+    }
+
+
+def create_program(
+    client_slug: str,
+    user_id: str,
+    name: str,
+    description: str = "",
+    goal_focus: str = "",
+    start_date: str = "",
+    weeks: int = 4,
+    sessions_per_week: int = 3,
+    program_json: dict | None = None,
+) -> dict | None:
+    """Create a program and its session slots. Returns the created program dict."""
+    with SessionLocal() as db:
+        client = db.execute(
+            select(Client).where(
+                Client.user_id == user_id,
+                Client.slug == client_slug,
+                Client.deleted_at.is_(None),
+            )
+        ).scalar_one_or_none()
+        if client is None:
+            return None
+
+        # Compute end_date from start_date + weeks
+        end_date = ""
+        if start_date:
+            import datetime as _dt
+            try:
+                sd = _dt.date.fromisoformat(start_date)
+                ed = sd + _dt.timedelta(weeks=weeks)
+                end_date = ed.isoformat()
+            except ValueError:
+                pass
+
+        program = Program(
+            client_id=client.id,
+            user_id=user_id,
+            name=name,
+            description=description,
+            goal_focus=goal_focus,
+            start_date=start_date,
+            end_date=end_date,
+            weeks=weeks,
+            sessions_per_week=sessions_per_week,
+            status="draft",
+            program_json=program_json or {},
+        )
+        db.add(program)
+        db.flush()  # get program.id
+
+        # Create session slots from program_json outline
+        outline_weeks = (program_json or {}).get("weeks", [])
+        seq = 0
+        for week_data in outline_weeks:
+            wn = week_data.get("week_number", 1)
+            for slot in week_data.get("sessions", []):
+                ps = ProgramSession(
+                    program_id=program.id,
+                    week_number=wn,
+                    day_of_week=slot.get("day_of_week", ""),
+                    planned_date=slot.get("planned_date", ""),
+                    session_slot_label=slot.get("label", f"Week {wn}"),
+                    focus_template=slot.get("focus", ""),
+                    sequence_order=seq,
+                )
+                db.add(ps)
+                seq += 1
+
+        db.commit()
+        db.refresh(program)
+        return _program_to_dict(program)
+
+
+def load_program(program_id: int, user_id: str) -> tuple[dict, list] | None:
+    """Load a program and its session slots. Returns (program_dict, slots) or None."""
+    with SessionLocal() as db:
+        program = db.execute(
+            select(Program).where(
+                Program.id == program_id,
+                Program.user_id == user_id,
+            )
+        ).scalar_one_or_none()
+        if program is None:
+            return None
+        slots = db.execute(
+            select(ProgramSession)
+            .where(ProgramSession.program_id == program_id)
+            .order_by(ProgramSession.sequence_order)
+        ).scalars().all()
+        return _program_to_dict(program), [_program_session_to_dict(s) for s in slots]
+
+
+def list_programs(client_slug: str, user_id: str) -> list[dict]:
+    """Return all programs for a client, ordered by id desc."""
+    with SessionLocal() as db:
+        client = db.execute(
+            select(Client).where(
+                Client.user_id == user_id,
+                Client.slug == client_slug,
+                Client.deleted_at.is_(None),
+            )
+        ).scalar_one_or_none()
+        if client is None:
+            return []
+        programs = db.execute(
+            select(Program)
+            .where(Program.client_id == client.id)
+            .order_by(Program.id.desc())
+        ).scalars().all()
+        results = []
+        for p in programs:
+            d = _program_to_dict(p)
+            # Count completed vs total slots
+            slots = db.execute(
+                select(ProgramSession)
+                .where(ProgramSession.program_id == p.id)
+            ).scalars().all()
+            d["total_slots"] = len(slots)
+            d["completed_slots"] = sum(1 for s in slots if s.session_id is not None)
+            results.append(d)
+        return results
+
+
+def link_session_to_slot(slot_id: int, session_id: int, user_id: str, session_index: int | None = None) -> bool:
+    """Link a generated session to a program slot."""
+    with SessionLocal() as db:
+        ps = db.execute(
+            select(ProgramSession).where(ProgramSession.id == slot_id)
+        ).scalar_one_or_none()
+        if ps is None:
+            return False
+        # Verify ownership via program
+        program = db.execute(
+            select(Program).where(
+                Program.id == ps.program_id,
+                Program.user_id == user_id,
+            )
+        ).scalar_one_or_none()
+        if program is None:
+            return False
+        ps.session_id = session_id
+        if session_index is not None:
+            ps.session_index = session_index
+        # If all slots now filled, mark program active→completed
+        all_slots = db.execute(
+            select(ProgramSession).where(ProgramSession.program_id == program.id)
+        ).scalars().all()
+        if all(s.session_id is not None for s in all_slots):
+            program.status = "completed"
+        elif program.status == "draft":
+            program.status = "active"
+        db.commit()
+        return True
+
+
+def update_program_status(program_id: int, status: str, user_id: str) -> bool:
+    """Update a program's status."""
+    with SessionLocal() as db:
+        program = db.execute(
+            select(Program).where(
+                Program.id == program_id,
+                Program.user_id == user_id,
+            )
+        ).scalar_one_or_none()
+        if program is None:
+            return False
+        program.status = status
+        db.commit()
+        return True
+
+
+def delete_program(program_id: int, user_id: str) -> bool:
+    """Delete a program and its slots."""
+    with SessionLocal() as db:
+        program = db.execute(
+            select(Program).where(
+                Program.id == program_id,
+                Program.user_id == user_id,
+            )
+        ).scalar_one_or_none()
+        if program is None:
+            return False
+        db.execute(
+            delete(ProgramSession).where(
+                ProgramSession.program_id == program_id
+            )
+        )
+        db.delete(program)
+        db.commit()
+        return True
