@@ -397,14 +397,19 @@ def generate(
             "filename": path.name,
         })
 
+    client_slug = storage.slug(client)
+    history = storage.load_history(client, user_id=user["id"])
+    session_index = len(history) - 1
+
     return templates.TemplateResponse("result.html", {
         "request": request,
         "plan": plan,
         "ctx": ctx,
         "export_links": export_links,
         "user": user,
-        "back_url": None,
-        "client_slug": None,
+        "back_url": f"/clients/{client_slug}",
+        "client_slug": client_slug,
+        "session_index": session_index,
     })
 
 
