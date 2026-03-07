@@ -65,6 +65,16 @@
   </form>
 </div>
 
+{% if user.demo %}
+<div class="form-card" style="max-width:540px;margin-top:1.5rem;border-color:#fed7aa">
+  <p class="font-display font-bold text-xs uppercase tracking-widest mb-3" style="color:#c2410c">Demo Account</p>
+  <p style="font-size:0.9rem;color:#6b7280;margin-bottom:1rem">
+    Reset the demo account back to its original state — all clients, sessions, goals, and programs will be restored from the built-in demo data.
+  </p>
+  <a href="/auth/demo/reset" class="btn" style="display:inline-block;text-decoration:none;background:#ea580c">Reset Demo Data</a>
+</div>
+{% endif %}
+
 <div class="form-card" style="max-width:540px;margin-top:1.5rem">
   <p class="font-display font-bold text-xs uppercase tracking-widest text-gray-400 mb-3">Your Data</p>
   <p style="font-size:0.9rem;color:#6b7280;margin-bottom:1rem">
