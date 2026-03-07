@@ -63,7 +63,7 @@ def generate(
     )
 
     if ctx.is_new_client:
-        typer.echo(f"New client '{client}' — profile created at {ctx.client_dir}")
+        typer.echo(f"New client '{client}' — profile created")
     else:
         typer.echo(f"Profile loaded: {client}")
 

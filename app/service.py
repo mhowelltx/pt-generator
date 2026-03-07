@@ -41,7 +41,6 @@ DEFAULT_PREFERENCES: list[str] = [
 class GenerationContext:
     """Metadata about the generation run — useful for building user-facing messages."""
     is_new_client: bool
-    client_dir: str
     prior_session_number: Optional[int] = None
     prior_session_date: Optional[str] = None
     prior_load_count: int = 0
@@ -141,7 +140,6 @@ def run_generation(
     # --- Prior history ---
     ctx = GenerationContext(
         is_new_client=is_new,
-        client_dir=str(storage.client_dir(client, user_id=user_id)),
     )
     history = storage.load_history(client, user_id=user_id)
     active_history = [h for h in history if not h.get("archived", False)]
