@@ -7,6 +7,10 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent.parent.parent / ".env")
 
+from contextlib import asynccontextmanager
+
+from alembic.config import Config as AlembicConfig
+from alembic import command as alembic_command
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
@@ -23,7 +27,17 @@ from app.web.routes import router as web_router
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
-app = FastAPI(title="PT Generator", version="1.0.0")
+_alembic_ini = Path(__file__).parent.parent.parent / "alembic.ini"
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    cfg = AlembicConfig(str(_alembic_ini))
+    alembic_command.upgrade(cfg, "head")
+    yield
+
+
+app = FastAPI(title="PT Generator", version="1.0.0", lifespan=lifespan)
 
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)

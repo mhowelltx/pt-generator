@@ -11,7 +11,7 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 # Pull DATABASE_URL from environment, normalising postgres:// → postgresql://
-_db_url = os.environ.get("DATABASE_URL", "")
+_db_url = os.environ["DATABASE_URL"]
 if _db_url.startswith("postgres://"):
     _db_url = "postgresql://" + _db_url[len("postgres://"):]
 config.set_main_option("sqlalchemy.url", _db_url)
