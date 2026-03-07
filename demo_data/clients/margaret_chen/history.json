@@ -1,1091 +1,1371 @@
-[
-  {
-    "session_date": "2025-10-01",
-    "session_number": 1,
-    "focus": "Baseline assessment — machine setup and initial load testing",
-    "loads": {
-      "Leg Press": 80.0,
-      "Chest Press": 40.0,
-      "Seated Row": 45.0,
-      "Leg Curl": 25.0,
-      "Lat Pulldown": 35.0,
-      "DB Bicep Curl": 8.0
+{
+  "anchor_date": "2026-03-07",
+  "entries": [
+    {
+      "session_date": "2025-10-01",
+      "session_number": 1,
+      "focus": "Baseline assessment — machine setup and initial load testing",
+      "loads": {
+        "Leg Press": 80.0,
+        "Chest Press": 40.0,
+        "Seated Row": 45.0,
+        "Leg Curl": 25.0,
+        "Lat Pulldown": 35.0,
+        "DB Bicep Curl": 8.0
+      },
+      "progression_notes": [
+        "All machines configured and baseline loads established",
+        "Leg press at 80 lbs felt moderate — try 90 in 2 sessions once form is consistent",
+        "Knee pain score: 0/10 throughout — excellent range-limit worked well",
+        "Note: chest press lever 3 optimal for shoulder position"
+      ],
+      "trainer_notes": "Excellent first session. Margaret is engaged and follows cues precisely. Right knee showed no pain at the range we used. Will build gradually. She mentioned she walks 30 min most days — good aerobic base.",
+      "archived": false
     },
-    "progression_notes": [
-      "All machines configured and baseline loads established",
-      "Leg press at 80 lbs felt moderate — try 90 in 2 sessions once form is consistent",
-      "Knee pain score: 0/10 throughout — excellent range-limit worked well",
-      "Note: chest press lever 3 optimal for shoulder position"
-    ],
-    "trainer_notes": "Excellent first session. Margaret is engaged and follows cues precisely. Right knee showed no pain at the range we used. Will build gradually. She mentioned she walks 30 min most days — good aerobic base.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-10-15",
-    "session_number": 2,
-    "focus": "Full-body machine circuit — reinforce movement patterns and add leg curl",
-    "loads": {
-      "Leg Press": 80.0,
-      "Chest Press": 40.0,
-      "Seated Row": 45.0,
-      "Leg Curl": 25.0,
-      "Lat Pulldown": 35.0,
-      "DB Bicep Curl": 8.0
+    {
+      "session_date": "2025-10-15",
+      "session_number": 2,
+      "focus": "Full-body machine circuit — reinforce movement patterns and add leg curl",
+      "loads": {
+        "Leg Press": 80.0,
+        "Chest Press": 40.0,
+        "Seated Row": 45.0,
+        "Leg Curl": 25.0,
+        "Lat Pulldown": 35.0,
+        "DB Bicep Curl": 8.0
+      },
+      "progression_notes": [
+        "Maintaining loads while reinforcing form — ready for progression next session",
+        "Leg curl added today — 25 lbs felt appropriate, no hamstring cramping",
+        "Seated row form improving — elbows are now leading correctly"
+      ],
+      "trainer_notes": "Smooth session. Machine settings feel dialed in. Margaret is asking great questions about the purpose of each exercise — very engaged.",
+      "archived": false
     },
-    "progression_notes": [
-      "Maintaining loads while reinforcing form — ready for progression next session",
-      "Leg curl added today — 25 lbs felt appropriate, no hamstring cramping",
-      "Seated row form improving — elbows are now leading correctly"
-    ],
-    "trainer_notes": "Smooth session. Machine settings feel dialed in. Margaret is asking great questions about the purpose of each exercise — very engaged.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-10-29",
-    "session_number": 3,
-    "focus": "First progressive overload — increase lower and upper body loads",
-    "loads": {
-      "Leg Press": 90.0,
-      "Chest Press": 45.0,
-      "Seated Row": 50.0,
-      "Leg Curl": 30.0,
-      "Lat Pulldown": 40.0,
-      "DB Bicep Curl": 8.0
+    {
+      "session_date": "2025-10-29",
+      "session_number": 3,
+      "focus": "First progressive overload — increase lower and upper body loads",
+      "loads": {
+        "Leg Press": 90.0,
+        "Chest Press": 45.0,
+        "Seated Row": 50.0,
+        "Leg Curl": 30.0,
+        "Lat Pulldown": 40.0,
+        "DB Bicep Curl": 8.0
+      },
+      "progression_notes": [
+        "Leg press to 90 lbs — handled well, 3x12 complete",
+        "Chest press 45 lbs — slight struggle on set 3, hold here next time",
+        "Seated row 50 lbs — very solid",
+        "Leg curl 30 lbs — good, ready to try 35 in 2 sessions"
+      ],
+      "trainer_notes": "Margaret's first load increase day. She was nervous but powered through — proud of her. Knee pain: 0. Good energy.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press to 90 lbs — handled well, 3x12 complete",
-      "Chest press 45 lbs — slight struggle on set 3, hold here next time",
-      "Seated row 50 lbs — very solid",
-      "Leg curl 30 lbs — good, ready to try 35 in 2 sessions"
-    ],
-    "trainer_notes": "Margaret's first load increase day. She was nervous but powered through — proud of her. Knee pain: 0. Good energy.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-11-12",
-    "session_number": 4,
-    "focus": "Lower body strength + single-leg balance challenge",
-    "loads": {
-      "Leg Press": 90.0,
-      "Chest Press": 45.0,
-      "Seated Row": 50.0,
-      "Leg Curl": 30.0,
-      "Lat Pulldown": 40.0,
-      "DB Bicep Curl": 10.0
+    {
+      "session_date": "2025-11-12",
+      "session_number": 4,
+      "focus": "Lower body strength + single-leg balance challenge",
+      "loads": {
+        "Leg Press": 90.0,
+        "Chest Press": 45.0,
+        "Seated Row": 50.0,
+        "Leg Curl": 30.0,
+        "Lat Pulldown": 40.0,
+        "DB Bicep Curl": 10.0
+      },
+      "progression_notes": [
+        "Leg press 90 lbs — all 3 sets hit 12, ready to move to 100 next session",
+        "Added single-leg balance work today — good start, using chair support",
+        "Bicep curl progressed to 10 lbs — form maintained"
+      ],
+      "trainer_notes": "Good session. Single-leg balance was humbling for her — important work. She could hold 15-20s on each side without support. Will build to 30s next session.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press 90 lbs — all 3 sets hit 12, ready to move to 100 next session",
-      "Added single-leg balance work today — good start, using chair support",
-      "Bicep curl progressed to 10 lbs — form maintained"
-    ],
-    "trainer_notes": "Good session. Single-leg balance was humbling for her — important work. She could hold 15-20s on each side without support. Will build to 30s next session.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-11-26",
-    "session_number": 5,
-    "focus": "Upper-lower strength split + core integration",
-    "loads": {
-      "Leg Press": 100.0,
-      "Chest Press": 50.0,
-      "Seated Row": 55.0,
-      "Leg Curl": 35.0,
-      "Lat Pulldown": 45.0,
-      "DB Bicep Curl": 10.0
+    {
+      "session_date": "2025-11-26",
+      "session_number": 5,
+      "focus": "Upper-lower strength split + core integration",
+      "loads": {
+        "Leg Press": 100.0,
+        "Chest Press": 50.0,
+        "Seated Row": 55.0,
+        "Leg Curl": 35.0,
+        "Lat Pulldown": 45.0,
+        "DB Bicep Curl": 10.0
+      },
+      "progression_notes": [
+        "Leg press moved to 100 lbs — solid, all reps clean",
+        "Chest press 50 lbs — first time, set 3 was tough but completed",
+        "Seated row 55 lbs — excellent form, ready for 60 soon",
+        "Added dead bug variation for core — needs work but great start"
+      ],
+      "trainer_notes": "Big day — every major load went up. She was thrilled. Knee pain: 0. BP measured before session: 118/74, excellent.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press moved to 100 lbs — solid, all reps clean",
-      "Chest press 50 lbs — first time, set 3 was tough but completed",
-      "Seated row 55 lbs — excellent form, ready for 60 soon",
-      "Added dead bug variation for core — needs work but great start"
-    ],
-    "trainer_notes": "Big day — every major load went up. She was thrilled. Knee pain: 0. BP measured before session: 118/74, excellent.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-10",
-    "session_number": 6,
-    "focus": "Full-body circuit with stability and mobility components",
-    "loads": {
-      "Leg Press": 100.0,
-      "Chest Press": 50.0,
-      "Seated Row": 55.0,
-      "Leg Curl": 35.0,
-      "Lat Pulldown": 45.0,
-      "DB Bicep Curl": 10.0
+    {
+      "session_date": "2025-12-10",
+      "session_number": 6,
+      "focus": "Full-body circuit with stability and mobility components",
+      "loads": {
+        "Leg Press": 100.0,
+        "Chest Press": 50.0,
+        "Seated Row": 55.0,
+        "Leg Curl": 35.0,
+        "Lat Pulldown": 45.0,
+        "DB Bicep Curl": 10.0
+      },
+      "progression_notes": [
+        "Holding all loads this week — consolidation session",
+        "Single-leg balance improved to 25-30s each side",
+        "Dead bug: getting smoother — aim for 3x8 each side next time"
+      ],
+      "trainer_notes": "Consolidation session before holiday period. All sets completed with great form. She mentioned she's been doing band pull-aparts at home — great initiative.",
+      "archived": false
     },
-    "progression_notes": [
-      "Holding all loads this week — consolidation session",
-      "Single-leg balance improved to 25-30s each side",
-      "Dead bug: getting smoother — aim for 3x8 each side next time"
-    ],
-    "trainer_notes": "Consolidation session before holiday period. All sets completed with great form. She mentioned she's been doing band pull-aparts at home — great initiative.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-24",
-    "session_number": 7,
-    "focus": "Holiday maintenance — moderate intensity full-body",
-    "loads": {
-      "Leg Press": 110.0,
-      "Chest Press": 55.0,
-      "Seated Row": 60.0,
-      "Leg Curl": 40.0,
-      "Lat Pulldown": 50.0,
-      "DB Bicep Curl": 12.0
+    {
+      "session_date": "2025-12-24",
+      "session_number": 7,
+      "focus": "Holiday maintenance — moderate intensity full-body",
+      "loads": {
+        "Leg Press": 110.0,
+        "Chest Press": 55.0,
+        "Seated Row": 60.0,
+        "Leg Curl": 40.0,
+        "Lat Pulldown": 50.0,
+        "DB Bicep Curl": 12.0
+      },
+      "progression_notes": [
+        "Surprised her with load jumps — she hit all reps at new weights",
+        "Leg press 110: 12,12,11 — hold here and aim for 3x12 before moving up",
+        "Chest press 55: all 12 reps each set — plan 60 next session",
+        "Leg curl 40: set 3 was 10 reps — hold at 40 until 3x12 solid"
+      ],
+      "trainer_notes": "Holiday session — great energy despite time of year. She was in festive spirits. All new load PRs. Really motivating to see her progress over 3 months.",
+      "archived": false
     },
-    "progression_notes": [
-      "Surprised her with load jumps — she hit all reps at new weights",
-      "Leg press 110: 12,12,11 — hold here and aim for 3x12 before moving up",
-      "Chest press 55: all 12 reps each set — plan 60 next session",
-      "Leg curl 40: set 3 was 10 reps — hold at 40 until 3x12 solid"
-    ],
-    "trainer_notes": "Holiday session — great energy despite time of year. She was in festive spirits. All new load PRs. Really motivating to see her progress over 3 months.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-07",
-    "session_number": 8,
-    "focus": "New Year strength reset — push toward load milestones",
-    "loads": {
-      "Leg Press": 110.0,
-      "Chest Press": 55.0,
-      "Seated Row": 60.0,
-      "Leg Curl": 40.0,
-      "Lat Pulldown": 50.0,
-      "DB Bicep Curl": 12.0
-    },
-    "progression_notes": [
-      "Leg press: holding at 110 — 12,12,11 again, need one more solid session before 120",
-      "Chest press: all 3 sets of 12 at 55 lbs — moving to 60 next session",
-      "Seated row: progressed from 55 to 60 lbs today — plan 65 next time",
-      "Lat pulldown 50 solid — increase to 55 next session",
-      "Leg curl: set 3 still 10 reps — hold 40 lbs"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "Margaret Chen",
-        "session_date": "2026-01-07",
-        "session_number": 8,
-        "duration_minutes": 50,
-        "focus": "New Year strength reset \u2014 push toward load milestones",
-        "constraints": [
-          "right knee OA \u2014 range-limit leg press to 90\u00b0, no high-impact",
-          "mild hypertension \u2014 RPE cap 7, no Valsalva"
+    {
+      "session_date": "2026-01-07",
+      "session_number": 8,
+      "focus": "New Year strength reset — push toward load milestones",
+      "loads": {
+        "Leg Press": 110.0,
+        "Chest Press": 55.0,
+        "Seated Row": 60.0,
+        "Leg Curl": 40.0,
+        "Lat Pulldown": 50.0,
+        "DB Bicep Curl": 12.0
+      },
+      "progression_notes": [
+        "Leg press: holding at 110 — 12,12,11 again, need one more solid session before 120",
+        "Chest press: all 3 sets of 12 at 55 lbs — moving to 60 next session",
+        "Seated row: progressed from 55 to 60 lbs today — plan 65 next time",
+        "Lat pulldown 50 solid — increase to 55 next session",
+        "Leg curl: set 3 still 10 reps — hold 40 lbs"
+      ],
+      "plan_json": {
+        "meta": {
+          "client_name": "Margaret Chen",
+          "session_date": "2026-01-07",
+          "session_number": 8,
+          "duration_minutes": 50,
+          "focus": "New Year strength reset — push toward load milestones",
+          "constraints": [
+            "right knee OA — range-limit leg press to 90°, no high-impact",
+            "mild hypertension — RPE cap 7, no Valsalva"
+          ],
+          "readiness_notes": [
+            "Client reports 8/10 energy — refreshed after holidays",
+            "No knee discomfort all week",
+            "BP reported normal this week"
+          ]
+        },
+        "equipment_used": [
+          "selectorized leg press",
+          "selectorized chest press",
+          "selectorized seated row",
+          "selectorized lat pulldown",
+          "selectorized leg curl",
+          "stationary bike",
+          "dumbbells 12 lbs"
         ],
-        "readiness_notes": [
-          "Client reports 8/10 energy \u2014 refreshed after holidays",
-          "No knee discomfort all week",
-          "BP reported normal this week"
+        "blocks": [
+          {
+            "title": "Cardio Warm-Up & Joint Activation",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Stationary Bike",
+                "sets": 1,
+                "reps": "5 min",
+                "tempo": null,
+                "rest_seconds": null,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Easy cadence ~70 RPM",
+                  "Resistance level 3–4",
+                  "Use time to loosen hips and knees"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "Increase resistance to 5–6 as warmup fitness improves"
+                ]
+              },
+              {
+                "name": "Seated Hip Circle March",
+                "sets": 2,
+                "reps": "10 each side",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Drive knee upward",
+                  "Stay upright — no leaning back",
+                  "Alternate sides"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "Standing version with light support"
+                ]
+              },
+              {
+                "name": "Band Pull-Apart",
+                "sets": 2,
+                "reps": "15",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Pull to chest height",
+                  "Squeeze shoulder blades at end range",
+                  "Keep arms straight"
+                ],
+                "regressions": [
+                  "Lighter band"
+                ],
+                "progressions": [
+                  "Pause 2s at full range"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Machine Strength Circuit",
+            "block_type": "main",
+            "time_minutes": 28,
+            "format": "Straight sets — 60s rest between sets",
+            "exercises": [
+              {
+                "name": "Leg Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Press",
+                  "seat": "3",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Back pad 2. Stop at 90° knee flexion. No knee lock-out at top."
+                },
+                "loading": {
+                  "load_lbs": 110.0,
+                  "prior_load_lbs": 110.0,
+                  "reps_achieved": "12,12,11",
+                  "progression_target": "Achieve 3×12 at 110 before advancing to 120"
+                },
+                "cues": [
+                  "Drive through full foot",
+                  "Don’t lock knees at top",
+                  "Control the descent — no stack slam"
+                ],
+                "regressions": [
+                  "Reduce range to 70° if knee discomfort"
+                ],
+                "progressions": [
+                  "120 lbs once 3×12 is clean"
+                ]
+              },
+              {
+                "name": "Chest Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-0-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Chest Press",
+                  "seat": "4",
+                  "lever": "3",
+                  "pad": null,
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 55.0,
+                  "prior_load_lbs": 55.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Move to 60 lbs next session"
+                },
+                "cues": [
+                  "Sit tall — shoulder blades retracted",
+                  "Push straight out",
+                  "Exhale on the push"
+                ],
+                "regressions": [
+                  "50 lbs if form breaks"
+                ],
+                "progressions": [
+                  "60 lbs next session — form is excellent"
+                ]
+              },
+              {
+                "name": "Seated Row",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Seated Row",
+                  "seat": "4",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Chest pad forward 2 notches"
+                },
+                "loading": {
+                  "load_lbs": 60.0,
+                  "prior_load_lbs": 55.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Try 65 lbs next session"
+                },
+                "cues": [
+                  "Lead with elbows, not hands",
+                  "Row to lower chest",
+                  "Hold 1s at end range"
+                ],
+                "regressions": [
+                  "55 lbs"
+                ],
+                "progressions": [
+                  "65 lbs next time — movement very clean"
+                ]
+              },
+              {
+                "name": "Lat Pulldown",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Lat Pulldown",
+                  "seat": "5",
+                  "lever": null,
+                  "pad": "thigh pad snug",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 50.0,
+                  "prior_load_lbs": 50.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Add 5 lbs next session"
+                },
+                "cues": [
+                  "Pull bar to upper chest",
+                  "Slight lean back 10–15°",
+                  "Elbows drive down and back"
+                ],
+                "regressions": [
+                  "45 lbs"
+                ],
+                "progressions": [
+                  "55 lbs next session"
+                ]
+              },
+              {
+                "name": "Leg Curl",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Curl",
+                  "seat": "2",
+                  "lever": "4",
+                  "pad": "ankle notch 2",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 40.0,
+                  "prior_load_lbs": 40.0,
+                  "reps_achieved": "12,12,10",
+                  "progression_target": "Hold 40 lbs until all 3 sets hit 12"
+                },
+                "cues": [
+                  "Smooth curl — no jerking",
+                  "Don’t lift glutes off seat",
+                  "Lower with control"
+                ],
+                "regressions": [
+                  "35 lbs"
+                ],
+                "progressions": [
+                  "45 lbs when 3×12 is achieved"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Core & Balance Finisher",
+            "block_type": "core_balance",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "DB Bicep Curl",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-0-2",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 12.0,
+                  "prior_load_lbs": 12.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Move to 15 lbs next session"
+                },
+                "cues": [
+                  "Elbows fixed at sides",
+                  "Full range — straight arm to shoulder height",
+                  "Don’t swing"
+                ],
+                "regressions": [
+                  "10 lbs"
+                ],
+                "progressions": [
+                  "15 lbs"
+                ]
+              },
+              {
+                "name": "Single-Leg Balance Hold",
+                "sets": 2,
+                "reps": "30 sec each side",
+                "tempo": null,
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Slight knee bend on standing leg",
+                  "Fix gaze on a point",
+                  "Arms out to sides"
+                ],
+                "regressions": [
+                  "Hold chair back lightly"
+                ],
+                "progressions": [
+                  "Eyes closed",
+                  "On foam pad"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 6,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Standing Hip Flexor Stretch",
+                "sets": 2,
+                "reps": "40 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Posterior pelvic tilt — tuck tailbone",
+                  "Don’t hyperextend lumbar",
+                  "Hold chair for balance"
+                ],
+                "regressions": [
+                  "Seated version"
+                ],
+                "progressions": [
+                  "Add thoracic rotation"
+                ]
+              },
+              {
+                "name": "Wall Calf Stretch",
+                "sets": 2,
+                "reps": "40 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Back leg straight, heel grounded",
+                  "Front knee over toes"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "Bent-knee version for soleus"
+                ]
+              },
+              {
+                "name": "Chest Opener (Hands Clasped Behind Back)",
+                "sets": 2,
+                "reps": "30 sec",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Open chest toward ceiling",
+                  "Chin level",
+                  "Deep breaths"
+                ],
+                "regressions": [
+                  "Doorway stretch"
+                ],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Leg Press holding at 110 — hit 12,12,11; need one more clean session before 120",
+          "Chest Press: all 3×12 at 55 lbs — advance to 60 next session",
+          "Seated Row jumped 55→60 today — plan 65 next time if energy is high",
+          "Lat Pulldown 50 solid — increase to 55 next session",
+          "Leg Curl: set 3 still 10 reps — hold 40 lbs, aim for consistent 3×12"
+        ],
+        "coaching_notes": [
+          "Margaret’s machine form has improved dramatically since session 1 — she now self-cues breath timing",
+          "BP in normal range all holiday week — exercise tolerance excellent",
+          "Single-leg balance: 25–30s each side without hand support — progressing well",
+          "Continue reinforcing exhale on exertion — zero Valsalva incidents in last 3 sessions"
         ]
       },
-      "equipment_used": [
-        "selectorized leg press",
-        "selectorized chest press",
-        "selectorized seated row",
-        "selectorized lat pulldown",
-        "selectorized leg curl",
-        "stationary bike",
-        "dumbbells 12 lbs"
-      ],
-      "blocks": [
-        {
-          "title": "Cardio Warm-Up & Joint Activation",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Stationary Bike",
-              "sets": 1,
-              "reps": "5 min",
-              "tempo": null,
-              "rest_seconds": null,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Easy cadence ~70 RPM", "Resistance level 3\u20134", "Use time to loosen hips and knees"],
-              "regressions": [],
-              "progressions": ["Increase resistance to 5\u20136 as warmup fitness improves"]
-            },
-            {
-              "name": "Seated Hip Circle March",
-              "sets": 2,
-              "reps": "10 each side",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Drive knee upward", "Stay upright \u2014 no leaning back", "Alternate sides"],
-              "regressions": [],
-              "progressions": ["Standing version with light support"]
-            },
-            {
-              "name": "Band Pull-Apart",
-              "sets": 2,
-              "reps": "15",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Pull to chest height", "Squeeze shoulder blades at end range", "Keep arms straight"],
-              "regressions": ["Lighter band"],
-              "progressions": ["Pause 2s at full range"]
-            }
-          ]
-        },
-        {
-          "title": "Machine Strength Circuit",
-          "block_type": "main",
-          "time_minutes": 28,
-          "format": "Straight sets \u2014 60s rest between sets",
-          "exercises": [
-            {
-              "name": "Leg Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Press",
-                "seat": "3",
-                "lever": null,
-                "pad": null,
-                "notes": "Back pad 2. Stop at 90\u00b0 knee flexion. No knee lock-out at top."
-              },
-              "loading": {
-                "load_lbs": 110.0,
-                "prior_load_lbs": 110.0,
-                "reps_achieved": "12,12,11",
-                "progression_target": "Achieve 3\u00d712 at 110 before advancing to 120"
-              },
-              "cues": ["Drive through full foot", "Don\u2019t lock knees at top", "Control the descent \u2014 no stack slam"],
-              "regressions": ["Reduce range to 70\u00b0 if knee discomfort"],
-              "progressions": ["120 lbs once 3\u00d712 is clean"]
-            },
-            {
-              "name": "Chest Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-0-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Chest Press",
-                "seat": "4",
-                "lever": "3",
-                "pad": null,
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 55.0,
-                "prior_load_lbs": 55.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Move to 60 lbs next session"
-              },
-              "cues": ["Sit tall \u2014 shoulder blades retracted", "Push straight out", "Exhale on the push"],
-              "regressions": ["50 lbs if form breaks"],
-              "progressions": ["60 lbs next session \u2014 form is excellent"]
-            },
-            {
-              "name": "Seated Row",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Seated Row",
-                "seat": "4",
-                "lever": null,
-                "pad": null,
-                "notes": "Chest pad forward 2 notches"
-              },
-              "loading": {
-                "load_lbs": 60.0,
-                "prior_load_lbs": 55.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Try 65 lbs next session"
-              },
-              "cues": ["Lead with elbows, not hands", "Row to lower chest", "Hold 1s at end range"],
-              "regressions": ["55 lbs"],
-              "progressions": ["65 lbs next time \u2014 movement very clean"]
-            },
-            {
-              "name": "Lat Pulldown",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Lat Pulldown",
-                "seat": "5",
-                "lever": null,
-                "pad": "thigh pad snug",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 50.0,
-                "prior_load_lbs": 50.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Add 5 lbs next session"
-              },
-              "cues": ["Pull bar to upper chest", "Slight lean back 10\u201315\u00b0", "Elbows drive down and back"],
-              "regressions": ["45 lbs"],
-              "progressions": ["55 lbs next session"]
-            },
-            {
-              "name": "Leg Curl",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Curl",
-                "seat": "2",
-                "lever": "4",
-                "pad": "ankle notch 2",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 40.0,
-                "prior_load_lbs": 40.0,
-                "reps_achieved": "12,12,10",
-                "progression_target": "Hold 40 lbs until all 3 sets hit 12"
-              },
-              "cues": ["Smooth curl \u2014 no jerking", "Don\u2019t lift glutes off seat", "Lower with control"],
-              "regressions": ["35 lbs"],
-              "progressions": ["45 lbs when 3\u00d712 is achieved"]
-            }
-          ]
-        },
-        {
-          "title": "Core & Balance Finisher",
-          "block_type": "core_balance",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "DB Bicep Curl",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-0-2",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 12.0,
-                "prior_load_lbs": 12.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Move to 15 lbs next session"
-              },
-              "cues": ["Elbows fixed at sides", "Full range \u2014 straight arm to shoulder height", "Don\u2019t swing"],
-              "regressions": ["10 lbs"],
-              "progressions": ["15 lbs"]
-            },
-            {
-              "name": "Single-Leg Balance Hold",
-              "sets": 2,
-              "reps": "30 sec each side",
-              "tempo": null,
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Slight knee bend on standing leg", "Fix gaze on a point", "Arms out to sides"],
-              "regressions": ["Hold chair back lightly"],
-              "progressions": ["Eyes closed", "On foam pad"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 6,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Standing Hip Flexor Stretch",
-              "sets": 2,
-              "reps": "40 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Posterior pelvic tilt \u2014 tuck tailbone", "Don\u2019t hyperextend lumbar", "Hold chair for balance"],
-              "regressions": ["Seated version"],
-              "progressions": ["Add thoracic rotation"]
-            },
-            {
-              "name": "Wall Calf Stretch",
-              "sets": 2,
-              "reps": "40 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Back leg straight, heel grounded", "Front knee over toes"],
-              "regressions": [],
-              "progressions": ["Bent-knee version for soleus"]
-            },
-            {
-              "name": "Chest Opener (Hands Clasped Behind Back)",
-              "sets": 2,
-              "reps": "30 sec",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Open chest toward ceiling", "Chin level", "Deep breaths"],
-              "regressions": ["Doorway stretch"],
-              "progressions": []
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "Great start to the new year. Margaret came in motivated. All sets completed, knee pain 0/10 all session. The load increase on seated row was a surprise to her — she handled it beautifully.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-01-21",
+      "session_number": 9,
+      "focus": "Lower body emphasis — new leg press PR and balance progression",
+      "loads": {
+        "Leg Press": 120.0,
+        "Chest Press": 60.0,
+        "Seated Row": 65.0,
+        "Leg Curl": 45.0,
+        "Lat Pulldown": 55.0,
+        "DB Bicep Curl": 12.0
+      },
       "progression_notes": [
-        "Leg Press holding at 110 \u2014 hit 12,12,11; need one more clean session before 120",
-        "Chest Press: all 3\u00d712 at 55 lbs \u2014 advance to 60 next session",
-        "Seated Row jumped 55\u219260 today \u2014 plan 65 next time if energy is high",
-        "Lat Pulldown 50 solid \u2014 increase to 55 next session",
-        "Leg Curl: set 3 still 10 reps \u2014 hold 40 lbs, aim for consistent 3\u00d712"
+        "Leg press: PR at 120 lbs — 12,12,10; hold here next session",
+        "Chest press: first session at 60 lbs — all 3 sets of 12 complete",
+        "Seated row: 65 lbs — strong, plan 70 in 2 sessions",
+        "Leg curl: jumped to 45 lbs — 12,12,11",
+        "Lat pulldown: 55 lbs — solid, consider 60 next time"
       ],
-      "coaching_notes": [
-        "Margaret\u2019s machine form has improved dramatically since session 1 \u2014 she now self-cues breath timing",
-        "BP in normal range all holiday week \u2014 exercise tolerance excellent",
-        "Single-leg balance: 25\u201330s each side without hand support \u2014 progressing well",
-        "Continue reinforcing exhale on exertion \u2014 zero Valsalva incidents in last 3 sessions"
-      ]
-    },
-    "trainer_notes": "Great start to the new year. Margaret came in motivated. All sets completed, knee pain 0/10 all session. The load increase on seated row was a surprise to her — she handled it beautifully.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-21",
-    "session_number": 9,
-    "focus": "Lower body emphasis \u2014 new leg press PR and balance progression",
-    "loads": {
-      "Leg Press": 120.0,
-      "Chest Press": 60.0,
-      "Seated Row": 65.0,
-      "Leg Curl": 45.0,
-      "Lat Pulldown": 55.0,
-      "DB Bicep Curl": 12.0
-    },
-    "progression_notes": [
-      "Leg press: PR at 120 lbs \u2014 12,12,10; hold here next session",
-      "Chest press: first session at 60 lbs \u2014 all 3 sets of 12 complete",
-      "Seated row: 65 lbs \u2014 strong, plan 70 in 2 sessions",
-      "Leg curl: jumped to 45 lbs \u2014 12,12,11",
-      "Lat pulldown: 55 lbs \u2014 solid, consider 60 next time"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "Margaret Chen",
-        "session_date": "2026-01-21",
-        "session_number": 9,
-        "duration_minutes": 50,
-        "focus": "Lower body emphasis \u2014 new leg press PR and balance progression",
-        "constraints": [
-          "right knee OA \u2014 range-limit leg press to 90\u00b0, no high-impact",
-          "mild hypertension \u2014 RPE cap 7, no Valsalva"
+      "plan_json": {
+        "meta": {
+          "client_name": "Margaret Chen",
+          "session_date": "2026-01-21",
+          "session_number": 9,
+          "duration_minutes": 50,
+          "focus": "Lower body emphasis — new leg press PR and balance progression",
+          "constraints": [
+            "right knee OA — range-limit leg press to 90°, no high-impact",
+            "mild hypertension — RPE cap 7, no Valsalva"
+          ],
+          "readiness_notes": [
+            "Client reports 6/10 energy — busy week at work",
+            "Knee feeling excellent — no pain in 2 weeks",
+            "Asked to keep session a bit shorter if possible — adjusted rest periods"
+          ]
+        },
+        "equipment_used": [
+          "selectorized leg press",
+          "selectorized chest press",
+          "selectorized seated row",
+          "selectorized lat pulldown",
+          "selectorized leg curl",
+          "stationary bike",
+          "dumbbells 12 lbs",
+          "foam balance pad"
         ],
-        "readiness_notes": [
-          "Client reports 6/10 energy \u2014 busy week at work",
-          "Knee feeling excellent \u2014 no pain in 2 weeks",
-          "Asked to keep session a bit shorter if possible \u2014 adjusted rest periods"
+        "blocks": [
+          {
+            "title": "Bike Warm-Up & Hip Mobility",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Stationary Bike",
+                "sets": 1,
+                "reps": "5 min",
+                "tempo": null,
+                "rest_seconds": null,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Easy cadence",
+                  "Loosen knees and hips gradually"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Standing Hip Circle",
+                "sets": 2,
+                "reps": "10 each direction",
+                "tempo": null,
+                "rest_seconds": 15,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Hold chair for support",
+                  "Big circles from hip joint",
+                  "Keep torso still"
+                ],
+                "regressions": [
+                  "Seated version"
+                ],
+                "progressions": [
+                  "Without chair support"
+                ]
+              },
+              {
+                "name": "Cat-Cow on Chair",
+                "sets": 2,
+                "reps": "10",
+                "tempo": null,
+                "rest_seconds": 15,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Breathe out on arch, in on curl",
+                  "Move from the pelvis first"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Lower Body Machine Focus",
+            "block_type": "main",
+            "time_minutes": 30,
+            "format": "Straight sets — 60s rest",
+            "exercises": [
+              {
+                "name": "Leg Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 75,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Press",
+                  "seat": "3",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Back pad 2. 90° range limit. New PR today — 120 lbs."
+                },
+                "loading": {
+                  "load_lbs": 120.0,
+                  "prior_load_lbs": 110.0,
+                  "reps_achieved": "12,12,10",
+                  "progression_target": "Hold 120 until 3×12 — then consider 130"
+                },
+                "cues": [
+                  "Drive through full foot",
+                  "Stop just before lock-out",
+                  "Control the eccentric"
+                ],
+                "regressions": [
+                  "Drop to 110 if energy wanes"
+                ],
+                "progressions": [
+                  "130 once 3×12 is consistent"
+                ]
+              },
+              {
+                "name": "Leg Curl",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Curl",
+                  "seat": "2",
+                  "lever": "4",
+                  "pad": "ankle notch 2",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 45.0,
+                  "prior_load_lbs": 40.0,
+                  "reps_achieved": "12,12,11",
+                  "progression_target": "Hold 45 until 3×12"
+                },
+                "cues": [
+                  "Smooth curl through full range",
+                  "Don’t lift glutes",
+                  "Controlled return"
+                ],
+                "regressions": [
+                  "40 lbs"
+                ],
+                "progressions": [
+                  "50 lbs when 3×12 achieved"
+                ]
+              },
+              {
+                "name": "Chest Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-0-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Chest Press",
+                  "seat": "4",
+                  "lever": "3",
+                  "pad": null,
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 60.0,
+                  "prior_load_lbs": 55.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Hold 60 lbs — excellent form today"
+                },
+                "cues": [
+                  "Shoulder blades back",
+                  "Exhale on push",
+                  "Full extension without elbow lock"
+                ],
+                "regressions": [
+                  "55 lbs"
+                ],
+                "progressions": [
+                  "65 lbs when this feels easy"
+                ]
+              },
+              {
+                "name": "Seated Row",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Seated Row",
+                  "seat": "4",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Chest pad forward 2 notches"
+                },
+                "loading": {
+                  "load_lbs": 65.0,
+                  "prior_load_lbs": 60.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Consider 70 lbs in 2 sessions"
+                },
+                "cues": [
+                  "Lead with elbows",
+                  "Full retraction at end range",
+                  "Don’t lean back — torso stays upright"
+                ],
+                "regressions": [
+                  "60 lbs"
+                ],
+                "progressions": [
+                  "70 lbs next progression"
+                ]
+              },
+              {
+                "name": "Lat Pulldown",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Lat Pulldown",
+                  "seat": "5",
+                  "lever": null,
+                  "pad": "thigh pad snug",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 55.0,
+                  "prior_load_lbs": 50.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Advance to 60 lbs next session"
+                },
+                "cues": [
+                  "Upper chest target",
+                  "Lean back slightly",
+                  "Elbows down and back"
+                ],
+                "regressions": [
+                  "50 lbs"
+                ],
+                "progressions": [
+                  "60 lbs next session"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Balance & Core",
+            "block_type": "core_balance",
+            "time_minutes": 6,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Single-Leg Balance on Foam Pad",
+                "sets": 2,
+                "reps": "30 sec each side",
+                "tempo": null,
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Slight knee bend",
+                  "Eyes on a fixed point",
+                  "Arms relaxed at sides"
+                ],
+                "regressions": [
+                  "Flat ground without pad"
+                ],
+                "progressions": [
+                  "Eyes closed on flat ground"
+                ]
+              },
+              {
+                "name": "Dead Bug (Modified)",
+                "sets": 2,
+                "reps": "8 each side",
+                "tempo": "3-0-1",
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Lower back pressed to floor",
+                  "Opposite arm and leg extend slowly",
+                  "Don’t hold breath"
+                ],
+                "regressions": [
+                  "Arms only, legs bent"
+                ],
+                "progressions": [
+                  "Full dead bug with straight legs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 6,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Supine Figure-4 Stretch",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Flex foot on crossed leg",
+                  "Gently pull bent knee toward chest",
+                  "Breathe into the stretch"
+                ],
+                "regressions": [
+                  "Seated figure-4 in chair"
+                ],
+                "progressions": []
+              },
+              {
+                "name": "Hamstring Stretch (Supine, Strap)",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Leg toward ceiling, slight knee bend OK",
+                  "Keep opposite leg flat",
+                  "Pull with strap, not hands"
+                ],
+                "regressions": [
+                  "Seated forward fold on chair"
+                ],
+                "progressions": [
+                  "Straight leg if hamstrings allow"
+                ]
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Leg press hit 120 lbs for the first time — new PR, 12,12,10 — hold here until 3×12",
+          "Leg curl at 45 lbs — 12,12,11 — almost there",
+          "Chest press 60 — all reps clean — very good",
+          "Lat pulldown advanced to 55 — plan 60 next session",
+          "Balance on foam pad was excellent — try eyes-closed variation next time"
+        ],
+        "coaching_notes": [
+          "Margaret’s knee is performing beyond expectations — 3 months of consistent range-limited loading is paying off",
+          "Dead bug form is improving — she now keeps lumbar pressed to floor instinctively",
+          "Adjusted rest periods today due to lower energy — still hit all weights — impressive",
+          "Discuss adding a third day of light cardio to support BP management"
         ]
       },
-      "equipment_used": [
-        "selectorized leg press",
-        "selectorized chest press",
-        "selectorized seated row",
-        "selectorized lat pulldown",
-        "selectorized leg curl",
-        "stationary bike",
-        "dumbbells 12 lbs",
-        "foam balance pad"
-      ],
-      "blocks": [
-        {
-          "title": "Bike Warm-Up & Hip Mobility",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Stationary Bike",
-              "sets": 1,
-              "reps": "5 min",
-              "tempo": null,
-              "rest_seconds": null,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Easy cadence", "Loosen knees and hips gradually"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Standing Hip Circle",
-              "sets": 2,
-              "reps": "10 each direction",
-              "tempo": null,
-              "rest_seconds": 15,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Hold chair for support", "Big circles from hip joint", "Keep torso still"],
-              "regressions": ["Seated version"],
-              "progressions": ["Without chair support"]
-            },
-            {
-              "name": "Cat-Cow on Chair",
-              "sets": 2,
-              "reps": "10",
-              "tempo": null,
-              "rest_seconds": 15,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Breathe out on arch, in on curl", "Move from the pelvis first"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Lower Body Machine Focus",
-          "block_type": "main",
-          "time_minutes": 30,
-          "format": "Straight sets \u2014 60s rest",
-          "exercises": [
-            {
-              "name": "Leg Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 75,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Press",
-                "seat": "3",
-                "lever": null,
-                "pad": null,
-                "notes": "Back pad 2. 90\u00b0 range limit. New PR today \u2014 120 lbs."
-              },
-              "loading": {
-                "load_lbs": 120.0,
-                "prior_load_lbs": 110.0,
-                "reps_achieved": "12,12,10",
-                "progression_target": "Hold 120 until 3\u00d712 \u2014 then consider 130"
-              },
-              "cues": ["Drive through full foot", "Stop just before lock-out", "Control the eccentric"],
-              "regressions": ["Drop to 110 if energy wanes"],
-              "progressions": ["130 once 3\u00d712 is consistent"]
-            },
-            {
-              "name": "Leg Curl",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Curl",
-                "seat": "2",
-                "lever": "4",
-                "pad": "ankle notch 2",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 45.0,
-                "prior_load_lbs": 40.0,
-                "reps_achieved": "12,12,11",
-                "progression_target": "Hold 45 until 3\u00d712"
-              },
-              "cues": ["Smooth curl through full range", "Don\u2019t lift glutes", "Controlled return"],
-              "regressions": ["40 lbs"],
-              "progressions": ["50 lbs when 3\u00d712 achieved"]
-            },
-            {
-              "name": "Chest Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-0-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Chest Press",
-                "seat": "4",
-                "lever": "3",
-                "pad": null,
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 60.0,
-                "prior_load_lbs": 55.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Hold 60 lbs \u2014 excellent form today"
-              },
-              "cues": ["Shoulder blades back", "Exhale on push", "Full extension without elbow lock"],
-              "regressions": ["55 lbs"],
-              "progressions": ["65 lbs when this feels easy"]
-            },
-            {
-              "name": "Seated Row",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Seated Row",
-                "seat": "4",
-                "lever": null,
-                "pad": null,
-                "notes": "Chest pad forward 2 notches"
-              },
-              "loading": {
-                "load_lbs": 65.0,
-                "prior_load_lbs": 60.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Consider 70 lbs in 2 sessions"
-              },
-              "cues": ["Lead with elbows", "Full retraction at end range", "Don\u2019t lean back \u2014 torso stays upright"],
-              "regressions": ["60 lbs"],
-              "progressions": ["70 lbs next progression"]
-            },
-            {
-              "name": "Lat Pulldown",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Lat Pulldown",
-                "seat": "5",
-                "lever": null,
-                "pad": "thigh pad snug",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 55.0,
-                "prior_load_lbs": 50.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Advance to 60 lbs next session"
-              },
-              "cues": ["Upper chest target", "Lean back slightly", "Elbows down and back"],
-              "regressions": ["50 lbs"],
-              "progressions": ["60 lbs next session"]
-            }
-          ]
-        },
-        {
-          "title": "Balance & Core",
-          "block_type": "core_balance",
-          "time_minutes": 6,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Single-Leg Balance on Foam Pad",
-              "sets": 2,
-              "reps": "30 sec each side",
-              "tempo": null,
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Slight knee bend", "Eyes on a fixed point", "Arms relaxed at sides"],
-              "regressions": ["Flat ground without pad"],
-              "progressions": ["Eyes closed on flat ground"]
-            },
-            {
-              "name": "Dead Bug (Modified)",
-              "sets": 2,
-              "reps": "8 each side",
-              "tempo": "3-0-1",
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Lower back pressed to floor", "Opposite arm and leg extend slowly", "Don\u2019t hold breath"],
-              "regressions": ["Arms only, legs bent"],
-              "progressions": ["Full dead bug with straight legs"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 6,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Supine Figure-4 Stretch",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Flex foot on crossed leg", "Gently pull bent knee toward chest", "Breathe into the stretch"],
-              "regressions": ["Seated figure-4 in chair"],
-              "progressions": []
-            },
-            {
-              "name": "Hamstring Stretch (Supine, Strap)",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Leg toward ceiling, slight knee bend OK", "Keep opposite leg flat", "Pull with strap, not hands"],
-              "regressions": ["Seated forward fold on chair"],
-              "progressions": ["Straight leg if hamstrings allow"]
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "Despite lower energy, she pushed through every set. Leg press PR at 120 lbs was a huge moment — she was genuinely surprised she could do it. Balance on foam pad much better than expected.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-02-04",
+      "session_number": 10,
+      "focus": "Full-body strength circuit — all-machine PR consolidation",
+      "loads": {
+        "Leg Press": 120.0,
+        "Chest Press": 60.0,
+        "Seated Row": 65.0,
+        "Leg Curl": 45.0,
+        "Lat Pulldown": 55.0,
+        "DB Bicep Curl": 15.0
+      },
       "progression_notes": [
-        "Leg press hit 120 lbs for the first time \u2014 new PR, 12,12,10 \u2014 hold here until 3\u00d712",
-        "Leg curl at 45 lbs \u2014 12,12,11 \u2014 almost there",
-        "Chest press 60 \u2014 all reps clean \u2014 very good",
-        "Lat pulldown advanced to 55 \u2014 plan 60 next session",
-        "Balance on foam pad was excellent \u2014 try eyes-closed variation next time"
+        "Leg press: 3×12 at 120 lbs achieved — advance to 130 next session",
+        "Bicep curl: progressed to 15 lbs — all sets complete",
+        "All major machine loads held and consolidated — excellent session",
+        "Consider adding a finisher circuit at next session"
       ],
-      "coaching_notes": [
-        "Margaret\u2019s knee is performing beyond expectations \u2014 3 months of consistent range-limited loading is paying off",
-        "Dead bug form is improving \u2014 she now keeps lumbar pressed to floor instinctively",
-        "Adjusted rest periods today due to lower energy \u2014 still hit all weights \u2014 impressive",
-        "Discuss adding a third day of light cardio to support BP management"
-      ]
-    },
-    "trainer_notes": "Despite lower energy, she pushed through every set. Leg press PR at 120 lbs was a huge moment — she was genuinely surprised she could do it. Balance on foam pad much better than expected.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-02-04",
-    "session_number": 10,
-    "focus": "Full-body strength circuit \u2014 all-machine PR consolidation",
-    "loads": {
-      "Leg Press": 120.0,
-      "Chest Press": 60.0,
-      "Seated Row": 65.0,
-      "Leg Curl": 45.0,
-      "Lat Pulldown": 55.0,
-      "DB Bicep Curl": 15.0
-    },
-    "progression_notes": [
-      "Leg press: 3\u00d712 at 120 lbs achieved \u2014 advance to 130 next session",
-      "Bicep curl: progressed to 15 lbs \u2014 all sets complete",
-      "All major machine loads held and consolidated \u2014 excellent session",
-      "Consider adding a finisher circuit at next session"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "Margaret Chen",
-        "session_date": "2026-02-04",
-        "session_number": 10,
-        "duration_minutes": 50,
-        "focus": "Full-body strength circuit \u2014 all-machine PR consolidation",
-        "constraints": [
-          "right knee OA \u2014 range-limit leg press to 90\u00b0, no high-impact",
-          "mild hypertension \u2014 RPE cap 7, no Valsalva"
+      "plan_json": {
+        "meta": {
+          "client_name": "Margaret Chen",
+          "session_date": "2026-02-04",
+          "session_number": 10,
+          "duration_minutes": 50,
+          "focus": "Full-body strength circuit — all-machine PR consolidation",
+          "constraints": [
+            "right knee OA — range-limit leg press to 90°, no high-impact",
+            "mild hypertension — RPE cap 7, no Valsalva"
+          ],
+          "readiness_notes": [
+            "Best energy in months — 9/10",
+            "Knee pain-free for 4 weeks straight",
+            "Excited to hit a clean 3×12 on leg press today"
+          ]
+        },
+        "equipment_used": [
+          "selectorized leg press",
+          "selectorized chest press",
+          "selectorized seated row",
+          "selectorized lat pulldown",
+          "selectorized leg curl",
+          "stationary bike",
+          "dumbbells 15 lbs"
         ],
-        "readiness_notes": [
-          "Best energy in months \u2014 9/10",
-          "Knee pain-free for 4 weeks straight",
-          "Excited to hit a clean 3\u00d712 on leg press today"
+        "blocks": [
+          {
+            "title": "Cardio & Activation Warm-Up",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Stationary Bike",
+                "sets": 1,
+                "reps": "5 min",
+                "tempo": null,
+                "rest_seconds": null,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Cadence 75–80 RPM today — a little more active",
+                  "Resistance 4"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Band Pull-Apart",
+                "sets": 2,
+                "reps": "15",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Chest height",
+                  "Pause at full range",
+                  "Keep arms straight"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Squat to Chair (Bodyweight)",
+                "sets": 2,
+                "reps": "10",
+                "tempo": "2-1-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Sit back and down",
+                  "Control the descent",
+                  "Drive through heels to stand"
+                ],
+                "regressions": [
+                  "Higher chair"
+                ],
+                "progressions": [
+                  "Pause at bottom 2s"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Full-Body Machine Strength",
+            "block_type": "main",
+            "time_minutes": 28,
+            "format": "Straight sets — 60s rest",
+            "exercises": [
+              {
+                "name": "Leg Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 75,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Press",
+                  "seat": "3",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Back pad 2. 90° limit. Goal: clean 3×12 today."
+                },
+                "loading": {
+                  "load_lbs": 120.0,
+                  "prior_load_lbs": 120.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Advance to 130 lbs next session — 3×12 achieved!"
+                },
+                "cues": [
+                  "Full foot drive",
+                  "Stop before lock-out",
+                  "Controlled descent"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "130 lbs next session"
+                ]
+              },
+              {
+                "name": "Chest Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-0-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Chest Press",
+                  "seat": "4",
+                  "lever": "3",
+                  "pad": null,
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 60.0,
+                  "prior_load_lbs": 60.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Try 65 lbs at next session — ready"
+                },
+                "cues": [
+                  "Tall posture",
+                  "Exhale on push",
+                  "Don’t shrug shoulders"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "65 lbs next time"
+                ]
+              },
+              {
+                "name": "Seated Row",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Seated Row",
+                  "seat": "4",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Chest pad forward 2 notches"
+                },
+                "loading": {
+                  "load_lbs": 65.0,
+                  "prior_load_lbs": 65.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Advance to 70 lbs next session"
+                },
+                "cues": [
+                  "Elbows leading",
+                  "Full retraction",
+                  "Upright torso"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "70 lbs next session"
+                ]
+              },
+              {
+                "name": "Lat Pulldown",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Lat Pulldown",
+                  "seat": "5",
+                  "lever": null,
+                  "pad": "thigh pad snug",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 55.0,
+                  "prior_load_lbs": 55.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "60 lbs next session"
+                },
+                "cues": [
+                  "Bar to upper chest",
+                  "Slight lean back",
+                  "Elbows drive down"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "60 lbs next time"
+                ]
+              },
+              {
+                "name": "Leg Curl",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Curl",
+                  "seat": "2",
+                  "lever": "4",
+                  "pad": "ankle notch 2",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 45.0,
+                  "prior_load_lbs": 45.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "50 lbs next session — 3×12 achieved"
+                },
+                "cues": [
+                  "Smooth throughout",
+                  "No glute lift",
+                  "Controlled eccentric"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "50 lbs next time"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Core & Upper Body Accessory",
+            "block_type": "core_balance",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "DB Bicep Curl",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-0-2",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 15.0,
+                  "prior_load_lbs": 12.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Hold 15 lbs — good control"
+                },
+                "cues": [
+                  "Elbows locked at sides",
+                  "Full range",
+                  "No swinging"
+                ],
+                "regressions": [
+                  "12 lbs"
+                ],
+                "progressions": []
+              },
+              {
+                "name": "Dead Bug",
+                "sets": 3,
+                "reps": "8 each side",
+                "tempo": "3-0-1",
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Lumbar flat to floor",
+                  "Opposite arm and leg extend",
+                  "Exhale on the way out"
+                ],
+                "regressions": [
+                  "Arms only"
+                ],
+                "progressions": [
+                  "Straight legs throughout"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down & Mobility",
+            "block_type": "cooldown",
+            "time_minutes": 6,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Supine Figure-4 Stretch",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Breathe deeply",
+                  "Let hip externally rotate",
+                  "No forcing"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Thoracic Rotation (Supine)",
+                "sets": 2,
+                "reps": "8 each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Knees stay stacked",
+                  "Rotate upper body only",
+                  "Look opposite direction to knees"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Leg Press 3×12 at 120 lbs achieved — advance to 130 next session",
+          "Leg curl 3×12 at 45 lbs — advance to 50 next session",
+          "Chest press: consider 65 lbs next time",
+          "Lat pulldown: 60 lbs at next session",
+          "Bicep curl at 15 lbs — hold here, great control"
+        ],
+        "coaching_notes": [
+          "Margaret has made remarkable progress — every single machine load has increased significantly since session 1",
+          "Knee OA management has been excellent — range-limited approach is clearly working",
+          "BP monitoring shows consistent normal readings on training days",
+          "Consider discussing a 3-month goal reassessment next session — she’s ready for new challenges",
+          "Dead bug now executed with excellent form — ready for progression to full version"
         ]
       },
-      "equipment_used": [
-        "selectorized leg press",
-        "selectorized chest press",
-        "selectorized seated row",
-        "selectorized lat pulldown",
-        "selectorized leg curl",
-        "stationary bike",
-        "dumbbells 15 lbs"
-      ],
-      "blocks": [
-        {
-          "title": "Cardio & Activation Warm-Up",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Stationary Bike",
-              "sets": 1,
-              "reps": "5 min",
-              "tempo": null,
-              "rest_seconds": null,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Cadence 75\u201380 RPM today \u2014 a little more active", "Resistance 4"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Band Pull-Apart",
-              "sets": 2,
-              "reps": "15",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Chest height", "Pause at full range", "Keep arms straight"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Squat to Chair (Bodyweight)",
-              "sets": 2,
-              "reps": "10",
-              "tempo": "2-1-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Sit back and down", "Control the descent", "Drive through heels to stand"],
-              "regressions": ["Higher chair"],
-              "progressions": ["Pause at bottom 2s"]
-            }
-          ]
-        },
-        {
-          "title": "Full-Body Machine Strength",
-          "block_type": "main",
-          "time_minutes": 28,
-          "format": "Straight sets \u2014 60s rest",
-          "exercises": [
-            {
-              "name": "Leg Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 75,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Press",
-                "seat": "3",
-                "lever": null,
-                "pad": null,
-                "notes": "Back pad 2. 90\u00b0 limit. Goal: clean 3\u00d712 today."
-              },
-              "loading": {
-                "load_lbs": 120.0,
-                "prior_load_lbs": 120.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Advance to 130 lbs next session \u2014 3\u00d712 achieved!"
-              },
-              "cues": ["Full foot drive", "Stop before lock-out", "Controlled descent"],
-              "regressions": [],
-              "progressions": ["130 lbs next session"]
-            },
-            {
-              "name": "Chest Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-0-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Chest Press",
-                "seat": "4",
-                "lever": "3",
-                "pad": null,
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 60.0,
-                "prior_load_lbs": 60.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Try 65 lbs at next session \u2014 ready"
-              },
-              "cues": ["Tall posture", "Exhale on push", "Don\u2019t shrug shoulders"],
-              "regressions": [],
-              "progressions": ["65 lbs next time"]
-            },
-            {
-              "name": "Seated Row",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Seated Row",
-                "seat": "4",
-                "lever": null,
-                "pad": null,
-                "notes": "Chest pad forward 2 notches"
-              },
-              "loading": {
-                "load_lbs": 65.0,
-                "prior_load_lbs": 65.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Advance to 70 lbs next session"
-              },
-              "cues": ["Elbows leading", "Full retraction", "Upright torso"],
-              "regressions": [],
-              "progressions": ["70 lbs next session"]
-            },
-            {
-              "name": "Lat Pulldown",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Lat Pulldown",
-                "seat": "5",
-                "lever": null,
-                "pad": "thigh pad snug",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 55.0,
-                "prior_load_lbs": 55.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "60 lbs next session"
-              },
-              "cues": ["Bar to upper chest", "Slight lean back", "Elbows drive down"],
-              "regressions": [],
-              "progressions": ["60 lbs next time"]
-            },
-            {
-              "name": "Leg Curl",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Curl",
-                "seat": "2",
-                "lever": "4",
-                "pad": "ankle notch 2",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 45.0,
-                "prior_load_lbs": 45.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "50 lbs next session \u2014 3\u00d712 achieved"
-              },
-              "cues": ["Smooth throughout", "No glute lift", "Controlled eccentric"],
-              "regressions": [],
-              "progressions": ["50 lbs next time"]
-            }
-          ]
-        },
-        {
-          "title": "Core & Upper Body Accessory",
-          "block_type": "core_balance",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "DB Bicep Curl",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-0-2",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 15.0,
-                "prior_load_lbs": 12.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Hold 15 lbs \u2014 good control"
-              },
-              "cues": ["Elbows locked at sides", "Full range", "No swinging"],
-              "regressions": ["12 lbs"],
-              "progressions": []
-            },
-            {
-              "name": "Dead Bug",
-              "sets": 3,
-              "reps": "8 each side",
-              "tempo": "3-0-1",
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Lumbar flat to floor", "Opposite arm and leg extend", "Exhale on the way out"],
-              "regressions": ["Arms only"],
-              "progressions": ["Straight legs throughout"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down & Mobility",
-          "block_type": "cooldown",
-          "time_minutes": 6,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Supine Figure-4 Stretch",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Breathe deeply", "Let hip externally rotate", "No forcing"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Thoracic Rotation (Supine)",
-              "sets": 2,
-              "reps": "8 each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Knees stay stacked", "Rotate upper body only", "Look opposite direction to knees"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
-      "progression_notes": [
-        "Leg Press 3\u00d712 at 120 lbs achieved \u2014 advance to 130 next session",
-        "Leg curl 3\u00d712 at 45 lbs \u2014 advance to 50 next session",
-        "Chest press: consider 65 lbs next time",
-        "Lat pulldown: 60 lbs at next session",
-        "Bicep curl at 15 lbs \u2014 hold here, great control"
-      ],
-      "coaching_notes": [
-        "Margaret has made remarkable progress \u2014 every single machine load has increased significantly since session 1",
-        "Knee OA management has been excellent \u2014 range-limited approach is clearly working",
-        "BP monitoring shows consistent normal readings on training days",
-        "Consider discussing a 3-month goal reassessment next session \u2014 she\u2019s ready for new challenges",
-        "Dead bug now executed with excellent form \u2014 ready for progression to full version"
-      ]
+      "trainer_notes": "Best session yet. Margaret hit 3x12 on leg press at 120 lbs — a major milestone. She was emotional in a good way. Energy was outstanding. We talked about her 3-month progress and she couldn't believe how far she'd come. Incredibly rewarding session.",
+      "archived": false
     },
-    "trainer_notes": "Best session yet. Margaret hit 3x12 on leg press at 120 lbs — a major milestone. She was emotional in a good way. Energy was outstanding. We talked about her 3-month progress and she couldn't believe how far she'd come. Incredibly rewarding session.",
-    "archived": false
-  }
-]
+    {
+      "session_date": "2026-03-14",
+      "session_number": 11,
+      "focus": "Lower body machine strength — leg press milestone push",
+      "loads": {
+        "Leg Press": 115.0,
+        "Chest Press Machine": 45.0,
+        "Lat Pulldown": 50.0,
+        "Seated Row Machine": 50.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    },
+    {
+      "session_date": "2026-03-28",
+      "session_number": 12,
+      "focus": "Full-body machine circuit — balance and stability emphasis",
+      "loads": {
+        "Leg Press": 120.0,
+        "Chest Press Machine": 45.0,
+        "Lat Pulldown": 52.0,
+        "Seated Row Machine": 52.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    }
+  ]
+}

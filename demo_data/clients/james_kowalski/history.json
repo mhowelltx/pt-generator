@@ -1,991 +1,1181 @@
-[
-  {
-    "session_date": "2025-11-05",
-    "session_number": 1,
-    "focus": "Back-safe assessment \u2014 establish machine loads and spine-neutral patterns",
-    "loads": {
-      "Leg Press": 100.0,
-      "Lat Pulldown": 55.0,
-      "Seated Row": 55.0,
-      "Chest Press": 40.0,
-      "Cable Chop": 20.0
+{
+  "anchor_date": "2026-03-07",
+  "entries": [
+    {
+      "session_date": "2025-11-05",
+      "session_number": 1,
+      "focus": "Back-safe assessment — establish machine loads and spine-neutral patterns",
+      "loads": {
+        "Leg Press": 100.0,
+        "Lat Pulldown": 55.0,
+        "Seated Row": 55.0,
+        "Chest Press": 40.0,
+        "Cable Chop": 20.0
+      },
+      "progression_notes": [
+        "All loads conservative — baseline established with zero axial spine loading",
+        "Leg press: 100 lbs, no spinal compression, very comfortable",
+        "No pain or nerve symptoms during any exercise — excellent",
+        "Cable chop introduced: good anti-rotation challenge"
+      ],
+      "trainer_notes": "James was apprehensive about training with the disc herniation. Explaining the rationale for each exercise choice really helped. Zero symptoms throughout. He left confident.",
+      "archived": false
     },
-    "progression_notes": [
-      "All loads conservative \u2014 baseline established with zero axial spine loading",
-      "Leg press: 100 lbs, no spinal compression, very comfortable",
-      "No pain or nerve symptoms during any exercise \u2014 excellent",
-      "Cable chop introduced: good anti-rotation challenge"
-    ],
-    "trainer_notes": "James was apprehensive about training with the disc herniation. Explaining the rationale for each exercise choice really helped. Zero symptoms throughout. He left confident.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-11-19",
-    "session_number": 2,
-    "focus": "Core stability emphasis \u2014 reinforce machine patterns and introduce dead bug",
-    "loads": {
-      "Leg Press": 110.0,
-      "Lat Pulldown": 60.0,
-      "Seated Row": 60.0,
-      "Chest Press": 45.0,
-      "Cable Chop": 25.0
+    {
+      "session_date": "2025-11-19",
+      "session_number": 2,
+      "focus": "Core stability emphasis — reinforce machine patterns and introduce dead bug",
+      "loads": {
+        "Leg Press": 110.0,
+        "Lat Pulldown": 60.0,
+        "Seated Row": 60.0,
+        "Chest Press": 45.0,
+        "Cable Chop": 25.0
+      },
+      "progression_notes": [
+        "Leg press to 110: solid, 3x12",
+        "Lat pulldown 60: improvement in scapular control",
+        "Dead bug introduced — lumbar stayed flat throughout, very good",
+        "Cable chop to 25: good anti-rotation",
+        "Reminder: no breath-holding on any set"
+      ],
+      "trainer_notes": "Great second session. He's developing awareness of his breathing during sets. Dead bug was much better than expected — good core stability baseline.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press to 110: solid, 3x12",
-      "Lat pulldown 60: improvement in scapular control",
-      "Dead bug introduced \u2014 lumbar stayed flat throughout, very good",
-      "Cable chop to 25: good anti-rotation",
-      "Reminder: no breath-holding on any set"
-    ],
-    "trainer_notes": "Great second session. He's developing awareness of his breathing during sets. Dead bug was much better than expected — good core stability baseline.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-03",
-    "session_number": 3,
-    "focus": "Progressive machine load increase + add McGill Big 3 core work",
-    "loads": {
-      "Leg Press": 120.0,
-      "Lat Pulldown": 65.0,
-      "Seated Row": 65.0,
-      "Chest Press": 50.0,
-      "Cable Chop": 30.0
+    {
+      "session_date": "2025-12-03",
+      "session_number": 3,
+      "focus": "Progressive machine load increase + add McGill Big 3 core work",
+      "loads": {
+        "Leg Press": 120.0,
+        "Lat Pulldown": 65.0,
+        "Seated Row": 65.0,
+        "Chest Press": 50.0,
+        "Cable Chop": 30.0
+      },
+      "progression_notes": [
+        "Leg press 120: 3x12, perfect form",
+        "Chest press to 50: first time, 3x12 complete",
+        "Introduced McGill bird-dog: keeps spine neutral under load",
+        "Cable chop to 30: ready for 35 next session"
+      ],
+      "trainer_notes": "He mentioned his back feels better on days he exercises vs. rest days. That's very encouraging and motivating for him to keep showing up.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press 120: 3x12, perfect form",
-      "Chest press to 50: first time, 3x12 complete",
-      "Introduced McGill bird-dog: keeps spine neutral under load",
-      "Cable chop to 30: ready for 35 next session"
-    ],
-    "trainer_notes": "He mentioned his back feels better on days he exercises vs. rest days. That's very encouraging and motivating for him to keep showing up.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-17",
-    "session_number": 4,
-    "focus": "Upper body pulling emphasis + glute bridge loading",
-    "loads": {
-      "Leg Press": 130.0,
-      "Lat Pulldown": 70.0,
-      "Seated Row": 70.0,
-      "Chest Press": 50.0,
-      "Cable Chop": 35.0,
-      "Weighted Glute Bridge": 45.0
+    {
+      "session_date": "2025-12-17",
+      "session_number": 4,
+      "focus": "Upper body pulling emphasis + glute bridge loading",
+      "loads": {
+        "Leg Press": 130.0,
+        "Lat Pulldown": 70.0,
+        "Seated Row": 70.0,
+        "Chest Press": 50.0,
+        "Cable Chop": 35.0,
+        "Weighted Glute Bridge": 45.0
+      },
+      "progression_notes": [
+        "Leg press 130: strong, 3x12",
+        "Lat pulldown/row both at 70: good pull strength",
+        "Weighted glute bridge introduced at 45 lbs — a safer hip extension load for disc",
+        "Cable chop at 35: excellent anti-rotation control",
+        "Discuss adding cable hip hinge next session"
+      ],
+      "trainer_notes": "Very good session. The glute bridge loading is a good substitute for hinge patterns — loads glutes without spinal compression. He felt it strongly in his glutes, which is exactly right.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press 130: strong, 3x12",
-      "Lat pulldown/row both at 70: good pull strength",
-      "Weighted glute bridge introduced at 45 lbs \u2014 a safer hip extension load for disc",
-      "Cable chop at 35: excellent anti-rotation control",
-      "Discuss adding cable hip hinge next session"
-    ],
-    "trainer_notes": "Very good session. The glute bridge loading is a good substitute for hinge patterns — loads glutes without spinal compression. He felt it strongly in his glutes, which is exactly right.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-31",
-    "session_number": 5,
-    "focus": "End-of-year strength assessment \u2014 all machines progressed",
-    "loads": {
-      "Leg Press": 140.0,
-      "Lat Pulldown": 75.0,
-      "Seated Row": 75.0,
-      "Chest Press": 55.0,
-      "Cable Chop": 35.0,
-      "Weighted Glute Bridge": 65.0
+    {
+      "session_date": "2025-12-31",
+      "session_number": 5,
+      "focus": "End-of-year strength assessment — all machines progressed",
+      "loads": {
+        "Leg Press": 140.0,
+        "Lat Pulldown": 75.0,
+        "Seated Row": 75.0,
+        "Chest Press": 55.0,
+        "Cable Chop": 35.0,
+        "Weighted Glute Bridge": 65.0
+      },
+      "progression_notes": [
+        "Leg press 140: solid, ready for 150",
+        "Chest press 55: first time, 3x12",
+        "Glute bridge progressed to 65 lbs with plate across hips",
+        "All loads up since session 1 — strong start"
+      ],
+      "trainer_notes": "End-of-year session. James has made excellent progress. His back has been pain-free for 5 sessions in a row. He is very happy with the results.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press 140: solid, ready for 150",
-      "Chest press 55: first time, 3x12",
-      "Glute bridge progressed to 65 lbs with plate across hips",
-      "All loads up since session 1 \u2014 strong start"
-    ],
-    "trainer_notes": "End-of-year session. James has made excellent progress. His back has been pain-free for 5 sessions in a row. He is very happy with the results.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-14",
-    "session_number": 6,
-    "focus": "New year push \u2014 leg press milestone and upper body volume",
-    "loads": {
-      "Leg Press": 150.0,
-      "Lat Pulldown": 80.0,
-      "Seated Row": 80.0,
-      "Chest Press": 55.0,
-      "Cable Chop": 40.0,
-      "Weighted Glute Bridge": 65.0
+    {
+      "session_date": "2026-01-14",
+      "session_number": 6,
+      "focus": "New year push — leg press milestone and upper body volume",
+      "loads": {
+        "Leg Press": 150.0,
+        "Lat Pulldown": 80.0,
+        "Seated Row": 80.0,
+        "Chest Press": 55.0,
+        "Cable Chop": 40.0,
+        "Weighted Glute Bridge": 65.0
+      },
+      "progression_notes": [
+        "Leg press hit 150: major milestone, 3x12 clean",
+        "Lat pulldown/row both at 80: strong",
+        "Cable chop 40: 3x12 both sides, excellent",
+        "Great session overall"
+      ],
+      "trainer_notes": "150 lbs on the leg press is a milestone for James. He said he hasn't felt this strong in years. His back is rock solid during all these movements.",
+      "archived": false
     },
-    "progression_notes": [
-      "Leg press hit 150: major milestone, 3x12 clean",
-      "Lat pulldown/row both at 80: strong",
-      "Cable chop 40: 3x12 both sides, excellent",
-      "Great session overall"
-    ],
-    "trainer_notes": "150 lbs on the leg press is a milestone for James. He said he hasn't felt this strong in years. His back is rock solid during all these movements.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-28",
-    "session_number": 7,
-    "focus": "Upper body pull focus and spine stability benchmark",
-    "loads": {
-      "Leg Press": 160.0,
-      "Lat Pulldown": 85.0,
-      "Seated Row": 85.0,
-      "Chest Press": 60.0,
-      "Cable Chop": 40.0,
-      "Weighted Glute Bridge": 75.0
-    },
-    "progression_notes": [
-      "Leg press 160: 3x12, very solid",
-      "Lat pulldown/row at 85: getting very strong",
-      "Chest press to 60: first time, 3x10",
-      "Glute bridge 75 lbs: strong glute contraction, no back discomfort"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "James Kowalski",
-        "session_date": "2026-01-28",
-        "session_number": 7,
-        "duration_minutes": 50,
-        "focus": "Upper body pull focus and spine stability benchmark",
-        "constraints": [
-          "L4-L5 disc herniation \u2014 no spinal flexion under load, no Valsalva, no heavy axial loading",
-          "high blood pressure \u2014 moderate intensity, no prolonged isometrics"
+    {
+      "session_date": "2026-01-28",
+      "session_number": 7,
+      "focus": "Upper body pull focus and spine stability benchmark",
+      "loads": {
+        "Leg Press": 160.0,
+        "Lat Pulldown": 85.0,
+        "Seated Row": 85.0,
+        "Chest Press": 60.0,
+        "Cable Chop": 40.0,
+        "Weighted Glute Bridge": 75.0
+      },
+      "progression_notes": [
+        "Leg press 160: 3x12, very solid",
+        "Lat pulldown/row at 85: getting very strong",
+        "Chest press to 60: first time, 3x10",
+        "Glute bridge 75 lbs: strong glute contraction, no back discomfort"
+      ],
+      "plan_json": {
+        "meta": {
+          "client_name": "James Kowalski",
+          "session_date": "2026-01-28",
+          "session_number": 7,
+          "duration_minutes": 50,
+          "focus": "Upper body pull focus and spine stability benchmark",
+          "constraints": [
+            "L4-L5 disc herniation — no spinal flexion under load, no Valsalva, no heavy axial loading",
+            "high blood pressure — moderate intensity, no prolonged isometrics"
+          ],
+          "readiness_notes": [
+            "Client reports 7/10 energy",
+            "Back: 0/10 pain this week",
+            "BP at home: 128/80 — well-managed"
+          ]
+        },
+        "equipment_used": [
+          "selectorized leg press",
+          "selectorized lat pulldown",
+          "selectorized seated row",
+          "selectorized chest press",
+          "cable machine",
+          "weight plate (for glute bridge)"
         ],
-        "readiness_notes": [
-          "Client reports 7/10 energy",
-          "Back: 0/10 pain this week",
-          "BP at home: 128/80 \u2014 well-managed"
+        "blocks": [
+          {
+            "title": "Spine-Safe Warm-Up",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Bird-Dog",
+                "sets": 2,
+                "reps": "8 each side",
+                "tempo": "3-2-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Spine neutral — don’t arch lumbar",
+                  "Opposite arm and leg extend",
+                  "Hold 2s at extension — breathe"
+                ],
+                "regressions": [
+                  "Leg only"
+                ],
+                "progressions": [
+                  "Add resistance band on leg"
+                ]
+              },
+              {
+                "name": "Glute Bridge (Bodyweight)",
+                "sets": 2,
+                "reps": "15",
+                "tempo": "2-2-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Drive hips up through glutes",
+                  "Don’t push into lumbar extension",
+                  "Squeeze glutes at top"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Shoulder CARs (Controlled Articular Rotations)",
+                "sets": 2,
+                "reps": "5 each direction each side",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Move shoulder through full unloaded range",
+                  "Slow and deliberate",
+                  "Brace core throughout"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Lower Body — Machine Press",
+            "block_type": "main",
+            "time_minutes": 12,
+            "format": "Straight sets — 60s rest",
+            "exercises": [
+              {
+                "name": "Leg Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Press",
+                  "seat": "5",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Back pad 3. Feet hip-width. No spinal compression."
+                },
+                "loading": {
+                  "load_lbs": 160.0,
+                  "prior_load_lbs": 150.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Advance to 170 lbs next session"
+                },
+                "cues": [
+                  "Exhale on push",
+                  "Don’t hold breath at any point",
+                  "Full foot contact"
+                ],
+                "regressions": [
+                  "150 lbs"
+                ],
+                "progressions": [
+                  "170 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Upper Body Pull Supersets",
+            "block_type": "main",
+            "time_minutes": 18,
+            "format": "Superset A1/A2 — 60s rest after pair",
+            "exercises": [
+              {
+                "name": "Lat Pulldown",
+                "sets": 4,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Lat Pulldown",
+                  "seat": "4",
+                  "lever": null,
+                  "pad": "thigh pad notch 3",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 85.0,
+                  "prior_load_lbs": 80.0,
+                  "reps_achieved": "12,12,12,10",
+                  "progression_target": "Hold 85 until 4×12 — then try 90"
+                },
+                "cues": [
+                  "Bar to upper chest",
+                  "Elbows drive down — not back",
+                  "Lean back 15° only"
+                ],
+                "regressions": [
+                  "80 lbs"
+                ],
+                "progressions": [
+                  "90 lbs when 4×12 solid"
+                ]
+              },
+              {
+                "name": "Seated Row",
+                "sets": 4,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Seated Row",
+                  "seat": "3",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Chest pad to comfortable reach"
+                },
+                "loading": {
+                  "load_lbs": 85.0,
+                  "prior_load_lbs": 80.0,
+                  "reps_achieved": "12,12,12,12",
+                  "progression_target": "Advance to 90 lbs next session"
+                },
+                "cues": [
+                  "Lead with elbows",
+                  "Retract fully at end range",
+                  "Maintain upright torso — no leaning back"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "90 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Core & Hip Extension",
+            "block_type": "core_balance",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Cable Chop (High to Low)",
+                "sets": 3,
+                "reps": "12 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 30,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 40.0,
+                  "prior_load_lbs": 40.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Advance to 45 lbs next session"
+                },
+                "cues": [
+                  "Rotate from trunk — not arms",
+                  "Brace core before initiating",
+                  "Don’t hold breath"
+                ],
+                "regressions": [
+                  "35 lbs"
+                ],
+                "progressions": [
+                  "45 lbs"
+                ]
+              },
+              {
+                "name": "Weighted Glute Bridge (Plate)",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-2-1",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 75.0,
+                  "prior_load_lbs": 65.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Try 80-85 lbs next session"
+                },
+                "cues": [
+                  "Drive through heels",
+                  "Squeeze glutes — not back muscles",
+                  "Hold 2s at top"
+                ],
+                "regressions": [
+                  "65 lbs"
+                ],
+                "progressions": [
+                  "80-85 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 6,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Child’s Pose",
+                "sets": 2,
+                "reps": "45 sec",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Arms extended forward",
+                  "Let lower back decompress",
+                  "Breathe into the back body"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Supine Knee-to-Chest",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Gently pull knee to chest",
+                  "Other leg flat on floor",
+                  "Don’t force — breathe"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Hip Flexor Stretch (Standing)",
+                "sets": 2,
+                "reps": "40 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Posterior pelvic tilt",
+                  "Hold wall for balance",
+                  "Don’t overextend lumbar"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Leg press 160 lbs for 3×12 — advance to 170 next session",
+          "Lat pulldown: 4th set was 10 reps at 85 — hold here until 4×12 achieved",
+          "Seated row: 4×12 at 85 — advance to 90 next session",
+          "Glute bridge: jumped to 75 lbs today — plan 80-85 next time",
+          "Cable chop: advance to 45 lbs next session"
+        ],
+        "coaching_notes": [
+          "James has had 0/10 back pain across last 5 sessions — significant improvement from when he started",
+          "Breathing cues are now instinctive — he self-cues without reminders",
+          "Glute bridge loading is an excellent substitute for barbell hinge — continue pushing this pattern",
+          "BP remains well-managed — no issues with intensity at these loads",
+          "Discuss adding cable hip hinge (face-away from stack) at next session as a hinge pattern add"
         ]
       },
-      "equipment_used": [
-        "selectorized leg press",
-        "selectorized lat pulldown",
-        "selectorized seated row",
-        "selectorized chest press",
-        "cable machine",
-        "weight plate (for glute bridge)"
-      ],
-      "blocks": [
-        {
-          "title": "Spine-Safe Warm-Up",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Bird-Dog",
-              "sets": 2,
-              "reps": "8 each side",
-              "tempo": "3-2-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Spine neutral \u2014 don\u2019t arch lumbar", "Opposite arm and leg extend", "Hold 2s at extension \u2014 breathe"],
-              "regressions": ["Leg only"],
-              "progressions": ["Add resistance band on leg"]
-            },
-            {
-              "name": "Glute Bridge (Bodyweight)",
-              "sets": 2,
-              "reps": "15",
-              "tempo": "2-2-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Drive hips up through glutes", "Don\u2019t push into lumbar extension", "Squeeze glutes at top"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Shoulder CARs (Controlled Articular Rotations)",
-              "sets": 2,
-              "reps": "5 each direction each side",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Move shoulder through full unloaded range", "Slow and deliberate", "Brace core throughout"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Lower Body \u2014 Machine Press",
-          "block_type": "main",
-          "time_minutes": 12,
-          "format": "Straight sets \u2014 60s rest",
-          "exercises": [
-            {
-              "name": "Leg Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Press",
-                "seat": "5",
-                "lever": null,
-                "pad": null,
-                "notes": "Back pad 3. Feet hip-width. No spinal compression."
-              },
-              "loading": {
-                "load_lbs": 160.0,
-                "prior_load_lbs": 150.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Advance to 170 lbs next session"
-              },
-              "cues": ["Exhale on push", "Don\u2019t hold breath at any point", "Full foot contact"],
-              "regressions": ["150 lbs"],
-              "progressions": ["170 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Upper Body Pull Supersets",
-          "block_type": "main",
-          "time_minutes": 18,
-          "format": "Superset A1/A2 \u2014 60s rest after pair",
-          "exercises": [
-            {
-              "name": "Lat Pulldown",
-              "sets": 4,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Lat Pulldown",
-                "seat": "4",
-                "lever": null,
-                "pad": "thigh pad notch 3",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 85.0,
-                "prior_load_lbs": 80.0,
-                "reps_achieved": "12,12,12,10",
-                "progression_target": "Hold 85 until 4\u00d712 \u2014 then try 90"
-              },
-              "cues": ["Bar to upper chest", "Elbows drive down \u2014 not back", "Lean back 15\u00b0 only"],
-              "regressions": ["80 lbs"],
-              "progressions": ["90 lbs when 4\u00d712 solid"]
-            },
-            {
-              "name": "Seated Row",
-              "sets": 4,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Seated Row",
-                "seat": "3",
-                "lever": null,
-                "pad": null,
-                "notes": "Chest pad to comfortable reach"
-              },
-              "loading": {
-                "load_lbs": 85.0,
-                "prior_load_lbs": 80.0,
-                "reps_achieved": "12,12,12,12",
-                "progression_target": "Advance to 90 lbs next session"
-              },
-              "cues": ["Lead with elbows", "Retract fully at end range", "Maintain upright torso \u2014 no leaning back"],
-              "regressions": [],
-              "progressions": ["90 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Core & Hip Extension",
-          "block_type": "core_balance",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Cable Chop (High to Low)",
-              "sets": 3,
-              "reps": "12 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 30,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 40.0,
-                "prior_load_lbs": 40.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Advance to 45 lbs next session"
-              },
-              "cues": ["Rotate from trunk \u2014 not arms", "Brace core before initiating", "Don\u2019t hold breath"],
-              "regressions": ["35 lbs"],
-              "progressions": ["45 lbs"]
-            },
-            {
-              "name": "Weighted Glute Bridge (Plate)",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-2-1",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 75.0,
-                "prior_load_lbs": 65.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Try 80-85 lbs next session"
-              },
-              "cues": ["Drive through heels", "Squeeze glutes \u2014 not back muscles", "Hold 2s at top"],
-              "regressions": ["65 lbs"],
-              "progressions": ["80-85 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 6,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Child\u2019s Pose",
-              "sets": 2,
-              "reps": "45 sec",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Arms extended forward", "Let lower back decompress", "Breathe into the back body"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Supine Knee-to-Chest",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Gently pull knee to chest", "Other leg flat on floor", "Don\u2019t force \u2014 breathe"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Hip Flexor Stretch (Standing)",
-              "sets": 2,
-              "reps": "40 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Posterior pelvic tilt", "Hold wall for balance", "Don\u2019t overextend lumbar"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "Really solid session. Lat pulldown at 85 was a grind on set 4 but he kept form. The glute bridge at 75 lbs was impressive — he felt strong and stable. Zero back discomfort.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-02-11",
+      "session_number": 8,
+      "focus": "Strength plateau push — new load PRs across lower and upper",
+      "loads": {
+        "Leg Press": 170.0,
+        "Lat Pulldown": 90.0,
+        "Seated Row": 90.0,
+        "Chest Press": 60.0,
+        "Cable Chop": 45.0,
+        "Weighted Glute Bridge": 80.0
+      },
       "progression_notes": [
-        "Leg press 160 lbs for 3\u00d712 \u2014 advance to 170 next session",
-        "Lat pulldown: 4th set was 10 reps at 85 \u2014 hold here until 4\u00d712 achieved",
-        "Seated row: 4\u00d712 at 85 \u2014 advance to 90 next session",
-        "Glute bridge: jumped to 75 lbs today \u2014 plan 80-85 next time",
-        "Cable chop: advance to 45 lbs next session"
+        "Leg press 170: 3x12 at new PR",
+        "Lat pulldown 90: 4x10 solid",
+        "Seated row 90: 4x12, excellent",
+        "Cable chop 45: both sides, great control",
+        "Glute bridge 80: strong, plan 90 soon"
       ],
-      "coaching_notes": [
-        "James has had 0/10 back pain across last 5 sessions \u2014 significant improvement from when he started",
-        "Breathing cues are now instinctive \u2014 he self-cues without reminders",
-        "Glute bridge loading is an excellent substitute for barbell hinge \u2014 continue pushing this pattern",
-        "BP remains well-managed \u2014 no issues with intensity at these loads",
-        "Discuss adding cable hip hinge (face-away from stack) at next session as a hinge pattern add"
-      ]
-    },
-    "trainer_notes": "Really solid session. Lat pulldown at 85 was a grind on set 4 but he kept form. The glute bridge at 75 lbs was impressive — he felt strong and stable. Zero back discomfort.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-02-11",
-    "session_number": 8,
-    "focus": "Strength plateau push \u2014 new load PRs across lower and upper",
-    "loads": {
-      "Leg Press": 170.0,
-      "Lat Pulldown": 90.0,
-      "Seated Row": 90.0,
-      "Chest Press": 60.0,
-      "Cable Chop": 45.0,
-      "Weighted Glute Bridge": 80.0
-    },
-    "progression_notes": [
-      "Leg press 170: 3x12 at new PR",
-      "Lat pulldown 90: 4x10 solid",
-      "Seated row 90: 4x12, excellent",
-      "Cable chop 45: both sides, great control",
-      "Glute bridge 80: strong, plan 90 soon"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "James Kowalski",
-        "session_date": "2026-02-11",
-        "session_number": 8,
-        "duration_minutes": 50,
-        "focus": "Strength plateau push \u2014 new load PRs across lower and upper",
-        "constraints": [
-          "L4-L5 disc herniation \u2014 all spine-safe modifications maintained",
-          "high blood pressure \u2014 RPE 6-7 cap, exhale on all exertions"
+      "plan_json": {
+        "meta": {
+          "client_name": "James Kowalski",
+          "session_date": "2026-02-11",
+          "session_number": 8,
+          "duration_minutes": 50,
+          "focus": "Strength plateau push — new load PRs across lower and upper",
+          "constraints": [
+            "L4-L5 disc herniation — all spine-safe modifications maintained",
+            "high blood pressure — RPE 6-7 cap, exhale on all exertions"
+          ],
+          "readiness_notes": [
+            "Client reports 8/10 energy",
+            "Back: 0/10 pain — best stretch yet, 3 weeks pain-free",
+            "BP stable at home: 124/76"
+          ]
+        },
+        "equipment_used": [
+          "selectorized leg press",
+          "selectorized lat pulldown",
+          "selectorized seated row",
+          "selectorized chest press",
+          "cable machine",
+          "weight plate 45 lbs"
         ],
-        "readiness_notes": [
-          "Client reports 8/10 energy",
-          "Back: 0/10 pain \u2014 best stretch yet, 3 weeks pain-free",
-          "BP stable at home: 124/76"
+        "blocks": [
+          {
+            "title": "Warm-Up & Spine Activation",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "McGill Big 3 — Bird-Dog + Side Plank Modified + Curl-Up",
+                "sets": 1,
+                "reps": "8 each",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Neutral spine throughout all 3 movements",
+                  "No breath-holding",
+                  "This is a daily home routine"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Glute Bridge Activation",
+                "sets": 2,
+                "reps": "15",
+                "tempo": "2-2-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Through heels",
+                  "Squeeze glutes hard at top"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Lower Body Machine",
+            "block_type": "main",
+            "time_minutes": 12,
+            "format": "Straight sets",
+            "exercises": [
+              {
+                "name": "Leg Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 75,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Press",
+                  "seat": "5",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Back 3. Hip-width feet. Exhale every rep."
+                },
+                "loading": {
+                  "load_lbs": 170.0,
+                  "prior_load_lbs": 160.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Advance to 180 in one session"
+                },
+                "cues": [
+                  "Exhale on every push",
+                  "Full foot drive",
+                  "No lower back lift off pad"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "180 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Upper Body Pull — Volume Block",
+            "block_type": "main",
+            "time_minutes": 18,
+            "format": "Superset — 60s rest after pair",
+            "exercises": [
+              {
+                "name": "Lat Pulldown",
+                "sets": 4,
+                "reps": "10",
+                "tempo": "2-1-2",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Lat Pulldown",
+                  "seat": "4",
+                  "lever": null,
+                  "pad": "thigh notch 3",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 90.0,
+                  "prior_load_lbs": 85.0,
+                  "reps_achieved": "10,10,10,10",
+                  "progression_target": "95 lbs next session"
+                },
+                "cues": [
+                  "Engage lats before pulling",
+                  "Elbows toward hips",
+                  "Breathe throughout"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "95 lbs"
+                ]
+              },
+              {
+                "name": "Seated Row",
+                "sets": 4,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Seated Row",
+                  "seat": "3",
+                  "lever": null,
+                  "pad": null,
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 90.0,
+                  "prior_load_lbs": 85.0,
+                  "reps_achieved": "12,12,12,12",
+                  "progression_target": "95 lbs next session"
+                },
+                "cues": [
+                  "Row to lower chest",
+                  "Don’t lean back",
+                  "Retract fully"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "95 lbs"
+                ]
+              },
+              {
+                "name": "Chest Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-0-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Chest Press",
+                  "seat": "3",
+                  "lever": "2",
+                  "pad": null,
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 60.0,
+                  "prior_load_lbs": 60.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Try 65 lbs next session"
+                },
+                "cues": [
+                  "Exhale on push",
+                  "Full extension without lock-out"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "65 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Core & Hip Extension",
+            "block_type": "core_balance",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Cable Chop (High to Low)",
+                "sets": 3,
+                "reps": "12 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 30,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 45.0,
+                  "prior_load_lbs": 40.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "50 lbs next session"
+                },
+                "cues": [
+                  "Trunk rotation drives movement",
+                  "Core braced before initiating",
+                  "Breathe continuously"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "50 lbs"
+                ]
+              },
+              {
+                "name": "Weighted Glute Bridge (45 lb plate)",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-2-1",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 80.0,
+                  "prior_load_lbs": 75.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Add second plate for 90 lbs at next session"
+                },
+                "cues": [
+                  "Heels pressed down",
+                  "Glutes fire at top — not lower back",
+                  "Hold 2s"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "90 lbs with two plates"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 4,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Child’s Pose",
+                "sets": 2,
+                "reps": "45 sec",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Arms forward",
+                  "Let back decompress",
+                  "Breathe"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Knee-to-Chest Stretch",
+                "sets": 2,
+                "reps": "40 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Gentle pull",
+                  "Don’t force range"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Leg press PR at 170 lbs — advance to 180 next session",
+          "Lat pulldown 4×10 at 90 lbs — advance to 95",
+          "Seated row 4×12 at 90 — advance to 95",
+          "Glute bridge at 80 lbs — plan two plates (90 lbs) next time",
+          "Cable chop 45 solid — try 50 lbs next session"
+        ],
+        "coaching_notes": [
+          "Three consecutive weeks of zero back pain — consistent exercise is clearly therapeutic",
+          "Breathing pattern during heavy sets is now automatic — no Valsalva incidents in months",
+          "Glute bridge pattern is excellent — his glutes have become genuinely strong",
+          "BP consistently well-managed at these intensities",
+          "Discuss progression to cable face-pull hip hinge at next session as a controlled hinge pattern"
         ]
       },
-      "equipment_used": [
-        "selectorized leg press",
-        "selectorized lat pulldown",
-        "selectorized seated row",
-        "selectorized chest press",
-        "cable machine",
-        "weight plate 45 lbs"
-      ],
-      "blocks": [
-        {
-          "title": "Warm-Up & Spine Activation",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "McGill Big 3 \u2014 Bird-Dog + Side Plank Modified + Curl-Up",
-              "sets": 1,
-              "reps": "8 each",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Neutral spine throughout all 3 movements", "No breath-holding", "This is a daily home routine"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Glute Bridge Activation",
-              "sets": 2,
-              "reps": "15",
-              "tempo": "2-2-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Through heels", "Squeeze glutes hard at top"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Lower Body Machine",
-          "block_type": "main",
-          "time_minutes": 12,
-          "format": "Straight sets",
-          "exercises": [
-            {
-              "name": "Leg Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 75,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Press",
-                "seat": "5",
-                "lever": null,
-                "pad": null,
-                "notes": "Back 3. Hip-width feet. Exhale every rep."
-              },
-              "loading": {
-                "load_lbs": 170.0,
-                "prior_load_lbs": 160.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Advance to 180 in one session"
-              },
-              "cues": ["Exhale on every push", "Full foot drive", "No lower back lift off pad"],
-              "regressions": [],
-              "progressions": ["180 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Upper Body Pull \u2014 Volume Block",
-          "block_type": "main",
-          "time_minutes": 18,
-          "format": "Superset \u2014 60s rest after pair",
-          "exercises": [
-            {
-              "name": "Lat Pulldown",
-              "sets": 4,
-              "reps": "10",
-              "tempo": "2-1-2",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Lat Pulldown",
-                "seat": "4",
-                "lever": null,
-                "pad": "thigh notch 3",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 90.0,
-                "prior_load_lbs": 85.0,
-                "reps_achieved": "10,10,10,10",
-                "progression_target": "95 lbs next session"
-              },
-              "cues": ["Engage lats before pulling", "Elbows toward hips", "Breathe throughout"],
-              "regressions": [],
-              "progressions": ["95 lbs"]
-            },
-            {
-              "name": "Seated Row",
-              "sets": 4,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Seated Row",
-                "seat": "3",
-                "lever": null,
-                "pad": null,
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 90.0,
-                "prior_load_lbs": 85.0,
-                "reps_achieved": "12,12,12,12",
-                "progression_target": "95 lbs next session"
-              },
-              "cues": ["Row to lower chest", "Don\u2019t lean back", "Retract fully"],
-              "regressions": [],
-              "progressions": ["95 lbs"]
-            },
-            {
-              "name": "Chest Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-0-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Chest Press",
-                "seat": "3",
-                "lever": "2",
-                "pad": null,
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 60.0,
-                "prior_load_lbs": 60.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Try 65 lbs next session"
-              },
-              "cues": ["Exhale on push", "Full extension without lock-out"],
-              "regressions": [],
-              "progressions": ["65 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Core & Hip Extension",
-          "block_type": "core_balance",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Cable Chop (High to Low)",
-              "sets": 3,
-              "reps": "12 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 30,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 45.0,
-                "prior_load_lbs": 40.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "50 lbs next session"
-              },
-              "cues": ["Trunk rotation drives movement", "Core braced before initiating", "Breathe continuously"],
-              "regressions": [],
-              "progressions": ["50 lbs"]
-            },
-            {
-              "name": "Weighted Glute Bridge (45 lb plate)",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-2-1",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 80.0,
-                "prior_load_lbs": 75.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Add second plate for 90 lbs at next session"
-              },
-              "cues": ["Heels pressed down", "Glutes fire at top \u2014 not lower back", "Hold 2s"],
-              "regressions": [],
-              "progressions": ["90 lbs with two plates"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 4,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Child\u2019s Pose",
-              "sets": 2,
-              "reps": "45 sec",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Arms forward", "Let back decompress", "Breathe"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Knee-to-Chest Stretch",
-              "sets": 2,
-              "reps": "40 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Gentle pull", "Don\u2019t force range"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "Excellent session. Leg press PR at 170 and all pull loads progressed. James is in a great place — 3 weeks pain-free and getting stronger every session. His confidence has completely transformed.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-02-25",
+      "session_number": 9,
+      "focus": "Full-body machine strength — consolidate all recent PRs",
+      "loads": {
+        "Leg Press": 180.0,
+        "Lat Pulldown": 95.0,
+        "Seated Row": 95.0,
+        "Chest Press": 65.0,
+        "Cable Chop": 50.0,
+        "Weighted Glute Bridge": 90.0
+      },
       "progression_notes": [
-        "Leg press PR at 170 lbs \u2014 advance to 180 next session",
-        "Lat pulldown 4\u00d710 at 90 lbs \u2014 advance to 95",
-        "Seated row 4\u00d712 at 90 \u2014 advance to 95",
-        "Glute bridge at 80 lbs \u2014 plan two plates (90 lbs) next time",
-        "Cable chop 45 solid \u2014 try 50 lbs next session"
+        "Leg press 180: 3x12, all reps clean",
+        "Lat pulldown 95: 4x10 solid",
+        "Chest press 65: first time, 3x12",
+        "All loads up across the board — incredible 4-month trajectory"
       ],
-      "coaching_notes": [
-        "Three consecutive weeks of zero back pain \u2014 consistent exercise is clearly therapeutic",
-        "Breathing pattern during heavy sets is now automatic \u2014 no Valsalva incidents in months",
-        "Glute bridge pattern is excellent \u2014 his glutes have become genuinely strong",
-        "BP consistently well-managed at these intensities",
-        "Discuss progression to cable face-pull hip hinge at next session as a controlled hinge pattern"
-      ]
-    },
-    "trainer_notes": "Excellent session. Leg press PR at 170 and all pull loads progressed. James is in a great place — 3 weeks pain-free and getting stronger every session. His confidence has completely transformed.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-02-25",
-    "session_number": 9,
-    "focus": "Full-body machine strength \u2014 consolidate all recent PRs",
-    "loads": {
-      "Leg Press": 180.0,
-      "Lat Pulldown": 95.0,
-      "Seated Row": 95.0,
-      "Chest Press": 65.0,
-      "Cable Chop": 50.0,
-      "Weighted Glute Bridge": 90.0
-    },
-    "progression_notes": [
-      "Leg press 180: 3x12, all reps clean",
-      "Lat pulldown 95: 4x10 solid",
-      "Chest press 65: first time, 3x12",
-      "All loads up across the board \u2014 incredible 4-month trajectory"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "James Kowalski",
-        "session_date": "2026-02-25",
-        "session_number": 9,
-        "duration_minutes": 50,
-        "focus": "Full-body machine strength \u2014 consolidate all recent PRs",
-        "constraints": [
-          "L4-L5 disc herniation \u2014 spine-neutral only",
-          "high blood pressure \u2014 moderate intensity, exhale on exertion"
+      "plan_json": {
+        "meta": {
+          "client_name": "James Kowalski",
+          "session_date": "2026-02-25",
+          "session_number": 9,
+          "duration_minutes": 50,
+          "focus": "Full-body machine strength — consolidate all recent PRs",
+          "constraints": [
+            "L4-L5 disc herniation — spine-neutral only",
+            "high blood pressure — moderate intensity, exhale on exertion"
+          ],
+          "readiness_notes": [
+            "Client reports 9/10 energy — best in months",
+            "Back: 0/10 pain for 4 consecutive weeks",
+            "BP: 122/74 at home this week"
+          ]
+        },
+        "equipment_used": [
+          "selectorized leg press",
+          "selectorized lat pulldown",
+          "selectorized seated row",
+          "selectorized chest press",
+          "cable machine",
+          "weight plates"
         ],
-        "readiness_notes": [
-          "Client reports 9/10 energy \u2014 best in months",
-          "Back: 0/10 pain for 4 consecutive weeks",
-          "BP: 122/74 at home this week"
+        "blocks": [
+          {
+            "title": "Warm-Up & Activation",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "McGill Bird-Dog",
+                "sets": 2,
+                "reps": "8 each side",
+                "tempo": "3-2-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Spine neutral",
+                  "Opposite arm and leg",
+                  "Hold and breathe"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Glute Bridge Activation",
+                "sets": 2,
+                "reps": "15",
+                "tempo": "2-2-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Heels, glutes, breathe"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Lower Body Machine",
+            "block_type": "main",
+            "time_minutes": 10,
+            "format": "Straight sets",
+            "exercises": [
+              {
+                "name": "Leg Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 75,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Leg Press",
+                  "seat": "5",
+                  "lever": null,
+                  "pad": null,
+                  "notes": "Back 3. Hip-width. No back lift."
+                },
+                "loading": {
+                  "load_lbs": 180.0,
+                  "prior_load_lbs": 170.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Discuss 190 at next session"
+                },
+                "cues": [
+                  "Exhale every rep",
+                  "Full foot contact",
+                  "Neutral spine on seat"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "190 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Upper Body Machine Circuit",
+            "block_type": "main",
+            "time_minutes": 20,
+            "format": "Straight sets — alternating A/B with 60s rest",
+            "exercises": [
+              {
+                "name": "Lat Pulldown",
+                "sets": 4,
+                "reps": "10",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Lat Pulldown",
+                  "seat": "4",
+                  "lever": null,
+                  "pad": "thigh notch 3",
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 95.0,
+                  "prior_load_lbs": 90.0,
+                  "reps_achieved": "10,10,10,10",
+                  "progression_target": "100 lbs next session"
+                },
+                "cues": [
+                  "Lats first",
+                  "Elbows down toward hips"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "100 lbs"
+                ]
+              },
+              {
+                "name": "Seated Row",
+                "sets": 4,
+                "reps": "12",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Seated Row",
+                  "seat": "3",
+                  "lever": null,
+                  "pad": null,
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 95.0,
+                  "prior_load_lbs": 90.0,
+                  "reps_achieved": "12,12,12,12",
+                  "progression_target": "100 lbs at next session"
+                },
+                "cues": [
+                  "Elbows lead",
+                  "Full retraction",
+                  "Upright torso"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "100 lbs"
+                ]
+              },
+              {
+                "name": "Chest Press",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-0-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": {
+                  "machine_name": "Chest Press",
+                  "seat": "3",
+                  "lever": "2",
+                  "pad": null,
+                  "notes": null
+                },
+                "loading": {
+                  "load_lbs": 65.0,
+                  "prior_load_lbs": 60.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Hold 65 — first time today"
+                },
+                "cues": [
+                  "Exhale on push",
+                  "Controlled return"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Core Strength",
+            "block_type": "core_balance",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Cable Chop (High to Low)",
+                "sets": 3,
+                "reps": "12 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 30,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 50.0,
+                  "prior_load_lbs": 45.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "Hold 50 — strong"
+                },
+                "cues": [
+                  "Trunk initiates",
+                  "Breathe continuously",
+                  "Stable base"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Weighted Glute Bridge",
+                "sets": 3,
+                "reps": "12",
+                "tempo": "2-2-1",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 90.0,
+                  "prior_load_lbs": 80.0,
+                  "reps_achieved": "12,12,12",
+                  "progression_target": "100 lbs at next session"
+                },
+                "cues": [
+                  "Glutes at top",
+                  "Heels pressed down",
+                  "2s hold"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "100 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 4,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Child’s Pose",
+                "sets": 2,
+                "reps": "45 sec",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Decompress the spine",
+                  "Breathe"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Supine Knee Hug",
+                "sets": 2,
+                "reps": "40 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Gentle",
+                  "No forcing"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Leg press 3×12 at 180 lbs — discuss 190 next session",
+          "Lat pulldown 4×10 at 95 — advance to 100",
+          "Seated row 4×12 at 95 — advance to 100",
+          "Chest press 65 first time — hold and consolidate",
+          "Glute bridge 90 lbs — plan 100 next time"
+        ],
+        "coaching_notes": [
+          "Four weeks of zero back pain — the longest streak since his injury",
+          "James has progressed from 100 to 180 lbs on leg press since session 1 — remarkable",
+          "All spine-safe protocols maintained without exception throughout 9 sessions",
+          "BP consistently below 130/80 on training days — exercise is clearly therapeutic",
+          "Discuss maintenance block vs. new mesocycle at next session — he’s ready for more variety"
         ]
       },
-      "equipment_used": [
-        "selectorized leg press",
-        "selectorized lat pulldown",
-        "selectorized seated row",
-        "selectorized chest press",
-        "cable machine",
-        "weight plates"
-      ],
-      "blocks": [
-        {
-          "title": "Warm-Up & Activation",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "McGill Bird-Dog",
-              "sets": 2,
-              "reps": "8 each side",
-              "tempo": "3-2-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Spine neutral", "Opposite arm and leg", "Hold and breathe"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Glute Bridge Activation",
-              "sets": 2,
-              "reps": "15",
-              "tempo": "2-2-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Heels, glutes, breathe"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Lower Body Machine",
-          "block_type": "main",
-          "time_minutes": 10,
-          "format": "Straight sets",
-          "exercises": [
-            {
-              "name": "Leg Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 75,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Leg Press",
-                "seat": "5",
-                "lever": null,
-                "pad": null,
-                "notes": "Back 3. Hip-width. No back lift."
-              },
-              "loading": {
-                "load_lbs": 180.0,
-                "prior_load_lbs": 170.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Discuss 190 at next session"
-              },
-              "cues": ["Exhale every rep", "Full foot contact", "Neutral spine on seat"],
-              "regressions": [],
-              "progressions": ["190 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Upper Body Machine Circuit",
-          "block_type": "main",
-          "time_minutes": 20,
-          "format": "Straight sets \u2014 alternating A/B with 60s rest",
-          "exercises": [
-            {
-              "name": "Lat Pulldown",
-              "sets": 4,
-              "reps": "10",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Lat Pulldown",
-                "seat": "4",
-                "lever": null,
-                "pad": "thigh notch 3",
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 95.0,
-                "prior_load_lbs": 90.0,
-                "reps_achieved": "10,10,10,10",
-                "progression_target": "100 lbs next session"
-              },
-              "cues": ["Lats first", "Elbows down toward hips"],
-              "regressions": [],
-              "progressions": ["100 lbs"]
-            },
-            {
-              "name": "Seated Row",
-              "sets": 4,
-              "reps": "12",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Seated Row",
-                "seat": "3",
-                "lever": null,
-                "pad": null,
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 95.0,
-                "prior_load_lbs": 90.0,
-                "reps_achieved": "12,12,12,12",
-                "progression_target": "100 lbs at next session"
-              },
-              "cues": ["Elbows lead", "Full retraction", "Upright torso"],
-              "regressions": [],
-              "progressions": ["100 lbs"]
-            },
-            {
-              "name": "Chest Press",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-0-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": {
-                "machine_name": "Chest Press",
-                "seat": "3",
-                "lever": "2",
-                "pad": null,
-                "notes": null
-              },
-              "loading": {
-                "load_lbs": 65.0,
-                "prior_load_lbs": 60.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Hold 65 \u2014 first time today"
-              },
-              "cues": ["Exhale on push", "Controlled return"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Core Strength",
-          "block_type": "core_balance",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Cable Chop (High to Low)",
-              "sets": 3,
-              "reps": "12 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 30,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 50.0,
-                "prior_load_lbs": 45.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "Hold 50 \u2014 strong"
-              },
-              "cues": ["Trunk initiates", "Breathe continuously", "Stable base"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Weighted Glute Bridge",
-              "sets": 3,
-              "reps": "12",
-              "tempo": "2-2-1",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 90.0,
-                "prior_load_lbs": 80.0,
-                "reps_achieved": "12,12,12",
-                "progression_target": "100 lbs at next session"
-              },
-              "cues": ["Glutes at top", "Heels pressed down", "2s hold"],
-              "regressions": [],
-              "progressions": ["100 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 4,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Child\u2019s Pose",
-              "sets": 2,
-              "reps": "45 sec",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Decompress the spine", "Breathe"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Supine Knee Hug",
-              "sets": 2,
-              "reps": "40 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Gentle", "No forcing"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
-      "progression_notes": [
-        "Leg press 3\u00d712 at 180 lbs \u2014 discuss 190 next session",
-        "Lat pulldown 4\u00d710 at 95 \u2014 advance to 100",
-        "Seated row 4\u00d712 at 95 \u2014 advance to 100",
-        "Chest press 65 first time \u2014 hold and consolidate",
-        "Glute bridge 90 lbs \u2014 plan 100 next time"
-      ],
-      "coaching_notes": [
-        "Four weeks of zero back pain \u2014 the longest streak since his injury",
-        "James has progressed from 100 to 180 lbs on leg press since session 1 \u2014 remarkable",
-        "All spine-safe protocols maintained without exception throughout 9 sessions",
-        "BP consistently below 130/80 on training days \u2014 exercise is clearly therapeutic",
-        "Discuss maintenance block vs. new mesocycle at next session \u2014 he\u2019s ready for more variety"
-      ]
+      "trainer_notes": "Another milestone session. 180 lbs on leg press, 95 on both pull machines, 90 lb glute bridge. This is a completely different person from the apprehensive, cautious client who came in 4 months ago. Incredibly rewarding to coach.",
+      "archived": false
     },
-    "trainer_notes": "Another milestone session. 180 lbs on leg press, 95 on both pull machines, 90 lb glute bridge. This is a completely different person from the apprehensive, cautious client who came in 4 months ago. Incredibly rewarding to coach.",
-    "archived": false
-  }
-]
+    {
+      "session_date": "2026-03-18",
+      "session_number": 10,
+      "focus": "Leg press load progression — target 210 lbs and upper body superset",
+      "loads": {
+        "Leg Press": 205.0,
+        "Cable Row": 70.0,
+        "Chest Press Machine": 60.0,
+        "McGill Big 3": 0.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    },
+    {
+      "session_date": "2026-04-01",
+      "session_number": 11,
+      "focus": "Milestone session — leg press 220 lbs attempt and core benchmark",
+      "loads": {
+        "Leg Press": 215.0,
+        "Cable Row": 70.0,
+        "Chest Press Machine": 62.0,
+        "McGill Big 3": 0.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    }
+  ]
+}

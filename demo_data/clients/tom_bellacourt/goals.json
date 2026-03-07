@@ -1,0 +1,50 @@
+{
+  "anchor_date": "2026-03-07",
+  "goals": [
+    {
+      "id": "tom_g1",
+      "text": "Full bilateral upper body session — both arms loading equally",
+      "category": "strength",
+      "target_date": "2026-07-07",
+      "status": "active",
+      "created": "2025-10-08",
+      "milestones": [
+        "Left-side push clearance from surgeon",
+        "Left DB press 25 lbs",
+        "Left DB press 35 lbs",
+        "Bilateral pressing 35 lbs each side"
+      ],
+      "notes": "Long-term benchmark. Dependent on orthopedic clearance for right shoulder — currently under monitoring."
+    },
+    {
+      "id": "tom_g2",
+      "text": "Left-side DB press 40 lbs for 3 sets of 8 reps",
+      "category": "strength",
+      "target_date": "2026-05-22",
+      "status": "active",
+      "created": "2025-12-17",
+      "milestones": [
+        "25 lbs × 8",
+        "30 lbs × 8",
+        "35 lbs × 8",
+        "40 lbs × 8"
+      ],
+      "notes": "Left side cleared for pushing by surgeon in December. Progressing well — right-side strength provides a ceiling target."
+    },
+    {
+      "id": "tom_g3",
+      "text": "Leg press 250 lbs for 10 reps",
+      "category": "strength",
+      "target_date": "2026-04-21",
+      "status": "active",
+      "created": "2026-01-14",
+      "milestones": [
+        "210 lbs × 10",
+        "225 lbs × 10",
+        "240 lbs × 10",
+        "250 lbs × 10"
+      ],
+      "notes": "Lower body is his strong suit — channeling tennis player athleticism into leg press milestones."
+    }
+  ]
+}

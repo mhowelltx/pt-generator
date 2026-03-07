@@ -1,0 +1,66 @@
+{
+  "anchor_date": "2026-03-07",
+  "goals": [
+    {
+      "id": "priya_g1",
+      "text": "Barbell back squat 95 lbs for 5 clean reps",
+      "category": "strength",
+      "target_date": "2026-06-07",
+      "status": "active",
+      "created": "2026-01-05",
+      "milestones": [
+        "Master front squat form at 65 lbs",
+        "Introduce low-bar back squat",
+        "Build to 80 lbs × 5",
+        "Hit 95 lbs × 5"
+      ],
+      "notes": "Progression from goblet squat → front squat → back squat. Plantar fascia now resolved — ready to load axially."
+    },
+    {
+      "id": "priya_g2",
+      "text": "Complete 10 unbroken cable rows at 65 lbs",
+      "category": "strength",
+      "target_date": "2026-04-21",
+      "status": "active",
+      "created": "2026-02-02",
+      "milestones": [
+        "8 reps at 60 lbs",
+        "10 reps at 60 lbs",
+        "8 reps at 65 lbs",
+        "10 reps at 65 lbs"
+      ],
+      "notes": "Upper back strength is a priority — she sits for long stretches between ICU shifts."
+    },
+    {
+      "id": "priya_g3",
+      "text": "No plantar fasciitis flare-ups for 3 consecutive months",
+      "category": "lifestyle",
+      "target_date": "2026-05-22",
+      "status": "active",
+      "created": "2026-01-19",
+      "milestones": [
+        "Orthotics consistently worn",
+        "30-min walk daily without pain",
+        "1 month flare-free",
+        "2 months flare-free"
+      ],
+      "notes": "She's been symptom-free since January — this goal formalizes the rehab success."
+    },
+    {
+      "id": "priya_g4",
+      "text": "Goblet squat 45 lbs for 3 sets of 8",
+      "category": "strength",
+      "target_date": "2026-02-14",
+      "status": "achieved",
+      "created": "2025-11-10",
+      "achieved_date": "2026-02-16",
+      "milestones": [
+        "25 lbs × 8",
+        "35 lbs × 8",
+        "40 lbs × 8",
+        "45 lbs × 8"
+      ],
+      "notes": "Achieved ahead of schedule — form was excellent even with prior plantar fascia limitation."
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "anchor_date": "2026-03-07",
+  "programs": [
+    {
+      "name": "Strength & Resilience Block",
+      "description": "10-week progressive strength block following plantar fascia recovery. Builds from dumbbell fundamentals to barbell front squat, with systematic load increases every 2 sessions.",
+      "goal_focus": "strength",
+      "start_date": "2026-01-26",
+      "weeks": 10,
+      "sessions_per_week": 2,
+      "linked_session_count": 5,
+      "program_json": {
+        "summary": "A 10-week strength building program for Priya designed to safely progress from her post-plantar fasciitis baseline to barbell lifting. Weeks 1–4 establish machine and dumbbell foundations, Weeks 5–8 introduce barbell work, and Weeks 9–10 consolidate new strength levels with barbell front and back squat.",
+        "weeks": [
+          {
+            "week_number": 1,
+            "theme": "Foundation — establish base loads and movement quality",
+            "sessions": [
+              {
+                "label": "Week 1 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-26",
+                "focus": "Full-body baseline — reinforce plantar fascia-safe patterns"
+              },
+              {
+                "label": "Week 1 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-29",
+                "focus": "Hip hinge and pulling volume — establish biweekly rhythm"
+              }
+            ]
+          },
+          {
+            "week_number": 2,
+            "theme": "Volume Build — add reps and set density",
+            "sessions": [
+              {
+                "label": "Week 2 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-02",
+                "focus": "Goblet squat progression + cable row volume"
+              },
+              {
+                "label": "Week 2 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-05",
+                "focus": "Push-pull superset — overhead and horizontal emphasis"
+              }
+            ]
+          },
+          {
+            "week_number": 3,
+            "theme": "Load Progression — increase key lifts",
+            "sessions": [
+              {
+                "label": "Week 3 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-09",
+                "focus": "Progressive overload — increase lower body and pull loads"
+              },
+              {
+                "label": "Week 3 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-12",
+                "focus": "Romanian deadlift introduction and upper push"
+              }
+            ]
+          },
+          {
+            "week_number": 4,
+            "theme": "Strength Focus — push barbell front squat",
+            "sessions": [
+              {
+                "label": "Week 4 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-16",
+                "focus": "Strength block — barbell front squat first session"
+              },
+              {
+                "label": "Week 4 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-19",
+                "focus": "Upper body peak — cable row PR and push press load"
+              }
+            ]
+          },
+          {
+            "week_number": 5,
+            "theme": "New Load PRs — goblet and cable benchmarks",
+            "sessions": [
+              {
+                "label": "Week 5 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-23",
+                "focus": "New year push — all loads at new working maxes"
+              },
+              {
+                "label": "Week 5 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-26",
+                "focus": "Upper-lower split — consolidate biweekly strength"
+              }
+            ]
+          },
+          {
+            "week_number": 6,
+            "theme": "Strength Consolidation — lock in gains",
+            "sessions": [
+              {
+                "label": "Week 6 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-02",
+                "focus": "Full-body strength — goblet squat to 40 lbs"
+              },
+              {
+                "label": "Week 6 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-05",
+                "focus": "Barbell front squat progression to 60 lbs"
+              }
+            ]
+          },
+          {
+            "week_number": 7,
+            "theme": "Progressive Peak — barbell work and cable strength",
+            "sessions": [
+              {
+                "label": "Week 7 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-09",
+                "focus": "Strength progression — cable row 60 lbs"
+              },
+              {
+                "label": "Week 7 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-12",
+                "focus": "Barbell front squat 65 lbs + goblet squat 45 lbs PR"
+              }
+            ]
+          },
+          {
+            "week_number": 8,
+            "theme": "Volume Maintenance — sustain load, increase density",
+            "sessions": [
+              {
+                "label": "Week 8 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-16",
+                "focus": "Volume push — upper body and hip hinge density"
+              },
+              {
+                "label": "Week 8 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-19",
+                "focus": "Barbell front squat 70 lbs — new working max"
+              }
+            ]
+          },
+          {
+            "week_number": 9,
+            "theme": "Strength Peak — barbell back squat introduction",
+            "sessions": [
+              {
+                "label": "Week 9 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-23",
+                "focus": "Introduce barbell back squat — light load pattern"
+              },
+              {
+                "label": "Week 9 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-26",
+                "focus": "Cable row PR attempt at 65 lbs"
+              }
+            ]
+          },
+          {
+            "week_number": 10,
+            "theme": "Consolidation — assess and set next block targets",
+            "sessions": [
+              {
+                "label": "Week 10 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-30",
+                "focus": "Barbell back squat progressive load — 75 lbs × 5"
+              },
+              {
+                "label": "Week 10 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-04-02",
+                "focus": "Full-body strength consolidation — block complete"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

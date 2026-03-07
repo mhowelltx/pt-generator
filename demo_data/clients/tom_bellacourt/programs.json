@@ -1,0 +1,235 @@
+{
+  "anchor_date": "2026-03-07",
+  "programs": [
+    {
+      "name": "Lower Body Power + Left Side Rebuild",
+      "description": "12-week program for Tom focused on leg press power to 250 lbs and rebuilding left-side upper body pressing after right shoulder restriction. Right shoulder: no loading. Left side: progressively built from surgeon-cleared December 2025.",
+      "goal_focus": "strength",
+      "start_date": "2025-12-15",
+      "weeks": 12,
+      "sessions_per_week": 2,
+      "linked_session_count": 6,
+      "program_json": {
+        "summary": "A 12-week program for Tom that channels his ex-tennis player athleticism into lower body power (targeting 250 lb leg press) while carefully rebuilding left-side upper body pressing after orthopedic clearance in December 2025. Right shoulder remains unloaded per surgical guidance throughout the block.",
+        "weeks": [
+          {
+            "week_number": 1,
+            "theme": "Lower Body Foundation — leg press and split squat baseline",
+            "sessions": [
+              {
+                "label": "Week 1 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2025-12-16",
+                "focus": "Assessment — shoulder restrictions and lower body baseline"
+              },
+              {
+                "label": "Week 1 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2025-12-19",
+                "focus": "Lower body strength + cable pulling right side"
+              }
+            ]
+          },
+          {
+            "week_number": 2,
+            "theme": "Lower Body Progression — first load increases",
+            "sessions": [
+              {
+                "label": "Week 2 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2025-12-23",
+                "focus": "Progressive lower body + introduce medicine ball work"
+              },
+              {
+                "label": "Week 2 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2025-12-26",
+                "focus": "Lower body hypertrophy + core circuit"
+              }
+            ]
+          },
+          {
+            "week_number": 3,
+            "theme": "Lower Body Volume — add medicine ball and single-leg work",
+            "sessions": [
+              {
+                "label": "Week 3 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2025-12-30",
+                "focus": "Lower body strength peak + single-arm cable intro"
+              },
+              {
+                "label": "Week 3 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-02",
+                "focus": "Lower body + introduce left-side push (surgeon-cleared)"
+              }
+            ]
+          },
+          {
+            "week_number": 4,
+            "theme": "Lower Body Hypertrophy + Core Circuit",
+            "sessions": [
+              {
+                "label": "Week 4 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-06",
+                "focus": "End-of-year strength assessment — push lower body ceiling"
+              },
+              {
+                "label": "Week 4 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-09",
+                "focus": "New year leg power focus + upper body volume"
+              }
+            ]
+          },
+          {
+            "week_number": 5,
+            "theme": "Lower Body Strength Peak — introduce single-arm cable",
+            "sessions": [
+              {
+                "label": "Week 5 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-13",
+                "focus": "Lower body and left-upper volume — all loads pushed"
+              },
+              {
+                "label": "Week 5 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-16",
+                "focus": "Lower body power peak + left-side upper body push"
+              }
+            ]
+          },
+          {
+            "week_number": 6,
+            "theme": "Left-Side Upper Intro — surgeon clearance applied",
+            "sessions": [
+              {
+                "label": "Week 6 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-20",
+                "focus": "Leg press 235 lbs + left-side DB press 35 lbs"
+              },
+              {
+                "label": "Week 6 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-23",
+                "focus": "Lower body power + single-arm cable bilateral work"
+              }
+            ]
+          },
+          {
+            "week_number": 7,
+            "theme": "End-of-Year Strength Assessment — push load ceilings",
+            "sessions": [
+              {
+                "label": "Week 7 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-27",
+                "focus": "Lower body strength consolidation — 220 lbs"
+              },
+              {
+                "label": "Week 7 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-30",
+                "focus": "Left-side upper volume — DB press 35 lbs × 3 sets"
+              }
+            ]
+          },
+          {
+            "week_number": 8,
+            "theme": "New Year — leg power focus + upper body volume",
+            "sessions": [
+              {
+                "label": "Week 8 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-03",
+                "focus": "Leg press 230 lbs + upper body pull emphasis"
+              },
+              {
+                "label": "Week 8 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-06",
+                "focus": "Full lower body circuit + left-side push superset"
+              }
+            ]
+          },
+          {
+            "week_number": 9,
+            "theme": "Lower Body + Left-Upper Volume — all loads pushed",
+            "sessions": [
+              {
+                "label": "Week 9 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-10",
+                "focus": "Lower body power + left-side upper push — both arms"
+              },
+              {
+                "label": "Week 9 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-13",
+                "focus": "Leg press 240 lbs + left-side DB press 37.5 lbs"
+              }
+            ]
+          },
+          {
+            "week_number": 10,
+            "theme": "Lower Body Power Peak + Left-Side Upper Push",
+            "sessions": [
+              {
+                "label": "Week 10 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-17",
+                "focus": "Leg press 245 lbs milestone + left-side upper 37.5"
+              },
+              {
+                "label": "Week 10 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-20",
+                "focus": "Lower body strength peak + unilateral circuit"
+              }
+            ]
+          },
+          {
+            "week_number": 11,
+            "theme": "Leg Press Milestone — 235 lbs + left-side upper 35 lbs",
+            "sessions": [
+              {
+                "label": "Week 11 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-24",
+                "focus": "Leg press 250 lbs milestone attempt"
+              },
+              {
+                "label": "Week 11 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-27",
+                "focus": "Left-side DB press 40 lbs attempt"
+              }
+            ]
+          },
+          {
+            "week_number": 12,
+            "theme": "Block Complete — 250 lbs leg press and assessment",
+            "sessions": [
+              {
+                "label": "Week 12 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-03-03",
+                "focus": "Block assessment — bilateral pressing introduction plan"
+              },
+              {
+                "label": "Week 12 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-03-06",
+                "focus": "Recovery and next program planning session"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

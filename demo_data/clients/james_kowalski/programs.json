@@ -1,0 +1,199 @@
+{
+  "anchor_date": "2026-03-07",
+  "programs": [
+    {
+      "name": "Back-Safe Strength Foundation",
+      "description": "10-week machine-based strength program for James, designed around his L4-L5 disc herniation and hypertension. No axial loading — all lower body through leg press. Breathing cues on every set. Progressive overload every 2 sessions.",
+      "goal_focus": "strength",
+      "start_date": "2026-01-12",
+      "weeks": 10,
+      "sessions_per_week": 2,
+      "linked_session_count": 4,
+      "program_json": {
+        "summary": "A 10-week spine-safe strength program for James built entirely on selectorized machines and cable work. Systematically increases leg press from 175 lbs to a 220 lb milestone, while developing upper body pulling strength and core stability. All breathing cues are baked into each session to manage his hypertension safely.",
+        "weeks": [
+          {
+            "week_number": 1,
+            "theme": "Core Safety — McGill protocol and breathing reinforcement",
+            "sessions": [
+              {
+                "label": "Week 1 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-01-14",
+                "focus": "Back-safe assessment — machine loads and core stability"
+              },
+              {
+                "label": "Week 1 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-01-17",
+                "focus": "Core stability emphasis — McGill Big 3 and machine patterns"
+              }
+            ]
+          },
+          {
+            "week_number": 2,
+            "theme": "Machine Baseline — establish working loads",
+            "sessions": [
+              {
+                "label": "Week 2 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-01-21",
+                "focus": "Progressive machine load increase + McGill integration"
+              },
+              {
+                "label": "Week 2 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-01-24",
+                "focus": "Upper body pulling emphasis + glute bridge loading"
+              }
+            ]
+          },
+          {
+            "week_number": 3,
+            "theme": "Load Build — first progressive increases",
+            "sessions": [
+              {
+                "label": "Week 3 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-01-28",
+                "focus": "End-of-year strength assessment — push load ceilings"
+              },
+              {
+                "label": "Week 3 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-01-31",
+                "focus": "New year push — leg press milestone and upper body"
+              }
+            ]
+          },
+          {
+            "week_number": 4,
+            "theme": "Strength Push — leg press and upper pull focus",
+            "sessions": [
+              {
+                "label": "Week 4 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-02-04",
+                "focus": "Upper body pull focus — cable row load progression"
+              },
+              {
+                "label": "Week 4 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-02-07",
+                "focus": "Strength plateau push — new PRs across lower body"
+              }
+            ]
+          },
+          {
+            "week_number": 5,
+            "theme": "New Load PRs — cable row 70 lbs benchmark",
+            "sessions": [
+              {
+                "label": "Week 5 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-02-11",
+                "focus": "Full-body machine strength — consolidate gains"
+              },
+              {
+                "label": "Week 5 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-02-14",
+                "focus": "Cable row 70 lbs benchmark session"
+              }
+            ]
+          },
+          {
+            "week_number": 6,
+            "theme": "Consolidation — lock in new maxes",
+            "sessions": [
+              {
+                "label": "Week 6 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-02-18",
+                "focus": "Upper body pull consolidation + core benchmark"
+              },
+              {
+                "label": "Week 6 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-02-21",
+                "focus": "Leg press load progression — 190 lbs"
+              }
+            ]
+          },
+          {
+            "week_number": 7,
+            "theme": "Leg Press Milestone — push toward 200 lbs",
+            "sessions": [
+              {
+                "label": "Week 7 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-02-25",
+                "focus": "Leg press 200 lbs milestone — new PR attempt"
+              },
+              {
+                "label": "Week 7 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-02-28",
+                "focus": "Superset format — upper body strength + core"
+              }
+            ]
+          },
+          {
+            "week_number": 8,
+            "theme": "Upper Body Peak — chest press and cable row volume",
+            "sessions": [
+              {
+                "label": "Week 8 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-03-04",
+                "focus": "Chest press load peak — 60 lbs target"
+              },
+              {
+                "label": "Week 8 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-03-07",
+                "focus": "Leg press 205 lbs + cable row maintained"
+              }
+            ]
+          },
+          {
+            "week_number": 9,
+            "theme": "Strength Plateau Break — leg press 210 lbs",
+            "sessions": [
+              {
+                "label": "Week 9 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-03-11",
+                "focus": "Leg press 210 lbs attempt — milestone push"
+              },
+              {
+                "label": "Week 9 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-03-14",
+                "focus": "Upper body peak — cable row volume and density"
+              }
+            ]
+          },
+          {
+            "week_number": 10,
+            "theme": "Block Complete — assess and advance",
+            "sessions": [
+              {
+                "label": "Week 10 Day A",
+                "day_of_week": "wed",
+                "planned_date": "2026-03-18",
+                "focus": "Milestone session — leg press 220 lbs attempt"
+              },
+              {
+                "label": "Week 10 Day B",
+                "day_of_week": "sat",
+                "planned_date": "2026-03-21",
+                "focus": "Block assessment — plan next strength cycle"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

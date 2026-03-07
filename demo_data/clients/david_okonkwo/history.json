@@ -1,979 +1,1208 @@
-[
-  {
-    "session_date": "2025-10-06",
-    "session_number": 1,
-    "focus": "Assessment \u2014 establish baseline on barbell hinge and horizontal upper patterns",
-    "loads": {
-      "Barbell Romanian Deadlift": 115.0,
-      "DB Bench Press": 45.0,
-      "Cable Lat Pulldown": 90.0,
-      "DB Row (R)": 50.0
+{
+  "anchor_date": "2026-03-07",
+  "entries": [
+    {
+      "session_date": "2025-10-06",
+      "session_number": 1,
+      "focus": "Assessment — establish baseline on barbell hinge and horizontal upper patterns",
+      "loads": {
+        "Barbell Romanian Deadlift": 115.0,
+        "DB Bench Press": 45.0,
+        "Cable Lat Pulldown": 90.0,
+        "DB Row (R)": 50.0
+      },
+      "progression_notes": [
+        "RDL at 115 lbs: clean hip hinge, but anterior pelvic tilt appears at depth — cue hip crease back",
+        "DB bench: 45 lbs per hand felt moderate — left shoulder comfortable with horizontal press",
+        "Cable pulldown 90 solid — ready for 100 next time",
+        "Note: zero overhead loading — left shoulder comfortable all session"
+      ],
+      "trainer_notes": "Strong baseline. David is clearly well-trained — good body awareness. Main coaching point is anterior pelvic tilt on hinge patterns. No left shoulder discomfort throughout.",
+      "archived": false
     },
-    "progression_notes": [
-      "RDL at 115 lbs: clean hip hinge, but anterior pelvic tilt appears at depth \u2014 cue hip crease back",
-      "DB bench: 45 lbs per hand felt moderate \u2014 left shoulder comfortable with horizontal press",
-      "Cable pulldown 90 solid \u2014 ready for 100 next time",
-      "Note: zero overhead loading \u2014 left shoulder comfortable all session"
-    ],
-    "trainer_notes": "Strong baseline. David is clearly well-trained \u2014 good body awareness. Main coaching point is anterior pelvic tilt on hinge patterns. No left shoulder discomfort throughout.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-10-20",
-    "session_number": 2,
-    "focus": "Lower body hinge progression + horizontal push-pull superset",
-    "loads": {
-      "Barbell Romanian Deadlift": 125.0,
-      "DB Bench Press": 50.0,
-      "Cable Lat Pulldown": 100.0,
-      "DB Row (R)": 50.0,
-      "Cable Face Pull": 30.0
+    {
+      "session_date": "2025-10-20",
+      "session_number": 2,
+      "focus": "Lower body hinge progression + horizontal push-pull superset",
+      "loads": {
+        "Barbell Romanian Deadlift": 125.0,
+        "DB Bench Press": 50.0,
+        "Cable Lat Pulldown": 100.0,
+        "DB Row (R)": 50.0,
+        "Cable Face Pull": 30.0
+      },
+      "progression_notes": [
+        "RDL to 125: pelvic tilt improving with cue 'push hips back to wall'",
+        "DB bench 50: smooth, no left shoulder aggravation",
+        "Cable pulldown 100: ready to try 110",
+        "Added cable face pull for shoulder health: 30 lbs, 3x15 each session"
+      ],
+      "trainer_notes": "Great session. The 'hips to wall' cue finally clicked for the RDL. David says he's been practicing at home.",
+      "archived": false
     },
-    "progression_notes": [
-      "RDL to 125: pelvic tilt improving with cue 'push hips back to wall'",
-      "DB bench 50: smooth, no left shoulder aggravation",
-      "Cable pulldown 100: ready to try 110",
-      "Added cable face pull for shoulder health: 30 lbs, 3x15 each session"
-    ],
-    "trainer_notes": "Great session. The 'hips to wall' cue finally clicked for the RDL. David says he's been practicing at home.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-11-03",
-    "session_number": 3,
-    "focus": "Upper-lower split focus \u2014 RDL progression and single-arm pressing",
-    "loads": {
-      "Barbell Romanian Deadlift": 135.0,
-      "DB Bench Press": 50.0,
-      "Cable Lat Pulldown": 110.0,
-      "DB Row (R)": 55.0,
-      "Cable Face Pull": 35.0
+    {
+      "session_date": "2025-11-03",
+      "session_number": 3,
+      "focus": "Upper-lower split focus — RDL progression and single-arm pressing",
+      "loads": {
+        "Barbell Romanian Deadlift": 135.0,
+        "DB Bench Press": 50.0,
+        "Cable Lat Pulldown": 110.0,
+        "DB Row (R)": 55.0,
+        "Cable Face Pull": 35.0
+      },
+      "progression_notes": [
+        "RDL to 135: hip hinge much improved, pelvic tilt minimal",
+        "DB bench: holding at 50 — will try 55 next session",
+        "Cable pulldown 110: all reps solid",
+        "DB row progressed to 55: good scapular control"
+      ],
+      "archived": false
     },
-    "progression_notes": [
-      "RDL to 135: hip hinge much improved, pelvic tilt minimal",
-      "DB bench: holding at 50 \u2014 will try 55 next session",
-      "Cable pulldown 110: all reps solid",
-      "DB row progressed to 55: good scapular control"
-    ],
-    "archived": false
-  },
-  {
-    "session_date": "2025-11-17",
-    "session_number": 4,
-    "focus": "Hip hinge strength + unilateral lower body introduction",
-    "loads": {
-      "Barbell Romanian Deadlift": 145.0,
-      "DB Bench Press": 55.0,
-      "Cable Lat Pulldown": 110.0,
-      "DB Row (R)": 55.0,
-      "Single-Leg RDL (DB)": 35.0,
-      "Cable Face Pull": 35.0
+    {
+      "session_date": "2025-11-17",
+      "session_number": 4,
+      "focus": "Hip hinge strength + unilateral lower body introduction",
+      "loads": {
+        "Barbell Romanian Deadlift": 145.0,
+        "DB Bench Press": 55.0,
+        "Cable Lat Pulldown": 110.0,
+        "DB Row (R)": 55.0,
+        "Single-Leg RDL (DB)": 35.0,
+        "Cable Face Pull": 35.0
+      },
+      "progression_notes": [
+        "RDL to 145: strong, pelvic tilt well controlled",
+        "DB bench progressed to 55 per hand: 3x10 complete",
+        "Introduced single-leg RDL at 35 lbs — balance is a limiting factor, keep light",
+        "Good session overall — no shoulder issues"
+      ],
+      "trainer_notes": "Single-leg RDL humbled him a bit — good. Hip stability and proprioception are the weaknesses. This is now a priority alongside his lower cross work.",
+      "archived": false
     },
-    "progression_notes": [
-      "RDL to 145: strong, pelvic tilt well controlled",
-      "DB bench progressed to 55 per hand: 3x10 complete",
-      "Introduced single-leg RDL at 35 lbs \u2014 balance is a limiting factor, keep light",
-      "Good session overall \u2014 no shoulder issues"
-    ],
-    "trainer_notes": "Single-leg RDL humbled him a bit \u2014 good. Hip stability and proprioception are the weaknesses. This is now a priority alongside his lower cross work.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-01",
-    "session_number": 5,
-    "focus": "Strength block \u2014 RDL near-max load and superset efficiency",
-    "loads": {
-      "Barbell Romanian Deadlift": 155.0,
-      "DB Bench Press": 55.0,
-      "Cable Lat Pulldown": 120.0,
-      "DB Row (R)": 60.0,
-      "Single-Leg RDL (DB)": 40.0,
-      "Cable Face Pull": 40.0
+    {
+      "session_date": "2025-12-01",
+      "session_number": 5,
+      "focus": "Strength block — RDL near-max load and superset efficiency",
+      "loads": {
+        "Barbell Romanian Deadlift": 155.0,
+        "DB Bench Press": 55.0,
+        "Cable Lat Pulldown": 120.0,
+        "DB Row (R)": 60.0,
+        "Single-Leg RDL (DB)": 40.0,
+        "Cable Face Pull": 40.0
+      },
+      "progression_notes": [
+        "RDL 155: new working max, 3x8 with great control",
+        "Cable pulldown to 120: solid, all reps",
+        "DB row to 60: very strong pull",
+        "Single-leg RDL improving — balance coming together at 40 lbs"
+      ],
+      "archived": false
     },
-    "progression_notes": [
-      "RDL 155: new working max, 3x8 with great control",
-      "Cable pulldown to 120: solid, all reps",
-      "DB row to 60: very strong pull",
-      "Single-leg RDL improving \u2014 balance coming together at 40 lbs"
-    ],
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-15",
-    "session_number": 6,
-    "focus": "Volume day \u2014 increase total work on lower body and lat patterns",
-    "loads": {
-      "Barbell Romanian Deadlift": 165.0,
-      "DB Bench Press": 60.0,
-      "Cable Lat Pulldown": 120.0,
-      "DB Row (R)": 65.0,
-      "Single-Leg RDL (DB)": 40.0,
-      "Cable Face Pull": 40.0
+    {
+      "session_date": "2025-12-15",
+      "session_number": 6,
+      "focus": "Volume day — increase total work on lower body and lat patterns",
+      "loads": {
+        "Barbell Romanian Deadlift": 165.0,
+        "DB Bench Press": 60.0,
+        "Cable Lat Pulldown": 120.0,
+        "DB Row (R)": 65.0,
+        "Single-Leg RDL (DB)": 40.0,
+        "Cable Face Pull": 40.0
+      },
+      "progression_notes": [
+        "RDL at 165: new PR, clean reps, hip hinge patterning is excellent now",
+        "DB bench at 60: first time at this load, 3x10 achieved",
+        "DB row 65: all reps, strong pull",
+        "Hip flexor tightness has noticeably reduced since starting targeted hip work"
+      ],
+      "trainer_notes": "Remarkable progress on the hip hinge. He said he feels his glutes actually working now for the first time. Lower cross syndrome is responding well.",
+      "archived": false
     },
-    "progression_notes": [
-      "RDL at 165: new PR, clean reps, hip hinge patterning is excellent now",
-      "DB bench at 60: first time at this load, 3x10 achieved",
-      "DB row 65: all reps, strong pull",
-      "Hip flexor tightness has noticeably reduced since starting targeted hip work"
-    ],
-    "trainer_notes": "Remarkable progress on the hip hinge. He said he feels his glutes actually working now for the first time. Lower cross syndrome is responding well.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-29",
-    "session_number": 7,
-    "focus": "End-of-year strength assessment \u2014 push load ceilings",
-    "loads": {
-      "Barbell Romanian Deadlift": 175.0,
-      "DB Bench Press": 60.0,
-      "Cable Lat Pulldown": 130.0,
-      "DB Row (R)": 65.0,
-      "Single-Leg RDL (DB)": 45.0,
-      "Cable Face Pull": 45.0
+    {
+      "session_date": "2025-12-29",
+      "session_number": 7,
+      "focus": "End-of-year strength assessment — push load ceilings",
+      "loads": {
+        "Barbell Romanian Deadlift": 175.0,
+        "DB Bench Press": 60.0,
+        "Cable Lat Pulldown": 130.0,
+        "DB Row (R)": 65.0,
+        "Single-Leg RDL (DB)": 45.0,
+        "Cable Face Pull": 45.0
+      },
+      "progression_notes": [
+        "RDL at 175: excellent PR, held at 3x6 for quality",
+        "Cable pulldown jumped to 130: 3x10 solid",
+        "Single-leg RDL 45 lbs: balance and load both improving together"
+      ],
+      "trainer_notes": "End of year review session. David is impressed with his own progress. Hip hinge has gone from a weak pattern to a strength. Shoulder has remained pain-free throughout.",
+      "archived": false
     },
-    "progression_notes": [
-      "RDL at 175: excellent PR, held at 3x6 for quality",
-      "Cable pulldown jumped to 130: 3x10 solid",
-      "Single-leg RDL 45 lbs: balance and load both improving together"
-    ],
-    "trainer_notes": "End of year review session. David is impressed with his own progress. Hip hinge has gone from a weak pattern to a strength. Shoulder has remained pain-free throughout.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-12",
-    "session_number": 8,
-    "focus": "New year strength block \u2014 RDL plateau break and upper volume",
-    "loads": {
-      "Barbell Romanian Deadlift": 185.0,
-      "DB Bench Press": 65.0,
-      "Cable Lat Pulldown": 130.0,
-      "DB Row (R)": 70.0,
-      "Single-Leg RDL (DB)": 45.0,
-      "Cable Face Pull": 45.0
-    },
-    "progression_notes": [
-      "RDL at 185 lbs: new PR \u2014 4 sets of 5 with excellent form",
-      "DB bench 65 per hand: first time, 3x10 clean",
-      "DB row 70: very strong, full retraction",
-      "Plan RDL at 195 in 2 sessions after consolidation"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "David Okonkwo",
-        "session_date": "2026-01-12",
-        "session_number": 8,
-        "duration_minutes": 55,
-        "focus": "New year strength block \u2014 RDL plateau break and upper volume",
-        "constraints": [
-          "left shoulder impingement \u2014 no overhead pressing, no loaded internal rotation",
-          "lower cross syndrome \u2014 cue anterior pelvic tilt on all hinge and squat patterns"
+    {
+      "session_date": "2026-01-12",
+      "session_number": 8,
+      "focus": "New year strength block — RDL plateau break and upper volume",
+      "loads": {
+        "Barbell Romanian Deadlift": 185.0,
+        "DB Bench Press": 65.0,
+        "Cable Lat Pulldown": 130.0,
+        "DB Row (R)": 70.0,
+        "Single-Leg RDL (DB)": 45.0,
+        "Cable Face Pull": 45.0
+      },
+      "progression_notes": [
+        "RDL at 185 lbs: new PR — 4 sets of 5 with excellent form",
+        "DB bench 65 per hand: first time, 3x10 clean",
+        "DB row 70: very strong, full retraction",
+        "Plan RDL at 195 in 2 sessions after consolidation"
+      ],
+      "plan_json": {
+        "meta": {
+          "client_name": "David Okonkwo",
+          "session_date": "2026-01-12",
+          "session_number": 8,
+          "duration_minutes": 55,
+          "focus": "New year strength block — RDL plateau break and upper volume",
+          "constraints": [
+            "left shoulder impingement — no overhead pressing, no loaded internal rotation",
+            "lower cross syndrome — cue anterior pelvic tilt on all hinge and squat patterns"
+          ],
+          "readiness_notes": [
+            "Client reports 9/10 energy — well-rested over the new year break",
+            "Left shoulder: no discomfort this week",
+            "Hip flexors feel looser than before — stretching routine is working"
+          ]
+        },
+        "equipment_used": [
+          "barbell (45 lb bar)",
+          "bumper plates",
+          "dumbbells 45-70 lbs",
+          "cable machine (lat pulldown attachment, single-handle, rope)"
         ],
-        "readiness_notes": [
-          "Client reports 9/10 energy \u2014 well-rested over the new year break",
-          "Left shoulder: no discomfort this week",
-          "Hip flexors feel looser than before \u2014 stretching routine is working"
+        "blocks": [
+          {
+            "title": "Dynamic Warm-Up & Hip Activation",
+            "block_type": "warmup",
+            "time_minutes": 10,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Hip 90/90 Stretch",
+                "sets": 2,
+                "reps": "8 each side",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Tall spine throughout",
+                  "Rotate from hip, not lumbar",
+                  "Breathe into the stretch"
+                ],
+                "regressions": [
+                  "Seated chair rotation"
+                ],
+                "progressions": [
+                  "Add active rotation hold"
+                ]
+              },
+              {
+                "name": "Glute Bridge",
+                "sets": 2,
+                "reps": "15",
+                "tempo": "2-2-2",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Drive hips to ceiling",
+                  "Squeeze glutes at top",
+                  "Don’t hyperextend lumbar"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "Single-leg glute bridge"
+                ]
+              },
+              {
+                "name": "RDL Hinge Pattern (empty bar)",
+                "sets": 2,
+                "reps": "8",
+                "tempo": null,
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Hips push back to the wall behind you",
+                  "Bar stays in contact with shins",
+                  "Neutral spine throughout"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Band Pull-Apart",
+                "sets": 2,
+                "reps": "15",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Shoulder height",
+                  "Full retraction at end range",
+                  "Keep arms straight"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Barbell Hinge — Strength Focus",
+            "block_type": "main",
+            "time_minutes": 20,
+            "format": "Straight sets — 90s rest",
+            "exercises": [
+              {
+                "name": "Barbell Romanian Deadlift",
+                "sets": 4,
+                "reps": "5",
+                "tempo": "3-1-1",
+                "rest_seconds": 90,
+                "intensity": "H",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 185.0,
+                  "prior_load_lbs": 175.0,
+                  "reps_achieved": "5,5,5,5",
+                  "progression_target": "Hold 185 for one more session then attempt 195"
+                },
+                "cues": [
+                  "Hips back to the wall",
+                  "Bar stays close to body throughout",
+                  "Drive hips forward at the top — don’t hyperextend"
+                ],
+                "regressions": [
+                  "175 lbs"
+                ],
+                "progressions": [
+                  "195 lbs in 2 sessions"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Upper Body Horizontal + Vertical Pull Supersets",
+            "block_type": "main",
+            "time_minutes": 20,
+            "format": "Superset A1/A2 and B1/B2 — 60s rest after each pair",
+            "exercises": [
+              {
+                "name": "DB Bench Press",
+                "sets": 3,
+                "reps": "10",
+                "tempo": "3-1-1",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 65.0,
+                  "prior_load_lbs": 60.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "Hold 65 — consider 70 in 2 sessions"
+                },
+                "cues": [
+                  "Control the eccentric — 3 seconds down",
+                  "Neutral shoulder path",
+                  "No internal rotation of left shoulder at bottom"
+                ],
+                "regressions": [
+                  "60 lbs"
+                ],
+                "progressions": [
+                  "70 lbs"
+                ]
+              },
+              {
+                "name": "Cable Lat Pulldown",
+                "sets": 3,
+                "reps": "10",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 130.0,
+                  "prior_load_lbs": 130.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "Add 10 lbs next session"
+                },
+                "cues": [
+                  "Pull to upper chest",
+                  "Initiate with lats not biceps",
+                  "Slight lean back"
+                ],
+                "regressions": [
+                  "120 lbs"
+                ],
+                "progressions": [
+                  "140 lbs"
+                ]
+              },
+              {
+                "name": "DB Single-Arm Row",
+                "sets": 3,
+                "reps": "10 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 70.0,
+                  "prior_load_lbs": 65.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "Hold 70 lbs — focus on scapular retraction quality"
+                },
+                "cues": [
+                  "Row to hip, not armpit",
+                  "Full scapular retraction at top",
+                  "Don’t rotate torso"
+                ],
+                "regressions": [
+                  "65 lbs"
+                ],
+                "progressions": [
+                  "75 lbs"
+                ]
+              },
+              {
+                "name": "Cable Face Pull",
+                "sets": 3,
+                "reps": "15",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 45.0,
+                  "prior_load_lbs": 45.0,
+                  "reps_achieved": "15,15,15",
+                  "progression_target": "Increase to 50 lbs next session"
+                },
+                "cues": [
+                  "Pull rope to forehead height",
+                  "Elbows flare out and back",
+                  "External rotate at end range"
+                ],
+                "regressions": [
+                  "40 lbs"
+                ],
+                "progressions": [
+                  "50 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Unilateral Lower & Core",
+            "block_type": "core_balance",
+            "time_minutes": 10,
+            "format": "Circuit — minimal rest",
+            "exercises": [
+              {
+                "name": "Single-Leg Romanian Deadlift (DB)",
+                "sets": 3,
+                "reps": "8 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 45.0,
+                  "prior_load_lbs": 45.0,
+                  "reps_achieved": "8,8,8",
+                  "progression_target": "Try 50 lbs once balance is solid for 3×8"
+                },
+                "cues": [
+                  "Hip hinge on standing leg",
+                  "Keep hips square to floor",
+                  "Non-contact foot flexed and aligned"
+                ],
+                "regressions": [
+                  "35 lbs with TRX assist"
+                ],
+                "progressions": [
+                  "50 lbs without balance cue"
+                ]
+              },
+              {
+                "name": "Pallof Press (Cable)",
+                "sets": 3,
+                "reps": "12 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Brace core before pressing out",
+                  "Don’t let cable rotate your torso",
+                  "Slow press and return"
+                ],
+                "regressions": [
+                  "Reduce cable weight"
+                ],
+                "progressions": [
+                  "Add a pause at full extension"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down & Mobility",
+            "block_type": "cooldown",
+            "time_minutes": 5,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Hip Flexor Stretch (Half-Kneeling)",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Posterior pelvic tilt — tuck tailbone",
+                  "Drive hips forward gently",
+                  "Stay upright"
+                ],
+                "regressions": [
+                  "Standing version"
+                ],
+                "progressions": [
+                  "Add arm reach overhead (right side only)"
+                ]
+              },
+              {
+                "name": "Thoracic Extension over Foam Roller",
+                "sets": 2,
+                "reps": "8 extensions",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Roller at mid-back",
+                  "Let thoracic spine extend over roller",
+                  "Support head with hands"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Barbell RDL: new PR at 185 lbs, 4×5 with excellent form — plan 195 after one consolidation session",
+          "DB bench press progressed to 65 lbs — all 3×10 clean; plan 70 in 2 sessions",
+          "DB row at 70 lbs — strong pull; focus on scapular control quality before adding load",
+          "Single-leg RDL: balance consistent at 45 lbs — attempt 50 next time",
+          "Face pull: increase to 50 lbs next session"
+        ],
+        "coaching_notes": [
+          "Hip hinge patterning has transformed since session 1 — anterior pelvic tilt is now a minor, self-correcting issue",
+          "Left shoulder: zero symptoms for 10+ weeks — horizontal pressing is very well tolerated",
+          "Hip flexor tightness measurably reduced — David’s home stretching routine is working",
+          "Recommend adding a 4th exercise in the lower body block once RDL reaches 200+"
         ]
       },
-      "equipment_used": [
-        "barbell (45 lb bar)",
-        "bumper plates",
-        "dumbbells 45-70 lbs",
-        "cable machine (lat pulldown attachment, single-handle, rope)"
-      ],
-      "blocks": [
-        {
-          "title": "Dynamic Warm-Up & Hip Activation",
-          "block_type": "warmup",
-          "time_minutes": 10,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Hip 90/90 Stretch",
-              "sets": 2,
-              "reps": "8 each side",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Tall spine throughout", "Rotate from hip, not lumbar", "Breathe into the stretch"],
-              "regressions": ["Seated chair rotation"],
-              "progressions": ["Add active rotation hold"]
-            },
-            {
-              "name": "Glute Bridge",
-              "sets": 2,
-              "reps": "15",
-              "tempo": "2-2-2",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Drive hips to ceiling", "Squeeze glutes at top", "Don\u2019t hyperextend lumbar"],
-              "regressions": [],
-              "progressions": ["Single-leg glute bridge"]
-            },
-            {
-              "name": "RDL Hinge Pattern (empty bar)",
-              "sets": 2,
-              "reps": "8",
-              "tempo": null,
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Hips push back to the wall behind you", "Bar stays in contact with shins", "Neutral spine throughout"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Band Pull-Apart",
-              "sets": 2,
-              "reps": "15",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Shoulder height", "Full retraction at end range", "Keep arms straight"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Barbell Hinge \u2014 Strength Focus",
-          "block_type": "main",
-          "time_minutes": 20,
-          "format": "Straight sets \u2014 90s rest",
-          "exercises": [
-            {
-              "name": "Barbell Romanian Deadlift",
-              "sets": 4,
-              "reps": "5",
-              "tempo": "3-1-1",
-              "rest_seconds": 90,
-              "intensity": "H",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 185.0,
-                "prior_load_lbs": 175.0,
-                "reps_achieved": "5,5,5,5",
-                "progression_target": "Hold 185 for one more session then attempt 195"
-              },
-              "cues": ["Hips back to the wall", "Bar stays close to body throughout", "Drive hips forward at the top \u2014 don\u2019t hyperextend"],
-              "regressions": ["175 lbs"],
-              "progressions": ["195 lbs in 2 sessions"]
-            }
-          ]
-        },
-        {
-          "title": "Upper Body Horizontal + Vertical Pull Supersets",
-          "block_type": "main",
-          "time_minutes": 20,
-          "format": "Superset A1/A2 and B1/B2 \u2014 60s rest after each pair",
-          "exercises": [
-            {
-              "name": "DB Bench Press",
-              "sets": 3,
-              "reps": "10",
-              "tempo": "3-1-1",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 65.0,
-                "prior_load_lbs": 60.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "Hold 65 \u2014 consider 70 in 2 sessions"
-              },
-              "cues": ["Control the eccentric \u2014 3 seconds down", "Neutral shoulder path", "No internal rotation of left shoulder at bottom"],
-              "regressions": ["60 lbs"],
-              "progressions": ["70 lbs"]
-            },
-            {
-              "name": "Cable Lat Pulldown",
-              "sets": 3,
-              "reps": "10",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 130.0,
-                "prior_load_lbs": 130.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "Add 10 lbs next session"
-              },
-              "cues": ["Pull to upper chest", "Initiate with lats not biceps", "Slight lean back"],
-              "regressions": ["120 lbs"],
-              "progressions": ["140 lbs"]
-            },
-            {
-              "name": "DB Single-Arm Row",
-              "sets": 3,
-              "reps": "10 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 70.0,
-                "prior_load_lbs": 65.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "Hold 70 lbs \u2014 focus on scapular retraction quality"
-              },
-              "cues": ["Row to hip, not armpit", "Full scapular retraction at top", "Don\u2019t rotate torso"],
-              "regressions": ["65 lbs"],
-              "progressions": ["75 lbs"]
-            },
-            {
-              "name": "Cable Face Pull",
-              "sets": 3,
-              "reps": "15",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 45.0,
-                "prior_load_lbs": 45.0,
-                "reps_achieved": "15,15,15",
-                "progression_target": "Increase to 50 lbs next session"
-              },
-              "cues": ["Pull rope to forehead height", "Elbows flare out and back", "External rotate at end range"],
-              "regressions": ["40 lbs"],
-              "progressions": ["50 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Unilateral Lower & Core",
-          "block_type": "core_balance",
-          "time_minutes": 10,
-          "format": "Circuit \u2014 minimal rest",
-          "exercises": [
-            {
-              "name": "Single-Leg Romanian Deadlift (DB)",
-              "sets": 3,
-              "reps": "8 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 45.0,
-                "prior_load_lbs": 45.0,
-                "reps_achieved": "8,8,8",
-                "progression_target": "Try 50 lbs once balance is solid for 3\u00d78"
-              },
-              "cues": ["Hip hinge on standing leg", "Keep hips square to floor", "Non-contact foot flexed and aligned"],
-              "regressions": ["35 lbs with TRX assist"],
-              "progressions": ["50 lbs without balance cue"]
-            },
-            {
-              "name": "Pallof Press (Cable)",
-              "sets": 3,
-              "reps": "12 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Brace core before pressing out", "Don\u2019t let cable rotate your torso", "Slow press and return"],
-              "regressions": ["Reduce cable weight"],
-              "progressions": ["Add a pause at full extension"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down & Mobility",
-          "block_type": "cooldown",
-          "time_minutes": 5,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Hip Flexor Stretch (Half-Kneeling)",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Posterior pelvic tilt \u2014 tuck tailbone", "Drive hips forward gently", "Stay upright"],
-              "regressions": ["Standing version"],
-              "progressions": ["Add arm reach overhead (right side only)"]
-            },
-            {
-              "name": "Thoracic Extension over Foam Roller",
-              "sets": 2,
-              "reps": "8 extensions",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Roller at mid-back", "Let thoracic spine extend over roller", "Support head with hands"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "Outstanding session. New RDL PR at 185 lbs, and it looked effortless on sets 1-3. DB bench at 65 was the first time — excellent horizontal pressing mechanics. No left shoulder issues at all.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-01-26",
+      "session_number": 9,
+      "focus": "RDL consolidation at 185 + upper body volume push",
+      "loads": {
+        "Barbell Romanian Deadlift": 185.0,
+        "DB Bench Press": 65.0,
+        "Cable Lat Pulldown": 140.0,
+        "DB Row (R)": 70.0,
+        "Single-Leg RDL (DB)": 50.0,
+        "Cable Face Pull": 50.0
+      },
       "progression_notes": [
-        "Barbell RDL: new PR at 185 lbs, 4\u00d75 with excellent form \u2014 plan 195 after one consolidation session",
-        "DB bench press progressed to 65 lbs \u2014 all 3\u00d710 clean; plan 70 in 2 sessions",
-        "DB row at 70 lbs \u2014 strong pull; focus on scapular control quality before adding load",
-        "Single-leg RDL: balance consistent at 45 lbs \u2014 attempt 50 next time",
-        "Face pull: increase to 50 lbs next session"
+        "RDL 185: 4×6 today — very clean — ready for 195 next session",
+        "Cable pulldown jumped to 140: 3x10 solid",
+        "Single-leg RDL at 50 lbs: balance is holding — excellent",
+        "Face pull at 50 lbs: 3x15 clean"
       ],
-      "coaching_notes": [
-        "Hip hinge patterning has transformed since session 1 \u2014 anterior pelvic tilt is now a minor, self-correcting issue",
-        "Left shoulder: zero symptoms for 10+ weeks \u2014 horizontal pressing is very well tolerated",
-        "Hip flexor tightness measurably reduced \u2014 David\u2019s home stretching routine is working",
-        "Recommend adding a 4th exercise in the lower body block once RDL reaches 200+"
-      ]
-    },
-    "trainer_notes": "Outstanding session. New RDL PR at 185 lbs, and it looked effortless on sets 1-3. DB bench at 65 was the first time — excellent horizontal pressing mechanics. No left shoulder issues at all.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-26",
-    "session_number": 9,
-    "focus": "RDL consolidation at 185 + upper body volume push",
-    "loads": {
-      "Barbell Romanian Deadlift": 185.0,
-      "DB Bench Press": 65.0,
-      "Cable Lat Pulldown": 140.0,
-      "DB Row (R)": 70.0,
-      "Single-Leg RDL (DB)": 50.0,
-      "Cable Face Pull": 50.0
-    },
-    "progression_notes": [
-      "RDL 185: 4\u00d76 today \u2014 very clean \u2014 ready for 195 next session",
-      "Cable pulldown jumped to 140: 3x10 solid",
-      "Single-leg RDL at 50 lbs: balance is holding \u2014 excellent",
-      "Face pull at 50 lbs: 3x15 clean"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "David Okonkwo",
-        "session_date": "2026-01-26",
-        "session_number": 9,
-        "duration_minutes": 55,
-        "focus": "RDL consolidation at 185 + upper body volume push",
-        "constraints": [
-          "left shoulder impingement \u2014 no overhead pressing, no loaded internal rotation",
-          "lower cross syndrome \u2014 cue APT on hinge patterns"
+      "plan_json": {
+        "meta": {
+          "client_name": "David Okonkwo",
+          "session_date": "2026-01-26",
+          "session_number": 9,
+          "duration_minutes": 55,
+          "focus": "RDL consolidation at 185 + upper body volume push",
+          "constraints": [
+            "left shoulder impingement — no overhead pressing, no loaded internal rotation",
+            "lower cross syndrome — cue APT on hinge patterns"
+          ],
+          "readiness_notes": [
+            "Client reports 8/10 energy",
+            "Left shoulder: no symptoms",
+            "Feeling strong — wants to push RDL today"
+          ]
+        },
+        "equipment_used": [
+          "barbell",
+          "dumbbells 50-70 lbs",
+          "cable machine"
         ],
-        "readiness_notes": [
-          "Client reports 8/10 energy",
-          "Left shoulder: no symptoms",
-          "Feeling strong \u2014 wants to push RDL today"
+        "blocks": [
+          {
+            "title": "Warm-Up & Hip Activation",
+            "block_type": "warmup",
+            "time_minutes": 10,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Hip 90/90 + Active Transition",
+                "sets": 2,
+                "reps": "6 each side",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Move between front and back 90/90 with control",
+                  "Tall spine throughout"
+                ],
+                "regressions": [
+                  "Static holds only"
+                ],
+                "progressions": []
+              },
+              {
+                "name": "Banded Glute Bridge",
+                "sets": 2,
+                "reps": "15",
+                "tempo": "2-2-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Drive knees out against band",
+                  "Full hip extension at top"
+                ],
+                "regressions": [
+                  "No band"
+                ],
+                "progressions": []
+              },
+              {
+                "name": "RDL with Empty Bar",
+                "sets": 2,
+                "reps": "8",
+                "tempo": null,
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Hip back to wall",
+                  "Neutral spine",
+                  "Bar stays close"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Barbell RDL — Consolidation Block",
+            "block_type": "main",
+            "time_minutes": 18,
+            "format": "Straight sets — 90s rest",
+            "exercises": [
+              {
+                "name": "Barbell Romanian Deadlift",
+                "sets": 4,
+                "reps": "6",
+                "tempo": "3-1-1",
+                "rest_seconds": 90,
+                "intensity": "H",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 185.0,
+                  "prior_load_lbs": 185.0,
+                  "reps_achieved": "6,6,6,6",
+                  "progression_target": "195 lbs next session — consolidation complete"
+                },
+                "cues": [
+                  "Hips back",
+                  "Soft knee",
+                  "Bar scrapes shins on the way down and up"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "195 lbs next session"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Upper Body Push-Pull Volume",
+            "block_type": "main",
+            "time_minutes": 20,
+            "format": "Superset A1/A2, B1/B2 — 60s after each pair",
+            "exercises": [
+              {
+                "name": "DB Bench Press",
+                "sets": 4,
+                "reps": "8",
+                "tempo": "3-1-1",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 65.0,
+                  "prior_load_lbs": 65.0,
+                  "reps_achieved": "8,8,8,8",
+                  "progression_target": "Move to 70 lbs next session"
+                },
+                "cues": [
+                  "Scapula retracted and depressed",
+                  "Slight arch in thoracic",
+                  "Neutral shoulder path"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "70 lbs"
+                ]
+              },
+              {
+                "name": "Cable Lat Pulldown",
+                "sets": 4,
+                "reps": "10",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 140.0,
+                  "prior_load_lbs": 130.0,
+                  "reps_achieved": "10,10,10,9",
+                  "progression_target": "Hold 140 until 4×10 before adding weight"
+                },
+                "cues": [
+                  "Lat engagement before pull",
+                  "Elbows toward hips",
+                  "Control the return"
+                ],
+                "regressions": [
+                  "130 lbs"
+                ],
+                "progressions": [
+                  "150 lbs"
+                ]
+              },
+              {
+                "name": "DB Single-Arm Row",
+                "sets": 3,
+                "reps": "10 each",
+                "tempo": "2-1-2",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 70.0,
+                  "prior_load_lbs": 70.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "75 lbs when retraction quality is perfect"
+                },
+                "cues": [
+                  "Row toward hip",
+                  "Full retraction",
+                  "Elbow tracks close to body"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "75 lbs"
+                ]
+              },
+              {
+                "name": "Cable Face Pull",
+                "sets": 3,
+                "reps": "15",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 50.0,
+                  "prior_load_lbs": 45.0,
+                  "reps_achieved": "15,15,15",
+                  "progression_target": "Hold 50 lbs as shoulder health maintenance"
+                },
+                "cues": [
+                  "Elbows high and wide",
+                  "Rotate to full external rotation",
+                  "Controlled return"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Single-Leg & Core",
+            "block_type": "core_balance",
+            "time_minutes": 7,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Single-Leg RDL (DB)",
+                "sets": 3,
+                "reps": "8 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 50.0,
+                  "prior_load_lbs": 45.0,
+                  "reps_achieved": "8,8,8",
+                  "progression_target": "Hold 50 lbs — quality over load here"
+                },
+                "cues": [
+                  "Hip square to floor throughout",
+                  "Hinging leg stays soft",
+                  "Think long spine"
+                ],
+                "regressions": [
+                  "45 lbs"
+                ],
+                "progressions": [
+                  "55 lbs"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 5,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Half-Kneeling Hip Flexor Stretch",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Tailbone tuck",
+                  "Gentle forward lean",
+                  "No lumbar extension"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Pigeon Pose",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Square hips",
+                  "Breathe into the stretch",
+                  "Don’t force — relax into it"
+                ],
+                "regressions": [
+                  "Figure-4 supine"
+                ],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "RDL 185 for 4×6 — consolidation complete — advance to 195 next session",
+          "Cable pulldown: 4 sets at 140, last set 9 reps — hold 140 until 4×10",
+          "Single-leg RDL at 50 lbs: all 3×8 clean — may try 55 at next session",
+          "DB bench at 65 for 4×8 — advance to 70 next session"
+        ],
+        "coaching_notes": [
+          "Hip flexor tightness is substantially improved — active 90/90 transitions were smooth today",
+          "Left shoulder continues to be asymptomatic — horizontal pressing is now a reliable pattern",
+          "David’s RDL has become genuinely impressive — the pattern is deeply ingrained now",
+          "Discuss programming options for Q1 — he wants to return to some loaded carry work"
         ]
       },
-      "equipment_used": [
-        "barbell",
-        "dumbbells 50-70 lbs",
-        "cable machine"
-      ],
-      "blocks": [
-        {
-          "title": "Warm-Up & Hip Activation",
-          "block_type": "warmup",
-          "time_minutes": 10,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Hip 90/90 + Active Transition",
-              "sets": 2,
-              "reps": "6 each side",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Move between front and back 90/90 with control", "Tall spine throughout"],
-              "regressions": ["Static holds only"],
-              "progressions": []
-            },
-            {
-              "name": "Banded Glute Bridge",
-              "sets": 2,
-              "reps": "15",
-              "tempo": "2-2-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Drive knees out against band", "Full hip extension at top"],
-              "regressions": ["No band"],
-              "progressions": []
-            },
-            {
-              "name": "RDL with Empty Bar",
-              "sets": 2,
-              "reps": "8",
-              "tempo": null,
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Hip back to wall", "Neutral spine", "Bar stays close"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Barbell RDL \u2014 Consolidation Block",
-          "block_type": "main",
-          "time_minutes": 18,
-          "format": "Straight sets \u2014 90s rest",
-          "exercises": [
-            {
-              "name": "Barbell Romanian Deadlift",
-              "sets": 4,
-              "reps": "6",
-              "tempo": "3-1-1",
-              "rest_seconds": 90,
-              "intensity": "H",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 185.0,
-                "prior_load_lbs": 185.0,
-                "reps_achieved": "6,6,6,6",
-                "progression_target": "195 lbs next session \u2014 consolidation complete"
-              },
-              "cues": ["Hips back", "Soft knee", "Bar scrapes shins on the way down and up"],
-              "regressions": [],
-              "progressions": ["195 lbs next session"]
-            }
-          ]
-        },
-        {
-          "title": "Upper Body Push-Pull Volume",
-          "block_type": "main",
-          "time_minutes": 20,
-          "format": "Superset A1/A2, B1/B2 \u2014 60s after each pair",
-          "exercises": [
-            {
-              "name": "DB Bench Press",
-              "sets": 4,
-              "reps": "8",
-              "tempo": "3-1-1",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 65.0,
-                "prior_load_lbs": 65.0,
-                "reps_achieved": "8,8,8,8",
-                "progression_target": "Move to 70 lbs next session"
-              },
-              "cues": ["Scapula retracted and depressed", "Slight arch in thoracic", "Neutral shoulder path"],
-              "regressions": [],
-              "progressions": ["70 lbs"]
-            },
-            {
-              "name": "Cable Lat Pulldown",
-              "sets": 4,
-              "reps": "10",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 140.0,
-                "prior_load_lbs": 130.0,
-                "reps_achieved": "10,10,10,9",
-                "progression_target": "Hold 140 until 4\u00d710 before adding weight"
-              },
-              "cues": ["Lat engagement before pull", "Elbows toward hips", "Control the return"],
-              "regressions": ["130 lbs"],
-              "progressions": ["150 lbs"]
-            },
-            {
-              "name": "DB Single-Arm Row",
-              "sets": 3,
-              "reps": "10 each",
-              "tempo": "2-1-2",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 70.0,
-                "prior_load_lbs": 70.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "75 lbs when retraction quality is perfect"
-              },
-              "cues": ["Row toward hip", "Full retraction", "Elbow tracks close to body"],
-              "regressions": [],
-              "progressions": ["75 lbs"]
-            },
-            {
-              "name": "Cable Face Pull",
-              "sets": 3,
-              "reps": "15",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 50.0,
-                "prior_load_lbs": 45.0,
-                "reps_achieved": "15,15,15",
-                "progression_target": "Hold 50 lbs as shoulder health maintenance"
-              },
-              "cues": ["Elbows high and wide", "Rotate to full external rotation", "Controlled return"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Single-Leg & Core",
-          "block_type": "core_balance",
-          "time_minutes": 7,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Single-Leg RDL (DB)",
-              "sets": 3,
-              "reps": "8 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 50.0,
-                "prior_load_lbs": 45.0,
-                "reps_achieved": "8,8,8",
-                "progression_target": "Hold 50 lbs \u2014 quality over load here"
-              },
-              "cues": ["Hip square to floor throughout", "Hinging leg stays soft", "Think long spine"],
-              "regressions": ["45 lbs"],
-              "progressions": ["55 lbs"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 5,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Half-Kneeling Hip Flexor Stretch",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Tailbone tuck", "Gentle forward lean", "No lumbar extension"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Pigeon Pose",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Square hips", "Breathe into the stretch", "Don\u2019t force \u2014 relax into it"],
-              "regressions": ["Figure-4 supine"],
-              "progressions": []
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "4x6 at 185 looked great — hip hinge is very dialed in. Pulled cable pulldown up to 140 which was a surprise. Ready for 195 on RDL next session.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-02-09",
+      "session_number": 10,
+      "focus": "RDL PR attempt at 195 lbs + upper body strength peak",
+      "loads": {
+        "Barbell Romanian Deadlift": 195.0,
+        "DB Bench Press": 70.0,
+        "Cable Lat Pulldown": 140.0,
+        "DB Row (R)": 75.0,
+        "Single-Leg RDL (DB)": 50.0,
+        "Cable Face Pull": 50.0
+      },
       "progression_notes": [
-        "RDL 185 for 4\u00d76 \u2014 consolidation complete \u2014 advance to 195 next session",
-        "Cable pulldown: 4 sets at 140, last set 9 reps \u2014 hold 140 until 4\u00d710",
-        "Single-leg RDL at 50 lbs: all 3\u00d78 clean \u2014 may try 55 at next session",
-        "DB bench at 65 for 4\u00d78 \u2014 advance to 70 next session"
+        "RDL at 195 lbs: 3x5 with clean form — significant PR",
+        "DB bench: progressed to 70 lbs per hand — 3x8 complete",
+        "DB row: 75 lbs per hand — strong",
+        "Excellent session overall — discuss 200 lb RDL target next session"
       ],
-      "coaching_notes": [
-        "Hip flexor tightness is substantially improved \u2014 active 90/90 transitions were smooth today",
-        "Left shoulder continues to be asymptomatic \u2014 horizontal pressing is now a reliable pattern",
-        "David\u2019s RDL has become genuinely impressive \u2014 the pattern is deeply ingrained now",
-        "Discuss programming options for Q1 \u2014 he wants to return to some loaded carry work"
-      ]
-    },
-    "trainer_notes": "4x6 at 185 looked great — hip hinge is very dialed in. Pulled cable pulldown up to 140 which was a surprise. Ready for 195 on RDL next session.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-02-09",
-    "session_number": 10,
-    "focus": "RDL PR attempt at 195 lbs + upper body strength peak",
-    "loads": {
-      "Barbell Romanian Deadlift": 195.0,
-      "DB Bench Press": 70.0,
-      "Cable Lat Pulldown": 140.0,
-      "DB Row (R)": 75.0,
-      "Single-Leg RDL (DB)": 50.0,
-      "Cable Face Pull": 50.0
-    },
-    "progression_notes": [
-      "RDL at 195 lbs: 3x5 with clean form \u2014 significant PR",
-      "DB bench: progressed to 70 lbs per hand \u2014 3x8 complete",
-      "DB row: 75 lbs per hand \u2014 strong",
-      "Excellent session overall \u2014 discuss 200 lb RDL target next session"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "David Okonkwo",
-        "session_date": "2026-02-09",
-        "session_number": 10,
-        "duration_minutes": 55,
-        "focus": "RDL PR attempt at 195 lbs + upper body strength peak",
-        "constraints": [
-          "left shoulder impingement \u2014 no overhead pressing, no loaded internal rotation",
-          "lower cross syndrome \u2014 monitor APT under heavy RDL load"
+      "plan_json": {
+        "meta": {
+          "client_name": "David Okonkwo",
+          "session_date": "2026-02-09",
+          "session_number": 10,
+          "duration_minutes": 55,
+          "focus": "RDL PR attempt at 195 lbs + upper body strength peak",
+          "constraints": [
+            "left shoulder impingement — no overhead pressing, no loaded internal rotation",
+            "lower cross syndrome — monitor APT under heavy RDL load"
+          ],
+          "readiness_notes": [
+            "Client reports 10/10 energy — primed for a PR",
+            "No shoulder issues",
+            "Slept 8 hours, ate well — ideal conditions"
+          ]
+        },
+        "equipment_used": [
+          "barbell",
+          "dumbbells 50-75 lbs",
+          "cable machine"
         ],
-        "readiness_notes": [
-          "Client reports 10/10 energy \u2014 primed for a PR",
-          "No shoulder issues",
-          "Slept 8 hours, ate well \u2014 ideal conditions"
+        "blocks": [
+          {
+            "title": "Targeted Warm-Up for Heavy Hinge",
+            "block_type": "warmup",
+            "time_minutes": 12,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Hip 90/90 Stretch",
+                "sets": 2,
+                "reps": "6 each side",
+                "tempo": null,
+                "rest_seconds": 15,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Relaxed breathing into hip",
+                  "Active transition between positions"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Banded Hip Thrust (Activation)",
+                "sets": 2,
+                "reps": "20",
+                "tempo": "1-2-1",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Full glute contraction at top",
+                  "Band above knees for activation"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "RDL Ramp-Up (95, 135, 155 lbs)",
+                "sets": 3,
+                "reps": "4 each",
+                "tempo": null,
+                "rest_seconds": 45,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Build gradually to working weight",
+                  "Each ramp set is technical practice",
+                  "Take your time between sets"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Barbell RDL — PR Attempt",
+            "block_type": "main",
+            "time_minutes": 20,
+            "format": "Straight sets — 2 min rest",
+            "exercises": [
+              {
+                "name": "Barbell Romanian Deadlift",
+                "sets": 3,
+                "reps": "5",
+                "tempo": "3-1-1",
+                "rest_seconds": 120,
+                "intensity": "H",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 195.0,
+                  "prior_load_lbs": 185.0,
+                  "reps_achieved": "5,5,5",
+                  "progression_target": "200 lbs is next milestone — attempt in 2 sessions"
+                },
+                "cues": [
+                  "Own the setup — deep breath, brace, hips back",
+                  "Drive the floor away on the ascent",
+                  "Control the descent completely"
+                ],
+                "regressions": [
+                  "190 lbs if form breaks"
+                ],
+                "progressions": [
+                  "200 lbs — a major milestone"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Upper Body Strength",
+            "block_type": "main",
+            "time_minutes": 18,
+            "format": "Superset pairs — 60s rest",
+            "exercises": [
+              {
+                "name": "DB Bench Press",
+                "sets": 3,
+                "reps": "8",
+                "tempo": "3-1-1",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 70.0,
+                  "prior_load_lbs": 65.0,
+                  "reps_achieved": "8,8,8",
+                  "progression_target": "Hold 70 — excellent form"
+                },
+                "cues": [
+                  "Eccentric control is the priority",
+                  "Shoulder blades locked back"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "75 lbs when 3×10 is easy"
+                ]
+              },
+              {
+                "name": "Cable Lat Pulldown",
+                "sets": 3,
+                "reps": "10",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 140.0,
+                  "prior_load_lbs": 140.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "150 lbs next session — 3×10 achieved"
+                },
+                "cues": [
+                  "Initiate with lats",
+                  "Elbows to hips"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "150 lbs"
+                ]
+              },
+              {
+                "name": "DB Single-Arm Row",
+                "sets": 3,
+                "reps": "10 each",
+                "tempo": "2-1-2",
+                "rest_seconds": 0,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 75.0,
+                  "prior_load_lbs": 70.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "New PR — strong performance today"
+                },
+                "cues": [
+                  "Hip-height row",
+                  "Full retraction",
+                  "No torso rotation"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Cable Face Pull",
+                "sets": 3,
+                "reps": "15",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 50.0,
+                  "prior_load_lbs": 50.0,
+                  "reps_achieved": "15,15,15",
+                  "progression_target": "Maintain — shoulder health staple"
+                },
+                "cues": [
+                  "High elbows",
+                  "Full external rotation"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Core & Unilateral",
+            "block_type": "core_balance",
+            "time_minutes": 5,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Pallof Press (Cable)",
+                "sets": 3,
+                "reps": "12 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Anti-rotation brace",
+                  "Slow controlled press",
+                  "Don’t let hips shift"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 5,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Half-Kneeling Hip Flexor Stretch",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Tailbone tuck",
+                  "Tall spine"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Thoracic Extension over Roller",
+                "sets": 2,
+                "reps": "8",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Mid-back on roller",
+                  "Support head",
+                  "Extend and breathe"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "RDL PR at 195 lbs — 3×5 with excellent form — target 200 lbs in 2 sessions",
+          "DB bench press at 70 — all reps clean — plan 75 when reps increase to 10",
+          "DB row PR at 75 lbs — excellent",
+          "Cable pulldown: 3×10 at 140 — advance to 150 next session"
+        ],
+        "coaching_notes": [
+          "David’s RDL has progressed from 115 to 195 lbs since session 1 — exceptional improvement in 4 months",
+          "Lower cross syndrome is largely resolved — anterior pelvic tilt is now minimal and self-corrected",
+          "Left shoulder: completely asymptomatic across all horizontal patterns for 3+ months",
+          "200 lb RDL is within reach — major milestone to work toward",
+          "Consider adding loaded carry (farmer’s carries) to next block — David requested this"
         ]
       },
-      "equipment_used": [
-        "barbell",
-        "dumbbells 50-75 lbs",
-        "cable machine"
-      ],
-      "blocks": [
-        {
-          "title": "Targeted Warm-Up for Heavy Hinge",
-          "block_type": "warmup",
-          "time_minutes": 12,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Hip 90/90 Stretch",
-              "sets": 2,
-              "reps": "6 each side",
-              "tempo": null,
-              "rest_seconds": 15,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Relaxed breathing into hip", "Active transition between positions"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Banded Hip Thrust (Activation)",
-              "sets": 2,
-              "reps": "20",
-              "tempo": "1-2-1",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Full glute contraction at top", "Band above knees for activation"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "RDL Ramp-Up (95, 135, 155 lbs)",
-              "sets": 3,
-              "reps": "4 each",
-              "tempo": null,
-              "rest_seconds": 45,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Build gradually to working weight", "Each ramp set is technical practice", "Take your time between sets"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Barbell RDL \u2014 PR Attempt",
-          "block_type": "main",
-          "time_minutes": 20,
-          "format": "Straight sets \u2014 2 min rest",
-          "exercises": [
-            {
-              "name": "Barbell Romanian Deadlift",
-              "sets": 3,
-              "reps": "5",
-              "tempo": "3-1-1",
-              "rest_seconds": 120,
-              "intensity": "H",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 195.0,
-                "prior_load_lbs": 185.0,
-                "reps_achieved": "5,5,5",
-                "progression_target": "200 lbs is next milestone \u2014 attempt in 2 sessions"
-              },
-              "cues": ["Own the setup \u2014 deep breath, brace, hips back", "Drive the floor away on the ascent", "Control the descent completely"],
-              "regressions": ["190 lbs if form breaks"],
-              "progressions": ["200 lbs \u2014 a major milestone"]
-            }
-          ]
-        },
-        {
-          "title": "Upper Body Strength",
-          "block_type": "main",
-          "time_minutes": 18,
-          "format": "Superset pairs \u2014 60s rest",
-          "exercises": [
-            {
-              "name": "DB Bench Press",
-              "sets": 3,
-              "reps": "8",
-              "tempo": "3-1-1",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 70.0,
-                "prior_load_lbs": 65.0,
-                "reps_achieved": "8,8,8",
-                "progression_target": "Hold 70 \u2014 excellent form"
-              },
-              "cues": ["Eccentric control is the priority", "Shoulder blades locked back"],
-              "regressions": [],
-              "progressions": ["75 lbs when 3\u00d710 is easy"]
-            },
-            {
-              "name": "Cable Lat Pulldown",
-              "sets": 3,
-              "reps": "10",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 140.0,
-                "prior_load_lbs": 140.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "150 lbs next session \u2014 3\u00d710 achieved"
-              },
-              "cues": ["Initiate with lats", "Elbows to hips"],
-              "regressions": [],
-              "progressions": ["150 lbs"]
-            },
-            {
-              "name": "DB Single-Arm Row",
-              "sets": 3,
-              "reps": "10 each",
-              "tempo": "2-1-2",
-              "rest_seconds": 0,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 75.0,
-                "prior_load_lbs": 70.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "New PR \u2014 strong performance today"
-              },
-              "cues": ["Hip-height row", "Full retraction", "No torso rotation"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Cable Face Pull",
-              "sets": 3,
-              "reps": "15",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 50.0,
-                "prior_load_lbs": 50.0,
-                "reps_achieved": "15,15,15",
-                "progression_target": "Maintain \u2014 shoulder health staple"
-              },
-              "cues": ["High elbows", "Full external rotation"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Core & Unilateral",
-          "block_type": "core_balance",
-          "time_minutes": 5,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Pallof Press (Cable)",
-              "sets": 3,
-              "reps": "12 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Anti-rotation brace", "Slow controlled press", "Don\u2019t let hips shift"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 5,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Half-Kneeling Hip Flexor Stretch",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Tailbone tuck", "Tall spine"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Thoracic Extension over Roller",
-              "sets": 2,
-              "reps": "8",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Mid-back on roller", "Support head", "Extend and breathe"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
-      "progression_notes": [
-        "RDL PR at 195 lbs \u2014 3\u00d75 with excellent form \u2014 target 200 lbs in 2 sessions",
-        "DB bench press at 70 \u2014 all reps clean \u2014 plan 75 when reps increase to 10",
-        "DB row PR at 75 lbs \u2014 excellent",
-        "Cable pulldown: 3\u00d710 at 140 \u2014 advance to 150 next session"
-      ],
-      "coaching_notes": [
-        "David\u2019s RDL has progressed from 115 to 195 lbs since session 1 \u2014 exceptional improvement in 4 months",
-        "Lower cross syndrome is largely resolved \u2014 anterior pelvic tilt is now minimal and self-corrected",
-        "Left shoulder: completely asymptomatic across all horizontal patterns for 3+ months",
-        "200 lb RDL is within reach \u2014 major milestone to work toward",
-        "Consider adding loaded carry (farmer\u2019s carries) to next block \u2014 David requested this"
-      ]
+      "trainer_notes": "One of the best training sessions I've witnessed. 195 lbs on the RDL and it looked like 135. He's come so far since session 1 where we were troubleshooting basic hip hinge mechanics. 200 is clearly within reach.",
+      "archived": false
     },
-    "trainer_notes": "One of the best training sessions I've witnessed. 195 lbs on the RDL and it looked like 135. He's come so far since session 1 where we were troubleshooting basic hip hinge mechanics. 200 is clearly within reach.",
-    "archived": false
-  }
-]
+    {
+      "session_date": "2026-03-16",
+      "session_number": 11,
+      "focus": "RDL PR attempt — 200 lbs and unilateral upper body volume",
+      "loads": {
+        "Romanian Deadlift": 200.0,
+        "Single-Arm Cable Row": 45.0,
+        "Cable Hip Hinge": 80.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    },
+    {
+      "session_date": "2026-03-30",
+      "session_number": 12,
+      "focus": "RDL consolidation at 200 + introduce single-arm overhead press",
+      "loads": {
+        "Romanian Deadlift": 200.0,
+        "Single-Arm Cable Row": 47.0,
+        "Single-Arm Cable Press": 35.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    }
+  ]
+}

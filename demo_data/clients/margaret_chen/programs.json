@@ -1,0 +1,235 @@
+{
+  "anchor_date": "2026-03-07",
+  "programs": [
+    {
+      "name": "Machine Strength Circuit",
+      "description": "12-week selectorized machine circuit for Margaret, designed around her right knee OA restrictions. All movements within safe ROM. Progressive load increases every 2 sessions, with balance training woven throughout.",
+      "goal_focus": "strength",
+      "start_date": "2025-12-08",
+      "weeks": 12,
+      "sessions_per_week": 2,
+      "linked_session_count": 6,
+      "program_json": {
+        "summary": "A 12-week machine-only strength program for Margaret that respects her knee osteoarthritis (90° ROM limit) and hypertension management. Systematic 5 lb load increases on the leg press every 2–3 sessions, with equal emphasis on upper body pulling, chest pressing, and fall-prevention balance work.",
+        "weeks": [
+          {
+            "week_number": 1,
+            "theme": "Pattern Reinforcement — machine setup and movement quality",
+            "sessions": [
+              {
+                "label": "Week 1 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2025-12-09",
+                "focus": "Full-body machine baseline — all setup confirmed"
+              },
+              {
+                "label": "Week 1 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2025-12-12",
+                "focus": "Second baseline session — refine form and loads"
+              }
+            ]
+          },
+          {
+            "week_number": 2,
+            "theme": "Foundation Load — establish working weights",
+            "sessions": [
+              {
+                "label": "Week 2 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2025-12-16",
+                "focus": "First load increase — leg press and chest press"
+              },
+              {
+                "label": "Week 2 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2025-12-19",
+                "focus": "Lower body + balance challenge"
+              }
+            ]
+          },
+          {
+            "week_number": 3,
+            "theme": "First Progression — increase all machine loads",
+            "sessions": [
+              {
+                "label": "Week 3 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2025-12-23",
+                "focus": "Progressive overload — increase lat pulldown and seated row"
+              },
+              {
+                "label": "Week 3 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2025-12-26",
+                "focus": "Single-leg balance emphasis with machine circuit"
+              }
+            ]
+          },
+          {
+            "week_number": 4,
+            "theme": "Strength Build — push upper and lower loads",
+            "sessions": [
+              {
+                "label": "Week 4 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2025-12-30",
+                "focus": "Upper-lower strength split — push upper load"
+              },
+              {
+                "label": "Week 4 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-02",
+                "focus": "Full-body circuit with core integration"
+              }
+            ]
+          },
+          {
+            "week_number": 5,
+            "theme": "Upper-Lower Balance — equal emphasis both chains",
+            "sessions": [
+              {
+                "label": "Week 5 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-06",
+                "focus": "Holiday maintenance — moderate intensity circuit"
+              },
+              {
+                "label": "Week 5 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-09",
+                "focus": "New year strength reset — push toward milestones"
+              }
+            ]
+          },
+          {
+            "week_number": 6,
+            "theme": "Progressive Load — new working maxes",
+            "sessions": [
+              {
+                "label": "Week 6 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-13",
+                "focus": "Lower body emphasis — leg press PR attempt"
+              },
+              {
+                "label": "Week 6 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-16",
+                "focus": "Full-body machine circuit — all PRs consolidated"
+              }
+            ]
+          },
+          {
+            "week_number": 7,
+            "theme": "New Year Reset — assess and advance loads",
+            "sessions": [
+              {
+                "label": "Week 7 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-20",
+                "focus": "Upper body pull emphasis — lat pulldown and row volume"
+              },
+              {
+                "label": "Week 7 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-23",
+                "focus": "Leg press load progression — 105 lbs"
+              }
+            ]
+          },
+          {
+            "week_number": 8,
+            "theme": "Leg Press Milestone — push toward 110 lbs",
+            "sessions": [
+              {
+                "label": "Week 8 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-01-27",
+                "focus": "Strength plateau push — new load PRs"
+              },
+              {
+                "label": "Week 8 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-01-30",
+                "focus": "Full-body machine strength — 110 lbs leg press"
+              }
+            ]
+          },
+          {
+            "week_number": 9,
+            "theme": "Load Peak — new PRs across all machines",
+            "sessions": [
+              {
+                "label": "Week 9 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-03",
+                "focus": "Lower body milestone — leg press 115 lbs attempt"
+              },
+              {
+                "label": "Week 9 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-06",
+                "focus": "Upper body strength peak — chest press and lat pulldown"
+              }
+            ]
+          },
+          {
+            "week_number": 10,
+            "theme": "Consolidation — lock in new maxes",
+            "sessions": [
+              {
+                "label": "Week 10 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-10",
+                "focus": "Machine strength consolidation — all loads maintained"
+              },
+              {
+                "label": "Week 10 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-13",
+                "focus": "Balance and stability benchmark — single-leg progress"
+              }
+            ]
+          },
+          {
+            "week_number": 11,
+            "theme": "Leg Press Milestone Push — target 115 lbs",
+            "sessions": [
+              {
+                "label": "Week 11 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-17",
+                "focus": "Lower body emphasis — leg press 118 lbs"
+              },
+              {
+                "label": "Week 11 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-20",
+                "focus": "Full-body circuit — machine circuit at new highs"
+              }
+            ]
+          },
+          {
+            "week_number": 12,
+            "theme": "Block Complete — assess and plan next 12 weeks",
+            "sessions": [
+              {
+                "label": "Week 12 Day A",
+                "day_of_week": "tue",
+                "planned_date": "2026-02-24",
+                "focus": "Block completion — leg press 120 lbs milestone"
+              },
+              {
+                "label": "Week 12 Day B",
+                "day_of_week": "fri",
+                "planned_date": "2026-02-27",
+                "focus": "Assessment and planning session — next block goals"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
