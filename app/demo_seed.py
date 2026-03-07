@@ -4,9 +4,8 @@ Seeding is triggered by the ``/auth/demo`` route, which logs in as the
 shared ``_demo`` user and seeds a full roster of demo clients from the
 committed ``demo_data/clients/`` directory into that user's data store.
 
-The seed is idempotent: a sentinel file ``.demo_seeded`` is written into
-the user's client directory after the first successful seed, and
-subsequent visits skip the operation entirely.
+The seed is idempotent: if the demo user already has any clients in the
+database, seeding is skipped.
 """
 
 from __future__ import annotations
@@ -20,19 +19,18 @@ from app import storage
 log = logging.getLogger(__name__)
 
 _DEMO_DATA_DIR = Path(__file__).parent.parent / "demo_data" / "clients"
-_SENTINEL = ".demo_seeded"
 
 
 def is_seeded(user_id: str) -> bool:
     """Return True if demo data has already been seeded for this user."""
-    return (storage._base_dir(user_id) / _SENTINEL).exists()
+    return len(storage.list_clients(user_id)) > 0
 
 
 def seed_demo_data(user_id: str) -> int:
     """Seed demo clients and sessions for *user_id*.
 
     Reads each subdirectory of ``demo_data/clients/`` and writes the
-    profile and history into the user's live data directory.
+    profile and history into the database.
 
     Returns the number of clients seeded (0 if already seeded or if the
     demo data directory is missing).
@@ -70,16 +68,13 @@ def seed_demo_data(user_id: str) -> int:
         history_path = client_dir / "history.json"
         if history_path.exists():
             with history_path.open(encoding="utf-8") as f:
-                history = json.load(f)
+                raw = json.load(f)
+            # Support both bare-list and versioned envelope formats
+            history = raw if isinstance(raw, list) else raw.get("entries", [])
 
         storage.save_history(client_name, history, user_id=user_id)
         log.info("Seeded demo client '%s' (%d sessions).", client_name, len(history))
         count += 1
-
-    # Write sentinel so subsequent logins skip seeding.
-    sentinel = storage._base_dir(user_id) / _SENTINEL
-    sentinel.parent.mkdir(parents=True, exist_ok=True)
-    sentinel.touch()
 
     log.info("Demo seed complete for user %s — %d clients seeded.", user_id, count)
     return count
