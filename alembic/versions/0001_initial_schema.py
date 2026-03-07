@@ -58,10 +58,10 @@ def upgrade() -> None:
         sa.Column("session_date", sa.Text, nullable=True),
         sa.Column("session_number", sa.Integer, nullable=True),
         sa.Column("focus", sa.Text, nullable=True),
-        sa.Column("loads", JSONB, nullable=False, server_default="'{}'"),
-        sa.Column("actual_loads", JSONB, nullable=False, server_default="'{}'"),
+        sa.Column("loads", JSONB, nullable=False, server_default=sa.text("'{}'")),
+        sa.Column("actual_loads", JSONB, nullable=False, server_default=sa.text("'{}'")),
         sa.Column("plan_json", JSONB, nullable=True),
-        sa.Column("trainer_notes", sa.Text, nullable=False, server_default="''"),
+        sa.Column("trainer_notes", sa.Text, nullable=False, server_default=sa.text("''")),
         sa.Column("archived", sa.Boolean, nullable=False, server_default="false"),
         sa.Column(
             "created_at",
@@ -92,7 +92,7 @@ def upgrade() -> None:
         # Not a FK — audit must survive trainer deletion
         sa.Column("user_id", sa.Text, nullable=False),
         sa.Column("event", sa.Text, nullable=False),
-        sa.Column("detail", sa.Text, nullable=False, server_default="''"),
+        sa.Column("detail", sa.Text, nullable=False, server_default=sa.text("''")),
         sa.Column(
             "created_at",
             sa.DateTime(timezone=True),

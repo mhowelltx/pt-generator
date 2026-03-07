@@ -62,10 +62,10 @@ class Session(Base):
     session_date: Mapped[str | None] = mapped_column(Text)
     session_number: Mapped[int | None] = mapped_column(Integer)
     focus: Mapped[str | None] = mapped_column(Text)
-    loads: Mapped[dict] = mapped_column(JSONB, default=dict, server_default="'{}'")
-    actual_loads: Mapped[dict] = mapped_column(JSONB, default=dict, server_default="'{}'")
+    loads: Mapped[dict] = mapped_column(JSONB, default=dict, server_default=text("'{}'"))
+    actual_loads: Mapped[dict] = mapped_column(JSONB, default=dict, server_default=text("'{}'"))
     plan_json: Mapped[dict | None] = mapped_column(JSONB)
-    trainer_notes: Mapped[str] = mapped_column(Text, default="", server_default="''")
+    trainer_notes: Mapped[str] = mapped_column(Text, default="", server_default=text("''"))
     archived: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
@@ -93,7 +93,7 @@ class AuditLog(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     user_id: Mapped[str] = mapped_column(Text, nullable=False)
     event: Mapped[str] = mapped_column(Text, nullable=False)
-    detail: Mapped[str] = mapped_column(Text, default="", server_default="''")
+    detail: Mapped[str] = mapped_column(Text, default="", server_default=text("''"))
     created_at: Mapped[datetime.datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
