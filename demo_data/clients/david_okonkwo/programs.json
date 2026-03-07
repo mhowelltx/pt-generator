@@ -1,0 +1,235 @@
+{
+  "anchor_date": "2026-03-07",
+  "programs": [
+    {
+      "name": "Lower Body & Unilateral Power",
+      "description": "12-week program for David focused on RDL strength progression and unilateral upper body work within his left shoulder impingement restrictions. Target: RDL 205 lbs and single-arm cable press 40 lbs by block end.",
+      "goal_focus": "strength",
+      "start_date": "2025-12-29",
+      "weeks": 12,
+      "sessions_per_week": 2,
+      "linked_session_count": 5,
+      "program_json": {
+        "summary": "A 12-week strength program for David that targets elite lower body hinge strength (RDL to 205 lbs) while building unilateral upper body pushing patterns safe within his left shoulder impingement restrictions. Periodized in 3 phases: foundation (W1–4), progressive overload (W5–8), and strength peak (W9–12).",
+        "weeks": [
+          {
+            "week_number": 1,
+            "theme": "RDL Baseline — establish hinge loads and shoulder boundaries",
+            "sessions": [
+              {
+                "label": "Week 1 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2025-12-29",
+                "focus": "Baseline assessment — RDL and horizontal upper patterns"
+              },
+              {
+                "label": "Week 1 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-01",
+                "focus": "Lower body hinge progression + horizontal push-pull"
+              }
+            ]
+          },
+          {
+            "week_number": 2,
+            "theme": "Volume Build — add RDL and unilateral upper work",
+            "sessions": [
+              {
+                "label": "Week 2 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-05",
+                "focus": "Upper-lower split — RDL progression and single-leg intro"
+              },
+              {
+                "label": "Week 2 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-08",
+                "focus": "Hip hinge strength + unilateral lower body introduction"
+              }
+            ]
+          },
+          {
+            "week_number": 3,
+            "theme": "RDL Progression — push toward 165 lbs",
+            "sessions": [
+              {
+                "label": "Week 3 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-12",
+                "focus": "Strength block — RDL near-max and superset efficiency"
+              },
+              {
+                "label": "Week 3 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-15",
+                "focus": "Volume day — increase total lower body and pull work"
+              }
+            ]
+          },
+          {
+            "week_number": 4,
+            "theme": "Hip Hinge Peak — RDL near-max and lower body volume",
+            "sessions": [
+              {
+                "label": "Week 4 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-19",
+                "focus": "End-of-year strength assessment — push load ceilings"
+              },
+              {
+                "label": "Week 4 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-22",
+                "focus": "New year strength block — RDL plateau break"
+              }
+            ]
+          },
+          {
+            "week_number": 5,
+            "theme": "Strength Plateau Break — RDL 175+ lbs",
+            "sessions": [
+              {
+                "label": "Week 5 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-26",
+                "focus": "RDL consolidation at 185 lbs + upper body volume push"
+              },
+              {
+                "label": "Week 5 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-29",
+                "focus": "RDL PR attempt at 195 lbs + upper body strength peak"
+              }
+            ]
+          },
+          {
+            "week_number": 6,
+            "theme": "Volume Day — density and upper body work",
+            "sessions": [
+              {
+                "label": "Week 6 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-02",
+                "focus": "RDL 200 lbs milestone attempt"
+              },
+              {
+                "label": "Week 6 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-05",
+                "focus": "Unilateral upper body volume — cable work"
+              }
+            ]
+          },
+          {
+            "week_number": 7,
+            "theme": "End-of-Block Assessment — push load ceilings",
+            "sessions": [
+              {
+                "label": "Week 7 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-09",
+                "focus": "RDL 200 lbs consolidation + single-arm press intro"
+              },
+              {
+                "label": "Week 7 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-12",
+                "focus": "Upper body pull peak — cable row and single-arm focus"
+              }
+            ]
+          },
+          {
+            "week_number": 8,
+            "theme": "New Block — RDL plateau break and upper strength",
+            "sessions": [
+              {
+                "label": "Week 8 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-16",
+                "focus": "RDL 195 lbs + single-arm cable press 35 lbs"
+              },
+              {
+                "label": "Week 8 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-19",
+                "focus": "Lower body volume — Bulgarian split squat addition"
+              }
+            ]
+          },
+          {
+            "week_number": 9,
+            "theme": "RDL Consolidation — 185 lbs and upper body volume push",
+            "sessions": [
+              {
+                "label": "Week 9 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-23",
+                "focus": "RDL PR attempt — 205 lbs"
+              },
+              {
+                "label": "Week 9 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-26",
+                "focus": "Consolidation session — all loads maintained"
+              }
+            ]
+          },
+          {
+            "week_number": 10,
+            "theme": "RDL PR Attempt — 195 lbs and upper body strength peak",
+            "sessions": [
+              {
+                "label": "Week 10 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-02",
+                "focus": "RDL 205 lbs consolidation + overhead pressing prep"
+              },
+              {
+                "label": "Week 10 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-05",
+                "focus": "Single-arm cable press 40 lbs milestone"
+              }
+            ]
+          },
+          {
+            "week_number": 11,
+            "theme": "200 lbs milestone — RDL PR and unilateral upper",
+            "sessions": [
+              {
+                "label": "Week 11 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-09",
+                "focus": "Full lower body peak + unilateral upper integration"
+              },
+              {
+                "label": "Week 11 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-12",
+                "focus": "Block assessment — program review and next goals"
+              }
+            ]
+          },
+          {
+            "week_number": 12,
+            "theme": "Block Complete — consolidate and plan next cycle",
+            "sessions": [
+              {
+                "label": "Week 12 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-16",
+                "focus": "Block complete — set new program targets"
+              },
+              {
+                "label": "Week 12 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-19",
+                "focus": "Recovery and mobility session"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

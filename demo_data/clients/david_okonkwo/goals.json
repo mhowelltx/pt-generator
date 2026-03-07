@@ -1,0 +1,48 @@
+{
+  "anchor_date": "2026-03-07",
+  "goals": [
+    {
+      "id": "david_g1",
+      "text": "Romanian deadlift 205 lbs for 5 reps with perfect hinge mechanics",
+      "category": "strength",
+      "target_date": "2026-04-21",
+      "status": "active",
+      "created": "2025-12-15",
+      "milestones": [
+        "185 lbs × 5",
+        "190 lbs × 5",
+        "195 lbs × 5",
+        "205 lbs × 5"
+      ],
+      "notes": "Primary lower body strength goal. His hinge is elite — now it's just progressive loading."
+    },
+    {
+      "id": "david_g2",
+      "text": "Receive orthopedic clearance for overhead pressing",
+      "category": "mobility",
+      "target_date": "2026-06-07",
+      "status": "active",
+      "created": "2025-10-06",
+      "milestones": [
+        "Ortho follow-up appointment",
+        "MRI re-evaluation",
+        "Clearance for light overhead work"
+      ],
+      "notes": "AC joint impingement — currently restricted to horizontal patterns only. Following orthopedic timeline."
+    },
+    {
+      "id": "david_g3",
+      "text": "Single-arm cable press 40 lbs for 3 sets of 10 each side",
+      "category": "strength",
+      "target_date": "2026-05-22",
+      "status": "active",
+      "created": "2026-02-09",
+      "milestones": [
+        "30 lbs × 10",
+        "35 lbs × 10",
+        "40 lbs × 10"
+      ],
+      "notes": "Horizontal pushing to compensate for overhead restriction. Good scapular stability now allows meaningful loading."
+    }
+  ]
+}

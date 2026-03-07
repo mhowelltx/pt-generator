@@ -1,0 +1,64 @@
+{
+  "anchor_date": "2026-03-07",
+  "goals": [
+    {
+      "id": "james_g1",
+      "text": "Leg press 220 lbs for 10 reps with proper breathing technique",
+      "category": "strength",
+      "target_date": "2026-05-07",
+      "status": "active",
+      "created": "2025-12-31",
+      "milestones": [
+        "180 lbs × 10 with cuing",
+        "200 lbs × 10",
+        "210 lbs × 10",
+        "220 lbs × 10"
+      ],
+      "notes": "No Valsalva — diaphragmatic breathing throughout. Blood pressure-safe progression is the priority."
+    },
+    {
+      "id": "james_g2",
+      "text": "30-minute brisk walk 5 days per week consistently for 8 weeks",
+      "category": "lifestyle",
+      "target_date": "2026-04-07",
+      "status": "active",
+      "created": "2026-01-28",
+      "milestones": [
+        "20-min walks 3x/week",
+        "25-min walks 5x/week",
+        "30-min walks 5x/week for 4 weeks"
+      ],
+      "notes": "Cardiovascular health and BP management. His doctor recommended 150 min/week aerobic activity."
+    },
+    {
+      "id": "james_g3",
+      "text": "Hold McGill plank variation for 60 seconds without breath-holding",
+      "category": "mobility",
+      "target_date": "2026-04-21",
+      "status": "active",
+      "created": "2026-01-14",
+      "milestones": [
+        "30 sec with breathing cues",
+        "45 sec",
+        "60 sec"
+      ],
+      "notes": "Core stability is the foundation of his back-safe training. This benchmark confirms readiness for heavier loads."
+    },
+    {
+      "id": "james_g4",
+      "text": "Cable row 70 lbs for 3 sets of 10 with full scapular retraction",
+      "category": "strength",
+      "target_date": "2026-03-07",
+      "status": "achieved",
+      "created": "2025-12-03",
+      "achieved_date": "2026-02-25",
+      "milestones": [
+        "55 lbs × 10",
+        "60 lbs × 10",
+        "65 lbs × 10",
+        "70 lbs × 10"
+      ],
+      "notes": "Exceeded timeline by 1 week. Upper back strength supporting his disc recovery well."
+    }
+  ]
+}

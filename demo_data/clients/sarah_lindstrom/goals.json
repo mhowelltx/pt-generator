@@ -1,0 +1,63 @@
+{
+  "anchor_date": "2026-03-07",
+  "goals": [
+    {
+      "id": "sarah_g1",
+      "text": "Complete the April marathon in under 3 hours 55 minutes",
+      "category": "endurance",
+      "target_date": "2026-04-19",
+      "status": "active",
+      "created": "2025-11-03",
+      "milestones": [
+        "IT band fully resolved",
+        "Return to 18 miles/week training",
+        "Complete 20-mile long run",
+        "Race week taper complete"
+      ],
+      "notes": "Primary goal of the entire training block. She ran 4:12 last year before the injury — sub-3:55 is achievable given her current fitness."
+    },
+    {
+      "id": "sarah_g2",
+      "text": "Return to full marathon training volume (40+ miles/week) post-race",
+      "category": "endurance",
+      "target_date": "2026-06-07",
+      "status": "active",
+      "created": "2026-01-12",
+      "milestones": [
+        "Post-marathon recovery week",
+        "Rebuild to 25 miles/week",
+        "Add bilateral squat patterns",
+        "Return to 40 miles/week"
+      ],
+      "notes": "Post-race phase: reintroduce bilateral squats and conventional strength work once marathon is complete."
+    },
+    {
+      "id": "sarah_g3",
+      "text": "Maintain Bulgarian split squat at 30 lbs through marathon block",
+      "category": "strength",
+      "target_date": "2026-04-12",
+      "status": "active",
+      "created": "2026-02-09",
+      "milestones": [
+        "25 lbs × 8 each side",
+        "Consistent across taper weeks"
+      ],
+      "notes": "Maintain single-leg strength during taper — load stays, sets reduce."
+    },
+    {
+      "id": "sarah_g4",
+      "text": "IT band fully resolved — symptom-free at 18 miles/week",
+      "category": "mobility",
+      "target_date": "2026-01-26",
+      "status": "achieved",
+      "created": "2025-11-03",
+      "achieved_date": "2026-02-05",
+      "milestones": [
+        "Pain-free at 10 miles/week",
+        "Pain-free at 15 miles/week",
+        "Pain-free at 18 miles/week"
+      ],
+      "notes": "Landmark achievement — 16 weeks of consistent glute work paid off completely."
+    }
+  ]
+}

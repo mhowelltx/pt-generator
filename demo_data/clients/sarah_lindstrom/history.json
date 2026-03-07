@@ -1,855 +1,1076 @@
-[
-  {
-    "session_date": "2025-11-03",
-    "session_number": 1,
-    "focus": "IT band rehab baseline \u2014 single-leg hip/glute assessment and load testing",
-    "loads": {
-      "Single-Leg RDL (DB)": 15.0,
-      "Step-Up (12\" box)": 15.0,
-      "DB Reverse Lunge": 15.0,
-      "Cable Hip Abduction": 15.0
+{
+  "anchor_date": "2026-03-07",
+  "entries": [
+    {
+      "session_date": "2025-11-03",
+      "session_number": 1,
+      "focus": "IT band rehab baseline — single-leg hip/glute assessment and load testing",
+      "loads": {
+        "Single-Leg RDL (DB)": 15.0,
+        "Step-Up (12\" box)": 15.0,
+        "DB Reverse Lunge": 15.0,
+        "Cable Hip Abduction": 15.0
+      },
+      "progression_notes": [
+        "Baseline established for all single-leg patterns",
+        "IT band lateral knee pain: 0/10 throughout — very good",
+        "Step-up form needs work — left hip drops on right leg step",
+        "Hip abduction: weak glute med bilaterally — this is likely the ITB root cause"
+      ],
+      "trainer_notes": "Sarah came in nervous after 3 months off. Great to see her motivated. Hip abductor strength is clearly deficient on both sides. This is the main target. No pain during session.",
+      "archived": false
     },
-    "progression_notes": [
-      "Baseline established for all single-leg patterns",
-      "IT band lateral knee pain: 0/10 throughout \u2014 very good",
-      "Step-up form needs work \u2014 left hip drops on right leg step",
-      "Hip abduction: weak glute med bilaterally \u2014 this is likely the ITB root cause"
-    ],
-    "trainer_notes": "Sarah came in nervous after 3 months off. Great to see her motivated. Hip abductor strength is clearly deficient on both sides. This is the main target. No pain during session.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-11-17",
-    "session_number": 2,
-    "focus": "Hip abductor strength focus + single-leg stability",
-    "loads": {
-      "Single-Leg RDL (DB)": 20.0,
-      "Step-Up (12\" box)": 20.0,
-      "DB Reverse Lunge": 15.0,
-      "Cable Hip Abduction": 20.0,
-      "Banded Clamshell": 0.0
+    {
+      "session_date": "2025-11-17",
+      "session_number": 2,
+      "focus": "Hip abductor strength focus + single-leg stability",
+      "loads": {
+        "Single-Leg RDL (DB)": 20.0,
+        "Step-Up (12\" box)": 20.0,
+        "DB Reverse Lunge": 15.0,
+        "Cable Hip Abduction": 20.0,
+        "Banded Clamshell": 0.0
+      },
+      "progression_notes": [
+        "Single-leg RDL to 20 lbs: solid, balance improving",
+        "Hip abduction to 20 lbs: glute med engagement much better",
+        "Step-up: hip drop improving with cue, but still present on fatigue",
+        "Added clamshells — she found them surprisingly hard on the left side"
+      ],
+      "trainer_notes": "Told Sarah that her weak glute med is almost certainly driving the ITB issue. She found that very motivating — she now understands the why behind the exercises.",
+      "archived": false
     },
-    "progression_notes": [
-      "Single-leg RDL to 20 lbs: solid, balance improving",
-      "Hip abduction to 20 lbs: glute med engagement much better",
-      "Step-up: hip drop improving with cue, but still present on fatigue",
-      "Added clamshells \u2014 she found them surprisingly hard on the left side"
-    ],
-    "trainer_notes": "Told Sarah that her weak glute med is almost certainly driving the ITB issue. She found that very motivating — she now understands the why behind the exercises.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-01",
-    "session_number": 3,
-    "focus": "Progressive single-leg loading + introduce split squat",
-    "loads": {
-      "Single-Leg RDL (DB)": 20.0,
-      "Step-Up (12\" box)": 25.0,
-      "DB Split Squat": 20.0,
-      "Cable Hip Abduction": 25.0,
-      "Banded Clamshell": 0.0
+    {
+      "session_date": "2025-12-01",
+      "session_number": 3,
+      "focus": "Progressive single-leg loading + introduce split squat",
+      "loads": {
+        "Single-Leg RDL (DB)": 20.0,
+        "Step-Up (12\" box)": 25.0,
+        "DB Split Squat": 20.0,
+        "Cable Hip Abduction": 25.0,
+        "Banded Clamshell": 0.0
+      },
+      "progression_notes": [
+        "Step-up progressed to 25 lbs: hip drop mostly gone now",
+        "Introduced split squat at 20 lbs: good depth, right knee comfortable",
+        "Cable abduction: 25 lbs, 3x15 — glute med is getting stronger",
+        "Running: she reported ITB tightness reduced on 5-mile run this week"
+      ],
+      "trainer_notes": "Really positive update on her running. The split squat addition went well. She can feel her glutes working now which was not the case 4 weeks ago.",
+      "archived": false
     },
-    "progression_notes": [
-      "Step-up progressed to 25 lbs: hip drop mostly gone now",
-      "Introduced split squat at 20 lbs: good depth, right knee comfortable",
-      "Cable abduction: 25 lbs, 3x15 \u2014 glute med is getting stronger",
-      "Running: she reported ITB tightness reduced on 5-mile run this week"
-    ],
-    "trainer_notes": "Really positive update on her running. The split squat addition went well. She can feel her glutes working now which was not the case 4 weeks ago.",
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-15",
-    "session_number": 4,
-    "focus": "Lower body strength progression \u2014 push unilateral load targets",
-    "loads": {
-      "Single-Leg RDL (DB)": 25.0,
-      "Step-Up (12\" box)": 25.0,
-      "DB Split Squat": 20.0,
-      "Cable Hip Abduction": 30.0,
-      "Single-Leg Hip Bridge": 0.0
+    {
+      "session_date": "2025-12-15",
+      "session_number": 4,
+      "focus": "Lower body strength progression — push unilateral load targets",
+      "loads": {
+        "Single-Leg RDL (DB)": 25.0,
+        "Step-Up (12\" box)": 25.0,
+        "DB Split Squat": 20.0,
+        "Cable Hip Abduction": 30.0,
+        "Single-Leg Hip Bridge": 0.0
+      },
+      "progression_notes": [
+        "Single-leg RDL: 25 lbs, balance and strength both up",
+        "Cable abduction at 30: strong, 3x15 clean",
+        "Split squat: holding at 20, working on depth and control",
+        "Added single-leg hip bridge to target glute max unilaterally"
+      ],
+      "archived": false
     },
-    "progression_notes": [
-      "Single-leg RDL: 25 lbs, balance and strength both up",
-      "Cable abduction at 30: strong, 3x15 clean",
-      "Split squat: holding at 20, working on depth and control",
-      "Added single-leg hip bridge to target glute max unilaterally"
-    ],
-    "archived": false
-  },
-  {
-    "session_date": "2025-12-29",
-    "session_number": 5,
-    "focus": "Single-leg strength consolidation + add lateral banded work",
-    "loads": {
-      "Single-Leg RDL (DB)": 25.0,
-      "Step-Up (12\" box)": 30.0,
-      "DB Split Squat": 25.0,
-      "Cable Hip Abduction": 30.0,
-      "Lateral Band Walk": 0.0
+    {
+      "session_date": "2025-12-29",
+      "session_number": 5,
+      "focus": "Single-leg strength consolidation + add lateral banded work",
+      "loads": {
+        "Single-Leg RDL (DB)": 25.0,
+        "Step-Up (12\" box)": 30.0,
+        "DB Split Squat": 25.0,
+        "Cable Hip Abduction": 30.0,
+        "Lateral Band Walk": 0.0
+      },
+      "progression_notes": [
+        "Step-up to 30 lbs: no hip drop at all now — excellent improvement",
+        "Split squat progressed to 25 lbs: depth is good",
+        "Added lateral band walk — really targets glute med in a functional pattern",
+        "IT band: Sarah reports 0/10 lateral knee pain during running this week — milestone!"
+      ],
+      "trainer_notes": "Zero ITB pain during running is a huge milestone. 8 weeks of consistent glute work is paying off. She's running 8 miles again. Very happy.",
+      "archived": false
     },
-    "progression_notes": [
-      "Step-up to 30 lbs: no hip drop at all now \u2014 excellent improvement",
-      "Split squat progressed to 25 lbs: depth is good",
-      "Added lateral band walk \u2014 really targets glute med in a functional pattern",
-      "IT band: Sarah reports 0/10 lateral knee pain during running this week \u2014 milestone!"
-    ],
-    "trainer_notes": "Zero ITB pain during running is a huge milestone. 8 weeks of consistent glute work is paying off. She's running 8 miles again. Very happy.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-12",
-    "session_number": 6,
-    "focus": "Load progression across all patterns \u2014 build toward marathon-ready strength",
-    "loads": {
-      "Single-Leg RDL (DB)": 30.0,
-      "Step-Up (12\" box)": 30.0,
-      "DB Split Squat": 30.0,
-      "Cable Hip Abduction": 35.0,
-      "Lateral Band Walk": 0.0
+    {
+      "session_date": "2026-01-12",
+      "session_number": 6,
+      "focus": "Load progression across all patterns — build toward marathon-ready strength",
+      "loads": {
+        "Single-Leg RDL (DB)": 30.0,
+        "Step-Up (12\" box)": 30.0,
+        "DB Split Squat": 30.0,
+        "Cable Hip Abduction": 35.0,
+        "Lateral Band Walk": 0.0
+      },
+      "progression_notes": [
+        "Single-leg RDL at 30 lbs: very solid, balance excellent",
+        "Split squat at 30 lbs: first time, all reps complete",
+        "Cable abduction to 35: 3x15 clean",
+        "She’s running 10 miles now with no ITB symptoms — keep progressing"
+      ],
+      "trainer_notes": "She's running long again without symptoms. This is exactly what we were working toward. The strength foundation is there now.",
+      "archived": false
     },
-    "progression_notes": [
-      "Single-leg RDL at 30 lbs: very solid, balance excellent",
-      "Split squat at 30 lbs: first time, all reps complete",
-      "Cable abduction to 35: 3x15 clean",
-      "She\u2019s running 10 miles now with no ITB symptoms \u2014 keep progressing"
-    ],
-    "trainer_notes": "She's running long again without symptoms. This is exactly what we were working toward. The strength foundation is there now.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-01-26",
-    "session_number": 7,
-    "focus": "Unilateral strength and power preparation for marathon load",
-    "loads": {
-      "Single-Leg RDL (DB)": 30.0,
-      "Step-Up (12\" box)": 35.0,
-      "DB Split Squat": 30.0,
-      "Cable Hip Abduction": 35.0,
-      "Single-Leg Box Jump Landing": 0.0
-    },
-    "progression_notes": [
-      "Step-up to 35 lbs: 3x10 each side, excellent",
-      "Introduced controlled single-leg landing from box \u2014 no impact, just landing mechanics",
-      "All loads solid \u2014 prepare for 35 lbs on split squat next session",
-      "Marathon training at 14 miles per week, no symptoms"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "Sarah Lindstrom",
-        "session_date": "2026-01-26",
-        "session_number": 7,
-        "duration_minutes": 50,
-        "focus": "Unilateral strength and landing mechanics for marathon preparation",
-        "constraints": [
-          "right IT band syndrome \u2014 no bilateral squatting, monitor lateral knee pain",
-          "return-to-running \u2014 gradual reintroduction of impact patterns"
+    {
+      "session_date": "2026-01-26",
+      "session_number": 7,
+      "focus": "Unilateral strength and power preparation for marathon load",
+      "loads": {
+        "Single-Leg RDL (DB)": 30.0,
+        "Step-Up (12\" box)": 35.0,
+        "DB Split Squat": 30.0,
+        "Cable Hip Abduction": 35.0,
+        "Single-Leg Box Jump Landing": 0.0
+      },
+      "progression_notes": [
+        "Step-up to 35 lbs: 3x10 each side, excellent",
+        "Introduced controlled single-leg landing from box — no impact, just landing mechanics",
+        "All loads solid — prepare for 35 lbs on split squat next session",
+        "Marathon training at 14 miles per week, no symptoms"
+      ],
+      "plan_json": {
+        "meta": {
+          "client_name": "Sarah Lindstrom",
+          "session_date": "2026-01-26",
+          "session_number": 7,
+          "duration_minutes": 50,
+          "focus": "Unilateral strength and landing mechanics for marathon preparation",
+          "constraints": [
+            "right IT band syndrome — no bilateral squatting, monitor lateral knee pain",
+            "return-to-running — gradual reintroduction of impact patterns"
+          ],
+          "readiness_notes": [
+            "Client reports 8/10 energy",
+            "IT band: 0/10 pain all week — running is going great",
+            "14 miles/week in training, no symptoms"
+          ]
+        },
+        "equipment_used": [
+          "dumbbells 30-35 lbs",
+          "resistance bands (medium, heavy)",
+          "cable machine (low pulley)",
+          "step/box 12 inch",
+          "mat"
         ],
-        "readiness_notes": [
-          "Client reports 8/10 energy",
-          "IT band: 0/10 pain all week \u2014 running is going great",
-          "14 miles/week in training, no symptoms"
+        "blocks": [
+          {
+            "title": "Running-Specific Warm-Up",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Hip Circle March",
+                "sets": 2,
+                "reps": "10 each side",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "High knee drive",
+                  "Stable standing hip",
+                  "Arm swing opposite to leg"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "Add a skip pattern"
+                ]
+              },
+              {
+                "name": "Lateral Band Walk",
+                "sets": 2,
+                "reps": "15 steps each way",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Band above knees",
+                  "Feet parallel — no pigeon toe",
+                  "Keep hips level"
+                ],
+                "regressions": [
+                  "Shorter steps"
+                ],
+                "progressions": [
+                  "Add mini squat at each step"
+                ]
+              },
+              {
+                "name": "Banded Clamshell",
+                "sets": 2,
+                "reps": "15 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Top hip stacks over bottom",
+                  "Rotate from hip, not waist",
+                  "Don’t let pelvis roll back"
+                ],
+                "regressions": [
+                  "No band"
+                ],
+                "progressions": [
+                  "Heavier band"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Single-Leg Strength",
+            "block_type": "main",
+            "time_minutes": 25,
+            "format": "Straight sets — 60s rest between sets",
+            "exercises": [
+              {
+                "name": "DB Step-Up (12\" box)",
+                "sets": 3,
+                "reps": "10 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 35.0,
+                  "prior_load_lbs": 30.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "Hold 35 lbs and focus on quality — no hip drop"
+                },
+                "cues": [
+                  "Step up through heel of working leg",
+                  "No push-off from back foot",
+                  "Hip stays level at top — no Trendelenburg"
+                ],
+                "regressions": [
+                  "Lower box",
+                  "30 lbs"
+                ],
+                "progressions": [
+                  "40 lbs",
+                  "Add pause at top"
+                ]
+              },
+              {
+                "name": "DB Split Squat",
+                "sets": 3,
+                "reps": "10 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 30.0,
+                  "prior_load_lbs": 30.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "Try 35 lbs next session"
+                },
+                "cues": [
+                  "Front shin stays vertical",
+                  "Drive through front heel",
+                  "Torso stays upright — no forward lean"
+                ],
+                "regressions": [
+                  "No weight — bodyweight only"
+                ],
+                "progressions": [
+                  "35 lbs",
+                  "Rear foot elevated"
+                ]
+              },
+              {
+                "name": "Single-Leg Romanian Deadlift (DB)",
+                "sets": 3,
+                "reps": "8 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 30.0,
+                  "prior_load_lbs": 30.0,
+                  "reps_achieved": "8,8,8",
+                  "progression_target": "35 lbs when balance is rock solid"
+                },
+                "cues": [
+                  "Hip hinge on standing leg",
+                  "Hips stay square",
+                  "Reach DB toward same-side foot"
+                ],
+                "regressions": [
+                  "TRX assisted"
+                ],
+                "progressions": [
+                  "35 lbs",
+                  "Add weight to one hand only"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Hip Abduction & Landing Mechanics",
+            "block_type": "core_balance",
+            "time_minutes": 10,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Cable Hip Abduction",
+                "sets": 3,
+                "reps": "15 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 45,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 35.0,
+                  "prior_load_lbs": 35.0,
+                  "reps_achieved": "15,15,15",
+                  "progression_target": "Increase to 40 lbs next session"
+                },
+                "cues": [
+                  "Slight forward lean",
+                  "Move leg from hip — don’t hike the pelvis",
+                  "Controlled return"
+                ],
+                "regressions": [
+                  "Banded version"
+                ],
+                "progressions": [
+                  "40 lbs"
+                ]
+              },
+              {
+                "name": "Single-Leg Box Landing",
+                "sets": 3,
+                "reps": "6 each side",
+                "tempo": null,
+                "rest_seconds": 30,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Step off box — no jump yet",
+                  "Soft landing through heel-to-toe",
+                  "Absorb with hip and knee, not ankle only"
+                ],
+                "regressions": [
+                  "Step down only — no jump"
+                ],
+                "progressions": [
+                  "Low hop landing from standing"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 7,
+            "format": null,
+            "exercises": [
+              {
+                "name": "IT Band Foam Roll",
+                "sets": 1,
+                "reps": "60 sec each side",
+                "tempo": null,
+                "rest_seconds": null,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Roll lateral thigh from hip to knee",
+                  "Pause on tender spots",
+                  "Don’t roll on the knee joint"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Pigeon Pose",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Square hips",
+                  "Breathe deeply",
+                  "Relax into the stretch"
+                ],
+                "regressions": [
+                  "Figure-4 supine"
+                ],
+                "progressions": []
+              },
+              {
+                "name": "Standing Quad Stretch",
+                "sets": 2,
+                "reps": "40 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Pull heel toward glute",
+                  "Stand tall",
+                  "Don’t hyperextend lumbar"
+                ],
+                "regressions": [
+                  "Seated quad stretch"
+                ],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Step-up at 35 lbs with zero hip drop — massive improvement from session 1",
+          "Single-leg landing mechanics look good — ready to progress to small hop landing",
+          "Split squat 30 lbs solid — try 35 next session",
+          "Cable hip abduction: increase to 40 lbs next session"
+        ],
+        "coaching_notes": [
+          "Sarah’s glute med strength has transformed in 12 weeks — Trendelenburg sign is essentially gone",
+          "IT band symptoms have been 0/10 for 4+ weeks — keep loading gradually",
+          "Landing mechanics look controlled today — foundation is there for return to plyometrics",
+          "Marathon training at 14 miles/week — monitor after long runs"
         ]
       },
-      "equipment_used": [
-        "dumbbells 30-35 lbs",
-        "resistance bands (medium, heavy)",
-        "cable machine (low pulley)",
-        "step/box 12 inch",
-        "mat"
-      ],
-      "blocks": [
-        {
-          "title": "Running-Specific Warm-Up",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Hip Circle March",
-              "sets": 2,
-              "reps": "10 each side",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["High knee drive", "Stable standing hip", "Arm swing opposite to leg"],
-              "regressions": [],
-              "progressions": ["Add a skip pattern"]
-            },
-            {
-              "name": "Lateral Band Walk",
-              "sets": 2,
-              "reps": "15 steps each way",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Band above knees", "Feet parallel \u2014 no pigeon toe", "Keep hips level"],
-              "regressions": ["Shorter steps"],
-              "progressions": ["Add mini squat at each step"]
-            },
-            {
-              "name": "Banded Clamshell",
-              "sets": 2,
-              "reps": "15 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Top hip stacks over bottom", "Rotate from hip, not waist", "Don\u2019t let pelvis roll back"],
-              "regressions": ["No band"],
-              "progressions": ["Heavier band"]
-            }
-          ]
-        },
-        {
-          "title": "Single-Leg Strength",
-          "block_type": "main",
-          "time_minutes": 25,
-          "format": "Straight sets \u2014 60s rest between sets",
-          "exercises": [
-            {
-              "name": "DB Step-Up (12\" box)",
-              "sets": 3,
-              "reps": "10 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 35.0,
-                "prior_load_lbs": 30.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "Hold 35 lbs and focus on quality \u2014 no hip drop"
-              },
-              "cues": ["Step up through heel of working leg", "No push-off from back foot", "Hip stays level at top \u2014 no Trendelenburg"],
-              "regressions": ["Lower box", "30 lbs"],
-              "progressions": ["40 lbs", "Add pause at top"]
-            },
-            {
-              "name": "DB Split Squat",
-              "sets": 3,
-              "reps": "10 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 30.0,
-                "prior_load_lbs": 30.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "Try 35 lbs next session"
-              },
-              "cues": ["Front shin stays vertical", "Drive through front heel", "Torso stays upright \u2014 no forward lean"],
-              "regressions": ["No weight \u2014 bodyweight only"],
-              "progressions": ["35 lbs", "Rear foot elevated"]
-            },
-            {
-              "name": "Single-Leg Romanian Deadlift (DB)",
-              "sets": 3,
-              "reps": "8 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 30.0,
-                "prior_load_lbs": 30.0,
-                "reps_achieved": "8,8,8",
-                "progression_target": "35 lbs when balance is rock solid"
-              },
-              "cues": ["Hip hinge on standing leg", "Hips stay square", "Reach DB toward same-side foot"],
-              "regressions": ["TRX assisted"],
-              "progressions": ["35 lbs", "Add weight to one hand only"]
-            }
-          ]
-        },
-        {
-          "title": "Hip Abduction & Landing Mechanics",
-          "block_type": "core_balance",
-          "time_minutes": 10,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Cable Hip Abduction",
-              "sets": 3,
-              "reps": "15 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 45,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 35.0,
-                "prior_load_lbs": 35.0,
-                "reps_achieved": "15,15,15",
-                "progression_target": "Increase to 40 lbs next session"
-              },
-              "cues": ["Slight forward lean", "Move leg from hip \u2014 don\u2019t hike the pelvis", "Controlled return"],
-              "regressions": ["Banded version"],
-              "progressions": ["40 lbs"]
-            },
-            {
-              "name": "Single-Leg Box Landing",
-              "sets": 3,
-              "reps": "6 each side",
-              "tempo": null,
-              "rest_seconds": 30,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Step off box \u2014 no jump yet", "Soft landing through heel-to-toe", "Absorb with hip and knee, not ankle only"],
-              "regressions": ["Step down only \u2014 no jump"],
-              "progressions": ["Low hop landing from standing"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 7,
-          "format": null,
-          "exercises": [
-            {
-              "name": "IT Band Foam Roll",
-              "sets": 1,
-              "reps": "60 sec each side",
-              "tempo": null,
-              "rest_seconds": null,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Roll lateral thigh from hip to knee", "Pause on tender spots", "Don\u2019t roll on the knee joint"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Pigeon Pose",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Square hips", "Breathe deeply", "Relax into the stretch"],
-              "regressions": ["Figure-4 supine"],
-              "progressions": []
-            },
-            {
-              "name": "Standing Quad Stretch",
-              "sets": 2,
-              "reps": "40 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Pull heel toward glute", "Stand tall", "Don\u2019t hyperextend lumbar"],
-              "regressions": ["Seated quad stretch"],
-              "progressions": []
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "Excellent session. Step-up at 35 lbs with perfect hip alignment — compare to session 1 where she could barely hold level with 15 lbs. The landing intro went well, very controlled absorption.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-02-09",
+      "session_number": 8,
+      "focus": "Progressive load push — approach marathon-level strength baseline",
+      "loads": {
+        "Single-Leg RDL (DB)": 35.0,
+        "Step-Up (12\" box)": 35.0,
+        "DB Split Squat": 35.0,
+        "Cable Hip Abduction": 40.0,
+        "Single-Leg Hop Landing": 0.0
+      },
       "progression_notes": [
-        "Step-up at 35 lbs with zero hip drop \u2014 massive improvement from session 1",
-        "Single-leg landing mechanics look good \u2014 ready to progress to small hop landing",
-        "Split squat 30 lbs solid \u2014 try 35 next session",
-        "Cable hip abduction: increase to 40 lbs next session"
+        "Split squat progressed to 35 lbs: all reps solid",
+        "Single-leg RDL at 35 lbs: balance excellent",
+        "Introduced low single-leg hop landing: knee alignment was clean",
+        "Ready for more: discuss Bulgarian split squat next session"
       ],
-      "coaching_notes": [
-        "Sarah\u2019s glute med strength has transformed in 12 weeks \u2014 Trendelenburg sign is essentially gone",
-        "IT band symptoms have been 0/10 for 4+ weeks \u2014 keep loading gradually",
-        "Landing mechanics look controlled today \u2014 foundation is there for return to plyometrics",
-        "Marathon training at 14 miles/week \u2014 monitor after long runs"
-      ]
-    },
-    "trainer_notes": "Excellent session. Step-up at 35 lbs with perfect hip alignment — compare to session 1 where she could barely hold level with 15 lbs. The landing intro went well, very controlled absorption.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-02-09",
-    "session_number": 8,
-    "focus": "Progressive load push \u2014 approach marathon-level strength baseline",
-    "loads": {
-      "Single-Leg RDL (DB)": 35.0,
-      "Step-Up (12\" box)": 35.0,
-      "DB Split Squat": 35.0,
-      "Cable Hip Abduction": 40.0,
-      "Single-Leg Hop Landing": 0.0
-    },
-    "progression_notes": [
-      "Split squat progressed to 35 lbs: all reps solid",
-      "Single-leg RDL at 35 lbs: balance excellent",
-      "Introduced low single-leg hop landing: knee alignment was clean",
-      "Ready for more: discuss Bulgarian split squat next session"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "Sarah Lindstrom",
-        "session_date": "2026-02-09",
-        "session_number": 8,
-        "duration_minutes": 50,
-        "focus": "Progressive load push \u2014 approach marathon-level strength baseline",
-        "constraints": [
-          "right IT band syndrome (resolved) \u2014 monitor lateral knee after increased plyometric load",
-          "return-to-running \u2014 16 miles/week, no symptoms"
+      "plan_json": {
+        "meta": {
+          "client_name": "Sarah Lindstrom",
+          "session_date": "2026-02-09",
+          "session_number": 8,
+          "duration_minutes": 50,
+          "focus": "Progressive load push — approach marathon-level strength baseline",
+          "constraints": [
+            "right IT band syndrome (resolved) — monitor lateral knee after increased plyometric load",
+            "return-to-running — 16 miles/week, no symptoms"
+          ],
+          "readiness_notes": [
+            "Client reports 9/10 energy",
+            "IT band: 0/10 all week including a 16-mile long run",
+            "Feels stronger than ever — wants to push today"
+          ]
+        },
+        "equipment_used": [
+          "dumbbells 35 lbs",
+          "cable machine (low pulley)",
+          "step/box 12 inch",
+          "resistance bands"
         ],
-        "readiness_notes": [
-          "Client reports 9/10 energy",
-          "IT band: 0/10 all week including a 16-mile long run",
-          "Feels stronger than ever \u2014 wants to push today"
+        "blocks": [
+          {
+            "title": "Running Warm-Up & Activation",
+            "block_type": "warmup",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Leg Swing (Forward/Back + Lateral)",
+                "sets": 2,
+                "reps": "10 each direction each side",
+                "tempo": null,
+                "rest_seconds": 15,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Hold wall for support",
+                  "Controlled swing — not ballistic",
+                  "Full hip range of motion"
+                ],
+                "regressions": [
+                  "Smaller range"
+                ],
+                "progressions": []
+              },
+              {
+                "name": "Banded Hip Walk",
+                "sets": 2,
+                "reps": "15 steps each direction",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Feet parallel",
+                  "Slight squat position throughout",
+                  "Hips level"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "Increase band resistance"
+                ]
+              },
+              {
+                "name": "Single-Leg Balance with Hip Drive",
+                "sets": 2,
+                "reps": "10 each side",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Drive opposite knee to 90°",
+                  "Stable hip on standing leg",
+                  "Tall posture"
+                ],
+                "regressions": [
+                  "Hold wall"
+                ],
+                "progressions": [
+                  "Add arm swing"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Unilateral Lower Body Strength",
+            "block_type": "main",
+            "time_minutes": 27,
+            "format": "Straight sets — 60s rest",
+            "exercises": [
+              {
+                "name": "DB Split Squat",
+                "sets": 4,
+                "reps": "10 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 35.0,
+                  "prior_load_lbs": 30.0,
+                  "reps_achieved": "10,10,10,10",
+                  "progression_target": "Try Bulgarian split squat next session"
+                },
+                "cues": [
+                  "Vertical front shin",
+                  "Drive through front heel",
+                  "Torso upright"
+                ],
+                "regressions": [
+                  "30 lbs"
+                ],
+                "progressions": [
+                  "Rear foot elevated (Bulgarian)"
+                ]
+              },
+              {
+                "name": "DB Step-Up (12\" box)",
+                "sets": 3,
+                "reps": "10 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 35.0,
+                  "prior_load_lbs": 35.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "Increase box height to 14\" or load to 40 lbs"
+                },
+                "cues": [
+                  "Working leg only — no back foot push",
+                  "Hip stays level",
+                  "Step down slowly"
+                ],
+                "regressions": [],
+                "progressions": [
+                  "40 lbs or 14\" box"
+                ]
+              },
+              {
+                "name": "Single-Leg RDL (DB)",
+                "sets": 3,
+                "reps": "8 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 35.0,
+                  "prior_load_lbs": 30.0,
+                  "reps_achieved": "8,8,8",
+                  "progression_target": "New PR today — hold here and consolidate"
+                },
+                "cues": [
+                  "Hip back and down on hinge leg",
+                  "Hips square throughout",
+                  "Return tall"
+                ],
+                "regressions": [
+                  "30 lbs"
+                ],
+                "progressions": [
+                  "40 lbs when balance is perfect"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Hip Strength & Plyometric Prep",
+            "block_type": "core_balance",
+            "time_minutes": 9,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Cable Hip Abduction",
+                "sets": 3,
+                "reps": "15 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 30,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 40.0,
+                  "prior_load_lbs": 35.0,
+                  "reps_achieved": "15,15,15",
+                  "progression_target": "Hold 40 lbs — maintain this as marathon prep continues"
+                },
+                "cues": [
+                  "Leg moves from hip",
+                  "No pelvis tilt",
+                  "Slow and controlled"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Single-Leg Hop to Stick Landing",
+                "sets": 3,
+                "reps": "6 each side",
+                "tempo": null,
+                "rest_seconds": 30,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Small hop forward",
+                  "Land soft on full foot",
+                  "Absorb through hip and knee — hold for 3 seconds"
+                ],
+                "regressions": [
+                  "Single-leg box step-down landing"
+                ],
+                "progressions": [
+                  "Larger hop distance",
+                  "Lateral hop"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 6,
+            "format": null,
+            "exercises": [
+              {
+                "name": "IT Band Foam Roll + TFL",
+                "sets": 1,
+                "reps": "60 sec each side",
+                "tempo": null,
+                "rest_seconds": null,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Lateral thigh and TFL (above hip)",
+                  "Slow passes",
+                  "Breathe through discomfort"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Pigeon Pose",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Square hips",
+                  "Breathe into stretch"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Split squat at 35 lbs for 4×10 — introduce Bulgarian (rear foot elevated) next session",
+          "Single-leg RDL new PR at 35 lbs — consolidate before moving to 40",
+          "Single-leg hop-to-stick looking clean — advance to lateral hops at next session",
+          "Cable abduction at 40 lbs — maintain this as marathon prep foundation"
+        ],
+        "coaching_notes": [
+          "Sarah has gone from symptomatic runner (0 miles) to 16 miles/week pain-free in 14 weeks",
+          "Hip abductor strength is now genuinely strong — no Trendelenburg on any movement",
+          "Plyometric progression is going well — landing mechanics are controlled",
+          "April marathon is realistic at this trajectory — keep strength sessions consistent through taper"
         ]
       },
-      "equipment_used": [
-        "dumbbells 35 lbs",
-        "cable machine (low pulley)",
-        "step/box 12 inch",
-        "resistance bands"
-      ],
-      "blocks": [
-        {
-          "title": "Running Warm-Up & Activation",
-          "block_type": "warmup",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Leg Swing (Forward/Back + Lateral)",
-              "sets": 2,
-              "reps": "10 each direction each side",
-              "tempo": null,
-              "rest_seconds": 15,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Hold wall for support", "Controlled swing \u2014 not ballistic", "Full hip range of motion"],
-              "regressions": ["Smaller range"],
-              "progressions": []
-            },
-            {
-              "name": "Banded Hip Walk",
-              "sets": 2,
-              "reps": "15 steps each direction",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Feet parallel", "Slight squat position throughout", "Hips level"],
-              "regressions": [],
-              "progressions": ["Increase band resistance"]
-            },
-            {
-              "name": "Single-Leg Balance with Hip Drive",
-              "sets": 2,
-              "reps": "10 each side",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Drive opposite knee to 90\u00b0", "Stable hip on standing leg", "Tall posture"],
-              "regressions": ["Hold wall"],
-              "progressions": ["Add arm swing"]
-            }
-          ]
-        },
-        {
-          "title": "Unilateral Lower Body Strength",
-          "block_type": "main",
-          "time_minutes": 27,
-          "format": "Straight sets \u2014 60s rest",
-          "exercises": [
-            {
-              "name": "DB Split Squat",
-              "sets": 4,
-              "reps": "10 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 35.0,
-                "prior_load_lbs": 30.0,
-                "reps_achieved": "10,10,10,10",
-                "progression_target": "Try Bulgarian split squat next session"
-              },
-              "cues": ["Vertical front shin", "Drive through front heel", "Torso upright"],
-              "regressions": ["30 lbs"],
-              "progressions": ["Rear foot elevated (Bulgarian)"]
-            },
-            {
-              "name": "DB Step-Up (12\" box)",
-              "sets": 3,
-              "reps": "10 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 35.0,
-                "prior_load_lbs": 35.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "Increase box height to 14\" or load to 40 lbs"
-              },
-              "cues": ["Working leg only \u2014 no back foot push", "Hip stays level", "Step down slowly"],
-              "regressions": [],
-              "progressions": ["40 lbs or 14\" box"]
-            },
-            {
-              "name": "Single-Leg RDL (DB)",
-              "sets": 3,
-              "reps": "8 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 35.0,
-                "prior_load_lbs": 30.0,
-                "reps_achieved": "8,8,8",
-                "progression_target": "New PR today \u2014 hold here and consolidate"
-              },
-              "cues": ["Hip back and down on hinge leg", "Hips square throughout", "Return tall"],
-              "regressions": ["30 lbs"],
-              "progressions": ["40 lbs when balance is perfect"]
-            }
-          ]
-        },
-        {
-          "title": "Hip Strength & Plyometric Prep",
-          "block_type": "core_balance",
-          "time_minutes": 9,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Cable Hip Abduction",
-              "sets": 3,
-              "reps": "15 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 30,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 40.0,
-                "prior_load_lbs": 35.0,
-                "reps_achieved": "15,15,15",
-                "progression_target": "Hold 40 lbs \u2014 maintain this as marathon prep continues"
-              },
-              "cues": ["Leg moves from hip", "No pelvis tilt", "Slow and controlled"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Single-Leg Hop to Stick Landing",
-              "sets": 3,
-              "reps": "6 each side",
-              "tempo": null,
-              "rest_seconds": 30,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Small hop forward", "Land soft on full foot", "Absorb through hip and knee \u2014 hold for 3 seconds"],
-              "regressions": ["Single-leg box step-down landing"],
-              "progressions": ["Larger hop distance", "Lateral hop"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 6,
-          "format": null,
-          "exercises": [
-            {
-              "name": "IT Band Foam Roll + TFL",
-              "sets": 1,
-              "reps": "60 sec each side",
-              "tempo": null,
-              "rest_seconds": null,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Lateral thigh and TFL (above hip)", "Slow passes", "Breathe through discomfort"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Pigeon Pose",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Square hips", "Breathe into stretch"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
+      "trainer_notes": "Outstanding session. Single-leg strength across the board is impressive. 35 lbs on the split squat felt solid — she's ready for Bulgarian variations. The hop landing was well-controlled with great knee alignment.",
+      "archived": false
+    },
+    {
+      "session_date": "2026-02-23",
+      "session_number": 9,
+      "focus": "Peak pre-marathon strength block — maintain and consolidate",
+      "loads": {
+        "Single-Leg RDL (DB)": 35.0,
+        "Bulgarian Split Squat (DB)": 25.0,
+        "DB Step-Up (12\" box)": 35.0,
+        "Cable Hip Abduction": 40.0,
+        "Lateral Hop to Stick": 0.0
+      },
       "progression_notes": [
-        "Split squat at 35 lbs for 4\u00d710 \u2014 introduce Bulgarian (rear foot elevated) next session",
-        "Single-leg RDL new PR at 35 lbs \u2014 consolidate before moving to 40",
-        "Single-leg hop-to-stick looking clean \u2014 advance to lateral hops at next session",
-        "Cable abduction at 40 lbs \u2014 maintain this as marathon prep foundation"
+        "Introduced Bulgarian split squat at 25 lbs: challenging but form solid",
+        "All main single-leg loads held — consolidation week before marathon taper",
+        "Lateral hop landing was clean — ITB stress test passed",
+        "Ready to reduce volume (not load) as marathon approaches April"
       ],
-      "coaching_notes": [
-        "Sarah has gone from symptomatic runner (0 miles) to 16 miles/week pain-free in 14 weeks",
-        "Hip abductor strength is now genuinely strong \u2014 no Trendelenburg on any movement",
-        "Plyometric progression is going well \u2014 landing mechanics are controlled",
-        "April marathon is realistic at this trajectory \u2014 keep strength sessions consistent through taper"
-      ]
-    },
-    "trainer_notes": "Outstanding session. Single-leg strength across the board is impressive. 35 lbs on the split squat felt solid — she's ready for Bulgarian variations. The hop landing was well-controlled with great knee alignment.",
-    "archived": false
-  },
-  {
-    "session_date": "2026-02-23",
-    "session_number": 9,
-    "focus": "Peak pre-marathon strength block \u2014 maintain and consolidate",
-    "loads": {
-      "Single-Leg RDL (DB)": 35.0,
-      "Bulgarian Split Squat (DB)": 25.0,
-      "DB Step-Up (12\" box)": 35.0,
-      "Cable Hip Abduction": 40.0,
-      "Lateral Hop to Stick": 0.0
-    },
-    "progression_notes": [
-      "Introduced Bulgarian split squat at 25 lbs: challenging but form solid",
-      "All main single-leg loads held \u2014 consolidation week before marathon taper",
-      "Lateral hop landing was clean \u2014 ITB stress test passed",
-      "Ready to reduce volume (not load) as marathon approaches April"
-    ],
-    "plan_json": {
-      "meta": {
-        "client_name": "Sarah Lindstrom",
-        "session_date": "2026-02-23",
-        "session_number": 9,
-        "duration_minutes": 50,
-        "focus": "Peak pre-marathon strength block \u2014 introduce Bulgarian split squat",
-        "constraints": [
-          "right IT band syndrome (resolved) \u2014 monitor after lateral plyometrics",
-          "marathon April 2026 \u2014 begin strength taper in 4 weeks"
+      "plan_json": {
+        "meta": {
+          "client_name": "Sarah Lindstrom",
+          "session_date": "2026-02-23",
+          "session_number": 9,
+          "duration_minutes": 50,
+          "focus": "Peak pre-marathon strength block — introduce Bulgarian split squat",
+          "constraints": [
+            "right IT band syndrome (resolved) — monitor after lateral plyometrics",
+            "marathon April 2026 — begin strength taper in 4 weeks"
+          ],
+          "readiness_notes": [
+            "Client reports 7/10 energy — higher mileage week (18 miles)",
+            "IT band: 0/10 throughout training",
+            "Legs a little heavy from yesterday’s long run — adjust if needed"
+          ]
+        },
+        "equipment_used": [
+          "dumbbells 25-35 lbs",
+          "cable machine",
+          "step/box 12 inch",
+          "bench (for rear foot elevation)"
         ],
-        "readiness_notes": [
-          "Client reports 7/10 energy \u2014 higher mileage week (18 miles)",
-          "IT band: 0/10 throughout training",
-          "Legs a little heavy from yesterday\u2019s long run \u2014 adjust if needed"
+        "blocks": [
+          {
+            "title": "Recovery-Focused Warm-Up",
+            "block_type": "warmup",
+            "time_minutes": 10,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Foam Roll — Quads, Glutes, Calves",
+                "sets": 1,
+                "reps": "45 sec per area",
+                "tempo": null,
+                "rest_seconds": null,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Slow passes — no rushing",
+                  "Pause on tender spots",
+                  "Stay off the IT band itself"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Hip 90/90 Mobility",
+                "sets": 2,
+                "reps": "8 each side",
+                "tempo": null,
+                "rest_seconds": 20,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Active transition between positions",
+                  "Tall spine"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Banded Glute Activation",
+                "sets": 2,
+                "reps": "15",
+                "tempo": null,
+                "rest_seconds": 15,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Drive knees against band",
+                  "Full hip extension at top"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Single-Leg Strength",
+            "block_type": "main",
+            "time_minutes": 25,
+            "format": "Straight sets — 60s rest (slightly longer given fatigue)",
+            "exercises": [
+              {
+                "name": "Bulgarian Split Squat (DB)",
+                "sets": 3,
+                "reps": "8 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 75,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 25.0,
+                  "prior_load_lbs": 0.0,
+                  "reps_achieved": "8,8,8",
+                  "progression_target": "Increase to 30 lbs when 3×8 feels comfortable"
+                },
+                "cues": [
+                  "Rear foot on bench — top of laces",
+                  "Front shin vertical",
+                  "Drop knee toward floor — don’t let it track inward"
+                ],
+                "regressions": [
+                  "Bodyweight only",
+                  "Split squat (feet on floor)"
+                ],
+                "progressions": [
+                  "30 lbs"
+                ]
+              },
+              {
+                "name": "DB Step-Up (12\" box)",
+                "sets": 3,
+                "reps": "10 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 35.0,
+                  "prior_load_lbs": 35.0,
+                  "reps_achieved": "10,10,10",
+                  "progression_target": "Maintain load — begin taper in 3 sessions"
+                },
+                "cues": [
+                  "Working leg drives the movement",
+                  "Level hip throughout",
+                  "Controlled eccentric"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Single-Leg RDL (DB)",
+                "sets": 3,
+                "reps": "8 each side",
+                "tempo": "3-1-1",
+                "rest_seconds": 60,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 35.0,
+                  "prior_load_lbs": 35.0,
+                  "reps_achieved": "8,8,8",
+                  "progression_target": "Maintain load through marathon prep"
+                },
+                "cues": [
+                  "Square hips",
+                  "Hip hinge on standing leg",
+                  "Long spine throughout"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          },
+          {
+            "title": "Hip Stability & Plyometric Progression",
+            "block_type": "core_balance",
+            "time_minutes": 8,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Cable Hip Abduction",
+                "sets": 3,
+                "reps": "15 each side",
+                "tempo": "2-1-2",
+                "rest_seconds": 30,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": {
+                  "load_lbs": 40.0,
+                  "prior_load_lbs": 40.0,
+                  "reps_achieved": "15,15,15",
+                  "progression_target": "Maintain — marathon prep priority is quality not load increase"
+                },
+                "cues": [
+                  "Hip initiates movement",
+                  "No pelvis hike",
+                  "Full range"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Lateral Hop to Stick Landing",
+                "sets": 3,
+                "reps": "5 each side",
+                "tempo": null,
+                "rest_seconds": 30,
+                "intensity": "M",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Hop laterally — 6–12 inches",
+                  "Land soft on full foot",
+                  "Hold landing 3 seconds — no wobble"
+                ],
+                "regressions": [
+                  "Forward hop only"
+                ],
+                "progressions": [
+                  "Increase lateral distance"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Cool Down",
+            "block_type": "cooldown",
+            "time_minutes": 7,
+            "format": null,
+            "exercises": [
+              {
+                "name": "Pigeon Pose",
+                "sets": 2,
+                "reps": "60 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Square hips",
+                  "Long hold for marathon recovery",
+                  "Breathe deeply"
+                ],
+                "regressions": [],
+                "progressions": []
+              },
+              {
+                "name": "Calf Stretch (Wall)",
+                "sets": 2,
+                "reps": "45 sec each side",
+                "tempo": null,
+                "rest_seconds": 10,
+                "intensity": "L",
+                "machine_settings": null,
+                "loading": null,
+                "cues": [
+                  "Gastrocnemius: straight back leg",
+                  "Soleus: bent back knee"
+                ],
+                "regressions": [],
+                "progressions": []
+              }
+            ]
+          }
+        ],
+        "progression_notes": [
+          "Bulgarian split squat introduced at 25 lbs — technique was solid for first time",
+          "All main loads maintained — appropriate for pre-marathon consolidation",
+          "Lateral hops: 5 reps each side, clean landings — ready for competition load",
+          "Begin strength taper (reduce sets, maintain load) in 3–4 sessions as April marathon approaches"
+        ],
+        "coaching_notes": [
+          "Sarah is in the best single-leg strength shape of her training life — remarkable progress from the injured runner 16 weeks ago",
+          "IT band is completely asymptomatic at 18 miles/week — the glute strength work was the key",
+          "Lateral plyometric tolerance is excellent — cleared for race day demands",
+          "Plan: 2 more strength sessions, then taper to 1 session/week with 50% volume reduction",
+          "Post-marathon goal: add bilateral squat patterns once race is complete"
         ]
       },
-      "equipment_used": [
-        "dumbbells 25-35 lbs",
-        "cable machine",
-        "step/box 12 inch",
-        "bench (for rear foot elevation)"
-      ],
-      "blocks": [
-        {
-          "title": "Recovery-Focused Warm-Up",
-          "block_type": "warmup",
-          "time_minutes": 10,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Foam Roll \u2014 Quads, Glutes, Calves",
-              "sets": 1,
-              "reps": "45 sec per area",
-              "tempo": null,
-              "rest_seconds": null,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Slow passes \u2014 no rushing", "Pause on tender spots", "Stay off the IT band itself"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Hip 90/90 Mobility",
-              "sets": 2,
-              "reps": "8 each side",
-              "tempo": null,
-              "rest_seconds": 20,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Active transition between positions", "Tall spine"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Banded Glute Activation",
-              "sets": 2,
-              "reps": "15",
-              "tempo": null,
-              "rest_seconds": 15,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Drive knees against band", "Full hip extension at top"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Single-Leg Strength",
-          "block_type": "main",
-          "time_minutes": 25,
-          "format": "Straight sets \u2014 60s rest (slightly longer given fatigue)",
-          "exercises": [
-            {
-              "name": "Bulgarian Split Squat (DB)",
-              "sets": 3,
-              "reps": "8 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 75,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 25.0,
-                "prior_load_lbs": 0.0,
-                "reps_achieved": "8,8,8",
-                "progression_target": "Increase to 30 lbs when 3\u00d78 feels comfortable"
-              },
-              "cues": ["Rear foot on bench \u2014 top of laces", "Front shin vertical", "Drop knee toward floor \u2014 don\u2019t let it track inward"],
-              "regressions": ["Bodyweight only", "Split squat (feet on floor)"],
-              "progressions": ["30 lbs"]
-            },
-            {
-              "name": "DB Step-Up (12\" box)",
-              "sets": 3,
-              "reps": "10 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 35.0,
-                "prior_load_lbs": 35.0,
-                "reps_achieved": "10,10,10",
-                "progression_target": "Maintain load \u2014 begin taper in 3 sessions"
-              },
-              "cues": ["Working leg drives the movement", "Level hip throughout", "Controlled eccentric"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Single-Leg RDL (DB)",
-              "sets": 3,
-              "reps": "8 each side",
-              "tempo": "3-1-1",
-              "rest_seconds": 60,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 35.0,
-                "prior_load_lbs": 35.0,
-                "reps_achieved": "8,8,8",
-                "progression_target": "Maintain load through marathon prep"
-              },
-              "cues": ["Square hips", "Hip hinge on standing leg", "Long spine throughout"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        },
-        {
-          "title": "Hip Stability & Plyometric Progression",
-          "block_type": "core_balance",
-          "time_minutes": 8,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Cable Hip Abduction",
-              "sets": 3,
-              "reps": "15 each side",
-              "tempo": "2-1-2",
-              "rest_seconds": 30,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": {
-                "load_lbs": 40.0,
-                "prior_load_lbs": 40.0,
-                "reps_achieved": "15,15,15",
-                "progression_target": "Maintain \u2014 marathon prep priority is quality not load increase"
-              },
-              "cues": ["Hip initiates movement", "No pelvis hike", "Full range"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Lateral Hop to Stick Landing",
-              "sets": 3,
-              "reps": "5 each side",
-              "tempo": null,
-              "rest_seconds": 30,
-              "intensity": "M",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Hop laterally \u2014 6\u201312 inches", "Land soft on full foot", "Hold landing 3 seconds \u2014 no wobble"],
-              "regressions": ["Forward hop only"],
-              "progressions": ["Increase lateral distance"]
-            }
-          ]
-        },
-        {
-          "title": "Cool Down",
-          "block_type": "cooldown",
-          "time_minutes": 7,
-          "format": null,
-          "exercises": [
-            {
-              "name": "Pigeon Pose",
-              "sets": 2,
-              "reps": "60 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Square hips", "Long hold for marathon recovery", "Breathe deeply"],
-              "regressions": [],
-              "progressions": []
-            },
-            {
-              "name": "Calf Stretch (Wall)",
-              "sets": 2,
-              "reps": "45 sec each side",
-              "tempo": null,
-              "rest_seconds": 10,
-              "intensity": "L",
-              "machine_settings": null,
-              "loading": null,
-              "cues": ["Gastrocnemius: straight back leg", "Soleus: bent back knee"],
-              "regressions": [],
-              "progressions": []
-            }
-          ]
-        }
-      ],
-      "progression_notes": [
-        "Bulgarian split squat introduced at 25 lbs \u2014 technique was solid for first time",
-        "All main loads maintained \u2014 appropriate for pre-marathon consolidation",
-        "Lateral hops: 5 reps each side, clean landings \u2014 ready for competition load",
-        "Begin strength taper (reduce sets, maintain load) in 3\u20134 sessions as April marathon approaches"
-      ],
-      "coaching_notes": [
-        "Sarah is in the best single-leg strength shape of her training life \u2014 remarkable progress from the injured runner 16 weeks ago",
-        "IT band is completely asymptomatic at 18 miles/week \u2014 the glute strength work was the key",
-        "Lateral plyometric tolerance is excellent \u2014 cleared for race day demands",
-        "Plan: 2 more strength sessions, then taper to 1 session/week with 50% volume reduction",
-        "Post-marathon goal: add bilateral squat patterns once race is complete"
-      ]
+      "trainer_notes": "Bulgarian split squat first time — she handled it well despite heavy legs from the long run. All main movements looked solid. She's marathon-ready from a strength standpoint. Really proud of what she's achieved.",
+      "archived": false
     },
-    "trainer_notes": "Bulgarian split squat first time — she handled it well despite heavy legs from the long run. All main movements looked solid. She's marathon-ready from a strength standpoint. Really proud of what she's achieved.",
-    "archived": false
-  }
-]
+    {
+      "session_date": "2026-03-16",
+      "session_number": 10,
+      "focus": "Pre-marathon taper — maintenance loads, reduce sets",
+      "loads": {
+        "Single-Leg RDL (DB)": 35.0,
+        "Bulgarian Split Squat (DB)": 25.0,
+        "Cable Hip Abduction": 40.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    },
+    {
+      "session_date": "2026-04-14",
+      "session_number": 11,
+      "focus": "Post-marathon recovery — light movement, tissue quality",
+      "loads": {
+        "Single-Leg RDL (DB)": 20.0,
+        "Hip 90/90 Mobility": 0.0,
+        "Foam Roll Circuit": 0.0
+      },
+      "actual_loads": {},
+      "progression_notes": [],
+      "trainer_notes": "",
+      "archived": false
+    }
+  ]
+}

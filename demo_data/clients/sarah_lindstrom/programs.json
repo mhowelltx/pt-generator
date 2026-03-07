@@ -1,0 +1,163 @@
+{
+  "anchor_date": "2026-03-07",
+  "programs": [
+    {
+      "name": "Marathon Strength Prep",
+      "description": "8-week periodized strength program timed around Sarah's April marathon. Weeks 1–4 build peak unilateral strength, Weeks 5–6 taper into race day, Weeks 7–8 manage recovery and reintroduce bilateral training.",
+      "goal_focus": "endurance",
+      "start_date": "2026-01-12",
+      "weeks": 8,
+      "sessions_per_week": 2,
+      "linked_session_count": 4,
+      "program_json": {
+        "summary": "A marathon-aligned strength program that peaks Sarah's single-leg power and hip stability heading into race day in April 2026, then manages her return to full training volume post-race. Emphasis on IT band protection, glute activation, and unilateral strength throughout.",
+        "weeks": [
+          {
+            "week_number": 1,
+            "theme": "Hip Activation — glute strength foundation",
+            "sessions": [
+              {
+                "label": "Week 1 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-12",
+                "focus": "Hip abductor activation and single-leg RDL baseline"
+              },
+              {
+                "label": "Week 1 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-15",
+                "focus": "Split squat introduction and cable hip abduction volume"
+              }
+            ]
+          },
+          {
+            "week_number": 2,
+            "theme": "Unilateral Strength — single-leg load progression",
+            "sessions": [
+              {
+                "label": "Week 2 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-19",
+                "focus": "Single-leg RDL load progression + step-up introduction"
+              },
+              {
+                "label": "Week 2 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-22",
+                "focus": "Bulgarian split squat introduction — form and light load"
+              }
+            ]
+          },
+          {
+            "week_number": 3,
+            "theme": "Plyometric Introduction — lateral hops and bounding",
+            "sessions": [
+              {
+                "label": "Week 3 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-01-26",
+                "focus": "Load progression across all unilateral patterns"
+              },
+              {
+                "label": "Week 3 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-01-29",
+                "focus": "Lateral hop introduction + single-leg strength consolidation"
+              }
+            ]
+          },
+          {
+            "week_number": 4,
+            "theme": "Power Prep — peak strength before marathon taper",
+            "sessions": [
+              {
+                "label": "Week 4 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-02",
+                "focus": "Unilateral strength and marathon-level conditioning"
+              },
+              {
+                "label": "Week 4 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-05",
+                "focus": "Peak pre-marathon strength block — Bulgarian split squat PR"
+              }
+            ]
+          },
+          {
+            "week_number": 5,
+            "theme": "Taper Week 1 — maintain loads, reduce volume",
+            "sessions": [
+              {
+                "label": "Week 5 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-09",
+                "focus": "Pre-marathon taper — maintenance loads, reduce sets"
+              },
+              {
+                "label": "Week 5 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-12",
+                "focus": "Final strength session before race week"
+              }
+            ]
+          },
+          {
+            "week_number": 6,
+            "theme": "Taper Week 2 — race week preparation",
+            "sessions": [
+              {
+                "label": "Week 6 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-16",
+                "focus": "Race week — active recovery and mobility only"
+              },
+              {
+                "label": "Week 6 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-19",
+                "focus": "Rest and race preparation — no loading"
+              }
+            ]
+          },
+          {
+            "week_number": 7,
+            "theme": "Post-Marathon Recovery — tissue quality and movement",
+            "sessions": [
+              {
+                "label": "Week 7 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-02-23",
+                "focus": "Post-marathon recovery — light movement and foam rolling"
+              },
+              {
+                "label": "Week 7 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-02-26",
+                "focus": "Recovery continued — introduce gentle bodyweight patterns"
+              }
+            ]
+          },
+          {
+            "week_number": 8,
+            "theme": "Return-to-Training — bilateral patterns reintroduction",
+            "sessions": [
+              {
+                "label": "Week 8 Day A",
+                "day_of_week": "mon",
+                "planned_date": "2026-03-02",
+                "focus": "Return to bilateral squat patterns"
+              },
+              {
+                "label": "Week 8 Day B",
+                "day_of_week": "thu",
+                "planned_date": "2026-03-05",
+                "focus": "Full bilateral session + set next training block goals"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

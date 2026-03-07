@@ -1,0 +1,48 @@
+{
+  "anchor_date": "2026-03-07",
+  "goals": [
+    {
+      "id": "margaret_g1",
+      "text": "Leg press 120 lbs for 12 reps without knee discomfort",
+      "category": "strength",
+      "target_date": "2026-05-07",
+      "status": "active",
+      "created": "2025-12-10",
+      "milestones": [
+        "90 lbs × 12 (range-limited)",
+        "100 lbs × 12",
+        "110 lbs × 12",
+        "120 lbs × 12"
+      ],
+      "notes": "Slow, steady progression within her 90° range of motion limit. No pain at any stage."
+    },
+    {
+      "id": "margaret_g2",
+      "text": "Complete each session's balance training section without holding support",
+      "category": "mobility",
+      "target_date": "2026-04-21",
+      "status": "active",
+      "created": "2025-11-26",
+      "milestones": [
+        "Single-leg stand 10 sec (hand nearby)",
+        "Single-leg stand 20 sec unsupported",
+        "Eyes-closed balance 5 sec"
+      ],
+      "notes": "Fall prevention is a key priority at 62. Balance training is non-negotiable every session."
+    },
+    {
+      "id": "margaret_g3",
+      "text": "Independently self-train 3 sessions per week using learned machine circuit",
+      "category": "lifestyle",
+      "target_date": "2026-06-07",
+      "status": "active",
+      "created": "2026-01-07",
+      "milestones": [
+        "Memorize full machine circuit",
+        "2 self-sessions/week for 4 weeks",
+        "3 self-sessions/week for 4 weeks"
+      ],
+      "notes": "Long-term goal: reduce PT frequency to check-ins, with Margaret confidently training independently."
+    }
+  ]
+}
