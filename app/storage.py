@@ -173,6 +173,16 @@ def save_history(name: str, history: list, user_id: str | None = None) -> None:
         if client is None:
             return
         # Delete existing rows and re-insert — wrapped in one transaction
+        # Null out program_sessions references first to avoid FK violation
+        db.execute(
+            update(ProgramSession)
+            .where(
+                ProgramSession.session_id.in_(
+                    select(Session.id).where(Session.client_id == client.id)
+                )
+            )
+            .values(session_id=None)
+        )
         db.execute(delete(Session).where(Session.client_id == client.id))
         for entry in history:
             db.add(_entry_to_session(client.id, entry))
