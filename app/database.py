@@ -4,7 +4,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
-_url = os.environ.get("DATABASE_URL", "")
+_url = os.environ["DATABASE_URL"]
 # Railway provides postgres:// URLs; SQLAlchemy 2 requires postgresql://
 if _url.startswith("postgres://"):
     _url = "postgresql://" + _url[len("postgres://"):]
