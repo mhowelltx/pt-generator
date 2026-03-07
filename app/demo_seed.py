@@ -27,8 +27,11 @@ from pathlib import Path
 from app import storage
 from app.database import SessionLocal
 from app.models import Client as _Client
+from app.models import Goal as _Goal
+from app.models import Program as _Program
+from app.models import ProgramSession as _ProgramSession
 from app.models import Session as _Session
-from sqlalchemy import select
+from sqlalchemy import delete, select
 
 log = logging.getLogger(__name__)
 
@@ -199,6 +202,30 @@ def _seed_programs(
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
+
+def flush_demo_data(user_id: str) -> None:
+    """Delete all demo data for *user_id* so it can be re-seeded from scratch."""
+    with SessionLocal() as db:
+        client_ids = list(
+            db.execute(
+                select(_Client.id).where(_Client.user_id == user_id)
+            ).scalars().all()
+        )
+        if client_ids:
+            program_ids = list(
+                db.execute(
+                    select(_Program.id).where(_Program.client_id.in_(client_ids))
+                ).scalars().all()
+            )
+            if program_ids:
+                db.execute(delete(_ProgramSession).where(_ProgramSession.program_id.in_(program_ids)))
+            db.execute(delete(_Program).where(_Program.client_id.in_(client_ids)))
+            db.execute(delete(_Goal).where(_Goal.client_id.in_(client_ids)))
+            db.execute(delete(_Session).where(_Session.client_id.in_(client_ids)))
+            db.execute(delete(_Client).where(_Client.id.in_(client_ids)))
+        db.commit()
+    log.info("Flushed demo data for user %s (%d clients removed).", user_id, len(client_ids))
+
 
 def is_seeded(user_id: str) -> bool:
     """Return True if demo data has already been seeded for this user."""
